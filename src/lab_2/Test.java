@@ -6,7 +6,7 @@ import java.util.List;
 public class Test {
 
 	String name;
-	Teacher teacher;
+	User teacher;
 	List<Question> questions;
 	List<User> students;
 	List<Integer> results;
@@ -15,7 +15,7 @@ public class Test {
 		this.init();
 	}
 
-	public Test(String name, Teacher teacher) {
+	public Test(String name, User teacher) {
 		this.init();
 		this.name = name;
 		this.teacher = teacher;
@@ -41,7 +41,7 @@ public class Test {
 		return -1;
 	}
 	
-	public boolean hasStudent(Student student) {
+	public boolean hasStudent(User student) {
 		for (int i = 0; i < students.size(); i++) {
 			if (students.get(i).getId() == student.getId()) {
 				return true;
@@ -50,6 +50,7 @@ public class Test {
 		return false;
 	}
 	
+	
 	public int getNumberQuestions()
 	{
 		return questions.size();
@@ -57,6 +58,14 @@ public class Test {
 	
 	public void addStudent(User user) {
 		students.add(user);
+	}
+	
+	
+	public boolean hasTeacher(User teacher) {
+		if(this.teacher.getId()==teacher.getId()) {
+			return true;
+		}
+		return false;
 	}
 	
 	
