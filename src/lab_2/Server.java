@@ -16,7 +16,12 @@ public class Server {
 				
 		
 		//BEGIN DATA FOR TEST
+		
+		Admin admin1=new Admin("Примарев", "Игорь", this, "Admin1", "0000");
+		userBase.addUser(admin1);
+		
 		Teacher teacher1 = new Teacher("Киров", "Антон", this, "KirovAnton", "12345678");
+		userBase.addUser(teacher1);
 		Test test1 = new Test("Робототехника", teacher1);
 		Test test2 = new Test("Сетевые технологии", teacher1);
 		Test test3 = new Test("Информатика", teacher1);
@@ -33,7 +38,7 @@ public class Server {
 		
 		userBase.addUser(student1);
 		userBase.addUser(student2);
-		userBase.addUser(teacher1);
+		
 		
 		test1.addStudent(student1);
 		test1.addStudent(student2);
@@ -95,32 +100,35 @@ public class Server {
 	/*
 	 * Admin interface
 	 */
-	public List<User> adminGetUser() {
+	public List<User> adminGetAllUsers() {
 		return userBase.getUsers();
 	}
 	
 	/*
 	 * Admin interface
 	 */
-	private List<User> adminGetUser(String typeUser){
+	private List<User> adminGetUsers(String typeUser){
 		List<User> masUser = userBase.getUsers();
+		List<User> masUserResult = new ArrayList<User>();
 		for(int i=0;i<masUser.size();i++) {
-			if(masUser.get(i).getClass().toString()==typeUser)
-				masUser.add(masUser.get(i));
+			String className=masUser.get(i).getClass().getSimpleName();
+			if(className.equals(typeUser)) {
+				masUserResult.add(masUser.get(i));
+			}
 		}
-		return masUser;
+		return masUserResult;
 	}
-	public List<User> adminGetStudent() {
+	public List<User> adminGetStudents() {
 		
-		return adminGetUser("Student");
+		return adminGetUsers("Student");
 	}
-	public List<User> adminGetTeacher() {
+	public List<User> adminGetTeachers() {
 			
-			return adminGetUser("Teacher");
+			return adminGetUsers("Teacher");
 		}
-	public List<User> adminGetAdmin() {
+	public List<User> adminGetAdmins() {
 		
-		return adminGetUser("Admin");
+		return adminGetUsers("Admin");
 	}
 	
 }
