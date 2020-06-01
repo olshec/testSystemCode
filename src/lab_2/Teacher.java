@@ -62,7 +62,6 @@ public final class Teacher extends User {
 		Scanner myInput = new Scanner(System.in);
 		
 		int numTest = 0;
-		Boolean errorInput=false;
 		try {
 			numTest = myInput.nextInt();
 		}

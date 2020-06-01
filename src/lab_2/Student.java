@@ -13,6 +13,7 @@ public final class Student extends User {
 //		super(server);
 //	}
 
+	
 	public Student(String lastName, String firstName, Server server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
@@ -32,8 +33,9 @@ public final class Student extends User {
 			}
 			catch(java.util.InputMismatchException exception) {
 				num=-1;
+				//myInput.close();
 			}
-			
+			//myInput.close();
 			switch (num) {
 			case 0:
 				break;
@@ -67,7 +69,6 @@ public final class Student extends User {
 		Scanner myInput = new Scanner(System.in);
 		
 		int numTest = 0;
-		Boolean errorInput=false;
 		try {
 			numTest = myInput.nextInt();
 		}

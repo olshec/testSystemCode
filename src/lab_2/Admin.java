@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class Admin extends User{
 	
+	private static Scanner myInput;
+	
 		public Admin(String lastName, String firstName, Server server, String username, String password) {
 		super(lastName,  firstName,  server,  username,  password);
 	}
@@ -20,7 +22,7 @@ public class Admin extends User{
 			System.out.println("4 - получить список администраторов");
 			System.out.print("?: ");
 	
-			Scanner myInput = new Scanner(System.in);
+			myInput = new Scanner(System.in);
 			try {
 				num = myInput.nextInt();
 			}
