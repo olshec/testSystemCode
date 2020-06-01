@@ -31,15 +31,15 @@ public class Test {
 		return name;
 	}
 	
-	public int getResult(int idStudent) {
-
-		for (int i = 0; i < students.size(); i++) {
-			if (students.get(i).getId() == idStudent) {
-				return results.get(i);
-			}
-		}
-		return -1;
-	}
+//	public int getResult(int idStudent) {
+//
+//		for (int i = 0; i < students.size(); i++) {
+//			if (students.get(i).getId() == idStudent) {
+//				return results.get(i);
+//			}
+//		}
+//		return -1;
+//	}
 	
 	public boolean hasStudent(User student) {
 		for (int i = 0; i < students.size(); i++) {
@@ -68,6 +68,13 @@ public class Test {
 		return false;
 	}
 	
+	public List<User> getStudents(){
+		return students;
+	}
 	
+	public List<Integer> getResults(){
+		return results;
+	}
+
 
 }

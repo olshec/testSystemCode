@@ -42,9 +42,9 @@ public class TestBase {
 //			return -1;
 //	}
 
-	public int getNumberQuestions(int index) {
-		return tests.get(index).getNumberQuestions();
-	}
+//	public int getNumberQuestions(int index) {
+//		return tests.get(index).getNumberQuestions();
+//	}
 	
 	public void addArrayTest(List<Test> tests) {
 		this.tests=tests;
@@ -60,7 +60,7 @@ public class TestBase {
 	/*
 	 * get tests result for teacher
 	 */
-	public List<Test> getTests(User user) {
+	public List<Test> teacherGetTests(User user) {
 		ArrayList<Test> masTests=new ArrayList<Test>();
 		for(int i=0;i<tests.size();i++) {
 			if(tests.get(i).hasTeacher(user)) {

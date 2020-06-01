@@ -16,10 +16,10 @@ public class Server {
 				
 		
 		//BEGIN DATA FOR TEST
-		Teacher teacher = new Teacher("Киров", "Антон", this, "KirovAnton", "12345678");
-		Test test1 = new Test("Робототехника", teacher);
-		Test test2 = new Test("Сетевые технологии", teacher);
-		Test test3 = new Test("Информатика", teacher);
+		Teacher teacher1 = new Teacher("Киров", "Антон", this, "KirovAnton", "12345678");
+		Test test1 = new Test("Робототехника", teacher1);
+		Test test2 = new Test("Сетевые технологии", teacher1);
+		Test test3 = new Test("Информатика", teacher1);
 		
 		List<Test> tests=new ArrayList<Test>();
 		tests.add(test1);
@@ -36,6 +36,8 @@ public class Server {
 		
 		userBase.addUser(student1);
 		userBase.addUser(student2);
+		
+		userBase.addUser(teacher1);
 		//END DATA FOR TEST
 		
 		
@@ -47,13 +49,6 @@ public class Server {
 		return userBase.getUser(username, password);
 	}
 
-	/*
-	 * User interface
-	 */
-	public User startSession(User user) {
-		return new Student();
-	}
-	
 	/*
 	 * Student interface
 	 */
@@ -80,14 +75,14 @@ public class Server {
 	 * Teacher interface
 	 */
 	public List<Test> teacherGetTests(User teacher) {
-		return testBase.getTests(teacher);
+		return testBase.teacherGetTests(teacher);
 	}
 	
 	/*
 	 * Teacher interface
 	 */
-	public List<Test> teacherGetTestResult(User teacher) {
-		return testBase.getTests(teacher);
+	public Test teacherGetTestResult(User teacher, int indexTest) {
+		return testBase.teacherGetTests(teacher).get(indexTest);
 	}
 	
 	/*

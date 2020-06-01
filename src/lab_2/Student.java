@@ -5,13 +5,13 @@ import java.util.Scanner;
 
 public final class Student extends User {
 
-	public Student() {
+//	public Student() {
+//
+//	}
 
-	}
-
-	public Student(Server server) {
-		super(server);
-	}
+//	public Student(Server server) {
+//		super(server);
+//	}
 
 	public Student(String lastName, String firstName, Server server, String username, String password) {
 		super(lastName, firstName, server, username, password);
@@ -34,7 +34,6 @@ public final class Student extends User {
 				num=-1;
 			}
 			
-
 			switch (num) {
 			case 0:
 				break;
