@@ -20,18 +20,18 @@ public class Test {
 		this.name = name;
 		this.teacher = teacher;
 	}
-	
+
 	private void init() {
-		questions=new ArrayList<Question>();
-		students=new ArrayList<User>();
-		results=new ArrayList<Integer>();
-		
+		questions = new ArrayList<Question>();
+		students = new ArrayList<User>();
+		results = new ArrayList<Integer>();
+
 	}
 
 	public String getName() {
 		return name;
 	}
-	
+
 //	public int getResult(int idStudent) {
 //
 //		for (int i = 0; i < students.size(); i++) {
@@ -41,7 +41,7 @@ public class Test {
 //		}
 //		return -1;
 //	}
-	
+
 	public void addResult(User student, int points) {
 		for (int i = 0; i < students.size(); i++) {
 			if (students.get(i).getId() == student.getId()) {
@@ -49,7 +49,7 @@ public class Test {
 			}
 		}
 	}
-	
+
 	public boolean hasStudent(User student) {
 		for (int i = 0; i < students.size(); i++) {
 			if (students.get(i).getId() == student.getId()) {
@@ -58,39 +58,34 @@ public class Test {
 		}
 		return false;
 	}
-	
-	
-	public int getNumberQuestions()
-	{
+
+	public int getNumberQuestions() {
 		return questions.size();
 	}
-	
-	
+
 	public void addStudent(User user) {
 		students.add(user);
 		results.add(-1);
 	}
-	
-	
+
 	public boolean hasTeacher(User teacher) {
-		if(this.teacher.getId()==teacher.getId()) {
+		if (this.teacher.getId() == teacher.getId()) {
 			return true;
 		}
 		return false;
 	}
-	
-	public List<User> getStudents(){
+
+	public List<User> getStudents() {
 		return students;
 	}
-	
-	public List<Integer> getResults(){
+
+	public List<Integer> getResults() {
 		return results;
 	}
 
 	public void addQuestion(Question q) {
 		questions.add(q);
-		
-	}
 
+	}
 
 }

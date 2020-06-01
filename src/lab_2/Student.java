@@ -5,19 +5,10 @@ import java.util.Scanner;
 
 public final class Student extends User {
 
-//	public Student() {
-//
-//	}
-
-//	public Student(Server server) {
-//		super(server);
-//	}
-
-	
 	public Student(String lastName, String firstName, Server server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
-	
+
 	public void openMenu() {
 		int num = -1;
 		while (num != 0) {
@@ -30,12 +21,10 @@ public final class Student extends User {
 			Scanner myInput = new Scanner(System.in);
 			try {
 				num = myInput.nextInt();
+			} catch (java.util.InputMismatchException exception) {
+				num = -1;
 			}
-			catch(java.util.InputMismatchException exception) {
-				num=-1;
-				//myInput.close();
-			}
-			//myInput.close();
+
 			switch (num) {
 			case 0:
 				break;
@@ -55,41 +44,37 @@ public final class Student extends User {
 	}
 
 	private void getTestsStudent() {
-		List<Test> mas =  this.getServer().studentGetTests(this);
+		List<Test> mas = this.getServer().studentGetTests(this);
 		System.out.println("Cписок тестов: ");
-		for(int i=0;i<mas.size();i++) {
-			System.out.println(i+1+") "+mas.get(i).getName());
+		for (int i = 0; i < mas.size(); i++) {
+			System.out.println(i + 1 + ") " + mas.get(i).getName());
 		}
 	}
-	
+
 	private void getNumberQuestions() {
 
 		System.out.print("Введите номер теста: ");
 
 		Scanner myInput = new Scanner(System.in);
-		
+
 		int numTest = 0;
 		try {
 			numTest = myInput.nextInt();
-		}
-		catch(java.util.InputMismatchException exception) {
+		} catch (java.util.InputMismatchException exception) {
 			System.out.println("Теста с таким номером не существует");
 			return;
 		}
 
-		int indexTest=numTest-1;//index begin from 0;
-		Test test = this.getServer().
-				studentGetTestInfo(this, indexTest);
-		if(test!=null) {
-			int quantityQuestions =	test.getNumberQuestions();
+		int indexTest = numTest - 1;// index begin from 0;
+		Test test = this.getServer().studentGetTestInfo(this, indexTest);
+		if (test != null) {
+			int quantityQuestions = test.getNumberQuestions();
 			String s = String.format("Количество вопросов в тесте %d: %d", numTest, quantityQuestions);
 			System.out.println(s);
-		}
-		else {
+		} else {
 			System.out.println("Теста с таким номером не существует");
 		}
-		
-		
+
 	}
 
 }

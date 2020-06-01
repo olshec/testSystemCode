@@ -7,13 +7,12 @@ public class UserBase {
 	List<User> users;
 
 	public UserBase() {
-		users=new ArrayList<User>();
+		users = new ArrayList<User>();
 	}
-	
-	public  User getUser(String username, String password) {
+
+	public User getUser(String username, String password) {
 		for (int i = 0; i < users.size(); i++) {
-			if (users.get(i).getUserName().equals(username)  &&
-					users.get(i).getPassword().equals(password) ) {
+			if (users.get(i).getUserName().equals(username) && users.get(i).getPassword().equals(password)) {
 				return users.get(i);
 			}
 		}
@@ -23,7 +22,7 @@ public class UserBase {
 	public List<User> getUsers() {
 		return users;
 	}
-	
+
 	public void addUser(User user) {
 		users.add(user);
 	}
@@ -36,8 +35,5 @@ public class UserBase {
 		}
 		return false;
 	}
-	
-	
-	
-	
+
 }

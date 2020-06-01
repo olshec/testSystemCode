@@ -1,9 +1,8 @@
 package lab_2;
 
-
 import java.util.Scanner;
 
-public class TestSystem {
+public class Client {
 
 	public static void main(String[] args) {
 

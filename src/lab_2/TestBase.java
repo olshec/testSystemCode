@@ -16,11 +16,11 @@ public class TestBase {
 //	}
 
 	public TestBase() {
-		
+
 	}
 
 	public List<Test> getTestsStudent(User student) {
-		List<Test> testsStudent=new ArrayList<Test>();
+		List<Test> testsStudent = new ArrayList<Test>();
 		for (int i = 0; i < tests.size(); i++) {
 			if (tests.get(i).hasStudent(student) == true) {
 				testsStudent.add(tests.get(i));
@@ -28,7 +28,7 @@ public class TestBase {
 		}
 		return testsStudent;
 	}
-	
+
 	public List<Test> getAllTests() {
 		return tests;
 	}
@@ -45,13 +45,13 @@ public class TestBase {
 //	public int getNumberQuestions(int index) {
 //		return tests.get(index).getNumberQuestions();
 //	}
-	
+
 	public void addArrayTest(List<Test> tests) {
-		this.tests=tests;
+		this.tests = tests;
 	}
-	
+
 	public Test getTestIndex(int index) {
-		if(index<tests.size() && index>=0) {
+		if (index < tests.size() && index >= 0) {
 			return tests.get(index);
 		}
 		return null;
@@ -61,13 +61,13 @@ public class TestBase {
 	 * get tests result for teacher
 	 */
 	public List<Test> teacherGetTests(User user) {
-		ArrayList<Test> masTests=new ArrayList<Test>();
-		for(int i=0;i<tests.size();i++) {
-			if(tests.get(i).hasTeacher(user)) {
+		ArrayList<Test> masTests = new ArrayList<Test>();
+		for (int i = 0; i < tests.size(); i++) {
+			if (tests.get(i).hasTeacher(user)) {
 				masTests.add(tests.get(i));
 			}
 		}
 		return masTests;
 	}
-	
+
 }
