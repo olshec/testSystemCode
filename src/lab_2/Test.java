@@ -87,5 +87,10 @@ public class Test {
 		return results;
 	}
 
+	public void addQuestion(Question q) {
+		questions.add(q);
+		
+	}
+
 
 }

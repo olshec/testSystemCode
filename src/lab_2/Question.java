@@ -1,5 +1,13 @@
 package lab_2;
 
-public class Question {
+import java.util.List;
 
+public class Question {
+	String text;
+	List<Answer> answers;
+	
+	public Question(String text) {
+		this.text=text;
+	}
+	
 }

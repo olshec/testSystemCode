@@ -26,6 +26,22 @@ public class Server {
 		Test test2 = new Test("Сетевые технологии", teacher1);
 		Test test3 = new Test("Информатика", teacher1);
 		
+		Question q1=new Question("Что такое роботы?");
+		Question q2=new Question("Что такое робототехника?");
+		Question q3=new Question("Что такое микроконтроллеры?");
+		test1.addQuestion(q1);
+		test1.addQuestion(q2);
+		test1.addQuestion(q3);
+		
+		Question q4=new Question("Протокол HTTP");
+		Question q5=new Question("Характеристика OSI");
+		Question q6=new Question("Протокол TCP");
+		test2.addQuestion(q3);
+		test2.addQuestion(q4);
+		test2.addQuestion(q5);
+		test2.addQuestion(q6);
+		
+		
 		List<Test> tests=new ArrayList<Test>();
 		tests.add(test1);
 		tests.add(test2);
