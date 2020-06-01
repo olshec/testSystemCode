@@ -25,6 +25,7 @@ public class Test {
 		questions=new ArrayList<Question>();
 		students=new ArrayList<User>();
 		results=new ArrayList<Integer>();
+		
 	}
 
 	public String getName() {
@@ -41,6 +42,14 @@ public class Test {
 //		return -1;
 //	}
 	
+	public void addResult(User student, int points) {
+		for (int i = 0; i < students.size(); i++) {
+			if (students.get(i).getId() == student.getId()) {
+				results.set(i, points);
+			}
+		}
+	}
+	
 	public boolean hasStudent(User student) {
 		for (int i = 0; i < students.size(); i++) {
 			if (students.get(i).getId() == student.getId()) {
@@ -56,8 +65,10 @@ public class Test {
 		return questions.size();
 	}
 	
+	
 	public void addStudent(User user) {
 		students.add(user);
+		results.add(-1);
 	}
 	
 	

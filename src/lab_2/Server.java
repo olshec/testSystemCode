@@ -31,13 +31,20 @@ public class Server {
 		Student student1 = new Student("Шахматов","Антон",this,"ShAnton","1111");
 		Student student2 = new Student("Романенко","Егор",this,"REgor","1111");
 		
-		test2.addStudent(student1);
-		test1.addStudent(student2);
-		
 		userBase.addUser(student1);
 		userBase.addUser(student2);
-		
 		userBase.addUser(teacher1);
+		
+		test1.addStudent(student1);
+		test1.addStudent(student2);
+		
+		test1.addResult(student1, 4);
+		test1.addResult(student2, 2);
+		
+		
+		test2.addStudent(student1);
+		test2.addResult(student1, 5);
+
 		//END DATA FOR TEST
 		
 		

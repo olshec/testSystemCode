@@ -7,14 +7,20 @@ public abstract class User {
 	private String username;
 	private String password;
 	private int id;
-
-	public User() {
-
+	private static int idCount;
+	
+	
+	static {
+		idCount=0;
 	}
+	
+//	public User() {
+//
+//	}
 
-	public User(Server server) {
-		this.server = server;
-	}
+//	public User(Server server) {
+//		this.server = server;
+//	}
 
 	
 	public User(String lastName, String firstName, Server server, String username, String password) {
@@ -23,6 +29,8 @@ public abstract class User {
 		this.server = server;
 		this.username = username;
 		this.password = password;
+		this.id=idCount;
+		idCount++;
 	}
 
 	public String getFirstName() {
@@ -39,10 +47,6 @@ public abstract class User {
 	
 	public String getPassword() {
 		return this.password;
-	}
-	
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public int getId() {
