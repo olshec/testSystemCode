@@ -3,12 +3,28 @@ package lab_2;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Represents a student.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
+ */
 public final class Student extends User {
 
+	/** Creates a student.
+	 * @param lastName The student’s last name.
+	 * @param firstName The student’s first name.
+	 * @param server The student’s server.
+	 * @param username The student’s username.
+	 * @param password The student’s password.
+	*/
 	public Student(String lastName, String firstName, Server server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
 
+	/** Function for opening menu.
+	*/
 	public void openMenu() {
 		int num = -1;
 		while (num != 0) {
@@ -29,10 +45,10 @@ public final class Student extends User {
 			case 0:
 				break;
 			case 1:
-				getTestsStudent();
+				printTestsStudent();
 				break;
 			case 2:
-				getNumberQuestions();
+				printNumberQuestions();
 				break;
 			default:
 				System.out.println("Неверный ввод! Попытайтесь еще раз.");
@@ -43,7 +59,11 @@ public final class Student extends User {
 		System.out.println("До свидания!");
 	}
 
-	private void getTestsStudent() {
+	/**
+	 * Gets a list of student tests from the server and prints.
+	 * 
+	 */
+	private void printTestsStudent() {
 		List<Test> mas = this.getServer().studentGetTests(this);
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
@@ -51,7 +71,11 @@ public final class Student extends User {
 		}
 	}
 
-	private void getNumberQuestions() {
+	/**
+	 * Gets the number of test questions from the server and prints.
+	 * 
+	 */
+	private void printNumberQuestions() {
 
 		System.out.print("Введите номер теста: ");
 

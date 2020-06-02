@@ -3,6 +3,13 @@ package lab_2;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a test.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
+ */
 public class Test {
 
 	String name;
@@ -11,10 +18,11 @@ public class Test {
 	List<User> students;
 	List<Integer> results;
 
-	public Test() {
-		this.init();
-	}
-
+	/**
+	 * Creates a test.
+	 * @param name  The test's name.
+	 * @param teacher The test’s teacher.
+	 */
 	public Test(String name, User teacher) {
 		this.init();
 		this.name = name;
@@ -25,22 +33,16 @@ public class Test {
 		questions = new ArrayList<Question>();
 		students = new ArrayList<User>();
 		results = new ArrayList<Integer>();
-
 	}
 
+	/**
+	 * Creates a test.
+	 * @param name  The test's name.
+	 * @return String The name of test.
+	 */
 	public String getName() {
 		return name;
 	}
-
-//	public int getResult(int idStudent) {
-//
-//		for (int i = 0; i < students.size(); i++) {
-//			if (students.get(i).getId() == idStudent) {
-//				return results.get(i);
-//			}
-//		}
-//		return -1;
-//	}
 
 	public void addResult(User student, int points) {
 		for (int i = 0; i < students.size(); i++) {

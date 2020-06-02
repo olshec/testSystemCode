@@ -3,6 +3,13 @@ package lab_2;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a server.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
+ */
 public class Server {
 
 	UserBase userBase;
@@ -24,9 +31,9 @@ public class Server {
 		Test test2 = new Test("Сетевые технологии", teacher1);
 		Test test3 = new Test("Информатика", teacher1);
 
-		Question q1 = new Question("Что такое роботы?");
-		Question q2 = new Question("Что такое робототехника?");
-		Question q3 = new Question("Что такое микроконтроллеры?");
+		Question q1 = new Question("Основы роботетхники");
+		Question q2 = new Question("AI");
+		Question q3 = new Question("Микроконтроллеры");
 		test1.addQuestion(q1);
 		test1.addQuestion(q2);
 		test1.addQuestion(q3);
@@ -64,23 +71,27 @@ public class Server {
 
 	}
 
-	/*
-	 * login function
-	 */
+	/** login function.
+	 * @param String The user's username.
+	 * @param String The user's password.
+	 * @return User The authenticated user.
+	*/
 	public User login(String username, String password) {
 		return userBase.getUser(username, password);
 	}
 
-	/*
-	 * Student interface
-	 */
+	/** Gets tests for student.
+	 * @param User The student.
+	 * @return List<Test> The list tests.
+	*/
 	public List<Test> studentGetTests(User student) {
 		return testBase.getTestsStudent(student);
 	}
 
-	/*
-	 * Student interface
-	 */
+	/** Gets student test information.
+	 * @param User The student.
+	 * @return Test The test.
+	*/
 	public Test studentGetTestInfo(User student, int indexTest) {
 		Test test = testBase.getTestIndex(indexTest);
 		if (test != null && test.hasStudent(student)) {
@@ -89,30 +100,31 @@ public class Server {
 			return null;
 	}
 
-	/*
-	 * Teacher interface
-	 */
+	/** Gets tests for teacher.
+	 * @param User The teacher.
+	 * @return List<Test> The list tests.
+	*/
 	public List<Test> teacherGetTests(User teacher) {
 		return testBase.teacherGetTests(teacher);
 	}
 
-	/*
-	 * Teacher interface
-	 */
+	/** Gets students test result.
+	 * @param User The teacher.
+	 * @param Integer The test index.
+	 * @return Test The test.
+	*/
 	public Test teacherGetTestResult(User teacher, int indexTest) {
 		return testBase.teacherGetTests(teacher).get(indexTest);
 	}
 
-	/*
-	 * Admin interface
-	 */
+	/** Gets users.
+	 * @return List<User> The list all users.
+	*/
 	public List<User> adminGetAllUsers() {
 		return userBase.getUsers();
 	}
 
-	/*
-	 * Admin interface
-	 */
+	//get user by type 
 	private List<User> adminGetUsers(String typeUser) {
 		List<User> masUser = userBase.getUsers();
 		List<User> masUserResult = new ArrayList<User>();
@@ -125,16 +137,25 @@ public class Server {
 		return masUserResult;
 	}
 
+	/** Gets students.
+	 * @return List<User> The list students.
+	*/
 	public List<User> adminGetStudents() {
 
 		return adminGetUsers("Student");
 	}
 
+	/** Gets teachers.
+	 * @return List<User> The list teachers.
+	*/
 	public List<User> adminGetTeachers() {
 
 		return adminGetUsers("Teacher");
 	}
 
+	/** Gets administrators.
+	 * @return List<User> The list administrators.
+	*/
 	public List<User> adminGetAdmins() {
 
 		return adminGetUsers("Admin");

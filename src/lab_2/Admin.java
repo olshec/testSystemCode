@@ -3,14 +3,31 @@ package lab_2;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Represents an administrator.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
+ */
 public class Admin extends User {
 
-	private static Scanner myInput;
-
+	/**
+	 * Creates an administrator.
+	 * 
+	 * @param lastName  The administrator’s last name.
+	 * @param firstName The administrator’s first name.
+	 * @param server    The administrator’s server.
+	 * @param username  The administrator’s username.
+	 * @param password  The administrator’s password.
+	 */
 	public Admin(String lastName, String firstName, Server server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
 
+	/**
+	 * Function for opening menu.
+	 */
 	public void openMenu() {
 		int num = -1;
 		while (num != 0) {
@@ -22,7 +39,7 @@ public class Admin extends User {
 			System.out.println("4 - получить список администраторов");
 			System.out.print("?: ");
 
-			myInput = new Scanner(System.in);
+			Scanner myInput = new Scanner(System.in);
 			try {
 				num = myInput.nextInt();
 			} catch (java.util.InputMismatchException exception) {
@@ -53,8 +70,14 @@ public class Admin extends User {
 		System.out.println("До свидания!");
 	}
 
-	private void printListUsers(List<User> masUser, String message) {
-		System.out.println(message + ": ");
+	/**
+	 * Print list users.
+	 * 
+	 * @param masUser The array of users.
+	 * @param title String represents a title.
+	 */
+	private void printListUsers(List<User> masUser, String title) {
+		System.out.println(title + ": ");
 		for (int i = 0; i < masUser.size(); i++) {
 			String s = String.format("%d) %s %s  (%s)", i + 1, masUser.get(i).getLastName(),
 					masUser.get(i).getFirstName(), masUser.get(i).getClass().getSimpleName());
@@ -62,21 +85,37 @@ public class Admin extends User {
 		}
 	}
 
+	/**
+	 * Gets the list users from server.
+	 * 
+	 */
 	private void getListUsers() {
 		List<User> masUser = this.getServer().adminGetAllUsers();
 		printListUsers(masUser, "Cписок пользователей");
 	}
 
+	/**
+	 * Gets the list students from server.
+	 * 
+	 */
 	private void getListStudents() {
 		List<User> masUser = this.getServer().adminGetStudents();
 		printListUsers(masUser, "Cписок студентов");
 	}
 
+	/**
+	 * Gets the list teachers from server.
+	 * 
+	 */
 	private void getListTeachers() {
 		List<User> masUser = this.getServer().adminGetTeachers();
 		printListUsers(masUser, "Cписок преподавателей");
 	}
 
+	/**
+	 * Gets the list administrators from server.
+	 * 
+	 */
 	private void getListAdmins() {
 		List<User> masUser = this.getServer().adminGetAdmins();
 		printListUsers(masUser, "Cписок администраторов");

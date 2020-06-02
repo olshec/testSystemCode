@@ -40,42 +40,42 @@ public abstract class User {
 	}
 
 	/** Gets the user’s first name.
-	 * @return A string representing the user’s first name
+	 * @return String return first name
 	*/
 	public String getFirstName() {
 		return this.firstName;
 	}
 
 	/** Gets the user’s last name.
-	 * @return A string representing the user’s last name
+	 * @return String return last name
 	*/
 	public String getLastName() {
 		return this.lastName;
 	}
 
 	/** Gets the user’s username.
-	 * @return A string representing the user’s username
+	 * @return String return username
 	*/
 	public String getUserName() {
 		return this.username;
 	}
 
 	/** Gets the user’s password.
-	 * @return A string representing the user’s password
+	 * @return String return password
 	*/
 	public String getPassword() {
 		return this.password;
 	}
 
 	/** Gets the user’s id.
-	 * @return A integer representing the user’s id
+	 * @return Integer return id
 	*/
 	public int getId() {
 		return this.id;
 	}
 
 	/** Gets the user’s server.
-	 * @return A Server representing the user’s server
+	 * @return Server return server
 	*/
 	public Server getServer() {
 		return this.server;

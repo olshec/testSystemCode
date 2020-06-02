@@ -2,6 +2,13 @@ package lab_2;
 
 import java.util.Scanner;
 
+/**
+ * Represents a client.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
+ */
 public class Client {
 
 	public static void main(String[] args) {
