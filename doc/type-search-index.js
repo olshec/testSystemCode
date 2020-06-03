@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"lab_2","l":"Admin"},{"l":"All Classes","url":"allclasses-index.html"},{"p":"lab_2","l":"Answer"},{"p":"lab_2","l":"Client"},{"p":"lab_2","l":"Question"},{"p":"lab_2","l":"Server"},{"p":"lab_2","l":"Student"},{"p":"lab_2","l":"Teacher"},{"p":"lab_2","l":"Test"},{"p":"lab_2","l":"TestBase"},{"p":"lab_2","l":"User"},{"p":"lab_2","l":"UserBase"}]
