@@ -1,7 +1,10 @@
-package lab_2;
+package view;
 
 import java.util.List;
 import java.util.Scanner;
+
+import controller.ServerController;
+import models.UserModel;
 
 /**
  * Represents an administrator.
@@ -10,7 +13,7 @@ import java.util.Scanner;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class Admin extends User {
+public class AdminView extends UserModel {
 
 	/**
 	 * Creates an administrator.
@@ -21,7 +24,7 @@ public class Admin extends User {
 	 * @param username  The administrator’s username.
 	 * @param password  The administrator’s password.
 	 */
-	public Admin(String lastName, String firstName, Server server, String username, String password) {
+	public AdminView(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
 
@@ -76,7 +79,7 @@ public class Admin extends User {
 	 * @param masUser The array of users.
 	 * @param title String represents a title.
 	 */
-	private void printListUsers(List<User> masUser, String title) {
+	private void printListUsers(List<UserModel> masUser, String title) {
 		System.out.println(title + ": ");
 		for (int i = 0; i < masUser.size(); i++) {
 			String s = String.format("%d) %s %s  (%s)", i + 1, masUser.get(i).getLastName(),
@@ -90,7 +93,7 @@ public class Admin extends User {
 	 * 
 	 */
 	private void getUsers() {
-		List<User> masUser = this.getServer().adminGetAllUsers();
+		List<UserModel> masUser = this.getServer().adminGetAllUsers();
 		printListUsers(masUser, "Cписок пользователей");
 	}
 
@@ -99,7 +102,7 @@ public class Admin extends User {
 	 * 
 	 */
 	private void getStudents() {
-		List<User> masUser = this.getServer().adminGetStudents();
+		List<UserModel> masUser = this.getServer().adminGetStudents();
 		printListUsers(masUser, "Cписок студентов");
 	}
 
@@ -108,7 +111,7 @@ public class Admin extends User {
 	 * 
 	 */
 	private void getTeachers() {
-		List<User> masUser = this.getServer().adminGetTeachers();
+		List<UserModel> masUser = this.getServer().adminGetTeachers();
 		printListUsers(masUser, "Cписок преподавателей");
 	}
 
@@ -117,7 +120,7 @@ public class Admin extends User {
 	 * 
 	 */
 	private void getAdministrators() {
-		List<User> masUser = this.getServer().adminGetAdmins();
+		List<UserModel> masUser = this.getServer().adminGetAdmins();
 		printListUsers(masUser, "Cписок администраторов");
 	}
 

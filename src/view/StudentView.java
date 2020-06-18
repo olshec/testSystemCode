@@ -1,7 +1,11 @@
-package lab_2;
+package view;
 
 import java.util.List;
 import java.util.Scanner;
+
+import controller.ServerController;
+import controller.TestController;
+import models.UserModel;
 
 /**
  * Represents a student.
@@ -10,7 +14,7 @@ import java.util.Scanner;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public final class Student extends User {
+public final class StudentView extends UserModel {
 
 	/** Creates a student.
 	 * @param lastName The student’s last name.
@@ -19,7 +23,7 @@ public final class Student extends User {
 	 * @param username The student’s username.
 	 * @param password The student’s password.
 	*/
-	public Student(String lastName, String firstName, Server server, String username, String password) {
+	public StudentView(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
 
@@ -64,7 +68,7 @@ public final class Student extends User {
 	 * 
 	 */
 	private void getTestsStudent() {
-		List<Test> mas = this.getServer().studentGetTests(this);
+		List<TestController> mas = this.getServer().getTestsForStudent(this);
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
 			System.out.println(i + 1 + ") " + mas.get(i).getName());
@@ -90,7 +94,7 @@ public final class Student extends User {
 		}
 
 		int indexTest = numTest - 1;// index begin from 0;
-		Test test = this.getServer().studentGetTestInfo(this, indexTest);
+		TestController test = this.getServer().getTestInfoForStudent(this, indexTest);
 		if (test != null) {
 			int quantityQuestions = test.getNumberQuestions();
 			String s = String.format("Количество вопросов в тесте %d: %d", numTest, quantityQuestions);

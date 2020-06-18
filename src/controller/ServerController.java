@@ -1,7 +1,12 @@
-package lab_2;
+package controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import models.UserModel;
+import view.AdminView;
+import view.StudentView;
+import view.TeacherView;
 
 /**
  * Represents a server.
@@ -10,50 +15,50 @@ import java.util.List;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class Server {
+public class ServerController {
 
-	private UserBase userBase;
-	private TestBase testBase;
+	private UserBaseController userBase;
+	private TestBaseController testBase;
 
-	public Server() {
+	public ServerController() {
 
-		testBase = new TestBase();
-		userBase = new UserBase();
+		testBase = new TestBaseController();
+		userBase = new UserBaseController();
 
 		// BEGIN DATA FOR TEST
 
-		Admin admin1 = new Admin("Примарев", "Игорь", this, "Admin1", "0000");
+		AdminView admin1 = new AdminView("Примарев", "Игорь", this, "Admin1", "0000");
 		userBase.addUser(admin1);
 
-		Teacher teacher1 = new Teacher("Киров", "Антон", this, "KirovAnton", "12345678");
+		TeacherView teacher1 = new TeacherView("Киров", "Антон", this, "KirovAnton", "12345678");
 		userBase.addUser(teacher1);
-		Test test1 = new Test("Робототехника", teacher1);
-		Test test2 = new Test("Сетевые технологии", teacher1);
-		Test test3 = new Test("Информатика", teacher1);
+		TestController test1 = new TestController("Робототехника", teacher1);
+		TestController test2 = new TestController("Сетевые технологии", teacher1);
+		TestController test3 = new TestController("Информатика", teacher1);
 
-		Question q1 = new Question("Основы роботетхники");
-		Question q2 = new Question("AI");
-		Question q3 = new Question("Микроконтроллеры");
+		QuestionController q1 = new QuestionController("Основы роботетхники");
+		QuestionController q2 = new QuestionController("AI");
+		QuestionController q3 = new QuestionController("Микроконтроллеры");
 		test1.addQuestion(q1);
 		test1.addQuestion(q2);
 		test1.addQuestion(q3);
 
-		Question q4 = new Question("Протокол HTTP");
-		Question q5 = new Question("Характеристика OSI");
-		Question q6 = new Question("Протокол TCP");
+		QuestionController q4 = new QuestionController("Протокол HTTP");
+		QuestionController q5 = new QuestionController("Характеристика OSI");
+		QuestionController q6 = new QuestionController("Протокол TCP");
 		test2.addQuestion(q3);
 		test2.addQuestion(q4);
 		test2.addQuestion(q5);
 		test2.addQuestion(q6);
 
-		List<Test> tests = new ArrayList<Test>();
+		List<TestController> tests = new ArrayList<TestController>();
 		tests.add(test1);
 		tests.add(test2);
 		tests.add(test3);
 		testBase.addTests(tests);
 
-		Student student1 = new Student("Шахматов", "Антон", this, "ShAnton", "1111");
-		Student student2 = new Student("Романенко", "Егор", this, "REgor", "1111");
+		StudentView student1 = new StudentView("Шахматов", "Антон", this, "ShAnton", "1111");
+		StudentView student2 = new StudentView("Романенко", "Егор", this, "REgor", "1111");
 
 		userBase.addUser(student1);
 		userBase.addUser(student2);
@@ -76,7 +81,7 @@ public class Server {
 	 * @param password The user's password.
 	 * @return User The authenticated user.
 	*/
-	public User login(String username, String password) {
+	public UserModel login(String username, String password) {
 		return userBase.getUser(username, password);
 	}
 
@@ -84,7 +89,7 @@ public class Server {
 	 * @param student The student.
 	 * @return List<Test> The list tests.
 	*/
-	public List<Test> studentGetTests(User student) {
+	public List<TestController> getTestsForStudent(UserModel student) {
 		return testBase.getTestsStudent(student);
 	}
 
@@ -93,8 +98,8 @@ public class Server {
 	 * @param indexTest The test index.
 	 * @return Test The test.
 	*/
-	public Test studentGetTestInfo(User student, int indexTest) {
-		Test test = testBase.getTestIndex(indexTest);
+	public TestController getTestInfoForStudent(UserModel student, int indexTest) {
+		TestController test = testBase.getTestIndex(indexTest);
 		if (test != null && test.hasStudent(student)) {
 			return testBase.getTestIndex(indexTest);
 		} else
@@ -105,7 +110,7 @@ public class Server {
 	 * @param teacher The teacher.
 	 * @return List<Test> The list tests.
 	*/
-	public List<Test> teacherGetTests(User teacher) {
+	public List<TestController> teacherGetTests(UserModel teacher) {
 		return testBase.teacherGetTests(teacher);
 	}
 
@@ -114,21 +119,21 @@ public class Server {
 	 * @param indexTest The test index.
 	 * @return Test The test.
 	*/
-	public Test teacherGetTestResult(User teacher, int indexTest) {
+	public TestController teacherGetTestResult(UserModel teacher, int indexTest) {
 		return testBase.teacherGetTests(teacher).get(indexTest);
 	}
 
 	/** Gets users.
 	 * @return List<User> The list all users.
 	*/
-	public List<User> adminGetAllUsers() {
+	public List<UserModel> adminGetAllUsers() {
 		return userBase.getUsers();
 	}
 
 	//get user by type 
-	private List<User> adminGetUsers(String typeUser) {
-		List<User> masUser = userBase.getUsers();
-		List<User> masUserResult = new ArrayList<User>();
+	private List<UserModel> adminGetUsers(String typeUser) {
+		List<UserModel> masUser = userBase.getUsers();
+		List<UserModel> masUserResult = new ArrayList<UserModel>();
 		for (int i = 0; i < masUser.size(); i++) {
 			String className = masUser.get(i).getClass().getSimpleName();
 			if (className.equals(typeUser)) {
@@ -141,7 +146,7 @@ public class Server {
 	/** Gets students.
 	 * @return List<User> The list students.
 	*/
-	public List<User> adminGetStudents() {
+	public List<UserModel> adminGetStudents() {
 
 		return adminGetUsers("Student");
 	}
@@ -149,7 +154,7 @@ public class Server {
 	/** Gets teachers.
 	 * @return List<User> The list teachers.
 	*/
-	public List<User> adminGetTeachers() {
+	public List<UserModel> adminGetTeachers() {
 
 		return adminGetUsers("Teacher");
 	}
@@ -157,7 +162,7 @@ public class Server {
 	/** Gets administrators.
 	 * @return List<User> The list administrators.
 	*/
-	public List<User> adminGetAdmins() {
+	public List<UserModel> adminGetAdmins() {
 
 		return adminGetUsers("Admin");
 	}
