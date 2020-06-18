@@ -1,10 +1,11 @@
-package lab_2;
+package view;
 
 import java.util.List;
 import java.util.Scanner;
 
 import controller.ServerController;
 import controller.TestController;
+import models.UserModel;
 
 /**
  * Represents a student.
@@ -13,7 +14,7 @@ import controller.TestController;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public final class Student extends User {
+public final class StudentView extends UserModel {
 
 	/** Creates a student.
 	 * @param lastName The student’s last name.
@@ -22,7 +23,7 @@ public final class Student extends User {
 	 * @param username The student’s username.
 	 * @param password The student’s password.
 	*/
-	public Student(String lastName, String firstName, ServerController server, String username, String password) {
+	public StudentView(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
 

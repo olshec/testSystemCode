@@ -1,4 +1,4 @@
-package lab_2;
+package models;
 
 import controller.ServerController;
 
@@ -9,7 +9,7 @@ import controller.ServerController;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public abstract class User {
+public abstract class UserModel {
 	private String firstName;
 	private String lastName;
 	private ServerController server;
@@ -31,7 +31,7 @@ public abstract class User {
 	 * @param username The user’s username.
 	 * @param password The user’s password.
 	*/
-	public User(String lastName, String firstName, ServerController server, String username, String password) {
+	public UserModel(String lastName, String firstName, ServerController server, String username, String password) {
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.server = server;

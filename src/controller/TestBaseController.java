@@ -1,18 +1,17 @@
-package lab_2;
+package controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import controller.TestController;
+import models.UserModel;
 
-public class TestBase {
+public class TestBaseController {
 	private List<TestController> tests;
 
-	public TestBase() {
-
+	public TestBaseController() {
 	}
 
-	public List<TestController> getTestsStudent(User student) {
+	public List<TestController> getTestsStudent(UserModel student) {
 		List<TestController> testsStudent = new ArrayList<TestController>();
 		for (int i = 0; i < tests.size(); i++) {
 			if (tests.get(i).hasStudent(student) == true) {
@@ -40,7 +39,7 @@ public class TestBase {
 	/*
 	 * get tests result for teacher
 	 */
-	public List<TestController> teacherGetTests(User teacher) {
+	public List<TestController> teacherGetTests(UserModel teacher) {
 		ArrayList<TestController> masTests = new ArrayList<TestController>();
 		for (int i = 0; i < tests.size(); i++) {
 			if (tests.get(i).hasTeacher(teacher)) {

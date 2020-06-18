@@ -1,10 +1,11 @@
-package lab_2;
+package view;
 
 import java.util.List;
 import java.util.Scanner;
 
 import controller.ServerController;
 import controller.TestController;
+import models.UserModel;
 /**
  * Represents a teacher.
  * 
@@ -13,7 +14,7 @@ import controller.TestController;
  * @version 1.0
  */
 
-public final class Teacher extends User {
+public final class TeacherView extends UserModel {
 
 	/**
 	 * Creates a teacher.
@@ -24,7 +25,7 @@ public final class Teacher extends User {
 	 * @param username  The teacher’s username.
 	 * @param password  The teacher’s password.
 	 */
-	public Teacher(String lastName, String firstName, ServerController server, String username, String password) {
+	public TeacherView(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
 
@@ -97,7 +98,7 @@ public final class Teacher extends User {
 		int indexTest = numTest - 1;// index begin from 0;
 		TestController test = this.getServer().teacherGetTestResult(this, indexTest);
 		if (test != null) {
-			List<User> masStudent = test.getStudents();
+			List<UserModel> masStudent = test.getStudents();
 			List<Integer> masResult = test.getResults();
 			if (masResult.size() > 0) {
 				for (int i = 0; i < masResult.size(); i++) {

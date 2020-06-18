@@ -1,16 +1,18 @@
-package lab_2;
+package app;
 
 import java.util.Scanner;
 
 import controller.ServerController;
+import models.UserModel;
 
 /**
- * Represents a client.
+ * This class is the entry point to the application.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com
  * @version 1.0
  */
+
 public class Client {
 
 	public static void main(String[] args) {
@@ -24,7 +26,7 @@ public class Client {
 		password = myInput.nextLine();
 		
 		ServerController server = new ServerController();
-		User user = server.login(login, password);
+		UserModel user = server.login(login, password);
 		
 		//Student_1 login: "REgor", password: "1111"
 		//Student_2 login: "ShAnton", password: "1111"
