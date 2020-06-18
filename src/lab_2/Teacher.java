@@ -2,6 +2,9 @@ package lab_2;
 
 import java.util.List;
 import java.util.Scanner;
+
+import controller.ServerController;
+import controller.TestController;
 /**
  * Represents a teacher.
  * 

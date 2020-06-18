@@ -1,5 +1,7 @@
 package lab_2;
 
+import controller.ServerController;
+
 /**
  * Represents an user.
  * 

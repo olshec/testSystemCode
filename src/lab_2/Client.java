@@ -2,6 +2,8 @@ package lab_2;
 
 import java.util.Scanner;
 
+import controller.ServerController;
+
 /**
  * Represents a client.
  * 
