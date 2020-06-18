@@ -10,15 +10,15 @@ import java.util.List;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class Server {
+public class ServerController {
 
-	UserBase userBase;
-	TestBase testBase;
+	private UserBaseController userBase;
+	private TestBase testBase;
 
-	public Server() {
+	public ServerController() {
 
 		testBase = new TestBase();
-		userBase = new UserBase();
+		userBase = new UserBaseController();
 
 		// BEGIN DATA FOR TEST
 
@@ -27,30 +27,30 @@ public class Server {
 
 		Teacher teacher1 = new Teacher("Киров", "Антон", this, "KirovAnton", "12345678");
 		userBase.addUser(teacher1);
-		Test test1 = new Test("Робототехника", teacher1);
-		Test test2 = new Test("Сетевые технологии", teacher1);
-		Test test3 = new Test("Информатика", teacher1);
+		TestController test1 = new TestController("Робототехника", teacher1);
+		TestController test2 = new TestController("Сетевые технологии", teacher1);
+		TestController test3 = new TestController("Информатика", teacher1);
 
-		Question q1 = new Question("Основы роботетхники");
-		Question q2 = new Question("AI");
-		Question q3 = new Question("Микроконтроллеры");
+		QuestionController q1 = new QuestionController("Основы роботетхники");
+		QuestionController q2 = new QuestionController("AI");
+		QuestionController q3 = new QuestionController("Микроконтроллеры");
 		test1.addQuestion(q1);
 		test1.addQuestion(q2);
 		test1.addQuestion(q3);
 
-		Question q4 = new Question("Протокол HTTP");
-		Question q5 = new Question("Характеристика OSI");
-		Question q6 = new Question("Протокол TCP");
+		QuestionController q4 = new QuestionController("Протокол HTTP");
+		QuestionController q5 = new QuestionController("Характеристика OSI");
+		QuestionController q6 = new QuestionController("Протокол TCP");
 		test2.addQuestion(q3);
 		test2.addQuestion(q4);
 		test2.addQuestion(q5);
 		test2.addQuestion(q6);
 
-		List<Test> tests = new ArrayList<Test>();
+		List<TestController> tests = new ArrayList<TestController>();
 		tests.add(test1);
 		tests.add(test2);
 		tests.add(test3);
-		testBase.addArrayTest(tests);
+		testBase.addTests(tests);
 
 		Student student1 = new Student("Шахматов", "Антон", this, "ShAnton", "1111");
 		Student student2 = new Student("Романенко", "Егор", this, "REgor", "1111");
@@ -72,8 +72,8 @@ public class Server {
 	}
 
 	/** login function.
-	 * @param String The user's username.
-	 * @param String The user's password.
+	 * @param username The user's username.
+	 * @param password The user's password.
 	 * @return User The authenticated user.
 	*/
 	public User login(String username, String password) {
@@ -81,19 +81,20 @@ public class Server {
 	}
 
 	/** Gets tests for student.
-	 * @param User The student.
+	 * @param student The student.
 	 * @return List<Test> The list tests.
 	*/
-	public List<Test> studentGetTests(User student) {
+	public List<TestController> getTestsForStudent(User student) {
 		return testBase.getTestsStudent(student);
 	}
 
 	/** Gets student test information.
-	 * @param User The student.
+	 * @param student The student.
+	 * @param indexTest The test index.
 	 * @return Test The test.
 	*/
-	public Test studentGetTestInfo(User student, int indexTest) {
-		Test test = testBase.getTestIndex(indexTest);
+	public TestController getTestInfoForStudent(User student, int indexTest) {
+		TestController test = testBase.getTestIndex(indexTest);
 		if (test != null && test.hasStudent(student)) {
 			return testBase.getTestIndex(indexTest);
 		} else
@@ -101,19 +102,19 @@ public class Server {
 	}
 
 	/** Gets tests for teacher.
-	 * @param User The teacher.
+	 * @param teacher The teacher.
 	 * @return List<Test> The list tests.
 	*/
-	public List<Test> teacherGetTests(User teacher) {
+	public List<TestController> teacherGetTests(User teacher) {
 		return testBase.teacherGetTests(teacher);
 	}
 
 	/** Gets students test result.
-	 * @param User The teacher.
-	 * @param Integer The test index.
+	 * @param teacher The teacher.
+	 * @param indexTest The test index.
 	 * @return Test The test.
 	*/
-	public Test teacherGetTestResult(User teacher, int indexTest) {
+	public TestController teacherGetTestResult(User teacher, int indexTest) {
 		return testBase.teacherGetTests(teacher).get(indexTest);
 	}
 

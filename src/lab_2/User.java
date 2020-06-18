@@ -10,7 +10,7 @@ package lab_2;
 public abstract class User {
 	private String firstName;
 	private String lastName;
-	private Server server;
+	private ServerController server;
 	private String username;
 	private String password;
 	private int id;
@@ -29,7 +29,7 @@ public abstract class User {
 	 * @param username The user’s username.
 	 * @param password The user’s password.
 	*/
-	public User(String lastName, String firstName, Server server, String username, String password) {
+	public User(String lastName, String firstName, ServerController server, String username, String password) {
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.server = server;
@@ -77,7 +77,7 @@ public abstract class User {
 	/** Gets the user’s server.
 	 * @return Server return server
 	*/
-	public Server getServer() {
+	public ServerController getServer() {
 		return this.server;
 	}
 

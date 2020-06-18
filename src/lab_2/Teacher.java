@@ -9,6 +9,7 @@ import java.util.Scanner;
  * @author olshec@gmail.com
  * @version 1.0
  */
+
 public final class Teacher extends User {
 
 	/**
@@ -20,7 +21,7 @@ public final class Teacher extends User {
 	 * @param username  The teacher’s username.
 	 * @param password  The teacher’s password.
 	 */
-	public Teacher(String lastName, String firstName, Server server, String username, String password) {
+	public Teacher(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
 
@@ -46,10 +47,10 @@ public final class Teacher extends User {
 			case 0:
 				break;
 			case 1:
-				printTests();
+				getTests();
 				break;
 			case 2:
-				printResult();
+				getTestResult();
 				break;
 			default:
 				System.out.println("Неверный ввод! Попытайтесь еще раз.");
@@ -64,8 +65,8 @@ public final class Teacher extends User {
 	 * Gets a list of tests from the server and prints.
 	 * 
 	 */
-	private void printTests() {
-		List<Test> mas = this.getServer().teacherGetTests(this);
+	private void getTests() {
+		List<TestController> mas = this.getServer().teacherGetTests(this);
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
 			System.out.println(i + 1 + ") " + mas.get(i).getName());
@@ -76,7 +77,7 @@ public final class Teacher extends User {
 	 * Gets a result of students test from the server and prints.
 	 * 
 	 */
-	private void printResult() {
+	private void getTestResult() {
 
 		System.out.print("Введите номер теста: ");
 
@@ -91,7 +92,7 @@ public final class Teacher extends User {
 		}
 
 		int indexTest = numTest - 1;// index begin from 0;
-		Test test = this.getServer().teacherGetTestResult(this, indexTest);
+		TestController test = this.getServer().teacherGetTestResult(this, indexTest);
 		if (test != null) {
 			List<User> masStudent = test.getStudents();
 			List<Integer> masResult = test.getResults();

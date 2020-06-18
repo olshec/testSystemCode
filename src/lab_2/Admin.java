@@ -21,7 +21,7 @@ public class Admin extends User {
 	 * @param username  The administrator’s username.
 	 * @param password  The administrator’s password.
 	 */
-	public Admin(String lastName, String firstName, Server server, String username, String password) {
+	public Admin(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
 
@@ -50,16 +50,16 @@ public class Admin extends User {
 			case 0:
 				break;
 			case 1:
-				getListUsers();
+				getUsers();
 				break;
 			case 2:
-				getListStudents();
+				getStudents();
 				break;
 			case 3:
-				getListTeachers();
+				getTeachers();
 				break;
 			case 4:
-				getListAdmins();
+				getAdministrators();
 				break;
 			default:
 				System.out.println("Неверный ввод! Попытайтесь еще раз.");
@@ -89,7 +89,7 @@ public class Admin extends User {
 	 * Gets the list users from server.
 	 * 
 	 */
-	private void getListUsers() {
+	private void getUsers() {
 		List<User> masUser = this.getServer().adminGetAllUsers();
 		printListUsers(masUser, "Cписок пользователей");
 	}
@@ -98,7 +98,7 @@ public class Admin extends User {
 	 * Gets the list students from server.
 	 * 
 	 */
-	private void getListStudents() {
+	private void getStudents() {
 		List<User> masUser = this.getServer().adminGetStudents();
 		printListUsers(masUser, "Cписок студентов");
 	}
@@ -107,7 +107,7 @@ public class Admin extends User {
 	 * Gets the list teachers from server.
 	 * 
 	 */
-	private void getListTeachers() {
+	private void getTeachers() {
 		List<User> masUser = this.getServer().adminGetTeachers();
 		printListUsers(masUser, "Cписок преподавателей");
 	}
@@ -116,7 +116,7 @@ public class Admin extends User {
 	 * Gets the list administrators from server.
 	 * 
 	 */
-	private void getListAdmins() {
+	private void getAdministrators() {
 		List<User> masUser = this.getServer().adminGetAdmins();
 		printListUsers(masUser, "Cписок администраторов");
 	}

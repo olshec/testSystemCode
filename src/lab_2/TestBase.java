@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestBase {
-	private List<Test> tests;
+	private List<TestController> tests;
 
 	public TestBase() {
 
 	}
 
-	public List<Test> getTestsStudent(User student) {
-		List<Test> testsStudent = new ArrayList<Test>();
+	public List<TestController> getTestsStudent(User student) {
+		List<TestController> testsStudent = new ArrayList<TestController>();
 		for (int i = 0; i < tests.size(); i++) {
 			if (tests.get(i).hasStudent(student) == true) {
 				testsStudent.add(tests.get(i));
@@ -20,15 +20,15 @@ public class TestBase {
 		return testsStudent;
 	}
 
-	public List<Test> getAllTests() {
+	public List<TestController> getAllTests() {
 		return tests;
 	}
 
-	public void addArrayTest(List<Test> tests) {
+	public void addTests(List<TestController> tests) {
 		this.tests = tests;
 	}
 
-	public Test getTestIndex(int index) {
+	public TestController getTestIndex(int index) {
 		if (index < tests.size() && index >= 0) {
 			return tests.get(index);
 		}
@@ -38,10 +38,10 @@ public class TestBase {
 	/*
 	 * get tests result for teacher
 	 */
-	public List<Test> teacherGetTests(User user) {
-		ArrayList<Test> masTests = new ArrayList<Test>();
+	public List<TestController> teacherGetTests(User teacher) {
+		ArrayList<TestController> masTests = new ArrayList<TestController>();
 		for (int i = 0; i < tests.size(); i++) {
-			if (tests.get(i).hasTeacher(user)) {
+			if (tests.get(i).hasTeacher(teacher)) {
 				masTests.add(tests.get(i));
 			}
 		}

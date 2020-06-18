@@ -19,7 +19,7 @@ public final class Student extends User {
 	 * @param username The student’s username.
 	 * @param password The student’s password.
 	*/
-	public Student(String lastName, String firstName, Server server, String username, String password) {
+	public Student(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
 
@@ -45,10 +45,10 @@ public final class Student extends User {
 			case 0:
 				break;
 			case 1:
-				printTestsStudent();
+				getTestsStudent();
 				break;
 			case 2:
-				printNumberQuestions();
+				getNumberQuestions();
 				break;
 			default:
 				System.out.println("Неверный ввод! Попытайтесь еще раз.");
@@ -63,8 +63,8 @@ public final class Student extends User {
 	 * Gets a list of student tests from the server and prints.
 	 * 
 	 */
-	private void printTestsStudent() {
-		List<Test> mas = this.getServer().studentGetTests(this);
+	private void getTestsStudent() {
+		List<TestController> mas = this.getServer().getTestsForStudent(this);
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
 			System.out.println(i + 1 + ") " + mas.get(i).getName());
@@ -75,7 +75,7 @@ public final class Student extends User {
 	 * Gets the number of test questions from the server and prints.
 	 * 
 	 */
-	private void printNumberQuestions() {
+	private void getNumberQuestions() {
 
 		System.out.print("Введите номер теста: ");
 
@@ -90,7 +90,7 @@ public final class Student extends User {
 		}
 
 		int indexTest = numTest - 1;// index begin from 0;
-		Test test = this.getServer().studentGetTestInfo(this, indexTest);
+		TestController test = this.getServer().getTestInfoForStudent(this, indexTest);
 		if (test != null) {
 			int quantityQuestions = test.getNumberQuestions();
 			String s = String.format("Количество вопросов в тесте %d: %d", numTest, quantityQuestions);
