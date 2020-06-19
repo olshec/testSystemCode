@@ -165,7 +165,7 @@ public class ServerController {
 	*/
 	public List<UserModel> getStudentsForAdmin() {
 
-		return getUsersForAdminByType("Student");
+		return getUsersForAdminByType("StudentView");
 	}
 
 	/** Gets teachers.
@@ -173,7 +173,7 @@ public class ServerController {
 	*/
 	public List<UserModel> getTeachersForAdmin() {
 
-		return getUsersForAdminByType("Teacher");
+		return getUsersForAdminByType("TeacherView");
 	}
 
 	/** Gets administrators.
@@ -181,7 +181,7 @@ public class ServerController {
 	*/
 	public List<UserModel> getAdminForAdmin() {
 
-		return getUsersForAdminByType("Admin");
+		return getUsersForAdminByType("AdminView");
 	}
 	
 	

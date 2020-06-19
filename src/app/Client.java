@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import controllers.ServerController;
 import models.UserModel;
+import views.UserView;
 
 /**
  * This class is the entry point to the application.
@@ -27,7 +28,7 @@ public class Client {
 		
 		ServerController server = new ServerController();
 		UserModel user = server.login(login, password);
-		
+		//UserView userView=new User
 		//Student_1 login: "REgor", password: "1111"
 		//Student_2 login: "ShAnton", password: "1111"
 		
