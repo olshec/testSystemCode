@@ -3,8 +3,12 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import models.AdminModel;
+import models.StudentModel;
+import models.TeacherModel;
 import models.TestModel;
 import models.UserModel;
+
 import views.AdminView;
 import views.StudentView;
 import views.TeacherView;
@@ -28,10 +32,12 @@ public class ServerController {
 
 		// BEGIN DATA FOR TEST
 
-		AdminView admin1 = new AdminView("Примарев", "Игорь", this, "Admin1", "0000");
+		UserModel admin1 = new AdminModel("Примарев", "Игорь", this, "Admin1", "0000");
+		
+		//AdminView admin1 = new AdminView("Примарев", "Игорь", this, "Admin1", "0000");
 		userBase.addUser(admin1);
 
-		TeacherView teacher1 = new TeacherView("Киров", "Антон", this, "KirovAnton", "12345678");
+		UserModel teacher1 = new TeacherModel("Киров", "Антон", this, "KirovAnton", "12345678");
 		userBase.addUser(teacher1);
 		TestController test1 = new TestController("Робототехника", teacher1);
 		TestController test2 = new TestController("Сетевые технологии", teacher1);
@@ -58,8 +64,8 @@ public class ServerController {
 		tests.add(test3);
 		testBase.addTests(tests);
 
-		StudentView student1 = new StudentView("Шахматов", "Антон", this, "ShAnton", "1111");
-		StudentView student2 = new StudentView("Романенко", "Егор", this, "REgor", "1111");
+		UserModel student1 = new StudentModel("Шахматов", "Антон", this, "ShAnton", "1111");
+		UserModel student2 = new StudentModel("Романенко", "Егор", this, "REgor", "1111");
 
 		userBase.addUser(student1);
 		userBase.addUser(student2);
@@ -165,7 +171,7 @@ public class ServerController {
 	*/
 	public List<UserModel> getStudentsForAdmin() {
 
-		return getUsersForAdminByType("StudentView");
+		return getUsersForAdminByType("StudentModel");
 	}
 
 	/** Gets teachers.
@@ -173,7 +179,7 @@ public class ServerController {
 	*/
 	public List<UserModel> getTeachersForAdmin() {
 
-		return getUsersForAdminByType("TeacherView");
+		return getUsersForAdminByType("TeacherModel");
 	}
 
 	/** Gets administrators.
@@ -181,7 +187,7 @@ public class ServerController {
 	*/
 	public List<UserModel> getAdminForAdmin() {
 
-		return getUsersForAdminByType("AdminView");
+		return getUsersForAdminByType("AdminModel");
 	}
 	
 	
