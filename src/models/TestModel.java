@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import controllers.QuestionController;
@@ -14,6 +15,28 @@ public class TestModel {
 	private List<QuestionModel> questions;
 	private List<UserModel> students;
 	private List<Integer> results;
+	
+	
+	
+	
+	public TestModel() {;}
+	/**
+	 * Creates a test.
+	 * @param   The test's name.
+	 * @param  The test’s teacher.
+	 */
+	public TestModel(String name, UserModel teacher) {
+		this.init();
+		setName(name);
+		setTeacher(teacher);
+	}
+	
+	
+	private void init() {
+		setQuestions(new ArrayList<QuestionModel>());
+		setStudents(new ArrayList<UserModel>());
+		setResults(new ArrayList<Integer>()); 
+	}
 	
 	public String getName() {
 		return name;

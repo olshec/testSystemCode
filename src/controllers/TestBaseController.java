@@ -3,33 +3,34 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import models.TestModel;
 import models.UserModel;
 
 public class TestBaseController {
-	private List<TestController> tests;
+	private List<TestModel> tests;
+	
+	public TestBaseController() {;}
 
-	public TestBaseController() {
-	}
-
-	public List<TestController> getTestsStudent(UserModel student) {
-		List<TestController> testsStudent = new ArrayList<TestController>();
+	public List<TestModel> getTestsStudent(UserModel student) {
+		List<TestModel> testsStudent = new ArrayList<TestModel>();
 		for (int i = 0; i < tests.size(); i++) {
-			if (tests.get(i).hasStudent(student) == true) {
+			TestController testController=new TestController(tests.get(i));
+			if (testController.hasStudent(student) == true) {
 				testsStudent.add(tests.get(i));
 			}
 		}
 		return testsStudent;
 	}
 
-	public List<TestController> getAllTests() {
+	public List<TestModel> getAllTests() {
 		return tests;
 	}
 
-	public void addTests(List<TestController> tests) {
+	public void addTests(List<TestModel> tests) {
 		this.tests = tests;
 	}
 
-	public TestController getTestIndex(int index) {
+	public TestModel getTestIndex(int index) {
 		if (index < tests.size() && index >= 0) {
 			return tests.get(index);
 		}
@@ -42,8 +43,9 @@ public class TestBaseController {
 	public List<TestController> getTests(UserModel teacher) {
 		ArrayList<TestController> masTests = new ArrayList<TestController>();
 		for (int i = 0; i < tests.size(); i++) {
-			if (tests.get(i).hasTeacher(teacher)) {
-				masTests.add(tests.get(i));
+			TestController testController=new TestController(tests.get(i));
+			if (testController.hasTeacher(teacher)) {
+				masTests.add(testController);
 			}
 		}
 		return masTests;
@@ -53,7 +55,8 @@ public class TestBaseController {
 	 * get number questions in test
 	 */
 	public int getNumberQuestionsInTest(int indexTest) {
-		return tests.get(indexTest).getNumberQuestions();
+		TestController testController=new TestController(tests.get(indexTest));
+		return  testController.getNumberQuestions();
 	}
 
 }

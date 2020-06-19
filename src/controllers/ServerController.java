@@ -7,6 +7,7 @@ import models.AdminModel;
 import models.QuestionModel;
 import models.StudentModel;
 import models.TeacherModel;
+import models.TestModel;
 import models.UserModel;
 
 
@@ -30,36 +31,35 @@ public class ServerController {
 
 		// BEGIN DATA FOR TEST
 
-
 		UserModel admin1 = new AdminModel("Примарев", "Игорь", this, "Admin1", "0000");
-		//AdminView admin1 = new AdminView("Примарев", "Игорь", this, "Admin1", "0000");
 		userBase.addUser(admin1);
 
 		UserModel teacher1 = new TeacherModel("Киров", "Антон", this, "KirovAnton", "12345678");
 		userBase.addUser(teacher1);
-		TestController test1 = new TestController("Робототехника", teacher1);
-		TestController test2 = new TestController("Сетевые технологии", teacher1);
-		TestController test3 = new TestController("Информатика", teacher1);
+		TestModel test1 = new TestModel("Робототехника", teacher1);
+		TestModel test2 = new TestModel("Сетевые технологии", teacher1);
+		TestModel test3 = new TestModel("Информатика", teacher1);
 		
 		QuestionModel q1 = new QuestionModel("Основы роботетхники");
 		QuestionModel q2 = new QuestionModel("AI");
 		QuestionModel q3 = new QuestionModel("Микроконтроллеры");
-//		questionController.addQuestion(q1);
-//		questionController.addQuestion(q2);
-//		questionController.addQuestion(q1);
-		test1.addQuestion(q1);
-		test1.addQuestion(q2);
-		test1.addQuestion(q3);
+
+		TestController testController=new TestController(test1);
+		testController.addQuestion(q1);
+		testController.addQuestion(q2);
+		testController.addQuestion(q3);
+
 
 		QuestionModel q4 = new QuestionModel("Протокол HTTP");
 		QuestionModel q5 = new QuestionModel("Характеристика OSI");
 		QuestionModel q6 = new QuestionModel("Протокол TCP");
-		test2.addQuestion(q3);
-		test2.addQuestion(q4);
-		test2.addQuestion(q5);
-		test2.addQuestion(q6);
+		testController.setTestModel(test2);
+		testController.addQuestion(q3);
+		testController.addQuestion(q4);
+		testController.addQuestion(q5);
+		testController.addQuestion(q6);
 
-		List<TestController> tests = new ArrayList<TestController>();
+		List<TestModel> tests = new ArrayList<TestModel>();
 		tests.add(test1);
 		tests.add(test2);
 		tests.add(test3);
@@ -71,14 +71,16 @@ public class ServerController {
 		userBase.addUser(student1);
 		userBase.addUser(student2);
 
-		test1.addStudent(student1);
-		test1.addStudent(student2);
+		testController.setTestModel(test1);
+		testController.addStudent(student1);
+		testController.addStudent(student2);
 
-		test1.addResult(student1, 4);
-		test1.addResult(student2, 2);
+		testController.addResult(student1, 4);
+		testController.addResult(student2, 2);
 
-		test2.addStudent(student1);
-		test2.addResult(student1, 5);
+		testController.setTestModel(test2);
+		testController.addStudent(student1);
+		testController.addResult(student1, 5);
 
 		// END DATA FOR TEST
 
@@ -97,7 +99,7 @@ public class ServerController {
 	 * @param student The student.
 	 * @return List<Test> The list tests.
 	*/
-	public List<TestController> getTestsForStudent(UserModel student) {
+	public List<TestModel> getTestsForStudent(UserModel student) {
 		return testBase.getTestsStudent(student);
 	}
 
@@ -106,9 +108,10 @@ public class ServerController {
 	 * @param  The test index.
 	 * @return The test.
 	*/
-	public TestController getTestInfoForStudent(UserModel student, int indexTest) {
-		TestController test = testBase.getTestIndex(indexTest);
-		if (test != null && test.hasStudent(student)) {
+	public TestModel getTestInfoForStudent(UserModel student, int indexTest) {
+		TestModel test = testBase.getTestIndex(indexTest);
+		TestController testController =new TestController(test);
+		if (test != null && testController.hasStudent(student)) {
 			return testBase.getTestIndex(indexTest);
 		} else
 			return null;
@@ -122,8 +125,9 @@ public class ServerController {
 	 * @throws Exception 
 	*/
 	public int getNumberQuestionsInTest(UserModel student, int indexTest) throws Exception {
-		TestController test = testBase.getTestIndex(indexTest);
-		if (test != null && test.hasStudent(student)) {
+		TestModel test = testBase.getTestIndex(indexTest);
+		TestController testController =new TestController(test);
+		if (test != null && testController.hasStudent(student)) {
 			return testBase.getNumberQuestionsInTest(indexTest);
 		} else
 			throw new Exception("Теста с таким номером не существует!");
@@ -178,8 +182,6 @@ public class ServerController {
 	 * @return List<User> The list teachers.
 	*/
 	public List<UserModel> getTeachersForAdmin() {
-
-
 		return getUsersForAdminByType("TeacherModel");
 	}
 

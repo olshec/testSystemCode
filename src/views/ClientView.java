@@ -28,8 +28,14 @@ public class ClientView {
 		
 		ServerController server = new ServerController();
 		UserModel user = server.login(login, password);
-		UserView userView=null;
+
+		if(user==null) {
+			System.out.print("Неправильный логин или пароль.");
+			System.out.println("До свидания!");
+			return;
+		}
 		
+		UserView userView=null;
 		switch (user.getClass().getSimpleName()) {
 		case "AdminModel":
 			userView=new AdminView(user);
@@ -52,7 +58,7 @@ public class ClientView {
 		if(userView!=null)
 			userView.openMenu();
 		else {
-			System.out.print("Неправильный логин или пароль.");
+			System.out.print("Произошла непредвиденная ошибка!");
 			System.out.println("До свидания!");
 		}
 		

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import controllers.TestController;
+import models.TestModel;
 import models.UserModel;
 
 /**
@@ -67,7 +68,7 @@ public final class StudentView extends UserView {
 	 * 
 	 */
 	private void getTestsStudent() {
-		List<TestController> mas = this.getUserModel().getServer().getTestsForStudent(this.getUserModel());
+		List<TestModel> mas = this.getUserModel().getServer().getTestsForStudent(this.getUserModel());
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
 			System.out.println(i + 1 + ") " + mas.get(i).getName());
