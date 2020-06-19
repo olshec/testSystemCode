@@ -11,7 +11,7 @@ import controllers.QuestionController;
 public class TestModel {
 	private String name;
 	private UserModel teacher;
-	private List<QuestionController> questions;
+	private List<QuestionModel> questions;
 	private List<UserModel> students;
 	private List<Integer> results;
 	
@@ -31,11 +31,11 @@ public class TestModel {
 		this.teacher = teacher;
 	}
 	
-	public List<QuestionController> getQuestions() {
+	public List<QuestionModel> getQuestions() {
 		return questions;
 	}
 	
-	public void setQuestions(List<QuestionController> questions) {
+	public void setQuestions(List<QuestionModel> questions) {
 		this.questions = questions;
 	}
 	

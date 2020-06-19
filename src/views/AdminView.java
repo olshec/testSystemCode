@@ -3,7 +3,9 @@ package views;
 import java.util.List;
 import java.util.Scanner;
 
+import controllers.AdminController;
 import controllers.ServerController;
+import models.AdminModel;
 import models.UserModel;
 
 /**
@@ -13,8 +15,9 @@ import models.UserModel;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class AdminView extends UserModel {
-
+public class AdminView extends UserModel{
+	
+	private AdminController userController;
 	/**
 	 * Creates an administrator.
 	 * 
@@ -24,8 +27,8 @@ public class AdminView extends UserModel {
 	 * @param username  The administrator’s username.
 	 * @param password  The administrator’s password.
 	 */
-	public AdminView(String lastName, String firstName, ServerController server, String username, String password) {
-		super(lastName, firstName, server, username, password);
+	public AdminView(AdminController userController) {
+		this.userController = userController;
 	}
 
 	/**
@@ -93,7 +96,7 @@ public class AdminView extends UserModel {
 	 * 
 	 */
 	private void getUsers() {
-		List<UserModel> masUser = this.getServer().getAllUsersForAdmin();
+		List<UserModel> masUser = this.userController.getUsers();
 		printListUsers(masUser, "Cписок пользователей");
 	}
 

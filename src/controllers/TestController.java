@@ -3,6 +3,7 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import models.QuestionModel;
 import models.TestModel;
 import models.UserModel;
 
@@ -30,7 +31,7 @@ public class TestController {
 
 	private void init() {
 		testModel=new TestModel();
-		testModel.setQuestions(new ArrayList<QuestionController>());
+		testModel.setQuestions(new ArrayList<QuestionModel>());
 		testModel.setStudents(new ArrayList<UserModel>());
 		testModel.setResults(new ArrayList<Integer>()); 
 	}
@@ -84,7 +85,7 @@ public class TestController {
 		return testModel.getResults();
 	}
 
-	public void addQuestion(QuestionController q) {
+	public void addQuestion(QuestionModel q) {
 		testModel.getQuestions().add(q);
 	}
 

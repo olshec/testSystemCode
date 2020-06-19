@@ -16,6 +16,7 @@ public abstract class UserModel {
 	private String username;
 	private String password;
 	private int id;
+	
 	/** variable for increment id
 	 */
 	private static int idCount;
@@ -24,6 +25,8 @@ public abstract class UserModel {
 		idCount = 0;
 	}
 
+	
+	public UserModel() {;}
 	/** Creates an user.
 	 * @param lastName The user’s last name.
 	 * @param firstName The user’s first name.
@@ -83,7 +86,4 @@ public abstract class UserModel {
 		return this.server;
 	}
 
-	/** Function for opening menu.
-	*/
-	public abstract void openMenu();
 }

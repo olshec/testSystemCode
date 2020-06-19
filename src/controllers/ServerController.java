@@ -3,6 +3,8 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import models.AdminModel;
+import models.QuestionModel;
 import models.TestModel;
 import models.UserModel;
 import views.AdminView;
@@ -28,7 +30,8 @@ public class ServerController {
 
 		// BEGIN DATA FOR TEST
 
-		AdminView admin1 = new AdminView("Примарев", "Игорь", this, "Admin1", "0000");
+		//AdminView admin1 = new AdminView("Примарев", "Игорь", this, "Admin1", "0000");
+		AdminModel admin1 = new AdminModel("Примарев", "Игорь", this, "Admin1", "0000");
 		userBase.addUser(admin1);
 
 		TeacherView teacher1 = new TeacherView("Киров", "Антон", this, "KirovAnton", "12345678");
@@ -36,17 +39,20 @@ public class ServerController {
 		TestController test1 = new TestController("Робототехника", teacher1);
 		TestController test2 = new TestController("Сетевые технологии", teacher1);
 		TestController test3 = new TestController("Информатика", teacher1);
-
-		QuestionController q1 = new QuestionController("Основы роботетхники");
-		QuestionController q2 = new QuestionController("AI");
-		QuestionController q3 = new QuestionController("Микроконтроллеры");
+		
+		QuestionModel q1 = new QuestionModel("Основы роботетхники");
+		QuestionModel q2 = new QuestionModel("AI");
+		QuestionModel q3 = new QuestionModel("Микроконтроллеры");
+//		questionController.addQuestion(q1);
+//		questionController.addQuestion(q2);
+//		questionController.addQuestion(q1);
 		test1.addQuestion(q1);
 		test1.addQuestion(q2);
 		test1.addQuestion(q3);
 
-		QuestionController q4 = new QuestionController("Протокол HTTP");
-		QuestionController q5 = new QuestionController("Характеристика OSI");
-		QuestionController q6 = new QuestionController("Протокол TCP");
+		QuestionModel q4 = new QuestionModel("Протокол HTTP");
+		QuestionModel q5 = new QuestionModel("Характеристика OSI");
+		QuestionModel q6 = new QuestionModel("Протокол TCP");
 		test2.addQuestion(q3);
 		test2.addQuestion(q4);
 		test2.addQuestion(q5);
@@ -165,7 +171,7 @@ public class ServerController {
 	*/
 	public List<UserModel> getStudentsForAdmin() {
 
-		return getUsersForAdminByType("Student");
+		return getUsersForAdminByType("StudentView");
 	}
 
 	/** Gets teachers.
@@ -173,7 +179,7 @@ public class ServerController {
 	*/
 	public List<UserModel> getTeachersForAdmin() {
 
-		return getUsersForAdminByType("Teacher");
+		return getUsersForAdminByType("TeacherView");
 	}
 
 	/** Gets administrators.
@@ -181,7 +187,7 @@ public class ServerController {
 	*/
 	public List<UserModel> getAdminForAdmin() {
 
-		return getUsersForAdminByType("Admin");
+		return getUsersForAdminByType("AdminView");
 	}
 	
 	

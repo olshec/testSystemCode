@@ -8,6 +8,9 @@ public class QuestionModel {
 	private String text;
 	private List<AnswerController> answers;
 	
+	public QuestionModel(String text) {
+		setText(text);
+	}
 	
 	public String getText() {
 		return text;
