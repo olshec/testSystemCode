@@ -89,7 +89,7 @@ public final class StudentView extends UserModel {
 		try {
 			numTest = myInput.nextInt();
 		} catch (java.util.InputMismatchException exception) {
-			System.out.println("Теста с таким номером не существует");
+			System.out.println("Ошибка ввода! Номер теста должен быть числом!");
 			return;
 		}
 
