@@ -15,9 +15,14 @@ import models.UserModel;
  * @author olshec@gmail.com
  * @version 1.0
  */
+<<<<<<< HEAD
 public class AdminView extends UserModel{
 	
 	private AdminController userController;
+=======
+public class AdminView extends UserView {
+
+>>>>>>> SE-222
 	/**
 	 * Creates an administrator.
 	 * 
@@ -27,10 +32,16 @@ public class AdminView extends UserModel{
 	 * @param username  The administrator’s username.
 	 * @param password  The administrator’s password.
 	 */
+<<<<<<< HEAD
 	public AdminView(AdminController userController) {
 		this.userController = userController;
+=======
+	public AdminView(UserModel userModel) {
+		super(userModel);
+>>>>>>> SE-222
 	}
 
+	
 	/**
 	 * Function for opening menu.
 	 */
@@ -96,7 +107,11 @@ public class AdminView extends UserModel{
 	 * 
 	 */
 	private void getUsers() {
+<<<<<<< HEAD
 		List<UserModel> masUser = this.userController.getUsers();
+=======
+		List<UserModel> masUser = this.getUserModel().getServer().getAllUsersForAdmin();
+>>>>>>> SE-222
 		printListUsers(masUser, "Cписок пользователей");
 	}
 
@@ -105,7 +120,7 @@ public class AdminView extends UserModel{
 	 * 
 	 */
 	private void getStudents() {
-		List<UserModel> masUser = this.getServer().getStudentsForAdmin();
+		List<UserModel> masUser =this.getUserModel().getServer().getStudentsForAdmin();
 		printListUsers(masUser, "Cписок студентов");
 	}
 
@@ -114,7 +129,7 @@ public class AdminView extends UserModel{
 	 * 
 	 */
 	private void getTeachers() {
-		List<UserModel> masUser = this.getServer().getTeachersForAdmin();
+		List<UserModel> masUser = this.getUserModel().getServer().getTeachersForAdmin();
 		printListUsers(masUser, "Cписок преподавателей");
 	}
 
@@ -123,7 +138,7 @@ public class AdminView extends UserModel{
 	 * 
 	 */
 	private void getAdministrators() {
-		List<UserModel> masUser = this.getServer().getAdminForAdmin();
+		List<UserModel> masUser = this.getUserModel().getServer().getAdminForAdmin();
 		printListUsers(masUser, "Cписок администраторов");
 	}
 

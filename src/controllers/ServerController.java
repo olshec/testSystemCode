@@ -4,9 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.AdminModel;
+<<<<<<< HEAD
 import models.QuestionModel;
+=======
+import models.StudentModel;
+import models.TeacherModel;
+>>>>>>> SE-222
 import models.TestModel;
 import models.UserModel;
+
 import views.AdminView;
 import views.StudentView;
 import views.TeacherView;
@@ -30,11 +36,17 @@ public class ServerController {
 
 		// BEGIN DATA FOR TEST
 
+<<<<<<< HEAD
 		//AdminView admin1 = new AdminView("Примарев", "Игорь", this, "Admin1", "0000");
 		AdminModel admin1 = new AdminModel("Примарев", "Игорь", this, "Admin1", "0000");
+=======
+		UserModel admin1 = new AdminModel("Примарев", "Игорь", this, "Admin1", "0000");
+		
+		//AdminView admin1 = new AdminView("Примарев", "Игорь", this, "Admin1", "0000");
+>>>>>>> SE-222
 		userBase.addUser(admin1);
 
-		TeacherView teacher1 = new TeacherView("Киров", "Антон", this, "KirovAnton", "12345678");
+		UserModel teacher1 = new TeacherModel("Киров", "Антон", this, "KirovAnton", "12345678");
 		userBase.addUser(teacher1);
 		TestController test1 = new TestController("Робототехника", teacher1);
 		TestController test2 = new TestController("Сетевые технологии", teacher1);
@@ -64,8 +76,8 @@ public class ServerController {
 		tests.add(test3);
 		testBase.addTests(tests);
 
-		StudentView student1 = new StudentView("Шахматов", "Антон", this, "ShAnton", "1111");
-		StudentView student2 = new StudentView("Романенко", "Егор", this, "REgor", "1111");
+		UserModel student1 = new StudentModel("Шахматов", "Антон", this, "ShAnton", "1111");
+		UserModel student2 = new StudentModel("Романенко", "Егор", this, "REgor", "1111");
 
 		userBase.addUser(student1);
 		userBase.addUser(student2);
@@ -171,7 +183,11 @@ public class ServerController {
 	*/
 	public List<UserModel> getStudentsForAdmin() {
 
+<<<<<<< HEAD
 		return getUsersForAdminByType("StudentView");
+=======
+		return getUsersForAdminByType("StudentModel");
+>>>>>>> SE-222
 	}
 
 	/** Gets teachers.
@@ -179,7 +195,11 @@ public class ServerController {
 	*/
 	public List<UserModel> getTeachersForAdmin() {
 
+<<<<<<< HEAD
 		return getUsersForAdminByType("TeacherView");
+=======
+		return getUsersForAdminByType("TeacherModel");
+>>>>>>> SE-222
 	}
 
 	/** Gets administrators.
@@ -187,7 +207,11 @@ public class ServerController {
 	*/
 	public List<UserModel> getAdminForAdmin() {
 
+<<<<<<< HEAD
 		return getUsersForAdminByType("AdminView");
+=======
+		return getUsersForAdminByType("AdminModel");
+>>>>>>> SE-222
 	}
 	
 	

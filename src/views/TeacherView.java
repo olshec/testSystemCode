@@ -14,7 +14,7 @@ import models.UserModel;
  * @version 1.0
  */
 
-public final class TeacherView extends UserModel {
+public final class TeacherView extends UserView {
 
 	/**
 	 * Creates a teacher.
@@ -25,8 +25,8 @@ public final class TeacherView extends UserModel {
 	 * @param username  The teacher’s username.
 	 * @param password  The teacher’s password.
 	 */
-	public TeacherView(String lastName, String firstName, ServerController server, String username, String password) {
-		super(lastName, firstName, server, username, password);
+	public TeacherView(UserModel userModel) {
+		super(userModel);
 	}
 
 	/** Function for opening menu.
@@ -70,7 +70,7 @@ public final class TeacherView extends UserModel {
 	 * 
 	 */
 	private void getTests() {
-		List<TestController> mas = this.getServer().getTestsForTeacher(this);
+		List<TestController> mas = this.getUserModel().getServer().getTestsForTeacher(this.getUserModel());
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
 			System.out.println(i + 1 + ") " + mas.get(i).getName());
@@ -96,7 +96,7 @@ public final class TeacherView extends UserModel {
 		}
 
 		int indexTest = numTest - 1;// index begin from 0;
-		TestController test = this.getServer().getTestResultForTeacher(this, indexTest);
+		TestController test = this.getUserModel().getServer().getTestResultForTeacher(this.getUserModel(), indexTest);
 		if (test != null) {
 			List<UserModel> masStudent = test.getStudents();
 			List<Integer> masResult = test.getResults();

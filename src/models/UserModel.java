@@ -43,6 +43,7 @@ public abstract class UserModel {
 		this.id = idCount;
 		idCount++;
 	}
+	
 
 	/** Gets the user’s first name.
 	 * @return String return first name
@@ -86,4 +87,10 @@ public abstract class UserModel {
 		return this.server;
 	}
 
+<<<<<<< HEAD
+=======
+	/** Function for opening menu.
+	*/
+	//public abstract void openMenu();
+>>>>>>> SE-222
 }

@@ -14,7 +14,7 @@ import models.UserModel;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public final class StudentView extends UserModel {
+public final class StudentView extends UserView {
 
 	/** Creates a student.
 	 * @param lastName The student’s last name.
@@ -23,8 +23,8 @@ public final class StudentView extends UserModel {
 	 * @param username The student’s username.
 	 * @param password The student’s password.
 	*/
-	public StudentView(String lastName, String firstName, ServerController server, String username, String password) {
-		super(lastName, firstName, server, username, password);
+	public StudentView(UserModel userModel) {
+		super(userModel);
 	}
 
 	/** Function for opening menu.
@@ -68,7 +68,7 @@ public final class StudentView extends UserModel {
 	 * 
 	 */
 	private void getTestsStudent() {
-		List<TestController> mas = this.getServer().getTestsForStudent(this);
+		List<TestController> mas = this.getUserModel().getServer().getTestsForStudent(this.getUserModel());
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
 			System.out.println(i + 1 + ") " + mas.get(i).getName());
@@ -95,7 +95,7 @@ public final class StudentView extends UserModel {
 
 		// --numTest index begin from 0;
 		try {
-			int quantityQuestions = this.getServer().getNumberQuestionsInTest(this, --numTest);
+			int quantityQuestions = this.getUserModel().getServer().getNumberQuestionsInTest(this.getUserModel(), --numTest);
 			String s = String.format("Количество вопросов в тесте %d: %d", numTest, quantityQuestions);
 			System.out.println(s);
 		} catch (Exception exception) {
