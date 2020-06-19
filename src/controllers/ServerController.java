@@ -7,13 +7,9 @@ import models.AdminModel;
 import models.QuestionModel;
 import models.StudentModel;
 import models.TeacherModel;
-
-import models.TestModel;
 import models.UserModel;
 
-import views.AdminView;
-import views.StudentView;
-import views.TeacherView;
+
 
 /**
  * Represents a server.
