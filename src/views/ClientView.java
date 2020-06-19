@@ -1,14 +1,10 @@
-package app;
+package views;
 
 import java.util.Scanner;
 
 import controllers.ServerController;
 import models.AdminModel;
 import models.UserModel;
-import views.AdminView;
-import views.StudentView;
-import views.TeacherView;
-import views.UserView;
 
 /**
  * This class is the entry point to the application.
@@ -18,7 +14,7 @@ import views.UserView;
  * @version 1.0
  */
 
-public class Client {
+public class ClientView {
 
 	public static void main(String[] args) {
 

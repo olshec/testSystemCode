@@ -20,8 +20,5 @@ public class AdminController {
 		return masUser;
 	}
 	
-	
-	
-	
-	
+
 }
