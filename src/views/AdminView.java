@@ -2,9 +2,6 @@ package views;
 
 import java.util.List;
 import java.util.Scanner;
-
-import controllers.ServerController;
-import models.AdminModel;
 import models.UserModel;
 
 /**

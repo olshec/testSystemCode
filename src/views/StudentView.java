@@ -3,7 +3,6 @@ package views;
 import java.util.List;
 import java.util.Scanner;
 
-import controllers.ServerController;
 import controllers.TestController;
 import models.UserModel;
 
