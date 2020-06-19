@@ -36,10 +36,10 @@ public class TestBaseController {
 		return null;
 	}
 
-	/*
-	 * get tests result for teacher
+	/**
+	 * get tests
 	 */
-	public List<TestController> teacherGetTests(UserModel teacher) {
+	public List<TestController> getTests(UserModel teacher) {
 		ArrayList<TestController> masTests = new ArrayList<TestController>();
 		for (int i = 0; i < tests.size(); i++) {
 			if (tests.get(i).hasTeacher(teacher)) {
@@ -47,6 +47,13 @@ public class TestBaseController {
 			}
 		}
 		return masTests;
+	}
+	
+	/**
+	 * get number questions in test
+	 */
+	public int getNumberQuestionsInTest(int indexTest) {
+		return tests.get(indexTest).getNumberQuestions();
 	}
 
 }

@@ -93,15 +93,16 @@ public final class StudentView extends UserModel {
 			return;
 		}
 
-		int indexTest = numTest - 1;// index begin from 0;
-		TestController test = this.getServer().getTestInfoForStudent(this, indexTest);
-		if (test != null) {
-			int quantityQuestions = test.getNumberQuestions();
+		// --numTest index begin from 0;
+		try {
+			int quantityQuestions = this.getServer().getNumberQuestionsInTest(this, --numTest);
 			String s = String.format("Количество вопросов в тесте %d: %d", numTest, quantityQuestions);
 			System.out.println(s);
-		} else {
-			System.out.println("Теста с таким номером не существует");
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
+			return;
 		}
+
 
 	}
 

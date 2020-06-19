@@ -3,6 +3,7 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import models.TestModel;
 import models.UserModel;
 import views.AdminView;
 import views.StudentView;
@@ -94,9 +95,9 @@ public class ServerController {
 	}
 
 	/** Gets student test information.
-	 * @param student The student.
-	 * @param indexTest The test index.
-	 * @return Test The test.
+	 * @param The student.
+	 * @param  The test index.
+	 * @return The test.
 	*/
 	public TestController getTestInfoForStudent(UserModel student, int indexTest) {
 		TestController test = testBase.getTestIndex(indexTest);
@@ -106,12 +107,28 @@ public class ServerController {
 			return null;
 	}
 
+	
+	/** Gets student test number questions.
+	 * @param The student.
+	 * @param The test index.
+	 * @return The test.
+	 * @throws Exception 
+	*/
+	public int getNumberQuestionsInTest(UserModel student, int indexTest) throws Exception {
+		TestController test = testBase.getTestIndex(indexTest);
+		if (test != null && test.hasStudent(student)) {
+			return testBase.getNumberQuestionsInTest(indexTest);
+		} else
+			throw new Exception("Теста с таким номером не существует!");
+		//return -1;
+	}
+	
 	/** Gets tests for teacher.
 	 * @param teacher The teacher.
 	 * @return List<Test> The list tests.
 	*/
 	public List<TestController> getTestsForTeacher(UserModel teacher) {
-		return testBase.teacherGetTests(teacher);
+		return testBase.getTests(teacher);
 	}
 
 	/** Gets students test result.
@@ -120,7 +137,7 @@ public class ServerController {
 	 * @return Test The test.
 	*/
 	public TestController getTestResultForTeacher(UserModel teacher, int indexTest) {
-		return testBase.teacherGetTests(teacher).get(indexTest);
+		return testBase.getTests(teacher).get(indexTest);
 	}
 
 	/** Gets users.
@@ -166,5 +183,7 @@ public class ServerController {
 
 		return getUsersForAdminByType("Admin");
 	}
+	
+	
 
 }
