@@ -1,12 +1,12 @@
-package controller;
+package controllers;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import models.UserModel;
-import view.AdminView;
-import view.StudentView;
-import view.TeacherView;
+import views.AdminView;
+import views.StudentView;
+import views.TeacherView;
 
 /**
  * Represents a server.

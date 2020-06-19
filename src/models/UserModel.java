@@ -1,6 +1,6 @@
 package models;
 
-import controller.ServerController;
+import controllers.ServerController;
 
 /**
  * Represents an user.

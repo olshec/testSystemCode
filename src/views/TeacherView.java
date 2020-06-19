@@ -1,29 +1,31 @@
-package view;
+package views;
 
 import java.util.List;
 import java.util.Scanner;
 
-import controller.ServerController;
-import controller.TestController;
+import controllers.ServerController;
+import controllers.TestController;
 import models.UserModel;
-
 /**
- * Represents a student.
+ * Represents a teacher.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com
  * @version 1.0
  */
-public final class StudentView extends UserModel {
 
-	/** Creates a student.
-	 * @param lastName The student’s last name.
-	 * @param firstName The student’s first name.
-	 * @param server The student’s server.
-	 * @param username The student’s username.
-	 * @param password The student’s password.
-	*/
-	public StudentView(String lastName, String firstName, ServerController server, String username, String password) {
+public final class TeacherView extends UserModel {
+
+	/**
+	 * Creates a teacher.
+	 * 
+	 * @param lastName  The teacher’s last name.
+	 * @param firstName The teacher’s first name.
+	 * @param server    The teacher’s server.
+	 * @param username  The teacher’s username.
+	 * @param password  The teacher’s password.
+	 */
+	public TeacherView(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
 
@@ -35,7 +37,7 @@ public final class StudentView extends UserModel {
 			System.out.println();
 			System.out.println("0 - выход");
 			System.out.println("1 - получить список тестов");
-			System.out.println("2 - получить количество вопросов в тесте");
+			System.out.println("2 - получить результаты теста");
 			System.out.print("?: ");
 
 			Scanner myInput = new Scanner(System.in);
@@ -49,10 +51,10 @@ public final class StudentView extends UserModel {
 			case 0:
 				break;
 			case 1:
-				getTestsStudent();
+				getTests();
 				break;
 			case 2:
-				getNumberQuestions();
+				getTestResult();
 				break;
 			default:
 				System.out.println("Неверный ввод! Попытайтесь еще раз.");
@@ -64,11 +66,11 @@ public final class StudentView extends UserModel {
 	}
 
 	/**
-	 * Gets a list of student tests from the server and prints.
+	 * Gets a list of tests from the server and prints.
 	 * 
 	 */
-	private void getTestsStudent() {
-		List<TestController> mas = this.getServer().getTestsForStudent(this);
+	private void getTests() {
+		List<TestController> mas = this.getServer().getTestsForTeacher(this);
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
 			System.out.println(i + 1 + ") " + mas.get(i).getName());
@@ -76,10 +78,10 @@ public final class StudentView extends UserModel {
 	}
 
 	/**
-	 * Gets the number of test questions from the server and prints.
+	 * Gets a result of students test from the server and prints.
 	 * 
 	 */
-	private void getNumberQuestions() {
+	private void getTestResult() {
 
 		System.out.print("Введите номер теста: ");
 
@@ -94,11 +96,20 @@ public final class StudentView extends UserModel {
 		}
 
 		int indexTest = numTest - 1;// index begin from 0;
-		TestController test = this.getServer().getTestInfoForStudent(this, indexTest);
+		TestController test = this.getServer().getTestResultForTeacher(this, indexTest);
 		if (test != null) {
-			int quantityQuestions = test.getNumberQuestions();
-			String s = String.format("Количество вопросов в тесте %d: %d", numTest, quantityQuestions);
-			System.out.println(s);
+			List<UserModel> masStudent = test.getStudents();
+			List<Integer> masResult = test.getResults();
+			if (masResult.size() > 0) {
+				for (int i = 0; i < masResult.size(); i++) {
+					String s = String.format("%d) %s %s: %d", i + 1, masStudent.get(i).getLastName(),
+							masStudent.get(i).getFirstName(), masResult.get(i));
+					System.out.println(s);
+				}
+			} else {
+				System.out.println("Результаты теста отсутствуют");
+			}
+
 		} else {
 			System.out.println("Теста с таким номером не существует");
 		}

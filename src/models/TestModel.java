@@ -2,7 +2,7 @@ package models;
 
 import java.util.List;
 
-import controller.QuestionController;
+import controllers.QuestionController;
 
 /**
  * @author user1

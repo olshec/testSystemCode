@@ -2,7 +2,7 @@ package models;
 
 import java.util.List;
 
-import controller.AnswerController;
+import controllers.AnswerController;
 
 public class QuestionModel {
 	private String text;

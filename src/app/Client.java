@@ -2,7 +2,7 @@ package app;
 
 import java.util.Scanner;
 
-import controller.ServerController;
+import controllers.ServerController;
 import models.UserModel;
 
 /**

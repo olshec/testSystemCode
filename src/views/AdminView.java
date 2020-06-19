@@ -1,9 +1,9 @@
-package view;
+package views;
 
 import java.util.List;
 import java.util.Scanner;
 
-import controller.ServerController;
+import controllers.ServerController;
 import models.UserModel;
 
 /**
