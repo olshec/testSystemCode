@@ -110,7 +110,7 @@ public class ServerController {
 	 * @param teacher The teacher.
 	 * @return List<Test> The list tests.
 	*/
-	public List<TestController> teacherGetTests(UserModel teacher) {
+	public List<TestController> getTestsForTeacher(UserModel teacher) {
 		return testBase.teacherGetTests(teacher);
 	}
 
@@ -119,19 +119,19 @@ public class ServerController {
 	 * @param indexTest The test index.
 	 * @return Test The test.
 	*/
-	public TestController teacherGetTestResult(UserModel teacher, int indexTest) {
+	public TestController getTestResultForTeacher(UserModel teacher, int indexTest) {
 		return testBase.teacherGetTests(teacher).get(indexTest);
 	}
 
 	/** Gets users.
 	 * @return List<User> The list all users.
 	*/
-	public List<UserModel> adminGetAllUsers() {
+	public List<UserModel> getAllUsersForAdmin() {
 		return userBase.getUsers();
 	}
 
 	//get user by type 
-	private List<UserModel> adminGetUsers(String typeUser) {
+	private List<UserModel> getUsersForAdminByType(String typeUser) {
 		List<UserModel> masUser = userBase.getUsers();
 		List<UserModel> masUserResult = new ArrayList<UserModel>();
 		for (int i = 0; i < masUser.size(); i++) {
@@ -146,25 +146,25 @@ public class ServerController {
 	/** Gets students.
 	 * @return List<User> The list students.
 	*/
-	public List<UserModel> adminGetStudents() {
+	public List<UserModel> getStudentsForAdmin() {
 
-		return adminGetUsers("Student");
+		return getUsersForAdminByType("Student");
 	}
 
 	/** Gets teachers.
 	 * @return List<User> The list teachers.
 	*/
-	public List<UserModel> adminGetTeachers() {
+	public List<UserModel> getTeachersForAdmin() {
 
-		return adminGetUsers("Teacher");
+		return getUsersForAdminByType("Teacher");
 	}
 
 	/** Gets administrators.
 	 * @return List<User> The list administrators.
 	*/
-	public List<UserModel> adminGetAdmins() {
+	public List<UserModel> getAdminForAdmin() {
 
-		return adminGetUsers("Admin");
+		return getUsersForAdminByType("Admin");
 	}
 
 }

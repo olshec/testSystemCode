@@ -70,7 +70,7 @@ public final class TeacherView extends UserModel {
 	 * 
 	 */
 	private void getTests() {
-		List<TestController> mas = this.getServer().teacherGetTests(this);
+		List<TestController> mas = this.getServer().getTestsForTeacher(this);
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
 			System.out.println(i + 1 + ") " + mas.get(i).getName());
@@ -96,7 +96,7 @@ public final class TeacherView extends UserModel {
 		}
 
 		int indexTest = numTest - 1;// index begin from 0;
-		TestController test = this.getServer().teacherGetTestResult(this, indexTest);
+		TestController test = this.getServer().getTestResultForTeacher(this, indexTest);
 		if (test != null) {
 			List<UserModel> masStudent = test.getStudents();
 			List<Integer> masResult = test.getResults();

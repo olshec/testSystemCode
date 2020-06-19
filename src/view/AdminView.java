@@ -93,7 +93,7 @@ public class AdminView extends UserModel {
 	 * 
 	 */
 	private void getUsers() {
-		List<UserModel> masUser = this.getServer().adminGetAllUsers();
+		List<UserModel> masUser = this.getServer().getAllUsersForAdmin();
 		printListUsers(masUser, "Cписок пользователей");
 	}
 
@@ -102,7 +102,7 @@ public class AdminView extends UserModel {
 	 * 
 	 */
 	private void getStudents() {
-		List<UserModel> masUser = this.getServer().adminGetStudents();
+		List<UserModel> masUser = this.getServer().getStudentsForAdmin();
 		printListUsers(masUser, "Cписок студентов");
 	}
 
@@ -111,7 +111,7 @@ public class AdminView extends UserModel {
 	 * 
 	 */
 	private void getTeachers() {
-		List<UserModel> masUser = this.getServer().adminGetTeachers();
+		List<UserModel> masUser = this.getServer().getTeachersForAdmin();
 		printListUsers(masUser, "Cписок преподавателей");
 	}
 
@@ -120,7 +120,7 @@ public class AdminView extends UserModel {
 	 * 
 	 */
 	private void getAdministrators() {
-		List<UserModel> masUser = this.getServer().adminGetAdmins();
+		List<UserModel> masUser = this.getServer().getAdminForAdmin();
 		printListUsers(masUser, "Cписок администраторов");
 	}
 
