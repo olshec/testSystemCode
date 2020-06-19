@@ -87,10 +87,9 @@ public abstract class UserModel {
 		return this.server;
 	}
 
-<<<<<<< HEAD
-=======
+
 	/** Function for opening menu.
 	*/
 	//public abstract void openMenu();
->>>>>>> SE-222
+
 }

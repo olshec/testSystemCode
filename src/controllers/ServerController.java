@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.AdminModel;
-<<<<<<< HEAD
 import models.QuestionModel;
-=======
 import models.StudentModel;
 import models.TeacherModel;
->>>>>>> SE-222
+
 import models.TestModel;
 import models.UserModel;
 
@@ -36,14 +34,9 @@ public class ServerController {
 
 		// BEGIN DATA FOR TEST
 
-<<<<<<< HEAD
-		//AdminView admin1 = new AdminView("Примарев", "Игорь", this, "Admin1", "0000");
-		AdminModel admin1 = new AdminModel("Примарев", "Игорь", this, "Admin1", "0000");
-=======
+
 		UserModel admin1 = new AdminModel("Примарев", "Игорь", this, "Admin1", "0000");
-		
 		//AdminView admin1 = new AdminView("Примарев", "Игорь", this, "Admin1", "0000");
->>>>>>> SE-222
 		userBase.addUser(admin1);
 
 		UserModel teacher1 = new TeacherModel("Киров", "Антон", this, "KirovAnton", "12345678");
@@ -182,12 +175,7 @@ public class ServerController {
 	 * @return List<User> The list students.
 	*/
 	public List<UserModel> getStudentsForAdmin() {
-
-<<<<<<< HEAD
-		return getUsersForAdminByType("StudentView");
-=======
 		return getUsersForAdminByType("StudentModel");
->>>>>>> SE-222
 	}
 
 	/** Gets teachers.
@@ -195,23 +183,15 @@ public class ServerController {
 	*/
 	public List<UserModel> getTeachersForAdmin() {
 
-<<<<<<< HEAD
-		return getUsersForAdminByType("TeacherView");
-=======
+
 		return getUsersForAdminByType("TeacherModel");
->>>>>>> SE-222
 	}
 
 	/** Gets administrators.
 	 * @return List<User> The list administrators.
 	*/
 	public List<UserModel> getAdminForAdmin() {
-
-<<<<<<< HEAD
-		return getUsersForAdminByType("AdminView");
-=======
 		return getUsersForAdminByType("AdminModel");
->>>>>>> SE-222
 	}
 	
 	
