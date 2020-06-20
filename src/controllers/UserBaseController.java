@@ -8,14 +8,24 @@ import models.UserBaseModel;
 public class UserBaseController {
 	private UserBaseModel userBaseModel;
 
+	/** Creates a UserBaseController.
+	 */
 	public UserBaseController() {
 		userBaseModel = new UserBaseModel();
 	}
 	
+	/** Creates a UserBaseController.
+	 * @param userBaseModel the userBaseModel.
+	 */
 	public UserBaseController(UserBaseModel userBaseModel) {
 		setUserBaseModel(userBaseModel);
 	}
 
+	/**
+	 * @param username the name of user.
+	 * @param password the password of user.
+	 * @return UserModel the user.
+	 */
 	public UserModel getUser(String username, String password) {
 		List<UserModel> users=userBaseModel.getUsers();
 		for (int i = 0; i < users.size(); i++) {
@@ -26,14 +36,23 @@ public class UserBaseController {
 		return null;
 	}
 
+	/**
+	 * @return List<UserModel> the list users.
+	 */
 	public List<UserModel> getUsers() {
 		return userBaseModel.getUsers();
 	}
 
+	/**
+	 * @param questionModel the question to add in database.
+	 */
 	public void addUser(UserModel user) {
 		userBaseModel.getUsers().add(user);
 	}
 
+	/**
+	 * @return boolean return true if database contains user.
+	 */
 	public boolean hasUser(UserModel user) {
 		List<UserModel> users=userBaseModel.getUsers();
 		for (int i = 0; i < users.size(); i++) {
@@ -45,14 +64,14 @@ public class UserBaseController {
 	}
 
 	/**
-	 * @return the userBaseModel
+	 * @return the userBaseModel.
 	 */
 	public UserBaseModel getUserBaseModel() {
 		return userBaseModel;
 	}
 
 	/**
-	 * @param userBaseModel the userBaseModel to set
+	 * @param userBaseModel the userBaseModel to set.
 	 */
 	public void setUserBaseModel(UserBaseModel userBaseModel) {
 		this.userBaseModel = userBaseModel;

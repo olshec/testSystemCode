@@ -10,6 +10,8 @@ import models.QuestionModel;
 public class QuestionController {
 	List<QuestionModel> questionsModel;
 
+	/** Creates a QuestionController.
+	 */
 	public QuestionController() {
 		questionsModel=new ArrayList<QuestionModel>();
 	}

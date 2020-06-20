@@ -18,14 +18,13 @@ public class TestController {
 
 	TestModel testModel;
 
-	/**
-	 * Creates a test.
+	/** Creates a TestController.
 	 */
 	public TestController() {;}
 	
 	/**
-	 * Creates a test.
-	 * @param The test's model.
+	 * Creates a TestController.
+	 * @param testModel the test's model.
 	 */
 	public TestController(TestModel testModel) {
 		setTestModel(testModel);
@@ -33,14 +32,14 @@ public class TestController {
 
 
 	/**
-	 * @return the testModel
+	 * @return the testModel.
 	 */
 	public TestModel getTestModel() {
 		return testModel;
 	}
 
 	/**
-	 * @param testModel the testModel to set
+	 * @param testModel the testModel to set.
 	 */
 	public void setTestModel(TestModel testModel) {
 		this.testModel = testModel;
@@ -54,16 +53,16 @@ public class TestController {
 	}
 	
 	/**
-	 * @param name the name to set
+	 * @param name the name to set.
 	 */
 	public void setName(String name) {
 		this.testModel.setName(name);
 	}
 	
 	/**
-	 * Add result of test
-	 * @param student the student student for grading
-	 * @param points the student point
+	 * Add result of test.
+	 * @param student the student student for grading.
+	 * @param points the student point.
 	 */
 	public void addResult(UserModel student, int points) {
 		for (int i = 0; i <testModel.getStudents().size(); i++) {
@@ -74,7 +73,7 @@ public class TestController {
 	}
 
 	/**
-	 * @return the true if test contains student 
+	 * @return the true if test contains student .
 	 */
 	public boolean hasStudent(UserModel student) {
 		for (int i = 0; i < testModel.getStudents().size(); i++) {
@@ -86,14 +85,14 @@ public class TestController {
 	}
 
 	/**
-	 * @return the number questions
+	 * @return the number questions.
 	 */
 	public int getNumberQuestions() {
 		return testModel.getQuestions().size();
 	}
 
 	/**
-	 * @param user the user for add to test
+	 * @param user the user for add to test.
 	 */
 	public void addStudent(UserModel user) {
 		testModel.getStudents().add(user);
@@ -101,7 +100,7 @@ public class TestController {
 	}
 
 	/**
-	 * @return boolean the boolean
+	 * @return boolean the boolean.
 	 */
 	public boolean hasTeacher(UserModel teacher) {
 		if (testModel.getTeacher().getId() == teacher.getId()) {
@@ -111,21 +110,21 @@ public class TestController {
 	}
 
 	/**
-	 * @return students the list students
+	 * @return students the list students.
 	 */
 	public List<UserModel> getStudents() {
 		return testModel.getStudents();
 	}
 
 	/**
-	 * @return List<Integer>  the results of test
+	 * @return List<Integer>  the results of test.
 	 */
 	public List<Integer> getResults() {
 		return testModel.getResults();
 	}
 
 	/**
-	 * @param questionModel the question to add
+	 * @param questionModel the question to add.
 	 */
 	public void addQuestion(QuestionModel questionModel) {
 		testModel.getQuestions().add(questionModel);

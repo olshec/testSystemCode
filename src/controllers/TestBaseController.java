@@ -9,10 +9,12 @@ import models.UserModel;
 public class TestBaseController {
 	private List<TestModel> tests;
 	
+	/** Creates a TestBaseController.
+	 */
 	public TestBaseController() {;}
 
 	/**
-	 * @return the tests student
+	 * @return the tests student.
 	 */
 	public List<TestModel> getTestsStudent(UserModel student) {
 		List<TestModel> testsStudent = new ArrayList<TestModel>();
@@ -26,21 +28,21 @@ public class TestBaseController {
 	}
 
 	/**
-	 * @return the all tests 
+	 * @return the all tests.
 	 */
 	public List<TestModel> getAllTests() {
 		return tests;
 	}
 
 	/**
-	 * @param tests the tests to add
+	 * @param tests the tests to add.
 	 */
 	public void addTests(List<TestModel> tests) {
 		this.tests = tests;
 	}
 	
 	/**
-	 * @return the TestModel
+	 * @return the TestModel.
 	 */
 	public TestModel getTest(int index) {
 		if (index < tests.size() && index >= 0) {
@@ -50,7 +52,7 @@ public class TestBaseController {
 	}
 
 	/**
-	 * @return the tests
+	 * @return the tests.
 	 */
 	public List<TestModel> getTests(UserModel teacher) {
 		ArrayList<TestModel> masTests = new ArrayList<TestModel>();
@@ -64,7 +66,7 @@ public class TestBaseController {
 	}
 	
 	/**
-	 * get number questions in test
+	 * get number questions in test.
 	 */
 	public int getNumberQuestionsInTest(int indexTest) {
 		TestController testController=new TestController(tests.get(indexTest));

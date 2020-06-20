@@ -25,6 +25,8 @@ public class ServerController {
 	private TestBaseController testBaseController;
 	private UserBaseController userBaseController;
 	
+	/** Creates a ServerController.
+	 */
 	public ServerController() {
 		testBaseController = new TestBaseController();
 		userBaseModel = new UserBaseModel();
