@@ -3,6 +3,7 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import models.AnswerModel;
 import models.QuestionModel;
 
 
@@ -22,11 +23,11 @@ public class QuestionController {
 		questionsModel.get(indexQuestion).setText(text);
 	}
 
-	public List<AnswerController> getAnswers(int indexQuestion) {
+	public List<AnswerModel> getAnswers(int indexQuestion) {
 		return questionsModel.get(indexQuestion).getAnswers();
 	}
 
-	public void setAnswers(List<AnswerController> answers,int indexQuestion) {
+	public void setAnswers(List<AnswerModel> answers,int indexQuestion) {
 		questionsModel.get(indexQuestion).setAnswers(answers);
 	}
 	

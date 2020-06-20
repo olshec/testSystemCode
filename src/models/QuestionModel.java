@@ -2,11 +2,10 @@ package models;
 
 import java.util.List;
 
-import controllers.AnswerController;
 
 public class QuestionModel {
 	private String text;
-	private List<AnswerController> answers;
+	private List<AnswerModel> answers;
 	
 	public QuestionModel(String text) {
 		setText(text);
@@ -20,11 +19,11 @@ public class QuestionModel {
 		this.text = text;
 	}
 
-	public List<AnswerController> getAnswers() {
+	public List<AnswerModel> getAnswers() {
 		return answers;
 	}
 
-	public void setAnswers(List<AnswerController> answers) {
+	public void setAnswers(List<AnswerModel> answers) {
 		this.answers = answers;
 	}
 	
