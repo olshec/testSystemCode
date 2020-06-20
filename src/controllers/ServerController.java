@@ -11,8 +11,6 @@ import models.TestModel;
 import models.UserBaseModel;
 import models.UserModel;
 
-
-
 /**
  * Represents a server.
  * 
@@ -31,6 +29,7 @@ public class ServerController {
 		testBaseController = new TestBaseController();
 		userBaseModel = new UserBaseModel();
 		userBaseController = new UserBaseController(userBaseModel);
+		
 		loadTest();
 	}
 

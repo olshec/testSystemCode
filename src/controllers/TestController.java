@@ -26,31 +26,41 @@ public class TestController {
 	
 	/**
 	 * Creates a test.
-	 * @param   The test's model.
+	 * @param The test's model.
 	 */
 	public TestController(TestModel testModel) {
 		setTestModel(testModel);
 	}
 
 
+	/**
+	 * @return the testModel
+	 */
 	public TestModel getTestModel() {
 		return testModel;
 	}
 
-
+	/**
+	 * @param testModel the testModel to set
+	 */
 	public void setTestModel(TestModel testModel) {
 		this.testModel = testModel;
 	}
 
-
 	/**
-	 * Get name of test.
-	 * @return  The name of test.
+	 * @return  The  test's name.
 	 */
 	public String getName() {
 		return testModel.getName();
 	}
-
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.testModel.setName(name);
+	}
+	
+	
 	public void addResult(UserModel student, int points) {
 		for (int i = 0; i <testModel.getStudents().size(); i++) {
 			if (testModel.getStudents().get(i).getId() == student.getId()) {

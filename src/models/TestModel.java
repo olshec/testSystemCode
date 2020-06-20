@@ -37,19 +37,27 @@ public class TestModel {
 		setStudents(new ArrayList<UserModel>());
 		setResults(new ArrayList<Integer>()); 
 	}
-	
+	/**
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}
-	
+	/**
+	 * @param name the name to set
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	/**
+	 * @return the teacher
+	 */
 	public UserModel getTeacher() {
 		return teacher;
 	}
-	
+	/**
+	 * @param teacher the teacher to set
+	 */
 	public void setTeacher(UserModel teacher) {
 		this.teacher = teacher;
 	}
