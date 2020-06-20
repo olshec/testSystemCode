@@ -3,7 +3,7 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.AdminModel;
+import models.AdministratorModel;
 import models.QuestionModel;
 import models.StudentModel;
 import models.TeacherModel;
@@ -146,7 +146,7 @@ public class ServerController {
 	private void loadTest() {
 		// BEGIN DATA FOR TEST
 
-				UserModel admin1 = new AdminModel("Примарев", "Игорь", this, "Admin1", "0000");
+				UserModel admin1 = new AdministratorModel("Примарев", "Игорь", this, "Admin1", "0000");
 				userBaseController.addUser(admin1);
 
 				UserModel teacher1 = new TeacherModel("Киров", "Антон", this, "KirovAnton", "12345678");

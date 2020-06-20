@@ -3,7 +3,7 @@ package views;
 import java.util.Scanner;
 
 import controllers.ServerController;
-import models.AdminModel;
+import models.AdministratorModel;
 import models.UserModel;
 
 /**

@@ -9,9 +9,9 @@ import controllers.ServerController;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class AdminModel extends UserModel {
+public class AdministratorModel extends UserModel {
 
-	public AdminModel(String lastName, String firstName, ServerController server, String username, String password) {
+	public AdministratorModel(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
 
