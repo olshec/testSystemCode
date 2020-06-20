@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import controllers.TestController;
+import models.TestModel;
 import models.UserModel;
 /**
  * Represents a teacher.
@@ -68,7 +69,7 @@ public final class TeacherView extends UserView {
 	 * Gets a list of tests from the server and prints.
 	 */
 	private void getTests() {
-		List<TestController> mas = this.getUserModel().getServer().getTestsForTeacher(this.getUserModel());
+		List<TestModel> mas = this.getUserModel().getServer().getTestsForTeacher(this.getUserModel());
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
 			System.out.println(i + 1 + ") " + mas.get(i).getName());
@@ -93,7 +94,7 @@ public final class TeacherView extends UserView {
 		}
 
 		int indexTest = numTest - 1;// index begin from 0;
-		TestController test = this.getUserModel().getServer().getTestResultForTeacher(this.getUserModel(), indexTest);
+		TestModel test = this.getUserModel().getServer().getTestResultForTeacher(this.getUserModel(), indexTest);
 		if (test != null) {
 			List<UserModel> masStudent = test.getStudents();
 			List<Integer> masResult = test.getResults();

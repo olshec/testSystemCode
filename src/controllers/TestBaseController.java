@@ -52,12 +52,12 @@ public class TestBaseController {
 	/**
 	 * @return the tests
 	 */
-	public List<TestController> getTests(UserModel teacher) {
-		ArrayList<TestController> masTests = new ArrayList<TestController>();
+	public List<TestModel> getTests(UserModel teacher) {
+		ArrayList<TestModel> masTests = new ArrayList<TestModel>();
 		for (int i = 0; i < tests.size(); i++) {
 			TestController testController=new TestController(tests.get(i));
 			if (testController.hasTeacher(teacher)) {
-				masTests.add(testController);
+				masTests.add(testController.getTestModel());
 			}
 		}
 		return masTests;
