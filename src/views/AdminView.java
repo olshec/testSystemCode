@@ -121,7 +121,7 @@ public class AdminView extends UserView {
 	 * 
 	 */
 	private void getAdministrators() {
-		List<UserModel> masUser = this.getUserModel().getServer().getAdminForAdmin();
+		List<UserModel> masUser = this.getUserModel().getServer().getAdminsForAdmin();
 		printListUsers(masUser, "Cписок администраторов");
 	}
 

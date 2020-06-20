@@ -11,6 +11,10 @@ public class UserBaseController {
 	public UserBaseController() {
 		userBaseModel = new UserBaseModel();
 	}
+	
+	public UserBaseController(UserBaseModel userBaseModel) {
+		setUserBaseModel(userBaseModel);
+	}
 
 	public UserModel getUser(String username, String password) {
 		List<UserModel> users=userBaseModel.getUsers();
@@ -40,4 +44,14 @@ public class UserBaseController {
 		return false;
 	}
 
+	public UserBaseModel getUserBaseModel() {
+		return userBaseModel;
+	}
+
+	public void setUserBaseModel(UserBaseModel userBaseModel) {
+		this.userBaseModel = userBaseModel;
+	}
+
+	
+	
 }
