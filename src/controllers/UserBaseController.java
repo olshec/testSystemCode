@@ -44,13 +44,21 @@ public class UserBaseController {
 		return false;
 	}
 
+	/**
+	 * @return the userBaseModel
+	 */
 	public UserBaseModel getUserBaseModel() {
 		return userBaseModel;
 	}
 
+	/**
+	 * @param userBaseModel the userBaseModel to set
+	 */
 	public void setUserBaseModel(UserBaseModel userBaseModel) {
 		this.userBaseModel = userBaseModel;
 	}
+
+	
 
 	
 	

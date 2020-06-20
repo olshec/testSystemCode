@@ -66,7 +66,6 @@ public final class TeacherView extends UserView {
 
 	/**
 	 * Gets a list of tests from the server and prints.
-	 * 
 	 */
 	private void getTests() {
 		List<TestController> mas = this.getUserModel().getServer().getTestsForTeacher(this.getUserModel());
@@ -78,7 +77,6 @@ public final class TeacherView extends UserView {
 
 	/**
 	 * Gets a result of students test from the server and prints.
-	 * 
 	 */
 	private void getTestResult() {
 

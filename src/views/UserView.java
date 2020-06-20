@@ -12,13 +12,21 @@ public abstract class UserView {
 		setUserModel(userModel);
 	}
 
+	/**
+	 * @return the userModel
+	 */
 	public UserModel getUserModel() {
 		return userModel;
 	}
 
+	/**
+	 * @param userModel the userModel to set
+	 */
 	public void setUserModel(UserModel userModel) {
 		this.userModel = userModel;
 	}
+
+
 	
 	
 }

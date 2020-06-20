@@ -65,7 +65,6 @@ public final class StudentView extends UserView {
 
 	/**
 	 * Gets a list of student tests from the server and prints.
-	 * 
 	 */
 	private void getTestsStudent() {
 		List<TestModel> mas = this.getUserModel().getServer().getTestsForStudent(this.getUserModel());
@@ -77,7 +76,6 @@ public final class StudentView extends UserView {
 
 	/**
 	 * Gets the number of test questions from the server and prints.
-	 * 
 	 */
 	private void getNumberQuestions() {
 

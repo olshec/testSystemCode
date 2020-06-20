@@ -18,8 +18,11 @@ public class TestModel {
 	
 	
 	
+	/**
+	 * Creates a test.
+	 */
+	public TestModel() {}
 	
-	public TestModel() {;}
 	/**
 	 * Creates a test.
 	 * @param   The test's name.
@@ -61,31 +64,44 @@ public class TestModel {
 	public void setTeacher(UserModel teacher) {
 		this.teacher = teacher;
 	}
-	
+	/**
+	 * @return the questions
+	 */
 	public List<QuestionModel> getQuestions() {
 		return questions;
 	}
-	
+	/**
+	 * @param questions the questions to set
+	 */
 	public void setQuestions(List<QuestionModel> questions) {
 		this.questions = questions;
 	}
-	
+	/**
+	 * @return the students
+	 */
 	public List<UserModel> getStudents() {
 		return students;
 	}
-	
+	/**
+	 * @param students the students to set
+	 */
 	public void setStudents(List<UserModel> students) {
 		this.students = students;
 	}
-	
+	/**
+	 * @return the results
+	 */
 	public List<Integer> getResults() {
 		return results;
 	}
-	
+	/**
+	 * @param results the results to set
+	 */
 	public void setResults(List<Integer> results) {
 		this.results = results;
 	}
 	
-	
-	
+
 }
+	
+
