@@ -13,13 +13,24 @@ import java.util.List;
 public class UserBaseModel {
 	private List<UserModel> users;
 
-	
+	/**Creates a UserBaseModel.
+	 * @param users
+	 */
 	public UserBaseModel() {
 		users = new ArrayList<UserModel>();
 	}
+	
+	/**Creates a UserBaseModel.
+	 * @param users
+	 */
+	public UserBaseModel(List<UserModel> users) {
+		super();
+		this.users = users;
+	}
+
 
 	/**
-	 * @return the users
+	 * @return the list users
 	 */
 	public List<UserModel> getUsers() {
 		return users;
