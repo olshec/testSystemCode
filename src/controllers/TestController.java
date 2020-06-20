@@ -8,7 +8,7 @@ import models.TestModel;
 import models.UserModel;
 
 /**
- * Represents a test.
+ * Represents a test controller.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com
@@ -100,6 +100,7 @@ public class TestController {
 	}
 
 	/**
+	 * @param UserModel the teacher
 	 * @return boolean the boolean.
 	 */
 	public boolean hasTeacher(UserModel teacher) {

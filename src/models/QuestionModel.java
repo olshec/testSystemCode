@@ -2,7 +2,13 @@ package models;
 
 import java.util.List;
 
-
+/**
+ * Represents a question.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
+ */
 public class QuestionModel {
 	private String text;
 	private List<AnswerModel> answers;

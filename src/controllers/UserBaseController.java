@@ -5,6 +5,13 @@ import java.util.List;
 import models.UserModel;
 import models.UserBaseModel;
 
+/**
+ * Represents a controller to the database containing user.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
+ */
 public class UserBaseController {
 	private UserBaseModel userBaseModel;
 
@@ -15,7 +22,7 @@ public class UserBaseController {
 	}
 	
 	/** Creates a UserBaseController.
-	 * @param userBaseModel the userBaseModel.
+	 * @param userBaseModel the database containing user.
 	 */
 	public UserBaseController(UserBaseModel userBaseModel) {
 		setUserBaseModel(userBaseModel);

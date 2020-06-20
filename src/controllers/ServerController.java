@@ -12,7 +12,7 @@ import models.UserBaseModel;
 import models.UserModel;
 
 /**
- * Represents a server.
+ * Represents a server controller.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com

@@ -6,7 +6,13 @@ import java.util.List;
 import models.AnswerModel;
 import models.QuestionModel;
 
-
+/**
+ * Represents a question controller.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
+ */
 public class QuestionController {
 	List<QuestionModel> questionsModel;
 
@@ -17,6 +23,7 @@ public class QuestionController {
 	}
 	
 	/**
+	 * @param indexQuestion the index question
 	 * @return the text question
 	 */
 	public String getText(int indexQuestion) {
@@ -26,14 +33,14 @@ public class QuestionController {
 	/**
 	 * Set text question
 	 * @param text the text
-	 * @param indexQuestion the indexQuestion
+	 * @param indexQuestion the index question
 	 */
 	public void setText(String text, int indexQuestion) {
 		questionsModel.get(indexQuestion).setText(text);
 	}
 
 	/**
-	 * @param indexQuestion the indexQuestion
+	 * @param indexQuestion the index question
 	 * @return the answers
 	 */
 	public List<AnswerModel> getAnswers(int indexQuestion) {
@@ -43,14 +50,14 @@ public class QuestionController {
 	/**
 	 * Set answers
 	 * @param answers the answers
-	 * @param indexQuestion the indexQuestion
+	 * @param indexQuestion the index question
 	 */
 	public void setAnswers(List<AnswerModel> answers,int indexQuestion) {
 		questionsModel.get(indexQuestion).setAnswers(answers);
 	}
 	
 	/**
-	 * @param questionModel the questionModel to add
+	 * @param questionModel the question to add
 	 */
 	public void addQuestion(QuestionModel questionModel) {
 		questionsModel.add(questionModel);

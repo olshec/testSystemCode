@@ -6,8 +6,11 @@ import java.util.List;
 import controllers.QuestionController;
 
 /**
- * @author user1
- *
+ * Represents a test.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
  */
 public class TestModel {
 	private String name;
