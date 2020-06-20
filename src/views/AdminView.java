@@ -15,15 +15,9 @@ import models.UserModel;
 public class AdminView extends UserView {
 
 	/**
-	 * Creates an administrator.
-	 * 
-	 * @param lastName  The administrator’s last name.
-	 * @param firstName The administrator’s first name.
-	 * @param server    The administrator’s server.
-	 * @param username  The administrator’s username.
-	 * @param password  The administrator’s password.
+	 * Creates an administrator view.
+	 * @param userModel  The administrator model
 	 */
-
 	public AdminView(UserModel userModel) {
 		super(userModel);
 	}
@@ -76,7 +70,6 @@ public class AdminView extends UserView {
 
 	/**
 	 * Print list users.
-	 * 
 	 * @param masUser The array of users.
 	 * @param title String represents a title.
 	 */
@@ -91,7 +84,6 @@ public class AdminView extends UserView {
 
 	/**
 	 * Gets the list users from server.
-	 * 
 	 */
 	private void getUsers() {
 		List<UserModel> masUser = this.getUserModel().getServer().getAllUsersForAdmin();
@@ -100,7 +92,6 @@ public class AdminView extends UserView {
 
 	/**
 	 * Gets the list students from server.
-	 * 
 	 */
 	private void getStudents() {
 		List<UserModel> masUser =this.getUserModel().getServer().getStudentsForAdmin();
@@ -109,7 +100,6 @@ public class AdminView extends UserView {
 
 	/**
 	 * Gets the list teachers from server.
-	 * 
 	 */
 	private void getTeachers() {
 		List<UserModel> masUser = this.getUserModel().getServer().getTeachersForAdmin();
@@ -118,7 +108,6 @@ public class AdminView extends UserView {
 
 	/**
 	 * Gets the list administrators from server.
-	 * 
 	 */
 	private void getAdministrators() {
 		List<UserModel> masUser = this.getUserModel().getServer().getAdminsForAdmin();

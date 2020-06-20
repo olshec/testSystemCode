@@ -16,7 +16,7 @@ import models.UserModel;
 public final class TeacherView extends UserView {
 
 	/**
-	 * Creates a teacher.
+	 * Creates a teacher view.
 	 * 
 	 * @param lastName  The teacher’s last name.
 	 * @param firstName The teacher’s first name.
