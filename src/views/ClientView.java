@@ -14,10 +14,14 @@ import models.UserModel;
  * @version 1.0
  */
 
-public class ClientView {
+public class ClientView extends UserView {
 
 	public static void main(String[] args) {
-
+		new ClientView().openMenu();
+	}
+	
+	
+	public void openMenu() {
 		String login ="";
 		String password ="";
 		System.out.print("Введите логин: ");
@@ -61,8 +65,7 @@ public class ClientView {
 			System.out.print("Произошла непредвиденная ошибка!");
 			System.out.println("До свидания!");
 		}
-		
-		
 	}
+	
 
 }

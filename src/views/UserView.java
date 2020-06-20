@@ -8,6 +8,8 @@ public abstract class UserView {
 	
 	public abstract void openMenu();
 	
+	public UserView() {}
+	
 	public UserView(UserModel userModel) {
 		setUserModel(userModel);
 	}
