@@ -24,7 +24,7 @@ public abstract class UserView {
 	/**
 	 * @param userModel the userModel to set
 	 */
-	public void setUserModel(UserModel userModel) {
+	public void setUserModel(UserModel userModel) { 
 		this.userModel = userModel;
 	}
 

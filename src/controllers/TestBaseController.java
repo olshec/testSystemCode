@@ -11,6 +11,9 @@ public class TestBaseController {
 	
 	public TestBaseController() {;}
 
+	/**
+	 * @return the tests student
+	 */
 	public List<TestModel> getTestsStudent(UserModel student) {
 		List<TestModel> testsStudent = new ArrayList<TestModel>();
 		for (int i = 0; i < tests.size(); i++) {
@@ -22,15 +25,24 @@ public class TestBaseController {
 		return testsStudent;
 	}
 
+	/**
+	 * @return the all tests 
+	 */
 	public List<TestModel> getAllTests() {
 		return tests;
 	}
 
+	/**
+	 * @param tests the tests to add
+	 */
 	public void addTests(List<TestModel> tests) {
 		this.tests = tests;
 	}
-
-	public TestModel getTestIndex(int index) {
+	
+	/**
+	 * @return the TestModel
+	 */
+	public TestModel getTest(int index) {
 		if (index < tests.size() && index >= 0) {
 			return tests.get(index);
 		}
@@ -38,7 +50,7 @@ public class TestBaseController {
 	}
 
 	/**
-	 * get tests
+	 * @return the tests
 	 */
 	public List<TestController> getTests(UserModel teacher) {
 		ArrayList<TestController> masTests = new ArrayList<TestController>();

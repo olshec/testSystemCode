@@ -56,10 +56,10 @@ public class ServerController {
 	 * @return The test.
 	*/
 	public TestModel getTestInfoForStudent(UserModel student, int indexTest) {
-		TestModel test = testBaseController.getTestIndex(indexTest);
+		TestModel test = testBaseController.getTest(indexTest);
 		TestController testController =new TestController(test);
 		if (test != null && testController.hasStudent(student)) {
-			return testBaseController.getTestIndex(indexTest);
+			return testBaseController.getTest(indexTest);
 		} else
 			return null;
 	}
@@ -72,7 +72,7 @@ public class ServerController {
 	 * @throws Exception 
 	*/
 	public int getNumberQuestionsInTest(UserModel student, int indexTest) throws Exception {
-		TestModel test = testBaseController.getTestIndex(indexTest);
+		TestModel test = testBaseController.getTest(indexTest);
 		TestController testController =new TestController(test);
 		if (test != null && testController.hasStudent(student)) {
 			return testBaseController.getNumberQuestionsInTest(indexTest);

@@ -88,7 +88,7 @@ public final class TeacherView extends UserView {
 		try {
 			numTest = myInput.nextInt();
 		} catch (java.util.InputMismatchException exception) {
-			System.out.println("Теста с таким номером не существует");
+			System.out.println("Номер теста должен быть числом!");
 			return;
 		}
 
