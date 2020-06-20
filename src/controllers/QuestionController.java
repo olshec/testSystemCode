@@ -31,8 +31,8 @@ public class QuestionController {
 	}
 
 	/**
-	 * @return the answers
 	 * @param indexQuestion the indexQuestion
+	 * @return the answers
 	 */
 	public List<AnswerModel> getAnswers(int indexQuestion) {
 		return questionsModel.get(indexQuestion).getAnswers();
