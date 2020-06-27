@@ -41,7 +41,7 @@ public class ClientView extends UserView {
 		
 		UserView userView=null;
 		switch (user.getClass().getSimpleName()) {
-		case "AdminModel":
+		case "AdministratorModel":
 			userView=new AdminView(user);
 			break;
 		case "TeacherModel":

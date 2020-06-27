@@ -138,7 +138,7 @@ public class ServerController {
 	 * @return List<User> The list administrators.
 	*/
 	public List<UserModel> getAdminsForAdmin() {
-		return getUsersForAdminByType("AdminModel");
+		return getUsersForAdminByType("AdministratorModel");
 	}
 	
 	
