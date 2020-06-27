@@ -124,21 +124,21 @@ public class ServerController {
 	 * @return List<User> The list students.
 	*/
 	public List<UserModel> getStudentsForAdmin() {
-		return getUsersForAdminByType("StudentModel");
+		return getUsersForAdminByType(StudentModel.nameModel);
 	}
 
 	/** Gets teachers.
 	 * @return List<User> The list teachers.
 	*/
 	public List<UserModel> getTeachersForAdmin() {
-		return getUsersForAdminByType("TeacherModel");
+		return getUsersForAdminByType(TeacherModel.nameModel);
 	}
 
 	/** Gets administrators.
 	 * @return List<User> The list administrators.
 	*/
 	public List<UserModel> getAdminsForAdmin() {
-		return getUsersForAdminByType("AdministratorModel");
+		return getUsersForAdminByType(AdministratorModel.nameModel);
 	}
 	
 	

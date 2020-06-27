@@ -10,6 +10,8 @@ import controllers.ServerController;
  * @version 1.0
  */
 public class StudentModel extends UserModel {
+	
+	public static final String nameModel = "StudentModel";
 
 	public StudentModel(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);

@@ -10,6 +10,9 @@ import controllers.ServerController;
  * @version 1.0
  */
 public abstract class UserModel {
+
+	public static final String nameModel = "UserModel";
+	
 	private String firstName;
 	private String lastName;
 	private ServerController server;
@@ -24,7 +27,6 @@ public abstract class UserModel {
 	static {
 		idCount = 0;
 	}
-
 	
 	public UserModel() {;}
 	/** Creates an user.

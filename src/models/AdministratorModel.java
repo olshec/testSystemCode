@@ -11,11 +11,7 @@ import controllers.ServerController;
  */
 public class AdministratorModel extends UserModel {
 	
-	private static final String nameModel = "AdministratorModel"; 
-	
-	public static String getNameModel() {
-		return nameModel;
-	}
+	public static final String nameModel = "AdministratorModel";
 
 	public AdministratorModel(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);
