@@ -17,11 +17,7 @@ import models.UserModel;
 public final class StudentView extends UserView {
 
 	/** Creates a student view.
-	 * @param lastName The student’s last name.
-	 * @param firstName The student’s first name.
-	 * @param server The student’s server.
-	 * @param username The student’s username.
-	 * @param password The student’s password.
+	 * @param UserModel The student’s model.
 	*/
 	public StudentView(UserModel userModel) {
 		super(userModel);

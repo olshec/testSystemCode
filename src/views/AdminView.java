@@ -16,7 +16,7 @@ public class AdminView extends UserView {
 
 	/**
 	 * Creates an administrator view.
-	 * @param userModel  The administrator model
+	 * @param userModel  The administrator's model
 	 */
 	public AdminView(UserModel userModel) {
 		super(userModel);

@@ -16,6 +16,9 @@ import models.UserModel;
 
 public class ClientView extends UserView {
 
+	/**main.
+	 * Entry point to the application.
+	 */
 	public static void main(String[] args) {
 		new ClientView().openMenu();
 	}
