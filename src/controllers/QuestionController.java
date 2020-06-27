@@ -32,7 +32,7 @@ public class QuestionController {
 	
 	/**
 	 * Set text question
-	 * @param text the text
+	 * @param text the text question
 	 * @param indexQuestion the index question
 	 */
 	public void setText(String text, int indexQuestion) {

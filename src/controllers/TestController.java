@@ -100,7 +100,7 @@ public class TestController {
 	}
 
 	/**
-	 * @param UserModel the teacher
+	 * @param teacher the teacher's model
 	 * @return boolean the boolean.
 	 */
 	public boolean hasTeacher(UserModel teacher) {
