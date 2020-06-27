@@ -14,7 +14,6 @@ public class UserBaseModel {
 	private List<UserModel> users;
 
 	/**Creates a UserBaseModel.
-	 * @param users
 	 */
 	public UserBaseModel() {
 		users = new ArrayList<UserModel>();

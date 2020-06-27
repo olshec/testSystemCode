@@ -19,7 +19,7 @@ public class TestBaseModel {
 		setTests(tests);
 	}
 	
-	/**
+	/**Creates a TestBaseModel.
 	 * @param tests
 	 */
 	public TestBaseModel(List<TestModel> tests) {

@@ -13,7 +13,12 @@ public class StudentModel extends UserModel {
 	
 	public static final String nameModel = "StudentModel";
 
-	/** Creates a StudentModel.
+	/** Creates a StudentModel
+	 *@param lastName The user’s last name.
+	 * @param firstName The user’s first name.
+	 * @param server The user’s server.
+	 * @param username The user’s username.
+	 * @param password The user’s password.
 	 */
 	public StudentModel(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);

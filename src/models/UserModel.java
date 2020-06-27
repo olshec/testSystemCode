@@ -28,8 +28,10 @@ public abstract class UserModel {
 		idCount = 0;
 	}
 	
+	/**Creates an UserModel.
+	 */
 	public UserModel() {;}
-	/** Creates an user.
+	/** Creates an UserModel.
 	 * @param lastName The user’s last name.
 	 * @param firstName The user’s first name.
 	 * @param server The user’s server.

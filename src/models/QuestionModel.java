@@ -14,6 +14,7 @@ public class QuestionModel {
 	private List<AnswerModel> answers;
 	
 	/** Creates a QuestionModel.
+	 * @param text The question’s text.
 	 */
 	public QuestionModel(String text) {
 		setText(text);
