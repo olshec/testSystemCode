@@ -93,7 +93,7 @@ public final class StudentView extends UserView {
 
 		// --numTest index begin from 0;
 		try {
-			int quantityQuestions = this.getUserModel().getServer().getNumberQuestionsInTest(this.getUserModel(), --numTest);
+			int quantityQuestions = this.getUserModel().getServer().getNumberQuestionsInTest(this.getUserModel(), numTest-1);
 			String s = String.format("Количество вопросов в тесте %d: %d", numTest, quantityQuestions);
 			System.out.println(s);
 		} catch (Exception exception) {

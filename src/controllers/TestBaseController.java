@@ -21,7 +21,9 @@ public class TestBaseController {
 	
 	/** Creates a TestBaseController.
 	 */
-	public TestBaseController() {;}
+	public TestBaseController() {
+		setTestBaseModel(new TestBaseModel());
+		}
 
 	/** Creates a TestBaseController.
 	 *  @param testBaseModel the database containing tests.

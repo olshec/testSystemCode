@@ -20,7 +20,7 @@ import models.UserModel;
  */
 public class ServerController {
 
-	private UserBaseModel userBaseModel;
+	//private UserBaseModel userBaseModel;
 	
 	private TestBaseController testBaseController;
 	private UserBaseController userBaseController;
@@ -29,7 +29,7 @@ public class ServerController {
 	 */
 	public ServerController() {
 		testBaseController = new TestBaseController();
-		userBaseModel = new UserBaseModel();
+		UserBaseModel userBaseModel = new UserBaseModel();
 		userBaseController = new UserBaseController(userBaseModel);
 		
 		loadTest();
@@ -104,12 +104,12 @@ public class ServerController {
 	 * @return List<User> The list all users.
 	*/
 	public List<UserModel> getAllUsersForAdmin() {
-		return userBaseModel.getUsers();
+		return userBaseController.getUserBaseModel().getUsers();
 	}
 
 	//get user by type 
 	private List<UserModel> getUsersForAdminByType(String typeUser) {
-		List<UserModel> masUser = userBaseModel.getUsers();
+		List<UserModel> masUser = userBaseController.getUserBaseModel().getUsers();
 		List<UserModel> masUserResult = new ArrayList<UserModel>();
 		for (int i = 0; i < masUser.size(); i++) {
 			String className = masUser.get(i).getClass().getSimpleName();
@@ -119,7 +119,7 @@ public class ServerController {
 		}
 		return masUserResult;
 	}
-
+	
 	/** Gets students.
 	 * @return List<User> The list students.
 	*/
