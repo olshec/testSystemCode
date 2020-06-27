@@ -51,7 +51,7 @@ public class UserBaseController {
 	}
 
 	/**
-	 * @param questionModel the question to add in database.
+	 * @param user the user's model.
 	 */
 	public void addUser(UserModel user) {
 		userBaseModel.getUsers().add(user);

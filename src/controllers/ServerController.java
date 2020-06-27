@@ -53,9 +53,9 @@ public class ServerController {
 	}
 
 	/** Gets student test information.
-	 * @param The student.
-	 * @param  The test index.
-	 * @return The test.
+	 * @param student The student's model.
+	 * @param  indexTest The test index.
+	 * @return The test's model.
 	*/
 	public TestModel getTestInfoForStudent(UserModel student, int indexTest) {
 		TestModel test = testBaseController.getTest(indexTest);
@@ -68,8 +68,8 @@ public class ServerController {
 
 	
 	/** Gets student test number questions.
-	 * @param The student.
-	 * @param The test index.
+	 * @param student The student.
+	 * @param indexTest The test index.
 	 * @return The test.
 	 * @throws Exception 
 	*/

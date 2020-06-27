@@ -28,8 +28,8 @@ public class TestModel {
 	
 	/**
 	 * Creates a test.
-	 * @param   The test's name.
-	 * @param  The test’s teacher.
+	 * @param  name The test's name.
+	 * @param teacher The teacher’s model.
 	 */
 	public TestModel(String name, UserModel teacher) {
 		this.init();
