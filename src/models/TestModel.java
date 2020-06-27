@@ -22,7 +22,7 @@ public class TestModel {
 	
 	
 	/**
-	 * Creates a test.
+	 * Creates a TestModel.
 	 */
 	public TestModel() {}
 	

@@ -20,7 +20,9 @@ public class ClientView extends UserView {
 		new ClientView().openMenu();
 	}
 	
-	
+	/**
+	 * Function for opening menu.
+	 */
 	public void openMenu() {
 		String login ="";
 		String password ="";

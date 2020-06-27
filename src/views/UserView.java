@@ -6,10 +6,16 @@ import models.UserModel;
 public abstract class UserView {
 	private UserModel userModel;
 	
+	/** Function for opening menu.
+	*/
 	public abstract void openMenu();
 	
+	/** Creates a UserView.
+	 */
 	public UserView() {}
 	
+	/** Creates a UserView.
+	 */
 	public UserView(UserModel userModel) {
 		setUserModel(userModel);
 	}

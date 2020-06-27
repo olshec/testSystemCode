@@ -13,6 +13,8 @@ public class QuestionModel {
 	private String text;
 	private List<AnswerModel> answers;
 	
+	/** Creates a QuestionModel.
+	 */
 	public QuestionModel(String text) {
 		setText(text);
 	}

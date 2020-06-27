@@ -13,9 +13,10 @@ public class TeacherModel extends UserModel {
 
 	public static final String nameModel = "TeacherModel";
 	
+	/** Creates a TeacherModel.
+	 */
 	public TeacherModel(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);
-		// TODO Auto-generated constructor stub
 	}
 
 }
