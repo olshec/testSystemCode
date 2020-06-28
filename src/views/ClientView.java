@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import controllers.ServerController;
 import models.AdministratorModel;
+import models.StudentModel;
+import models.TeacherModel;
 import models.UserModel;
 
 /**
@@ -46,13 +48,13 @@ public class ClientView extends UserView {
 		
 		UserView userView=null;
 		switch (user.getClass().getSimpleName()) {
-		case "AdministratorModel":
+		case AdministratorModel.nameModel:
 			userView=new AdminView(user);
 			break;
-		case "TeacherModel":
+		case TeacherModel.nameModel:
 			userView=new TeacherView(user);
 			break;
-		case "StudentModel":
+		case StudentModel.nameModel:
 			userView=new StudentView(user);
 			break;
 		default:
