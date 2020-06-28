@@ -62,7 +62,6 @@ public class AdminView extends UserView {
 				System.out.println("Неверный ввод! Попытайтесь еще раз.");
 				break;
 			}
-
 		}
 		System.out.println("До свидания!");
 	}

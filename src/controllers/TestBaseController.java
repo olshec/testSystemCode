@@ -137,4 +137,18 @@ public class TestBaseController {
 		return -1;
 	}
 	
+	
+	/** Gets students test result.
+	 * @param teacher The teacher.
+	 * @param indexTest The test index.
+	 * @return Test The test.
+	*/
+	public TestModel getTestResultForTeacher(UserModel teacher, int indexTest) {
+		
+		if(indexTest<this.getTests(teacher).size()) {
+			return this.getTests(teacher).get(indexTest);
+		}
+		return null;
+	}
+	
 }
