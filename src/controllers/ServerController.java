@@ -58,12 +58,7 @@ public class ServerController {
 	 * @return The test's model.
 	*/
 	public TestModel getTestInfoForStudent(UserModel student, int indexTest) {
-		TestModel test = testBaseController.getTest(indexTest);
-		TestController testController =new TestController(test);
-		if (test != null && testController.hasStudent(student)) {
-			return testBaseController.getTest(indexTest);
-		} else
-			return null;
+		return testBaseController.getTestInfoForStudent(student, indexTest);
 	}
 
 	

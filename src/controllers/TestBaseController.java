@@ -106,5 +106,19 @@ public class TestBaseController {
 		this.testBaseModel = testBaseModel;
 	}
 
+
+	/** Gets student test information.
+	 * @param student The student's model.
+	 * @param  indexTest The test index.
+	 * @return The test's model.
+	*/
+	public TestModel getTestInfoForStudent(UserModel student, int indexTest) {
+		TestModel test = testBaseModel.getTests().get(indexTest);
+		TestController testController =new TestController(test);
+		if (test != null && testController.hasStudent(student)) {
+			return testBaseModel.getTests().get(indexTest);
+		} else
+			return null;
+	}
 	
 }
