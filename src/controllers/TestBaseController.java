@@ -72,7 +72,7 @@ public class TestBaseController {
 	/**
 	 * @return the tests.
 	 */
-	public List<TestModel> getTests(UserModel teacher) {
+	public List<TestModel> getTestsForTeacher(UserModel teacher) {
 		ArrayList<TestModel> masTests = new ArrayList<TestModel>();
 		for (int i = 0; i < testBaseModel.getTests().size(); i++) {
 			TestController testController=new TestController(testBaseModel.getTests().get(i));
@@ -145,8 +145,8 @@ public class TestBaseController {
 	*/
 	public TestModel getTestResultForTeacher(UserModel teacher, int indexTest) {
 		
-		if(indexTest<this.getTests(teacher).size()) {
-			return this.getTests(teacher).get(indexTest);
+		if(indexTest<this.getTestsForTeacher(teacher).size()) {
+			return this.getTestsForTeacher(teacher).get(indexTest);
 		}
 		return null;
 	}
