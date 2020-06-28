@@ -2,8 +2,6 @@ package views;
 
 import java.util.List;
 import java.util.Scanner;
-
-import controllers.TestController;
 import models.TestModel;
 import models.UserModel;
 
@@ -88,15 +86,15 @@ public final class StudentView extends UserView {
 		}
 
 		// --numTest index begin from 0;
-		try {
 			int quantityQuestions = this.getUserModel().getServer().getNumberQuestionsInTest(this.getUserModel(), numTest-1);
-			String s = String.format("Количество вопросов в тесте %d: %d", numTest, quantityQuestions);
-			System.out.println(s);
-		} catch (Exception exception) {
-			System.out.println(exception.getMessage());
-			return;
-		}
-
+			if(quantityQuestions<0) {
+				System.out.println("Теста с таким номером не существует!");
+			}
+			else {
+				String s = String.format("Количество вопросов в тесте %d: %d", numTest, quantityQuestions);
+				System.out.println(s);
+			}
+			
 
 	}
 

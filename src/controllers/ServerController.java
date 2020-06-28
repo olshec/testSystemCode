@@ -68,7 +68,7 @@ public class ServerController {
 	 * @return The test.
 	 * @throws Exception 
 	*/
-	public int getNumberQuestionsInTest(UserModel student, int indexTest) throws Exception {
+	public int getNumberQuestionsInTest(UserModel student, int indexTest) {
 		return testBaseController.getNumberQuestionsInTest(student, indexTest);
 	}
 	

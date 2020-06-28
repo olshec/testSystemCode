@@ -5,7 +5,6 @@ import java.util.List;
 
 import models.TestBaseModel;
 import models.TestModel;
-import models.UserBaseModel;
 import models.UserModel;
 
 /**
@@ -125,15 +124,16 @@ public class TestBaseController {
 	 * @param student The student.
 	 * @param indexTest The test index.
 	 * @return The test.
-	 * @throws Exception 
 	*/
-	public int getNumberQuestionsInTest(UserModel student, int indexTest) throws Exception {
+	public int getNumberQuestionsInTest(UserModel student, int indexTest)  {
+		if(indexTest>=testBaseModel.getTests().size() || indexTest<0) {
+			return -1;
+		}
 		TestModel test = testBaseModel.getTests().get(indexTest);
 		TestController testController =new TestController(test);
 		if (test != null && testController.hasStudent(student)) {
-			testBaseModel.getTests().get(indexTest).getQuestions().size();
-		} else
-			throw new Exception("Теста с таким номером не существует!");
+			return testBaseModel.getTests().get(indexTest).getQuestions().size();
+		} 
 		return -1;
 	}
 	
