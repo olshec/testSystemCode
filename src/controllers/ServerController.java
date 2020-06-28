@@ -69,13 +69,7 @@ public class ServerController {
 	 * @throws Exception 
 	*/
 	public int getNumberQuestionsInTest(UserModel student, int indexTest) throws Exception {
-		TestModel test = testBaseController.getTest(indexTest);
-		TestController testController =new TestController(test);
-		if (test != null && testController.hasStudent(student)) {
-			return testBaseController.getNumberQuestionsInTest(indexTest);
-		} else
-			throw new Exception("Теста с таким номером не существует!");
-		//return -1;
+		return testBaseController.getNumberQuestionsInTest(student, indexTest);
 	}
 	
 	/** Gets tests for teacher.

@@ -87,10 +87,10 @@ public class TestBaseController {
 	/**
 	 * get number questions in test.
 	 */
-	public int getNumberQuestionsInTest(int indexTest) {
-		TestController testController=new TestController(testBaseModel.getTests().get(indexTest));
-		return  testController.getNumberQuestions();
-	}
+//	public int getNumberQuestionsInTest(int indexTest) {
+//		TestController testController=new TestController(testBaseModel.getTests().get(indexTest));
+//		return  testController.getNumberQuestions();
+//	}
 
 	/**
 	 * @return the testBaseModel
@@ -119,6 +119,22 @@ public class TestBaseController {
 			return testBaseModel.getTests().get(indexTest);
 		} else
 			return null;
+	}
+	
+	/** Gets student test number questions.
+	 * @param student The student.
+	 * @param indexTest The test index.
+	 * @return The test.
+	 * @throws Exception 
+	*/
+	public int getNumberQuestionsInTest(UserModel student, int indexTest) throws Exception {
+		TestModel test = testBaseModel.getTests().get(indexTest);
+		TestController testController =new TestController(test);
+		if (test != null && testController.hasStudent(student)) {
+			testBaseModel.getTests().get(indexTest).getQuestions().size();
+		} else
+			throw new Exception("Теста с таким номером не существует!");
+		return -1;
 	}
 	
 }
