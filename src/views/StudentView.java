@@ -21,7 +21,7 @@ public final class StudentView extends UserView {
 		super(userModel);
 	}
 
-	/** Function for opening menu.
+	/** Menu.
 	*/
 	public void openMenu() {
 		int num = -1;

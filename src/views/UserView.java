@@ -6,7 +6,7 @@ import models.UserModel;
 public abstract class UserView {
 	private UserModel userModel;
 	
-	/** Function for opening menu.
+	/** Menu.
 	*/
 	public abstract void openMenu();
 	

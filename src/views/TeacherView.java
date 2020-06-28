@@ -23,7 +23,7 @@ public final class TeacherView extends UserView {
 		super(userModel);
 	}
 
-	/** Function for opening menu.
+	/** Menu.
 	*/
 	public void openMenu() {
 		int num = -1;

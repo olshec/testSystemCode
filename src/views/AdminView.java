@@ -23,9 +23,8 @@ public class AdminView extends UserView {
 	}
 
 	
-	/**
-	 * Function for opening menu.
-	 */
+	/** Menu.
+	*/
 	public void openMenu() {
 		int num = -1;
 		while (num != 0) {
