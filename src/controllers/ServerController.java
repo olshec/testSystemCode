@@ -97,7 +97,10 @@ public class ServerController {
 	 * @return Test The test.
 	*/
 	public TestModel getTestResultForTeacher(UserModel teacher, int indexTest) {
-		return testBaseController.getTests(teacher).get(indexTest);
+		if(indexTest<testBaseController.getTests(teacher).size()) {
+			return testBaseController.getTests(teacher).get(indexTest);
+		}
+		return null;
 	}
 
 	/** Gets users.
