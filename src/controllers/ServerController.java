@@ -110,38 +110,25 @@ public class ServerController {
 		return userBaseController.getUserBaseModel().getUsers();
 	}
 
-	//get user by type 
-	private List<UserModel> getUsersForAdminByType(String typeUser) {
-		List<UserModel> masUser = userBaseController.getUserBaseModel().getUsers();
-		List<UserModel> masUserResult = new ArrayList<UserModel>();
-		for (int i = 0; i < masUser.size(); i++) {
-			String className = masUser.get(i).getClass().getSimpleName();
-			if (className.equals(typeUser)) {
-				masUserResult.add(masUser.get(i));
-			}
-		}
-		return masUserResult;
-	}
-	
 	/** Gets students.
 	 * @return List<User> The list students.
 	*/
 	public List<UserModel> getStudentsForAdmin() {
-		return getUsersForAdminByType(StudentModel.nameModel);
+		return userBaseController.getUsersByType(StudentModel.nameModel);
 	}
 
 	/** Gets teachers.
 	 * @return List<User> The list teachers.
 	*/
 	public List<UserModel> getTeachersForAdmin() {
-		return getUsersForAdminByType(TeacherModel.nameModel);
+		return userBaseController.getUsersByType(TeacherModel.nameModel);
 	}
 
 	/** Gets administrators.
 	 * @return List<User> The list administrators.
 	*/
 	public List<UserModel> getAdminsForAdmin() {
-		return getUsersForAdminByType(AdministratorModel.nameModel);
+		return userBaseController.getUsersByType(AdministratorModel.nameModel);
 	}
 	
 	

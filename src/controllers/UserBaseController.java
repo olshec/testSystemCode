@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import models.UserModel;
@@ -84,6 +85,20 @@ public class UserBaseController {
 		this.userBaseModel = userBaseModel;
 	}
 
+	/** Gets users by type.
+	 * @param typeUser the user's type.
+	 * @return List<UserModel> The list students.
+	 */
+	public List<UserModel> getUsersByType(String typeUser) {
+		List<UserModel> masUserResult = new ArrayList<UserModel>();
+		for (int i = 0; i <userBaseModel.getUsers().size(); i++) {
+			String className = userBaseModel.getUsers().get(i).getClass().getSimpleName();
+			if (className.equals(typeUser)) {
+				masUserResult.add(userBaseModel.getUsers().get(i));
+			}
+		}
+		return masUserResult;
+	}
 	
 
 	
