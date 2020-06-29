@@ -93,29 +93,32 @@ public class ServerController {
 	/** Gets users.
 	 * @return List<User> The list all users.
 	*/
-	public List<UserModel> getAllUsersForAdmin() {
-		return userBaseController.getUserBaseModel().getUsers();
+	public List<UserModel> getAllUsersForAdmin(UserModel adminModel) {
+		return new AdministratorController(adminModel).getUsers(userBaseController.getUserBaseModel());
 	}
 
 	/** Gets students.
 	 * @return List<User> The list students.
 	*/
-	public List<UserModel> getStudentsForAdmin() {
-		return userBaseController.getUsersByType(StudentModel.nameModel);
+	public List<UserModel> getStudentsForAdmin(UserModel adminModel) {
+		return new AdministratorController(adminModel).
+				getUsersByType(StudentModel.nameModel, userBaseController.getUserBaseModel());
 	}
 
 	/** Gets teachers.
 	 * @return List<User> The list teachers.
 	*/
-	public List<UserModel> getTeachersForAdmin() {
-		return userBaseController.getUsersByType(TeacherModel.nameModel);
+	public List<UserModel> getTeachersForAdmin(UserModel adminModel) {
+		return new AdministratorController(adminModel).
+				getUsersByType(TeacherModel.nameModel, userBaseController.getUserBaseModel());
 	}
 
 	/** Gets administrators.
 	 * @return List<User> The list administrators.
 	*/
-	public List<UserModel> getAdminsForAdmin() {
-		return userBaseController.getUsersByType(AdministratorModel.nameModel);
+	public List<UserModel> getAdminsForAdmin(UserModel adminModel) {
+		return new AdministratorController(adminModel).
+		getUsersByType(AdministratorModel.nameModel, userBaseController.getUserBaseModel());
 	}
 	
 	
