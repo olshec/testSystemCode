@@ -81,7 +81,7 @@ public final class StudentView extends UserView {
 		try {
 			numTest = myInput.nextInt();
 		} catch (java.util.InputMismatchException exception) {
-			System.out.println("Ошибка ввода! Номер теста должен быть числом!");
+			System.out.println("Ошибка при вводе! Номер теста должен быть числом!");
 			return;
 		}
 
