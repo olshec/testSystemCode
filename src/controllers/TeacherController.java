@@ -45,7 +45,7 @@ public class TeacherController extends UserController {
 	*/
 	public TestModel getTestResultForTeacher( int indexTest, TestBaseModel testBaseModel) {
 		
-		if(indexTest<this.getTests(testBaseModel).size()) {
+		if(indexTest>=0 && indexTest<this.getTests(testBaseModel).size() ) {
 			return this.getTests(testBaseModel).get(indexTest);
 		}
 		return null;

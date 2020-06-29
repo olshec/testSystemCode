@@ -16,7 +16,7 @@ public class TestBaseModel {
 	/**Creates a TestBaseModel.
 	 */
 	public TestBaseModel() {
-		setTests(tests);
+		//setTests(tests);
 	}
 	
 	/**Creates a TestBaseModel.
