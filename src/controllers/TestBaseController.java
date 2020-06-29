@@ -31,19 +31,7 @@ public class TestBaseController {
 		setTestBaseModel(testBaseModel);
 		}
 	
-	/**
-	 * @return the tests student.
-	 */
-	public List<TestModel> getTestsStudent(UserModel student) {
-		List<TestModel> testsStudent = new ArrayList<TestModel>();
-		for (int i = 0; i <testBaseModel.getTests().size(); i++) {
-			TestController testController=new TestController(testBaseModel.getTests().get(i));
-			if (testController.hasStudent(student) == true) {
-				testsStudent.add(testBaseModel.getTests().get(i));
-			}
-		}
-		return testsStudent;
-	}
+
 
 	/**
 	 * @return the all tests.
@@ -83,13 +71,6 @@ public class TestBaseController {
 		return masTests;
 	}
 	
-	/**
-	 * get number questions in test.
-	 */
-//	public int getNumberQuestionsInTest(int indexTest) {
-//		TestController testController=new TestController(testBaseModel.getTests().get(indexTest));
-//		return  testController.getNumberQuestions();
-//	}
 
 	/**
 	 * @return the testBaseModel
@@ -106,36 +87,7 @@ public class TestBaseController {
 	}
 
 
-	/** Gets student test information.
-	 * @param student The student's model.
-	 * @param  indexTest The test index.
-	 * @return The test's model.
-	*/
-	public TestModel getTestInfoForStudent(UserModel student, int indexTest) {
-		TestModel test = testBaseModel.getTests().get(indexTest);
-		TestController testController =new TestController(test);
-		if (test != null && testController.hasStudent(student)) {
-			return testBaseModel.getTests().get(indexTest);
-		} else
-			return null;
-	}
-	
-	/** Gets student test number questions.
-	 * @param student The student.
-	 * @param indexTest The test index.
-	 * @return The test.
-	*/
-	public int getNumberQuestionsInTest(UserModel student, int indexTest)  {
-		if(indexTest>=testBaseModel.getTests().size() || indexTest<0) {
-			return -1;
-		}
-		TestModel test = testBaseModel.getTests().get(indexTest);
-		TestController testController =new TestController(test);
-		if (test != null && testController.hasStudent(student)) {
-			return testBaseModel.getTests().get(indexTest).getQuestions().size();
-		} 
-		return -1;
-	}
+
 	
 	
 	/** Gets students test result.

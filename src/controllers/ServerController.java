@@ -49,7 +49,7 @@ public class ServerController {
 	 * @return List<Test> The list tests.
 	*/
 	public List<TestModel> getTestsForStudent(UserModel student) {
-		return testBaseController.getTestsStudent(student);
+		return new StudentController(student).getTests(testBaseController.getTestBaseModel());
 	}
 
 	/** Gets student test information.
@@ -58,7 +58,7 @@ public class ServerController {
 	 * @return The test's model.
 	*/
 	public TestModel getTestInfoForStudent(UserModel student, int indexTest) {
-		return testBaseController.getTestInfoForStudent(student, indexTest);
+		return new StudentController(student).getTestInfo(indexTest, testBaseController.getTestBaseModel());
 	}
 
 	
@@ -68,7 +68,7 @@ public class ServerController {
 	 * @return The test.
 	*/
 	public int getNumberQuestionsInTest(UserModel student, int indexTest) {
-		return testBaseController.getNumberQuestionsInTest(student, indexTest);
+		return new StudentController(student).getNumberQuestionsInTest(indexTest,testBaseController.getTestBaseModel());
 	}
 	
 	/** Gets tests for teacher.
