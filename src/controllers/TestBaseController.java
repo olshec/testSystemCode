@@ -30,8 +30,6 @@ public class TestBaseController {
 	public TestBaseController(TestBaseModel testBaseModel) {
 		setTestBaseModel(testBaseModel);
 		}
-	
-
 
 	/**
 	 * @return the all tests.
@@ -57,19 +55,7 @@ public class TestBaseController {
 		return null;
 	}
 
-	/**
-	 * @return the tests.
-	 */
-	public List<TestModel> getTestsForTeacher(UserModel teacher) {
-		ArrayList<TestModel> masTests = new ArrayList<TestModel>();
-		for (int i = 0; i < testBaseModel.getTests().size(); i++) {
-			TestController testController=new TestController(testBaseModel.getTests().get(i));
-			if (testController.hasTeacher(teacher)) {
-				masTests.add(testController.getTestModel());
-			}
-		}
-		return masTests;
-	}
+
 	
 
 	/**
@@ -90,17 +76,6 @@ public class TestBaseController {
 
 	
 	
-	/** Gets students test result.
-	 * @param teacher The teacher.
-	 * @param indexTest The test index.
-	 * @return Test The test.
-	*/
-	public TestModel getTestResultForTeacher(UserModel teacher, int indexTest) {
-		
-		if(indexTest<this.getTestsForTeacher(teacher).size()) {
-			return this.getTestsForTeacher(teacher).get(indexTest);
-		}
-		return null;
-	}
+
 	
 }

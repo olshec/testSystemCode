@@ -57,7 +57,7 @@ public class StudentController extends UserController {
 	/** Gets student test number questions.
 	 * @param student The student.
 	 * @param indexTest The test index.
-	 * @return The test.
+	 * @return The number of tests.
 	*/
 	public int getNumberQuestionsInTest(int indexTest, TestBaseModel testBaseModel)  {
 		if(indexTest>=testBaseModel.getTests().size() || indexTest<0) {

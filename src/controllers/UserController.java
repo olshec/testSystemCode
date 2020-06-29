@@ -6,15 +6,16 @@ import models.UserModel;
  */
 
 /**
- * @author user1
- *
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
  */
 public abstract class UserController {
 
 	UserModel userModel;
 	
 	/**
-	 * Creates a UserController.
+	 * Creates an UserController.
 	 */
 	public UserController(UserModel userModel) {
 		this.userModel=userModel;

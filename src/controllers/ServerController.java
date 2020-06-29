@@ -76,7 +76,8 @@ public class ServerController {
 	 * @return List<Test> The list tests.
 	*/
 	public List<TestModel> getTestsForTeacher(UserModel teacher) {
-		return testBaseController.getTestsForTeacher(teacher);
+		return new TeacherController(teacher).
+				getTests(testBaseController.getTestBaseModel());
 	}
 
 	/** Gets students test result.
@@ -85,7 +86,8 @@ public class ServerController {
 	 * @return Test The test.
 	*/
 	public TestModel getTestResultForTeacher(UserModel teacher, int indexTest) {
-		return testBaseController.getTestResultForTeacher(teacher, indexTest);
+		return new TeacherController(teacher).
+				getTestResultForTeacher(indexTest, testBaseController.getTestBaseModel());
 	}
 
 	/** Gets users.
