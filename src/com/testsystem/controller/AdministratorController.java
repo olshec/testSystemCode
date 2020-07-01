@@ -22,10 +22,10 @@ public class AdministratorController extends UserController {
 
 	/**
 	 * Creates an AdministratorController.
-	 * @param userModel
+	 * @param user
 	 */
-	public AdministratorController(User userModel) {
-		super(userModel);
+	public AdministratorController(User user) {
+		super(user);
 	}
 
 	/**
@@ -41,8 +41,8 @@ public class AdministratorController extends UserController {
 	/**
 	 * @return List<UserModel> the list users.
 	 */
-	public List<User> getUsers(UserBase userBasemodel) {
-		return new UserBaseController(userBasemodel).getUsers();
+	public List<User> getUsers(UserBase userBase) {
+		return new UserBaseController(userBase).getUsers();
 	}
 
 }
