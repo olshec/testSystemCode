@@ -31,16 +31,26 @@ public class QuestionController {
 	 * @return the text question
 	 */
 	public String getText(int idQuestion) {
-		return questionsModel.get(idQuestion).getText();
+		for(int i=0;i<questionsModel.size();i++) {
+			if(questionsModel.get(i).getID()==idQuestion) {
+				return questionsModel.get(idQuestion).getText();
+			}
+		}
+		return null;
+		//return questionsModel.get(idQuestion).getText();
 	}
 	
 	/**
 	 * Set text question
 	 * @param text the text question
-	 * @param idQuestion the index question
+	 * @param idQuestion the ID question
 	 */
 	public void setText(String text, int idQuestion) {
-		questionsModel.get(idQuestion).setText(text);
+		for(int i=0;i<questionsModel.size();i++) {
+			if(questionsModel.get(i).getID()==idQuestion) {
+				questionsModel.get(idQuestion).setText(text);
+			}
+		}
 	}
 
 	/**
@@ -48,7 +58,12 @@ public class QuestionController {
 	 * @return the answers
 	 */
 	public List<Answer> getAnswers(int idQuestion) {
-		return questionsModel.get(idQuestion).getAnswers();
+		for(int i=0;i<questionsModel.size();i++) {
+			if(questionsModel.get(i).getID()==idQuestion) {
+				return questionsModel.get(idQuestion).getAnswers();
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -57,7 +72,11 @@ public class QuestionController {
 	 * @param idQuestion the index question
 	 */
 	public void setAnswers(List<Answer> answers,int idQuestion) {
-		questionsModel.get(idQuestion).setAnswers(answers);
+		for(int i=0;i<questionsModel.size();i++) {
+			if(questionsModel.get(i).getID()==idQuestion) {
+				questionsModel.get(idQuestion).setAnswers(answers);
+			}
+		}
 	}
 	
 	/**
