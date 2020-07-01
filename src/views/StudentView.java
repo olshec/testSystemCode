@@ -81,14 +81,14 @@ public final class StudentView extends UserView {
 		try {
 			numTest = myInput.nextInt();
 		} catch (java.util.InputMismatchException exception) {
-			System.out.println("Ошибка при вводе! Номер теста должен быть числом!");
+//			System.out.println("Ошибка при вводе! Номер теста должен быть числом!");
 			return;
 		}
 
 		// --numTest index begin from 0;
 			int quantityQuestions = this.getUserModel().getServer().getNumberQuestionsInTest(this.getUserModel(), numTest-1);
 			if(quantityQuestions<0) {
-				System.out.println("Теста с таким номером не существует!");
+//				System.out.println("Теста с таким номером не существует!");
 			}
 			else {
 				String s = String.format("Количество вопросов в тесте %d: %d", numTest, quantityQuestions);

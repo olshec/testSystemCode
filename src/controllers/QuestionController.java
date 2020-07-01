@@ -14,7 +14,7 @@ import models.QuestionModel;
  * @version 1.0
  */
 public class QuestionController {
-	List<QuestionModel> questionsModel;
+	private List<QuestionModel> questionsModel;
 
 	/** Creates a QuestionController.
 	 */
