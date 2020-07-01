@@ -1,7 +1,6 @@
 package com.testsystem.models;
 
 import java.util.List;
-import java.util.Random;
 
 /**
  * Represents a question.

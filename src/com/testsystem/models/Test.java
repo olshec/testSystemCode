@@ -3,8 +3,6 @@ package com.testsystem.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.controller.QuestionController;
-
 /**
  * Represents a test.
  * 

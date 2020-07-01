@@ -1,11 +1,9 @@
 package com.testsystem.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.models.Test;
 import com.testsystem.models.TestBase;
-import com.testsystem.models.User;
 
 /**
  * Represents a controller to the database containing tests.
