@@ -6,9 +6,9 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.TestBaseModel;
-import models.TestModel;
-import models.UserModel;
+import models.TestBase;
+import models.Test;
+import models.User;
 
 /**
  * @author Oleg Shestakov
@@ -20,15 +20,15 @@ public class TeacherController extends UserController {
 	/**Creates a TeacherController.
 	 * @param userModel
 	 */
-	public TeacherController(UserModel userModel) {
+	public TeacherController(User userModel) {
 		super(userModel);
 	}
 	
 	/**
 	 * @return the tests.
 	 */
-	public List<TestModel> getTests(TestBaseModel testBaseModel) {
-		ArrayList<TestModel> masTests = new ArrayList<TestModel>();
+	public List<Test> getTests(TestBase testBaseModel) {
+		ArrayList<Test> masTests = new ArrayList<Test>();
 		for (int i = 0; i < testBaseModel.getTests().size(); i++) {
 			TestController testController=new TestController(testBaseModel.getTests().get(i));
 			if (testController.hasTeacher(this.getUserModel())) {
@@ -43,7 +43,7 @@ public class TeacherController extends UserController {
 	 * @param indexTest The test index.
 	 * @return Test The test.
 	*/
-	public TestModel getTestResultForTeacher( int indexTest, TestBaseModel testBaseModel) {
+	public Test getTestResultForTeacher( int indexTest, TestBase testBaseModel) {
 		
 		if(indexTest>=0 && indexTest<this.getTests(testBaseModel).size() ) {
 			return this.getTests(testBaseModel).get(indexTest);

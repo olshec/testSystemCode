@@ -3,14 +3,14 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.AdministratorModel;
-import models.QuestionModel;
-import models.StudentModel;
-import models.TeacherModel;
-import models.TestBaseModel;
-import models.TestModel;
-import models.UserBaseModel;
-import models.UserModel;
+import models.Administrator;
+import models.Question;
+import models.Student;
+import models.Teacher;
+import models.TestBase;
+import models.Test;
+import models.UserBase;
+import models.User;
 
 /**
  * Represents a server controller.
@@ -23,15 +23,15 @@ public class ServerController {
 
 	// private UserBaseModel userBaseModel;
 
-	private TestBaseModel testBaseModel;
-	private UserBaseModel userBaseModel;
+	private TestBase testBaseModel;
+	private UserBase userBaseModel;
 
 	/**
 	 * Creates a ServerController.
 	 */
 	public ServerController() {
-		testBaseModel = new TestBaseModel();
-		userBaseModel = new UserBaseModel();
+		testBaseModel = new TestBase();
+		userBaseModel = new UserBase();
 		// userBaseController = new UserBaseController(userBaseModel);
 
 		loadTest();
@@ -44,7 +44,7 @@ public class ServerController {
 	 * @param password The user's password.
 	 * @return User The authenticated user.
 	 */
-	public UserModel login(String username, String password) {
+	public User login(String username, String password) {
 		return new UserBaseController(userBaseModel).getUser(username, password);
 	}
 
@@ -54,7 +54,7 @@ public class ServerController {
 	 * @param student The student.
 	 * @return List<Test> The list tests.
 	 */
-	public List<TestModel> getTestsForStudent(UserModel student) {
+	public List<Test> getTestsForStudent(User student) {
 		return new StudentController(student).getTests(testBaseModel);
 	}
 
@@ -65,7 +65,7 @@ public class ServerController {
 	 * @param indexTest The test index.
 	 * @return The test's model.
 	 */
-	public TestModel getTestInfoForStudent(UserModel student, int indexTest) {
+	public Test getTestInfoForStudent(User student, int indexTest) {
 		return new StudentController(student).getTestInfo(indexTest, testBaseModel);
 	}
 
@@ -76,7 +76,7 @@ public class ServerController {
 	 * @param indexTest The test index.
 	 * @return The test.
 	 */
-	public int getNumberQuestionsInTest(UserModel student, int indexTest) {
+	public int getNumberQuestionsInTest(User student, int indexTest) {
 		return new StudentController(student).getNumberQuestionsInTest(indexTest,
 				testBaseModel);
 	}
@@ -87,7 +87,7 @@ public class ServerController {
 	 * @param teacher The teacher.
 	 * @return List<Test> The list tests.
 	 */
-	public List<TestModel> getTestsForTeacher(UserModel teacher) {
+	public List<Test> getTestsForTeacher(User teacher) {
 		return new TeacherController(teacher).getTests(testBaseModel);
 	}
 
@@ -98,7 +98,7 @@ public class ServerController {
 	 * @param indexTest The test index.
 	 * @return Test The test.
 	 */
-	public TestModel getTestResultForTeacher(UserModel teacher, int indexTest) {
+	public Test getTestResultForTeacher(User teacher, int indexTest) {
 		return new TeacherController(teacher).getTestResultForTeacher(indexTest, testBaseModel);
 	}
 
@@ -107,7 +107,7 @@ public class ServerController {
 	 * 
 	 * @return List<User> The list all users.
 	 */
-	public List<UserModel> getAllUsersForAdmin(UserModel adminModel) {
+	public List<User> getAllUsersForAdmin(User adminModel) {
 		return new AdministratorController(adminModel)
 				.getUsers(new UserBaseController(userBaseModel).getUserBaseModel());
 	}
@@ -117,8 +117,8 @@ public class ServerController {
 	 * 
 	 * @return List<User> The list students.
 	 */
-	public List<UserModel> getStudentsForAdmin(UserModel adminModel) {
-		return new AdministratorController(adminModel).getUsersByType(StudentModel.nameModel, userBaseModel);
+	public List<User> getStudentsForAdmin(User adminModel) {
+		return new AdministratorController(adminModel).getUsersByType(Student.nameModel, userBaseModel);
 	}
 
 	/**
@@ -126,8 +126,8 @@ public class ServerController {
 	 * 
 	 * @return List<User> The list teachers.
 	 */
-	public List<UserModel> getTeachersForAdmin(UserModel adminModel) {
-		return new AdministratorController(adminModel).getUsersByType(TeacherModel.nameModel, userBaseModel);
+	public List<User> getTeachersForAdmin(User adminModel) {
+		return new AdministratorController(adminModel).getUsersByType(Teacher.nameModel, userBaseModel);
 	}
 
 	/**
@@ -135,35 +135,35 @@ public class ServerController {
 	 * 
 	 * @return List<User> The list administrators.
 	 */
-	public List<UserModel> getAdminsForAdmin(UserModel adminModel) {
-		return new AdministratorController(adminModel).getUsersByType(AdministratorModel.nameModel, userBaseModel);
+	public List<User> getAdminsForAdmin(User adminModel) {
+		return new AdministratorController(adminModel).getUsersByType(Administrator.nameModel, userBaseModel);
 	}
 
 	private void loadTest() {
 		// BEGIN DATA FOR TEST
 		UserBaseController userBaseController=new UserBaseController(userBaseModel);
-		UserModel admin1 = new AdministratorModel("Примарев", "Игорь", this, "Admin1", "0000");
+		User admin1 = new Administrator("Примарев", "Игорь", this, "Admin1", "0000");
 		userBaseController.addUser(admin1);
 
-		UserModel teacher1 = new TeacherModel("Киров", "Антон", this, "KirovAnton", "12345678");
+		User teacher1 = new Teacher("Киров", "Антон", this, "KirovAnton", "12345678");
 		userBaseController.addUser(teacher1);
 
-		TestModel test1 = new TestModel("Робототехника", teacher1);
-		TestModel test2 = new TestModel("Сетевые технологии", teacher1);
-		TestModel test3 = new TestModel("Информатика", teacher1);
+		Test test1 = new Test("Робототехника", teacher1);
+		Test test2 = new Test("Сетевые технологии", teacher1);
+		Test test3 = new Test("Информатика", teacher1);
 
-		QuestionModel q1 = new QuestionModel("Основы роботетхники");
-		QuestionModel q2 = new QuestionModel("AI");
-		QuestionModel q3 = new QuestionModel("Микроконтроллеры");
+		Question q1 = new Question("Основы роботетхники");
+		Question q2 = new Question("AI");
+		Question q3 = new Question("Микроконтроллеры");
 
 		TestController testController = new TestController(test1);
 		testController.addQuestion(q1);
 		testController.addQuestion(q2);
 		testController.addQuestion(q3);
 
-		QuestionModel q4 = new QuestionModel("Протокол HTTP");
-		QuestionModel q5 = new QuestionModel("Характеристика OSI");
-		QuestionModel q6 = new QuestionModel("Протокол TCP");
+		Question q4 = new Question("Протокол HTTP");
+		Question q5 = new Question("Характеристика OSI");
+		Question q6 = new Question("Протокол TCP");
 
 		testController.setTestModel(test2);
 
@@ -172,7 +172,7 @@ public class ServerController {
 		testController.addQuestion(q5);
 		testController.addQuestion(q6);
 
-		List<TestModel> tests = new ArrayList<TestModel>();
+		List<Test> tests = new ArrayList<Test>();
 
 		tests.add(test1);
 		tests.add(test2);
@@ -182,8 +182,8 @@ public class ServerController {
 		new TestBaseController(testBaseModel).addTests(tests);
 		//testBaseController.addTests(tests);
 
-		UserModel student1 = new StudentModel("Шахматов", "Антон", this, "ShAnton", "1111");
-		UserModel student2 = new StudentModel("Романенко", "Егор", this, "REgor", "1111");
+		User student1 = new Student("Шахматов", "Антон", this, "ShAnton", "1111");
+		User student2 = new Student("Романенко", "Егор", this, "REgor", "1111");
 
 		userBaseController.addUser(student1);
 		userBaseController.addUser(student2);

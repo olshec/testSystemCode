@@ -1,10 +1,10 @@
 package views;
 
 
-import models.UserModel;
+import models.User;
 
 public abstract class UserView {
-	private UserModel userModel;
+	private User userModel;
 	
 	/** Menu.
 	*/
@@ -16,21 +16,21 @@ public abstract class UserView {
 	
 	/** Creates a UserView.
 	 */
-	public UserView(UserModel userModel) {
+	public UserView(User userModel) {
 		setUserModel(userModel);
 	}
 
 	/**
 	 * @return the userModel
 	 */
-	public UserModel getUserModel() {
+	public User getUserModel() {
 		return userModel;
 	}
 
 	/**
 	 * @param userModel the userModel to set
 	 */
-	public void setUserModel(UserModel userModel) { 
+	public void setUserModel(User userModel) { 
 		this.userModel = userModel;
 	}
 

@@ -3,8 +3,8 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.UserModel;
-import models.UserBaseModel;
+import models.User;
+import models.UserBase;
 
 /**
  * Represents a controller to the database containing user.
@@ -14,18 +14,18 @@ import models.UserBaseModel;
  * @version 1.0
  */
 public class UserBaseController {
-	private UserBaseModel userBaseModel;
+	private UserBase userBaseModel;
 
 	/** Creates a UserBaseController.
 	 */
 	public UserBaseController() {
-		userBaseModel = new UserBaseModel();
+		userBaseModel = new UserBase();
 	}
 	
 	/** Creates a UserBaseController.
 	 * @param userBaseModel the database containing user.
 	 */
-	public UserBaseController(UserBaseModel userBaseModel) {
+	public UserBaseController(UserBase userBaseModel) {
 		setUserBaseModel(userBaseModel);
 	}
 
@@ -34,8 +34,8 @@ public class UserBaseController {
 	 * @param password the password of user.
 	 * @return UserModel the user.
 	 */
-	public UserModel getUser(String username, String password) {
-		List<UserModel> users=userBaseModel.getUsers();
+	public User getUser(String username, String password) {
+		List<User> users=userBaseModel.getUsers();
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).getUserName().equals(username) && users.get(i).getPassword().equals(password)) {
 				return users.get(i);
@@ -47,22 +47,22 @@ public class UserBaseController {
 	/**
 	 * @return List<UserModel> the list users.
 	 */
-	public List<UserModel> getUsers() {
+	public List<User> getUsers() {
 		return userBaseModel.getUsers();
 	}
 
 	/**
 	 * @param user the user's model.
 	 */
-	public void addUser(UserModel user) {
+	public void addUser(User user) {
 		userBaseModel.getUsers().add(user);
 	}
 
 	/**
 	 * @return boolean return true if database contains user.
 	 */
-	public boolean hasUser(UserModel user) {
-		List<UserModel> users=userBaseModel.getUsers();
+	public boolean hasUser(User user) {
+		List<User> users=userBaseModel.getUsers();
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).getId() == user.getId()) {
 				return true;
@@ -74,14 +74,14 @@ public class UserBaseController {
 	/**
 	 * @return the userBaseModel.
 	 */
-	public UserBaseModel getUserBaseModel() {
+	public UserBase getUserBaseModel() {
 		return userBaseModel;
 	}
 
 	/**
 	 * @param userBaseModel the userBaseModel to set.
 	 */
-	public void setUserBaseModel(UserBaseModel userBaseModel) {
+	public void setUserBaseModel(UserBase userBaseModel) {
 		this.userBaseModel = userBaseModel;
 	}
 
@@ -89,8 +89,8 @@ public class UserBaseController {
 	 * @param typeUser the user's type.
 	 * @return List<UserModel> The list students.
 	 */
-	public List<UserModel> getUsersByType(String typeUser) {
-		List<UserModel> masUserResult = new ArrayList<UserModel>();
+	public List<User> getUsersByType(String typeUser) {
+		List<User> masUserResult = new ArrayList<User>();
 		for (int i = 0; i <userBaseModel.getUsers().size(); i++) {
 			String className = userBaseModel.getUsers().get(i).getClass().getSimpleName();
 			if (className.equals(typeUser)) {

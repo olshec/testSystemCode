@@ -1,5 +1,5 @@
 package controllers;
-import models.UserModel;
+import models.User;
 
 /**
  * 
@@ -12,26 +12,26 @@ import models.UserModel;
  */
 public abstract class UserController {
 
-	UserModel userModel;
+	User userModel;
 	
 	/**
 	 * Creates an UserController.
 	 */
-	public UserController(UserModel userModel) {
+	public UserController(User userModel) {
 		this.userModel=userModel;
 	}
 	
 	/**
 	 * @return the userModel
 	 */
-	public UserModel getUserModel() {
+	public User getUserModel() {
 		return userModel;
 	}
 	
 	/**
 	 * @param userModel the userModel to set
 	 */
-	public void setUserModel(UserModel userModel) {
+	public void setUserModel(User userModel) {
 		this.userModel = userModel;
 	}
 	

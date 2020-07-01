@@ -9,14 +9,14 @@ import java.util.List;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class QuestionModel {
+public class Question {
 	private String text;
-	private List<AnswerModel> answers;
+	private List<Answer> answers;
 	
 	/** Creates a QuestionModel.
 	 * @param text The question’s text.
 	 */
-	public QuestionModel(String text) {
+	public Question(String text) {
 		setText(text);
 	}
 
@@ -37,14 +37,14 @@ public class QuestionModel {
 	/**
 	 * @return the answers
 	 */
-	public List<AnswerModel> getAnswers() {
+	public List<Answer> getAnswers() {
 		return answers;
 	}
 
 	/**
 	 * @param answers the answers to set
 	 */
-	public void setAnswers(List<AnswerModel> answers) {
+	public void setAnswers(List<Answer> answers) {
 		this.answers = answers;
 	}
 

@@ -10,19 +10,19 @@ import java.util.List;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class UserBaseModel {
-	private List<UserModel> users;
+public class UserBase {
+	private List<User> users;
 
 	/**Creates a UserBaseModel.
 	 */
-	public UserBaseModel() {
-		users = new ArrayList<UserModel>();
+	public UserBase() {
+		users = new ArrayList<User>();
 	}
 	
 	/**Creates a UserBaseModel.
 	 * @param users
 	 */
-	public UserBaseModel(List<UserModel> users) {
+	public UserBase(List<User> users) {
 		super();
 		this.users = users;
 	}
@@ -31,14 +31,14 @@ public class UserBaseModel {
 	/**
 	 * @return the list users
 	 */
-	public List<UserModel> getUsers() {
+	public List<User> getUsers() {
 		return users;
 	}
 
 	/**
 	 * @param users the users to set
 	 */
-	public void setUsers(List<UserModel> users) {
+	public void setUsers(List<User> users) {
 		this.users = users;
 	}
 

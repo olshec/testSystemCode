@@ -5,8 +5,8 @@ package controllers;
 
 import java.util.List;
 
-import models.UserBaseModel;
-import models.UserModel;
+import models.UserBase;
+import models.User;
 
 /** AdministratorController
  * @author Oleg Shestakov
@@ -18,7 +18,7 @@ public class AdministratorController extends UserController {
 	/**Creates an AdministratorController.
 	 * @param userModel
 	 */
-	public AdministratorController(UserModel userModel) {
+	public AdministratorController(User userModel) {
 		super(userModel);
 	}
 	
@@ -26,14 +26,14 @@ public class AdministratorController extends UserController {
 	 * @param typeUser the user's type.
 	 * @return List<UserModel> The list students.
 	 */
-	public List<UserModel> getUsersByType(String typeUser, UserBaseModel userBasemodel) {
+	public List<User> getUsersByType(String typeUser, UserBase userBasemodel) {
 		return new UserBaseController(userBasemodel).getUsersByType(typeUser);
 	}
 	
 	/**
 	 * @return List<UserModel> the list users.
 	 */
-	public List<UserModel> getUsers(UserBaseModel userBasemodel) {
+	public List<User> getUsers(UserBase userBasemodel) {
 		return new UserBaseController(userBasemodel).getUsers();
 	}
 	

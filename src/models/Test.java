@@ -12,11 +12,11 @@ import controllers.QuestionController;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class TestModel {
+public class Test {
 	private String name;
-	private UserModel teacher;
-	private List<QuestionModel> questions;
-	private List<UserModel> students;
+	private User teacher;
+	private List<Question> questions;
+	private List<User> students;
 	private List<Integer> results;
 	
 	
@@ -24,14 +24,14 @@ public class TestModel {
 	/**
 	 * Creates a TestModel.
 	 */
-	public TestModel() {}
+	public Test() {}
 	
 	/**
 	 * Creates a test.
 	 * @param  name The test's name.
 	 * @param teacher The teacher’s model.
 	 */
-	public TestModel(String name, UserModel teacher) {
+	public Test(String name, User teacher) {
 		this.init();
 		setName(name);
 		setTeacher(teacher);
@@ -39,8 +39,8 @@ public class TestModel {
 	
 	
 	private void init() {
-		setQuestions(new ArrayList<QuestionModel>());
-		setStudents(new ArrayList<UserModel>());
+		setQuestions(new ArrayList<Question>());
+		setStudents(new ArrayList<User>());
 		setResults(new ArrayList<Integer>()); 
 	}
 	/**
@@ -58,37 +58,37 @@ public class TestModel {
 	/**
 	 * @return the teacher
 	 */
-	public UserModel getTeacher() {
+	public User getTeacher() {
 		return teacher;
 	}
 	/**
 	 * @param teacher the teacher to set
 	 */
-	public void setTeacher(UserModel teacher) {
+	public void setTeacher(User teacher) {
 		this.teacher = teacher;
 	}
 	/**
 	 * @return the questions
 	 */
-	public List<QuestionModel> getQuestions() {
+	public List<Question> getQuestions() {
 		return questions;
 	}
 	/**
 	 * @param questions the questions to set
 	 */
-	public void setQuestions(List<QuestionModel> questions) {
+	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
 	/**
 	 * @return the students
 	 */
-	public List<UserModel> getStudents() {
+	public List<User> getStudents() {
 		return students;
 	}
 	/**
 	 * @param students the students to set
 	 */
-	public void setStudents(List<UserModel> students) {
+	public void setStudents(List<User> students) {
 		this.students = students;
 	}
 	/**

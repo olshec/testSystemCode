@@ -2,7 +2,7 @@ package views;
 
 import java.util.List;
 import java.util.Scanner;
-import models.UserModel;
+import models.User;
 
 /**
  * Represents an administrator.
@@ -18,7 +18,7 @@ public class AdminView extends UserView {
 	 * Creates an administrator view.
 	 * @param userModel  The administrator's model
 	 */
-	public AdminView(UserModel userModel) {
+	public AdminView(User userModel) {
 		super(userModel);
 	}
 
@@ -71,7 +71,7 @@ public class AdminView extends UserView {
 	 * @param masUser The array of users.
 	 * @param title String represents a title.
 	 */
-	private void printListUsers(List<UserModel> masUser, String title) {
+	private void printListUsers(List<User> masUser, String title) {
 		System.out.println(title + ": ");
 		for (int i = 0; i < masUser.size(); i++) {
 			String s = String.format("%d) %s %s  (%s)", i + 1, masUser.get(i).getLastName(),
@@ -84,7 +84,7 @@ public class AdminView extends UserView {
 	 * Gets the list users from server.
 	 */
 	private void getUsers() {
-		List<UserModel> masUser = this.getUserModel().getServer().getAllUsersForAdmin(this.getUserModel());
+		List<User> masUser = this.getUserModel().getServer().getAllUsersForAdmin(this.getUserModel());
 		printListUsers(masUser, "Cписок пользователей");
 	}
 
@@ -92,7 +92,7 @@ public class AdminView extends UserView {
 	 * Gets the list students from server.
 	 */
 	private void getStudents() {
-		List<UserModel> masUser =this.getUserModel().getServer().getStudentsForAdmin(this.getUserModel());
+		List<User> masUser =this.getUserModel().getServer().getStudentsForAdmin(this.getUserModel());
 		printListUsers(masUser, "Cписок студентов");
 	}
 
@@ -100,7 +100,7 @@ public class AdminView extends UserView {
 	 * Gets the list teachers from server.
 	 */
 	private void getTeachers() {
-		List<UserModel> masUser = this.getUserModel().getServer().getTeachersForAdmin(this.getUserModel());
+		List<User> masUser = this.getUserModel().getServer().getTeachersForAdmin(this.getUserModel());
 		printListUsers(masUser, "Cписок преподавателей");
 	}
 
@@ -108,7 +108,7 @@ public class AdminView extends UserView {
 	 * Gets the list administrators from server.
 	 */
 	private void getAdministrators() {
-		List<UserModel> masUser = this.getUserModel().getServer().getAdminsForAdmin(this.getUserModel());
+		List<User> masUser = this.getUserModel().getServer().getAdminsForAdmin(this.getUserModel());
 		printListUsers(masUser, "Cписок администраторов");
 	}
 

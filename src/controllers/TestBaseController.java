@@ -3,9 +3,9 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.TestBaseModel;
-import models.TestModel;
-import models.UserModel;
+import models.TestBase;
+import models.Test;
+import models.User;
 
 /**
  * Represents a controller to the database containing tests.
@@ -15,40 +15,40 @@ import models.UserModel;
  * @version 1.0
  */
 public class TestBaseController {
-	private TestBaseModel testBaseModel;
+	private TestBase testBaseModel;
 	
 	
 	/** Creates a TestBaseController.
 	 */
 	public TestBaseController() {
-		setTestBaseModel(new TestBaseModel());
+		setTestBaseModel(new TestBase());
 		}
 
 	/** Creates a TestBaseController.
 	 *  @param testBaseModel the database containing tests.
 	 */
-	public TestBaseController(TestBaseModel testBaseModel) {
+	public TestBaseController(TestBase testBaseModel) {
 		setTestBaseModel(testBaseModel);
 		}
 
 	/**
 	 * @return the all tests.
 	 */
-	public List<TestModel> getAllTests() {
+	public List<Test> getAllTests() {
 		return testBaseModel.getTests();
 	}
 
 	/**
 	 * @param tests the tests to add.
 	 */
-	public void addTests(List<TestModel> tests) {
+	public void addTests(List<Test> tests) {
 		this.testBaseModel.setTests(tests);
 	}
 	
 	/**
 	 * @return the TestModel.
 	 */
-	public TestModel getTest(int index) {
+	public Test getTest(int index) {
 		if (index < testBaseModel.getTests().size() && index >= 0) {
 			return testBaseModel.getTests().get(index);
 		}
@@ -61,14 +61,14 @@ public class TestBaseController {
 	/**
 	 * @return the testBaseModel
 	 */
-	public TestBaseModel getTestBaseModel() {
+	public TestBase getTestBaseModel() {
 		return testBaseModel;
 	}
 
 	/**
 	 * @param testBaseModel the testBaseModel to set
 	 */
-	public void setTestBaseModel(TestBaseModel testBaseModel) {
+	public void setTestBaseModel(TestBase testBaseModel) {
 		this.testBaseModel = testBaseModel;
 	}
 

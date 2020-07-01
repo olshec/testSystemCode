@@ -2,8 +2,8 @@ package views;
 
 import java.util.List;
 import java.util.Scanner;
-import models.TestModel;
-import models.UserModel;
+import models.Test;
+import models.User;
 
 /**
  * Represents a student.
@@ -17,7 +17,7 @@ public final class StudentView extends UserView {
 	/** Creates a student view.
 	 * @param userModel The student’s model.
 	*/
-	public StudentView(UserModel userModel) {
+	public StudentView(User userModel) {
 		super(userModel);
 	}
 
@@ -61,7 +61,7 @@ public final class StudentView extends UserView {
 	 * Gets a list of student tests from the server and prints.
 	 */
 	private void getTestsStudent() {
-		List<TestModel> mas = this.getUserModel().getServer().getTestsForStudent(this.getUserModel());
+		List<Test> mas = this.getUserModel().getServer().getTestsForStudent(this.getUserModel());
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
 			System.out.println(i + 1 + ") " + mas.get(i).getName());

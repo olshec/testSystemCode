@@ -9,34 +9,34 @@ import java.util.List;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class TestBaseModel {
-	private List<TestModel> tests;
+public class TestBase {
+	private List<Test> tests;
 
 	
 	/**Creates a TestBaseModel.
 	 */
-	public TestBaseModel() {
+	public TestBase() {
 		//setTests(tests);
 	}
 	
 	/**Creates a TestBaseModel.
 	 * @param tests
 	 */
-	public TestBaseModel(List<TestModel> tests) {
+	public TestBase(List<Test> tests) {
 		this.tests = tests;
 	}
 
 	/**
 	 * @return the tests
 	 */
-	public List<TestModel> getTests() {
+	public List<Test> getTests() {
 		return tests;
 	}
 
 	/**
 	 * @param tests the tests to set
 	 */
-	public void setTests(List<TestModel> tests) {
+	public void setTests(List<Test> tests) {
 		this.tests = tests;
 	}
 	

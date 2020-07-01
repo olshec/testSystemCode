@@ -3,10 +3,10 @@ package views;
 import java.util.Scanner;
 
 import controllers.ServerController;
-import models.AdministratorModel;
-import models.StudentModel;
-import models.TeacherModel;
-import models.UserModel;
+import models.Administrator;
+import models.Student;
+import models.Teacher;
+import models.User;
 
 /**
  * This class is the entry point to the application.
@@ -37,7 +37,7 @@ public class ClientView extends UserView {
 		password = myInput.nextLine();
 		
 		ServerController server = new ServerController();
-		UserModel user = server.login(login, password);
+		User user = server.login(login, password);
 
 		if(user==null) {
 			System.out.print("Неправильный логин или пароль.");
@@ -47,13 +47,13 @@ public class ClientView extends UserView {
 		
 		UserView userView=null;
 		switch (user.getClass().getSimpleName()) {
-		case AdministratorModel.nameModel:
+		case Administrator.nameModel:
 			userView=new AdminView(user);
 			break;
-		case TeacherModel.nameModel:
+		case Teacher.nameModel:
 			userView=new TeacherView(user);
 			break;
-		case StudentModel.nameModel:
+		case Student.nameModel:
 			userView=new StudentView(user);
 			break;
 		default:

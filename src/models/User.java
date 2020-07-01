@@ -9,7 +9,7 @@ import controllers.ServerController;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public abstract class UserModel {
+public abstract class User {
 
 	public static final String nameModel = "UserModel";
 	
@@ -30,7 +30,7 @@ public abstract class UserModel {
 	
 	/**Creates an UserModel.
 	 */
-	public UserModel() {;}
+	public User() {;}
 	/** Creates an UserModel.
 	 * @param lastName The user’s last name.
 	 * @param firstName The user’s first name.
@@ -38,7 +38,7 @@ public abstract class UserModel {
 	 * @param username The user’s username.
 	 * @param password The user’s password.
 	*/
-	public UserModel(String lastName, String firstName, ServerController server, String username, String password) {
+	public User(String lastName, String firstName, ServerController server, String username, String password) {
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.server = server;

@@ -9,7 +9,7 @@ import controllers.ServerController;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class TeacherModel extends UserModel {
+public class Teacher extends User {
 
 	public static final String nameModel = "TeacherModel";
 	
@@ -20,7 +20,7 @@ public class TeacherModel extends UserModel {
 	 * @param username The user’s username.
 	 * @param password The user’s password.
 	 */
-	public TeacherModel(String lastName, String firstName, ServerController server, String username, String password) {
+	public Teacher(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
 
