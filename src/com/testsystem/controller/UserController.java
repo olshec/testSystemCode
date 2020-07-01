@@ -11,27 +11,27 @@ import com.testsystem.models.User;
 
 public abstract class UserController {
 
-	User userModel;
+	User user;
 	
 	/**
 	 * Creates an UserController.
 	 */
 	public UserController(User userModel) {
-		this.userModel=userModel;
+		this.user=userModel;
 	}
 	
 	/**
 	 * @return the userModel
 	 */
 	public User getUserModel() {
-		return userModel;
+		return user;
 	}
 	
 	/**
 	 * @param userModel the userModel to set
 	 */
 	public void setUserModel(User userModel) {
-		this.userModel = userModel;
+		this.user = userModel;
 	}
 	
 }

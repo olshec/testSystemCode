@@ -17,13 +17,13 @@ import com.testsystem.models.UserBase;
  */
 
 public class UserBaseController {
-	private UserBase userBaseModel;
+	private UserBase userBase;
 
 	/** 
 	 * Creates a UserBaseController.
 	 */
 	public UserBaseController() {
-		userBaseModel = new UserBase();
+		userBase = new UserBase();
 	}
 	
 	/** 
@@ -40,7 +40,7 @@ public class UserBaseController {
 	 * @return UserModel the user.
 	 */
 	public User getUser(String username, String password) {
-		List<User> users=userBaseModel.getUsers();
+		List<User> users=userBase.getUsers();
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).getUserName().equals(username) && users.get(i).getPassword().equals(password)) {
 				return users.get(i);
@@ -53,21 +53,21 @@ public class UserBaseController {
 	 * @return List<UserModel> the list users.
 	 */
 	public List<User> getUsers() {
-		return userBaseModel.getUsers();
+		return userBase.getUsers();
 	}
 
 	/**
 	 * @param user the user's model.
 	 */
 	public void addUser(User user) {
-		userBaseModel.getUsers().add(user);
+		userBase.getUsers().add(user);
 	}
 
 	/**
 	 * @return boolean return true if database contains user.
 	 */
 	public boolean hasUser(User user) {
-		List<User> users=userBaseModel.getUsers();
+		List<User> users=userBase.getUsers();
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).getId() == user.getId()) {
 				return true;
@@ -80,14 +80,14 @@ public class UserBaseController {
 	 * @return the userBaseModel.
 	 */
 	public UserBase getUserBaseModel() {
-		return userBaseModel;
+		return userBase;
 	}
 
 	/**
 	 * @param userBaseModel the userBaseModel to set.
 	 */
 	public void setUserBaseModel(UserBase userBaseModel) {
-		this.userBaseModel = userBaseModel;
+		this.userBase = userBaseModel;
 	}
 
 	/** 
@@ -97,10 +97,10 @@ public class UserBaseController {
 	 */
 	public List<User> getUsersByType(String typeUser) {
 		List<User> masUserResult = new ArrayList<User>();
-		for (int i = 0; i <userBaseModel.getUsers().size(); i++) {
-			String className = userBaseModel.getUsers().get(i).getClass().getSimpleName();
+		for (int i = 0; i <userBase.getUsers().size(); i++) {
+			String className = userBase.getUsers().get(i).getClass().getSimpleName();
 			if (className.equals(typeUser)) {
-				masUserResult.add(userBaseModel.getUsers().get(i));
+				masUserResult.add(userBase.getUsers().get(i));
 			}
 		}
 		return masUserResult;

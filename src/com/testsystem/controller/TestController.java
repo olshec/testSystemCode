@@ -17,7 +17,7 @@ import com.testsystem.models.User;
  */
 public class TestController {
 
-	Test testModel;
+	Test test;
 
 	/** 
 	 * Creates a TestController.
@@ -37,28 +37,28 @@ public class TestController {
 	 * @return the testModel.
 	 */
 	public Test getTestModel() {
-		return testModel;
+		return test;
 	}
 
 	/**
 	 * @param testModel the testModel to set.
 	 */
 	public void setTestModel(Test testModel) {
-		this.testModel = testModel;
+		this.test = testModel;
 	}
 
 	/**
 	 * @return  The  test's name.
 	 */
 	public String getName() {
-		return testModel.getName();
+		return test.getName();
 	}
 	
 	/**
 	 * @param name the name to set.
 	 */
 	public void setName(String name) {
-		this.testModel.setName(name);
+		this.test.setName(name);
 	}
 	
 	/**
@@ -67,9 +67,9 @@ public class TestController {
 	 * @param points the student point.
 	 */
 	public void addResult(User student, int points) {
-		for (int i = 0; i <testModel.getStudents().size(); i++) {
-			if (testModel.getStudents().get(i).getId() == student.getId()) {
-				testModel.getResults().set(i, points);
+		for (int i = 0; i <test.getStudents().size(); i++) {
+			if (test.getStudents().get(i).getId() == student.getId()) {
+				test.getResults().set(i, points);
 			}
 		}
 	}
@@ -78,8 +78,8 @@ public class TestController {
 	 * @return the true if test contains student .
 	 */
 	public boolean hasStudent(User student) {
-		for (int i = 0; i < testModel.getStudents().size(); i++) {
-			if (testModel.getStudents().get(i).getId() == student.getId()) {
+		for (int i = 0; i < test.getStudents().size(); i++) {
+			if (test.getStudents().get(i).getId() == student.getId()) {
 				return true;
 			}
 		}
@@ -90,15 +90,15 @@ public class TestController {
 	 * @return the number questions.
 	 */
 	public int getNumberQuestions() {
-		return testModel.getQuestions().size();
+		return test.getQuestions().size();
 	}
 
 	/**
 	 * @param user the user for add to test.
 	 */
 	public void addStudent(User user) {
-		testModel.getStudents().add(user);
-		testModel.getResults().add(-1);
+		test.getStudents().add(user);
+		test.getResults().add(-1);
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class TestController {
 	 * @return boolean the boolean.
 	 */
 	public boolean hasTeacher(User teacher) {
-		if (testModel.getTeacher().getId() == teacher.getId()) {
+		if (test.getTeacher().getId() == teacher.getId()) {
 			return true;
 		}
 		return false;
@@ -116,21 +116,21 @@ public class TestController {
 	 * @return students the list students.
 	 */
 	public List<User> getStudents() {
-		return testModel.getStudents();
+		return test.getStudents();
 	}
 
 	/**
 	 * @return List<Integer>  the results of test.
 	 */
 	public List<Integer> getResults() {
-		return testModel.getResults();
+		return test.getResults();
 	}
 
 	/**
 	 * @param questionModel the question to add.
 	 */
 	public void addQuestion(Question questionModel) {
-		testModel.getQuestions().add(questionModel);
+		test.getQuestions().add(questionModel);
 	}
 
 }

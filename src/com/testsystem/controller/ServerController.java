@@ -24,15 +24,15 @@ import com.testsystem.models.UserBase;
 
 public class ServerController {
 
-	private TestBase testBaseModel;
-	private UserBase userBaseModel;
+	private TestBase testBase;
+	private UserBase userBase;
 
 	/**
 	 * Creates a ServerController.
 	 */
 	public ServerController() {
-		testBaseModel = new TestBase();
-		userBaseModel = new UserBase();
+		testBase = new TestBase();
+		userBase = new UserBase();
 		// userBaseController = new UserBaseController(userBaseModel);
 
 		loadTest();
@@ -45,7 +45,7 @@ public class ServerController {
 	 * @return User The authenticated user.
 	 */
 	public User login(String username, String password) {
-		return new UserBaseController(userBaseModel).getUser(username, password);
+		return new UserBaseController(userBase).getUser(username, password);
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class ServerController {
 	 * @return List<Test> The list tests.
 	 */
 	public List<Test> getTestsForStudent(User student) {
-		return new StudentController(student).getTests(testBaseModel);
+		return new StudentController(student).getTests(testBase);
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class ServerController {
 	 * @return The test's model.
 	 */
 	public Test getTestInfoForStudent(User student, int indexTest) {
-		return new StudentController(student).getTestInfo(indexTest, testBaseModel);
+		return new StudentController(student).getTestInfo(indexTest, testBase);
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class ServerController {
 	 */
 	public int getNumberQuestionsInTest(User student, int indexTest) {
 		return new StudentController(student).getNumberQuestionsInTest(indexTest,
-				testBaseModel);
+				testBase);
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class ServerController {
 	 * @return List<Test> The list tests.
 	 */
 	public List<Test> getTestsForTeacher(User teacher) {
-		return new TeacherController(teacher).getTests(testBaseModel);
+		return new TeacherController(teacher).getTests(testBase);
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class ServerController {
 	 * @return Test The test.
 	 */
 	public Test getTestResultForTeacher(User teacher, int indexTest) {
-		return new TeacherController(teacher).getTestResultForTeacher(indexTest, testBaseModel);
+		return new TeacherController(teacher).getTestResultForTeacher(indexTest, testBase);
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class ServerController {
 	 */
 	public List<User> getAllUsersForAdmin(User adminModel) {
 		return new AdministratorController(adminModel)
-				.getUsers(new UserBaseController(userBaseModel).getUserBaseModel());
+				.getUsers(new UserBaseController(userBase).getUserBaseModel());
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class ServerController {
 	 * @return List<User> The list students.
 	 */
 	public List<User> getStudentsForAdmin(User adminModel) {
-		return new AdministratorController(adminModel).getUsersByType(Student.nameModel, userBaseModel);
+		return new AdministratorController(adminModel).getUsersByType(Student.nameModel, userBase);
 	}
 
 	/**
@@ -121,7 +121,7 @@ public class ServerController {
 	 * @return List<User> The list teachers.
 	 */
 	public List<User> getTeachersForAdmin(User adminModel) {
-		return new AdministratorController(adminModel).getUsersByType(Teacher.nameModel, userBaseModel);
+		return new AdministratorController(adminModel).getUsersByType(Teacher.nameModel, userBase);
 	}
 
 	/**
@@ -129,12 +129,12 @@ public class ServerController {
 	 * @return List<User> The list administrators.
 	 */
 	public List<User> getAdminsForAdmin(User adminModel) {
-		return new AdministratorController(adminModel).getUsersByType(Administrator.nameModel, userBaseModel);
+		return new AdministratorController(adminModel).getUsersByType(Administrator.nameModel, userBase);
 	}
 
 	private void loadTest() {
 		// BEGIN DATA FOR TEST
-		UserBaseController userBaseController=new UserBaseController(userBaseModel);
+		UserBaseController userBaseController=new UserBaseController(userBase);
 		User admin1 = new Administrator("Примарев", "Игорь", this, "Admin1", "0000");
 		userBaseController.addUser(admin1);
 
@@ -172,7 +172,7 @@ public class ServerController {
 		tests.add(test3);
 
 		//TestBaseController testBaseController=new TestBaseController(testBaseModel);
-		new TestBaseController(testBaseModel).addTests(tests);
+		new TestBaseController(testBase).addTests(tests);
 		//testBaseController.addTests(tests);
 
 		User student1 = new Student("Шахматов", "Антон", this, "ShAnton", "1111");

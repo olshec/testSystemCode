@@ -14,7 +14,7 @@ import com.testsystem.models.User;
  */
 
 public abstract class UserView {
-	private User userModel;
+	private User user;
 	
 	/** 
 	 * Menu.
@@ -37,14 +37,14 @@ public abstract class UserView {
 	 * @return the userModel
 	 */
 	public User getUserModel() {
-		return userModel;
+		return user;
 	}
 
 	/**
 	 * @param userModel the userModel to set
 	 */
 	public void setUserModel(User userModel) { 
-		this.userModel = userModel;
+		this.user = userModel;
 	}
 
 }

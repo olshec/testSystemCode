@@ -18,7 +18,7 @@ import com.testsystem.models.User;
  */
 
 public class TestBaseController {
-	private TestBase testBaseModel;
+	private TestBase testBase;
 	
 	
 	/** 
@@ -40,22 +40,22 @@ public class TestBaseController {
 	 * @return the all tests.
 	 */
 	public List<Test> getAllTests() {
-		return testBaseModel.getTests();
+		return testBase.getTests();
 	}
 
 	/**
 	 * @param tests the tests to add.
 	 */
 	public void addTests(List<Test> tests) {
-		this.testBaseModel.setTests(tests);
+		this.testBase.setTests(tests);
 	}
 	
 	/**
 	 * @return the TestModel.
 	 */
 	public Test getTest(int index) {
-		if (index < testBaseModel.getTests().size() && index >= 0) {
-			return testBaseModel.getTests().get(index);
+		if (index < testBase.getTests().size() && index >= 0) {
+			return testBase.getTests().get(index);
 		}
 		return null;
 	}
@@ -64,14 +64,14 @@ public class TestBaseController {
 	 * @return the testBaseModel
 	 */
 	public TestBase getTestBaseModel() {
-		return testBaseModel;
+		return testBase;
 	}
 
 	/**
 	 * @param testBaseModel the testBaseModel to set
 	 */
 	public void setTestBaseModel(TestBase testBaseModel) {
-		this.testBaseModel = testBaseModel;
+		this.testBase = testBaseModel;
 	}
 
 }

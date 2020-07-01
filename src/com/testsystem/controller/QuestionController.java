@@ -17,13 +17,13 @@ import com.testsystem.models.Question;
  */
 
 public class QuestionController {
-	private List<Question> questionsModel;
+	private List<Question> questions;
 
 	/** 
 	 * Creates a QuestionController.
 	 */
 	public QuestionController() {
-		questionsModel=new ArrayList<Question>();
+		questions=new ArrayList<Question>();
 	}
 	
 	/**
@@ -31,9 +31,9 @@ public class QuestionController {
 	 * @return the text question
 	 */
 	public String getText(int idQuestion) {
-		for(int i=0;i<questionsModel.size();i++) {
-			if(questionsModel.get(i).getID()==idQuestion) {
-				return questionsModel.get(idQuestion).getText();
+		for(int i=0;i<questions.size();i++) {
+			if(questions.get(i).getID()==idQuestion) {
+				return questions.get(idQuestion).getText();
 			}
 		}
 		return null;
@@ -46,9 +46,9 @@ public class QuestionController {
 	 * @param idQuestion the ID question
 	 */
 	public void setText(String text, int idQuestion) {
-		for(int i=0;i<questionsModel.size();i++) {
-			if(questionsModel.get(i).getID()==idQuestion) {
-				questionsModel.get(idQuestion).setText(text);
+		for(int i=0;i<questions.size();i++) {
+			if(questions.get(i).getID()==idQuestion) {
+				questions.get(idQuestion).setText(text);
 			}
 		}
 	}
@@ -58,9 +58,9 @@ public class QuestionController {
 	 * @return the answers
 	 */
 	public List<Answer> getAnswers(int idQuestion) {
-		for(int i=0;i<questionsModel.size();i++) {
-			if(questionsModel.get(i).getID()==idQuestion) {
-				return questionsModel.get(idQuestion).getAnswers();
+		for(int i=0;i<questions.size();i++) {
+			if(questions.get(i).getID()==idQuestion) {
+				return questions.get(idQuestion).getAnswers();
 			}
 		}
 		return null;
@@ -72,9 +72,9 @@ public class QuestionController {
 	 * @param idQuestion the index question
 	 */
 	public void setAnswers(List<Answer> answers,int idQuestion) {
-		for(int i=0;i<questionsModel.size();i++) {
-			if(questionsModel.get(i).getID()==idQuestion) {
-				questionsModel.get(idQuestion).setAnswers(answers);
+		for(int i=0;i<questions.size();i++) {
+			if(questions.get(i).getID()==idQuestion) {
+				questions.get(idQuestion).setAnswers(answers);
 			}
 		}
 	}
@@ -83,7 +83,7 @@ public class QuestionController {
 	 * @param question the question to add
 	 */
 	public void addQuestion(Question question) {
-		questionsModel.add(question);
+		questions.add(question);
 	}
 
 }
