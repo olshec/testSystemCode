@@ -1,7 +1,7 @@
-package views;
+package com.testsystem.views;
 
 
-import models.User;
+import com.testsystem.models.User;
 
 public abstract class UserView {
 	private User userModel;

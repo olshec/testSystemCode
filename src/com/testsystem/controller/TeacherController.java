@@ -1,23 +1,29 @@
 /**
  * 
  */
-package controllers;
+package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import models.TestBase;
-import models.Test;
-import models.User;
+import com.testsystem.models.Test;
+import com.testsystem.models.TestBase;
+import com.testsystem.models.User;
 
 /**
+ * TeacherController
+ * 
  * @author Oleg Shestakov
+ * 
  * @author olshec@gmail.com
+ * 
  * @version 1.0
  */
+
 public class TeacherController extends UserController {
 
-	/**Creates a TeacherController.
+	/**
+	 * Creates a TeacherController.
 	 * @param userModel
 	 */
 	public TeacherController(User userModel) {
@@ -38,7 +44,8 @@ public class TeacherController extends UserController {
 		return masTests;
 	}
 	
-	/** Gets students test result.
+	/** 
+	 * Gets students test result.
 	 * @param teacher The teacher.
 	 * @param indexTest The test index.
 	 * @return Test The test.

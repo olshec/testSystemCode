@@ -1,30 +1,35 @@
-package controllers;
+package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import models.TestBase;
-import models.Test;
-import models.User;
+import com.testsystem.models.Test;
+import com.testsystem.models.TestBase;
+import com.testsystem.models.User;
 
 /**
  * Represents a controller to the database containing tests.
  * 
  * @author Oleg Shestakov
+ * 
  * @author olshec@gmail.com
+ * 
  * @version 1.0
  */
+
 public class TestBaseController {
 	private TestBase testBaseModel;
 	
 	
-	/** Creates a TestBaseController.
+	/** 
+	 * Creates a TestBaseController.
 	 */
 	public TestBaseController() {
 		setTestBaseModel(new TestBase());
 		}
 
-	/** Creates a TestBaseController.
+	/** 
+	 * Creates a TestBaseController.
 	 *  @param testBaseModel the database containing tests.
 	 */
 	public TestBaseController(TestBase testBaseModel) {
@@ -54,9 +59,6 @@ public class TestBaseController {
 		}
 		return null;
 	}
-
-
-	
 
 	/**
 	 * @return the testBaseModel

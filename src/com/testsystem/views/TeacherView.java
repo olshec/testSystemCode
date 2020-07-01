@@ -1,9 +1,10 @@
-package views;
+package com.testsystem.views;
 
 import java.util.List;
 import java.util.Scanner;
-import models.Test;
-import models.User;
+
+import com.testsystem.models.Test;
+import com.testsystem.models.User;
 /**
  * Represents a teacher.
  * 

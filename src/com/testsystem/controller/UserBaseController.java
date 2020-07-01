@@ -1,28 +1,33 @@
-package controllers;
+package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import models.User;
-import models.UserBase;
+import com.testsystem.models.User;
+import com.testsystem.models.UserBase;
 
 /**
  * Represents a controller to the database containing user.
  * 
  * @author Oleg Shestakov
+ * 
  * @author olshec@gmail.com
+ * 
  * @version 1.0
  */
+
 public class UserBaseController {
 	private UserBase userBaseModel;
 
-	/** Creates a UserBaseController.
+	/** 
+	 * Creates a UserBaseController.
 	 */
 	public UserBaseController() {
 		userBaseModel = new UserBase();
 	}
 	
-	/** Creates a UserBaseController.
+	/** 
+	 * Creates a UserBaseController.
 	 * @param userBaseModel the database containing user.
 	 */
 	public UserBaseController(UserBase userBaseModel) {
@@ -85,7 +90,8 @@ public class UserBaseController {
 		this.userBaseModel = userBaseModel;
 	}
 
-	/** Gets users by type.
+	/** 
+	 * Gets users by type.
 	 * @param typeUser the user's type.
 	 * @return List<UserModel> The list students.
 	 */

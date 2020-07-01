@@ -1,22 +1,26 @@
-package controllers;
+package com.testsystem.controller;
 
 import java.util.List;
-import models.Question;
-import models.Test;
-import models.User;
+
+import com.testsystem.models.Question;
+import com.testsystem.models.Test;
+import com.testsystem.models.User;
 
 /**
  * Represents a test controller.
  * 
  * @author Oleg Shestakov
+ * 
  * @author olshec@gmail.com
+ * 
  * @version 1.0
  */
 public class TestController {
 
 	Test testModel;
 
-	/** Creates a TestController.
+	/** 
+	 * Creates a TestController.
 	 */
 	public TestController() {;}
 	
@@ -58,7 +62,7 @@ public class TestController {
 	}
 	
 	/**
-	 * Add result of test.
+	 * Method for add result of test.
 	 * @param student the student student for grading.
 	 * @param points the student point.
 	 */

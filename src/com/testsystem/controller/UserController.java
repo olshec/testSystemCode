@@ -1,15 +1,14 @@
-package controllers;
-import models.User;
-
-/**
- * 
- */
+package com.testsystem.controller;
+import com.testsystem.models.User;
 
 /**
  * @author Oleg Shestakov
+ * 
  * @author olshec@gmail.com
+ * 
  * @version 1.0
  */
+
 public abstract class UserController {
 
 	User userModel;

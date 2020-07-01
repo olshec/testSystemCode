@@ -1,12 +1,12 @@
-package views;
+package com.testsystem.views;
 
 import java.util.Scanner;
 
-import controllers.ServerController;
-import models.Administrator;
-import models.Student;
-import models.Teacher;
-import models.User;
+import com.testsystem.controller.ServerController;
+import com.testsystem.models.Administrator;
+import com.testsystem.models.Student;
+import com.testsystem.models.Teacher;
+import com.testsystem.models.User;
 
 /**
  * This class is the entry point to the application.
@@ -46,6 +46,8 @@ public class ClientView extends UserView {
 		}
 		
 		UserView userView=null;
+		System.out.print(user.getClass().getSimpleName());
+		
 		switch (user.getClass().getSimpleName()) {
 		case Administrator.nameModel:
 			userView=new AdminView(user);

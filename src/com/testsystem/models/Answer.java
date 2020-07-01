@@ -1,4 +1,4 @@
-package models;
+package com.testsystem.models;
 
 /**
  * Represents an answer.

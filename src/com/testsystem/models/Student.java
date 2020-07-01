@@ -1,6 +1,6 @@
-package models;
+package com.testsystem.models;
 
-import controllers.ServerController;
+import com.testsystem.controller.ServerController;
 
 /**
  * Represents a student.
@@ -11,7 +11,7 @@ import controllers.ServerController;
  */
 public class Student extends User {
 	
-	public static final String nameModel = "StudentModel";
+	public static final String nameModel = "Student";
 
 	/** Creates a StudentModel
 	 *@param lastName The user’s last name.

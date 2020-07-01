@@ -1,8 +1,9 @@
-package views;
+package com.testsystem.views;
 
 import java.util.List;
 import java.util.Scanner;
-import models.User;
+
+import com.testsystem.models.User;
 
 /**
  * Represents an administrator.

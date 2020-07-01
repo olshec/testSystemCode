@@ -1,9 +1,9 @@
-package models;
+package com.testsystem.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import controllers.QuestionController;
+import com.testsystem.controller.QuestionController;
 
 /**
  * Represents a test.

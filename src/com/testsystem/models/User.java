@@ -1,6 +1,6 @@
-package models;
+package com.testsystem.models;
 
-import controllers.ServerController;
+import com.testsystem.controller.ServerController;
 
 /**
  * Represents an user.
@@ -11,7 +11,7 @@ import controllers.ServerController;
  */
 public abstract class User {
 
-	public static final String nameModel = "UserModel";
+	public static final String nameModel = "User";
 	
 	private String firstName;
 	private String lastName;

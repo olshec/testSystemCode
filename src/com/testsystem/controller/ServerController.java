@@ -1,27 +1,28 @@
-package controllers;
+package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import models.Administrator;
-import models.Question;
-import models.Student;
-import models.Teacher;
-import models.TestBase;
-import models.Test;
-import models.UserBase;
-import models.User;
+import com.testsystem.models.Administrator;
+import com.testsystem.models.Question;
+import com.testsystem.models.Student;
+import com.testsystem.models.Teacher;
+import com.testsystem.models.Test;
+import com.testsystem.models.TestBase;
+import com.testsystem.models.User;
+import com.testsystem.models.UserBase;
 
 /**
  * Represents a server controller.
  * 
  * @author Oleg Shestakov
+ * 
  * @author olshec@gmail.com
+ * 
  * @version 1.0
  */
-public class ServerController {
 
-	// private UserBaseModel userBaseModel;
+public class ServerController {
 
 	private TestBase testBaseModel;
 	private UserBase userBaseModel;
@@ -39,7 +40,6 @@ public class ServerController {
 
 	/**
 	 * login function.
-	 * 
 	 * @param username The user's username.
 	 * @param password The user's password.
 	 * @return User The authenticated user.
@@ -60,7 +60,6 @@ public class ServerController {
 
 	/**
 	 * Gets student test information.
-	 * 
 	 * @param student   The student's model.
 	 * @param indexTest The test index.
 	 * @return The test's model.
@@ -71,7 +70,6 @@ public class ServerController {
 
 	/**
 	 * Gets student test number questions.
-	 * 
 	 * @param student   The student.
 	 * @param indexTest The test index.
 	 * @return The test.
@@ -93,7 +91,6 @@ public class ServerController {
 
 	/**
 	 * Gets students test result.
-	 * 
 	 * @param teacher   The teacher.
 	 * @param indexTest The test index.
 	 * @return Test The test.
@@ -104,7 +101,6 @@ public class ServerController {
 
 	/**
 	 * Gets users.
-	 * 
 	 * @return List<User> The list all users.
 	 */
 	public List<User> getAllUsersForAdmin(User adminModel) {
@@ -114,7 +110,6 @@ public class ServerController {
 
 	/**
 	 * Gets students.
-	 * 
 	 * @return List<User> The list students.
 	 */
 	public List<User> getStudentsForAdmin(User adminModel) {
@@ -123,7 +118,6 @@ public class ServerController {
 
 	/**
 	 * Gets teachers.
-	 * 
 	 * @return List<User> The list teachers.
 	 */
 	public List<User> getTeachersForAdmin(User adminModel) {
@@ -132,7 +126,6 @@ public class ServerController {
 
 	/**
 	 * Gets administrators.
-	 * 
 	 * @return List<User> The list administrators.
 	 */
 	public List<User> getAdminsForAdmin(User adminModel) {
