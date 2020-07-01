@@ -9,7 +9,9 @@ import com.testsystem.models.User;
  * Represents an administrator.
  * 
  * @author Oleg Shestakov
+ * 
  * @author olshec@gmail.com
+ * 
  * @version 1.0
  */
 
@@ -23,8 +25,8 @@ public class AdminView extends UserView {
 		super(userModel);
 	}
 
-	
-	/** Menu.
+	/** 
+	 * Menu.
 	*/
 	public void openMenu() {
 		int num = -1;

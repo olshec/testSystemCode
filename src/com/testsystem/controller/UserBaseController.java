@@ -106,7 +106,4 @@ public class UserBaseController {
 		return masUserResult;
 	}
 	
-
-	
-	
 }

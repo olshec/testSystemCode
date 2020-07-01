@@ -74,10 +74,4 @@ public class TestBaseController {
 		this.testBaseModel = testBaseModel;
 	}
 
-
-
-	
-	
-
-	
 }

@@ -3,18 +3,31 @@ package com.testsystem.views;
 
 import com.testsystem.models.User;
 
+/**
+ * Represents a user.
+ * 
+ * @author Oleg Shestakov
+ * 
+ * @author olshec@gmail.com
+ * 
+ * @version 1.0
+ */
+
 public abstract class UserView {
 	private User userModel;
 	
-	/** Menu.
+	/** 
+	 * Menu.
 	*/
 	public abstract void openMenu();
 	
-	/** Creates a UserView.
+	/** 
+	 * Creates a UserView.
 	 */
 	public UserView() {}
 	
-	/** Creates a UserView.
+	/** 
+	 * Creates a UserView.
 	 */
 	public UserView(User userModel) {
 		setUserModel(userModel);
@@ -34,7 +47,4 @@ public abstract class UserView {
 		this.userModel = userModel;
 	}
 
-
-	
-	
 }

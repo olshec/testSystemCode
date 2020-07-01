@@ -10,20 +10,26 @@ import com.testsystem.models.User;
  * Represents a student.
  * 
  * @author Oleg Shestakov
+ * 
  * @author olshec@gmail.com
+ * 
  * @version 1.0
  */
+
 public final class StudentView extends UserView {
 
-	/** Creates a student view.
+	/**
+	 * Creates a student view.
+	 * 
 	 * @param userModel The student’s model.
-	*/
+	 */
 	public StudentView(User userModel) {
 		super(userModel);
 	}
 
-	/** Menu.
-	*/
+	/**
+	 * Menu.
+	 */
 	public void openMenu() {
 		int num = -1;
 		while (num != 0) {
@@ -85,18 +91,15 @@ public final class StudentView extends UserView {
 //			System.out.println("Ошибка при вводе! Номер теста должен быть числом!");
 			return;
 		}
-
 		// --numTest index begin from 0;
-			int quantityQuestions = this.getUserModel().getServer().getNumberQuestionsInTest(this.getUserModel(), numTest-1);
-			if(quantityQuestions<0) {
+		int quantityQuestions = this.getUserModel().getServer().getNumberQuestionsInTest(this.getUserModel(),
+				numTest - 1);
+		if (quantityQuestions < 0) {
 //				System.out.println("Теста с таким номером не существует!");
-			}
-			else {
-				String s = String.format("Количество вопросов в тесте %d: %d", numTest, quantityQuestions);
-				System.out.println(s);
-			}
-			
-
+		} else {
+			String s = String.format("Количество вопросов в тесте %d: %d", numTest, quantityQuestions);
+			System.out.println(s);
+		}
 	}
 
 }

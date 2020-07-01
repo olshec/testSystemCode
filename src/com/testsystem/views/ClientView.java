@@ -12,20 +12,24 @@ import com.testsystem.models.User;
  * This class is the entry point to the application.
  * 
  * @author Oleg Shestakov
+ * 
  * @author olshec@gmail.com
+ * 
  * @version 1.0
  */
 
 public class ClientView extends UserView {
 
-	/**main.
+	/**
+	 * main.
 	 * Entry point to the application.
 	 */
 	public static void main(String[] args) {
 		new ClientView().openMenu();
 	}
 	
-	/** Menu.
+	/** 
+	 * Menu.
 	*/
 	public void openMenu() {
 		String login ="";
@@ -75,5 +79,4 @@ public class ClientView extends UserView {
 		}
 	}
 	
-
 }

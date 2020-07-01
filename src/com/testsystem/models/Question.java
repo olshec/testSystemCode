@@ -7,9 +7,12 @@ import java.util.Random;
  * Represents a question.
  * 
  * @author Oleg Shestakov
+ * 
  * @author olshec@gmail.com
+ * 
  * @version 1.0
  */
+
 public class Question {
 	private String text;
 	private List<Answer> answers;
@@ -20,7 +23,8 @@ public class Question {
 		idIncrement=0;
 	}
 	
-	/** Creates a QuestionModel.
+	/** 
+	 * Creates a QuestionModel.
 	 * @param text The question’s text.
 	 */
 	public Question(String text) {
@@ -70,8 +74,5 @@ public class Question {
 	public void setID(Integer iD) {
 		ID = iD;
 	}
-
-	
-	
 	
 }

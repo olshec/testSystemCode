@@ -6,20 +6,25 @@ import java.util.List;
  * Represents a database containing tests.
  * 
  * @author Oleg Shestakov
+ * 
  * @author olshec@gmail.com
+ * 
  * @version 1.0
  */
+
 public class TestBase {
 	private List<Test> tests;
 
 	
-	/**Creates a TestBaseModel.
+	/**
+	 * Creates a TestBaseModel.
 	 */
 	public TestBase() {
 		//setTests(tests);
 	}
 	
-	/**Creates a TestBaseModel.
+	/**
+	 * Creates a TestBaseModel.
 	 * @param tests
 	 */
 	public TestBase(List<Test> tests) {
@@ -39,6 +44,5 @@ public class TestBase {
 	public void setTests(List<Test> tests) {
 		this.tests = tests;
 	}
-	
-	
+
 }

@@ -5,11 +5,14 @@ import java.util.Scanner;
 
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
+
 /**
  * Represents a teacher.
  * 
  * @author Oleg Shestakov
+ * 
  * @author olshec@gmail.com
+ * 
  * @version 1.0
  */
 
@@ -18,14 +21,15 @@ public final class TeacherView extends UserView {
 	/**
 	 * Creates a teacher view.
 	 * 
-	 * @param userModel  The teacher’s model.
+	 * @param userModel The teacher’s model.
 	 */
 	public TeacherView(User userModel) {
 		super(userModel);
 	}
 
-	/** Menu.
-	*/
+	/**
+	 * Menu.
+	 */
 	public void openMenu() {
 		int num = -1;
 		while (num != 0) {
@@ -77,9 +81,7 @@ public final class TeacherView extends UserView {
 	private void getTestResult() {
 
 		System.out.print("Введите номер теста: ");
-
 		Scanner myInput = new Scanner(System.in);
-
 		int numTest = 0;
 		try {
 			numTest = myInput.nextInt();
@@ -87,7 +89,6 @@ public final class TeacherView extends UserView {
 			System.out.println("Номер теста должен быть числом!");
 			return;
 		}
-
 		int indexTest = numTest - 1;// index begin from 0;
 		Test test = this.getUserModel().getServer().getTestResultForTeacher(this.getUserModel(), indexTest);
 		if (test != null) {

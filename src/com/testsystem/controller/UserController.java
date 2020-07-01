@@ -34,6 +34,4 @@ public abstract class UserController {
 		this.userModel = userModel;
 	}
 	
-	
-
 }
