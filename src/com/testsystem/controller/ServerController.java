@@ -96,7 +96,7 @@ public class ServerController {
 	 * @return Test The test.
 	 */
 	public Test getTestResultForTeacher(User teacher, int indexTest) {
-		return new TeacherController(teacher).getTestResultForTeacher(indexTest, testBase);
+		return new TeacherController(teacher).getTestResult(indexTest, testBase);
 	}
 
 	/**

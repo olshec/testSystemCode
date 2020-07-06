@@ -42,7 +42,7 @@ public class AdministratorController extends UserController {
 	 * @return List<UserModel> the list users.
 	 */
 	public List<User> getUsers(UserBase userBase) {
-		return new UserBaseController(userBase).getUsers();
+		return new UserBaseController(userBase).getAllUsers();
 	}
 
 }

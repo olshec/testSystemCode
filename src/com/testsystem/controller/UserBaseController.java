@@ -52,7 +52,7 @@ public class UserBaseController {
 	/**
 	 * @return List<UserModel> the list users.
 	 */
-	public List<User> getUsers() {
+	public List<User> getAllUsers() {
 		return userBase.getUsers();
 	}
 

@@ -70,8 +70,8 @@ public class Question {
 	/**
 	 * @param ID the ID to set
 	 */
-	public void setID(Integer iD) {
-		ID = iD;
+	public void setID(Integer id) {
+		ID = id;
 	}
 	
 }
