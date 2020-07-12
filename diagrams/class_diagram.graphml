@@ -738,7 +738,7 @@ getServer: ServerController</y:MethodLabel>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="141.00914308597473" sy="-98.38342370297153" tx="-45.0989298306917" ty="30.133163452150598"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:LineStyle color="#000000" type="line" width="3.0"/>
           <y:Arrows source="white_diamond" target="none"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
@@ -772,7 +772,6 @@ getServer: ServerController</y:MethodLabel>
     </edge>
     <edge id="e25" source="n23" target="n16">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -786,7 +785,6 @@ getServer: ServerController</y:MethodLabel>
     </edge>
     <edge id="e26" source="n23" target="n17">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -800,7 +798,6 @@ getServer: ServerController</y:MethodLabel>
     </edge>
     <edge id="e27" source="n23" target="n18">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -814,7 +811,6 @@ getServer: ServerController</y:MethodLabel>
     </edge>
     <edge id="e28" source="n23" target="n21">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -829,7 +825,6 @@ getServer: ServerController</y:MethodLabel>
     </edge>
     <edge id="e29" source="n23" target="n19">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
