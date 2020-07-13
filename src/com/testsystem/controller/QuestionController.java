@@ -2,7 +2,6 @@ package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.testsystem.models.Answer;
 import com.testsystem.models.Question;
 
@@ -10,12 +9,9 @@ import com.testsystem.models.Question;
  * Represents a question controller.
  * 
  * @author Oleg Shestakov
- * 
  * @author olshec@gmail.com
- * 
  * @version 1.0
  */
-
 public class QuestionController {
 	private List<Question> questions;
 
@@ -27,8 +23,10 @@ public class QuestionController {
 	}
 	
 	/**
-	 * @param idQuestion the index question
-	 * @return the text question
+	 * Gets question text.
+	 * 
+	 * @param idQuestion The ID question
+	 * @return The text question
 	 */
 	public String getText(int idQuestion) {
 		for(int i=0;i<questions.size();i++) {
@@ -37,13 +35,13 @@ public class QuestionController {
 			}
 		}
 		return null;
-		//return questionsModel.get(idQuestion).getText();
 	}
 	
 	/**
 	 * Set text question
-	 * @param text the text question
-	 * @param idQuestion the ID question
+	 * 
+	 * @param text The text question
+	 * @param idQuestion The ID question
 	 */
 	public void setText(String text, int idQuestion) {
 		for(int i=0;i<questions.size();i++) {
@@ -55,7 +53,7 @@ public class QuestionController {
 
 	/**
 	 * @param idQuestion the index question
-	 * @return the answers
+	 * @return The answers
 	 */
 	public List<Answer> getAnswers(int idQuestion) {
 		for(int i=0;i<questions.size();i++) {
@@ -68,8 +66,9 @@ public class QuestionController {
 
 	/**
 	 * Set answers
-	 * @param answers the answers
-	 * @param idQuestion the index question
+	 * 
+	 * @param answers The answers
+	 * @param idQuestion The index question
 	 */
 	public void setAnswers(List<Answer> answers,int idQuestion) {
 		for(int i=0;i<questions.size();i++) {
@@ -80,6 +79,8 @@ public class QuestionController {
 	}
 	
 	/**
+	 * Adds new question.
+	 * 
 	 * @param question the question to add
 	 */
 	public void addQuestion(Question question) {

@@ -6,12 +6,9 @@ import java.util.List;
  * Represents a database containing tests.
  * 
  * @author Oleg Shestakov
- * 
  * @author olshec@gmail.com
- * 
  * @version 1.0
  */
-
 public class TestBase {
 	private List<Test> tests;
 
@@ -25,21 +22,26 @@ public class TestBase {
 	
 	/**
 	 * Creates a TestBaseModel.
-	 * @param tests
+	 * 
+	 * @param  list of tests.
 	 */
 	public TestBase(List<Test> tests) {
 		this.tests = tests;
 	}
 
 	/**
-	 * @return the tests
+	 * Gets test.
+	 * 
+	 * @return the list of tests.
 	 */
 	public List<Test> getTests() {
 		return tests;
 	}
 
 	/**
-	 * @param tests the tests to set
+	 * Sets test.
+	 * 
+	 * @param tests the list of tests.
 	 */
 	public void setTests(List<Test> tests) {
 		this.tests = tests;

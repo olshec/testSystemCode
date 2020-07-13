@@ -2,7 +2,6 @@ package com.testsystem.views;
 
 import java.util.List;
 import java.util.Scanner;
-
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
 
@@ -10,25 +9,22 @@ import com.testsystem.models.User;
  * Represents a student.
  * 
  * @author Oleg Shestakov
- * 
  * @author olshec@gmail.com
- * 
  * @version 1.0
  */
-
 public final class StudentView extends UserView {
 
 	/**
 	 * Creates a student view.
 	 * 
-	 * @param userModel The student’s model.
+	 * @param user The student.
 	 */
-	public StudentView(User userModel) {
-		super(userModel);
+	public StudentView(User user) {
+		super(user);
 	}
 
 	/**
-	 * Menu.
+	 * Method for open menu.
 	 */
 	public void openMenu() {
 		int num = -1;
@@ -50,10 +46,10 @@ public final class StudentView extends UserView {
 			case 0:
 				break;
 			case 1:
-				getTestsStudent();
+				printTestsStudent();
 				break;
 			case 2:
-				getNumberQuestions();
+				printNumberQuestions();
 				break;
 			default:
 				System.out.println("Неверный ввод! Попытайтесь еще раз.");
@@ -65,9 +61,9 @@ public final class StudentView extends UserView {
 	}
 
 	/**
-	 * Gets a list of student tests from the server and prints.
+	 * Print a list of student tests from the server and prints.
 	 */
-	private void getTestsStudent() {
+	private void printTestsStudent() {
 		List<Test> mas = this.getUserModel().getServer().getTestsForStudent(this.getUserModel());
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
@@ -76,9 +72,9 @@ public final class StudentView extends UserView {
 	}
 
 	/**
-	 * Gets the number of test questions from the server and prints.
+	 * Print the number of test questions from the server and prints.
 	 */
-	private void getNumberQuestions() {
+	private void printNumberQuestions() {
 
 		System.out.print("Введите номер теста: ");
 

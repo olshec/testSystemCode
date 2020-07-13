@@ -2,7 +2,6 @@ package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Question;
 import com.testsystem.models.Student;
@@ -16,12 +15,9 @@ import com.testsystem.models.UserBase;
  * Represents a server controller.
  * 
  * @author Oleg Shestakov
- * 
  * @author olshec@gmail.com
- * 
  * @version 1.0
  */
-
 public class ServerController {
 
 	private TestBase testBase;
@@ -40,6 +36,7 @@ public class ServerController {
 
 	/**
 	 * login function.
+	 * 
 	 * @param username The user's username.
 	 * @param password The user's password.
 	 * @return User The authenticated user.
@@ -60,6 +57,7 @@ public class ServerController {
 
 	/**
 	 * Gets student test information.
+	 * 
 	 * @param student   The student's model.
 	 * @param indexTest The test index.
 	 * @return The test's model.
@@ -70,6 +68,7 @@ public class ServerController {
 
 	/**
 	 * Gets student test number questions.
+	 * 
 	 * @param student   The student.
 	 * @param indexTest The test index.
 	 * @return The test.
@@ -91,45 +90,54 @@ public class ServerController {
 
 	/**
 	 * Gets students test result.
+	 * 
 	 * @param teacher   The teacher.
-	 * @param indexTest The test index.
+	 * @param indexTest The test id.
 	 * @return Test The test.
 	 */
-	public Test getTestResultForTeacher(User teacher, int indexTest) {
-		return new TeacherController(teacher).getTestResult(indexTest, testBase);
+	public Test getTestResultForTeacher(User teacher, int idTest) {
+		return new TeacherController(teacher).getTestResult(idTest, testBase);
 	}
 
 	/**
-	 * Gets users.
-	 * @return List<User> The list all users.
+	 * Gets all users.
+	 * 
+	 * @param The administrator.
+	 * @return List<User> The list all administrators.
 	 */
-	public List<User> getAllUsersForAdmin(User adminModel) {
-		return new AdministratorController(adminModel)
-				.getUsers(new UserBaseController(userBase).getUserBaseModel());
+	public List<User> getAllUsersForAdmin(User admin) {
+		return new AdministratorController(admin)
+				.getAllUsers(new UserBaseController(userBase).getUserBaseModel());
 	}
 
 	/**
 	 * Gets students.
+	 * 
+	 * @param The administrator.
 	 * @return List<User> The list students.
 	 */
-	public List<User> getStudentsForAdmin(User adminModel) {
-		return new AdministratorController(adminModel).getUsersByType(Student.nameModel, userBase);
+	public List<User> getStudentsForAdmin(User admin) {
+		return new AdministratorController(admin).getUsersByType(Student.nameModel, userBase);
 	}
 
 	/**
 	 * Gets teachers.
-	 * @return List<User> The list teachers.
+	 * 
+	 * @param The administrator.
+	 * @return List<User> The list of teachers.
 	 */
-	public List<User> getTeachersForAdmin(User adminModel) {
-		return new AdministratorController(adminModel).getUsersByType(Teacher.nameModel, userBase);
+	public List<User> getTeachersForAdmin(User admin) {
+		return new AdministratorController(admin).getUsersByType(Teacher.nameModel, userBase);
 	}
 
 	/**
 	 * Gets administrators.
-	 * @return List<User> The list administrators.
+	 * 
+	 * @param The administrator.
+	 * @return List<User> The list of administrators.
 	 */
-	public List<User> getAdminsForAdmin(User adminModel) {
-		return new AdministratorController(adminModel).getUsersByType(Administrator.nameModel, userBase);
+	public List<User> getAdminsForAdmin(User admin) {
+		return new AdministratorController(admin).getUsersByType(Administrator.nameModel, userBase);
 	}
 
 	private void loadTest() {

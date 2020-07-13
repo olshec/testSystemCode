@@ -4,12 +4,9 @@ import com.testsystem.models.User;
 
 /**
  * @author Oleg Shestakov
- * 
  * @author olshec@gmail.com
- * 
  * @version 1.0
  */
-
 public abstract class UserController {
 
 	User user;
@@ -17,22 +14,26 @@ public abstract class UserController {
 	/**
 	 * Creates an UserController.
 	 */
-	public UserController(User userModel) {
-		this.user=userModel;
+	public UserController(User user) {
+		this.user=user;
 	}
 	
 	/**
-	 * @return the userModel
+	 * Gets user.
+	 * 
+	 * @return the user
 	 */
 	public User getUserModel() {
 		return user;
 	}
 	
 	/**
-	 * @param userModel the userModel to set
+	 * Sets user.
+	 * 
+	 * @param user The user.
 	 */
-	public void setUserModel(User userModel) {
-		this.user = userModel;
+	public void setUserModel(User user) {
+		this.user = user;
 	}
 	
 }

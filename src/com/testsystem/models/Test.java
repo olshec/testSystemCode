@@ -7,12 +7,9 @@ import java.util.List;
  * Represents a test.
  * 
  * @author Oleg Shestakov
- * 
  * @author olshec@gmail.com
- * 
  * @version 1.0
  */
-
 public class Test {
 	private String name;
 	private User teacher;
@@ -27,8 +24,9 @@ public class Test {
 	
 	/**
 	 * Creates a test.
-	 * @param  name The test's name.
-	 * @param teacher The teacher’s model.
+	 * 
+	 * @param  name The name of test.
+	 * @param teacher The teacher.
 	 */
 	public Test(String name, User teacher) {
 		this.init();
@@ -43,6 +41,8 @@ public class Test {
 	}
 	
 	/**
+	 * Gets name.
+	 * 
 	 * @return the name
 	 */
 	public String getName() {
@@ -50,6 +50,8 @@ public class Test {
 	}
 	
 	/**
+	 * Sets name.
+	 * 
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
@@ -57,6 +59,8 @@ public class Test {
 	}
 	
 	/**
+	 * Gets teacher.
+	 * 
 	 * @return the teacher
 	 */
 	public User getTeacher() {
@@ -64,27 +68,35 @@ public class Test {
 	}
 	
 	/**
-	 * @param teacher the teacher to set
+	 * Sets teacher.
+	 * 
+	 * @param teacher the teacher.
 	 */
 	public void setTeacher(User teacher) {
 		this.teacher = teacher;
 	}
 	
 	/**
-	 * @return the questions
+	 * Gets list of questions.
+	 * 
+	 * @return the questions.
 	 */
 	public List<Question> getQuestions() {
 		return questions;
 	}
 	
 	/**
-	 * @param questions the questions to set
+	 * Sets questions.
+	 * 
+	 * @param questions the list of questions.
 	 */
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
 	
 	/**
+	 * Gets student.
+	 * 
 	 * @return the students
 	 */
 	public List<User> getStudents() {
@@ -92,21 +104,27 @@ public class Test {
 	}
 	
 	/**
-	 * @param students the students to set
+	 * Sets student.
+	 * 
+	 * @param students the list of students.
 	 */
 	public void setStudents(List<User> students) {
 		this.students = students;
 	}
 	
 	/**
-	 * @return the results
+	 * Gets results of test.
+	 * 
+	 * @return the list of tests.
 	 */
 	public List<Integer> getResults() {
 		return results;
 	}
 	
 	/**
-	 * @param results the results to set
+	 * Sets result.
+	 * 
+	 * @param results the list of tests.
 	 */
 	public void setResults(List<Integer> results) {
 		this.results = results;

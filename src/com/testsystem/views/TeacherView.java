@@ -2,7 +2,6 @@ package com.testsystem.views;
 
 import java.util.List;
 import java.util.Scanner;
-
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
 
@@ -10,25 +9,22 @@ import com.testsystem.models.User;
  * Represents a teacher.
  * 
  * @author Oleg Shestakov
- * 
  * @author olshec@gmail.com
- * 
  * @version 1.0
  */
-
 public final class TeacherView extends UserView {
 
 	/**
 	 * Creates a teacher view.
 	 * 
-	 * @param userModel The teacher’s model.
+	 * @param userModel The teacher.
 	 */
 	public TeacherView(User userModel) {
 		super(userModel);
 	}
 
 	/**
-	 * Menu.
+	 * Method for open menu.
 	 */
 	public void openMenu() {
 		int num = -1;
@@ -50,10 +46,10 @@ public final class TeacherView extends UserView {
 			case 0:
 				break;
 			case 1:
-				getTests();
+				printTests();
 				break;
 			case 2:
-				getTestResult();
+				printTestResult();
 				break;
 			default:
 				System.out.println("Неверный ввод! Попытайтесь еще раз.");
@@ -65,9 +61,9 @@ public final class TeacherView extends UserView {
 	}
 
 	/**
-	 * Gets a list of tests from the server and prints.
+	 * Print a list of tests from the server and prints.
 	 */
-	private void getTests() {
+	private void printTests() {
 		List<Test> mas = this.getUserModel().getServer().getTestsForTeacher(this.getUserModel());
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
@@ -76,9 +72,9 @@ public final class TeacherView extends UserView {
 	}
 
 	/**
-	 * Gets a result of students test from the server and prints.
+	 * Print a result of students test from the server and prints.
 	 */
-	private void getTestResult() {
+	private void printTestResult() {
 
 		System.out.print("Введите номер теста: ");
 		Scanner myInput = new Scanner(System.in);

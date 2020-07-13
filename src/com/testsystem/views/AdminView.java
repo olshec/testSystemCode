@@ -2,31 +2,28 @@ package com.testsystem.views;
 
 import java.util.List;
 import java.util.Scanner;
-
 import com.testsystem.models.User;
 
 /**
  * Represents an administrator.
  * 
  * @author Oleg Shestakov
- * 
  * @author olshec@gmail.com
- * 
  * @version 1.0
  */
-
 public class AdminView extends UserView {
 
 	/**
 	 * Creates an administrator view.
-	 * @param userModel  The administrator's model
+	 * 
+	 * @param user  The administrator's model
 	 */
-	public AdminView(User userModel) {
-		super(userModel);
+	public AdminView(User user) {
+		super(user);
 	}
 
 	/** 
-	 * Menu.
+	 * Method for open menu.
 	*/
 	public void openMenu() {
 		int num = -1;
@@ -69,8 +66,9 @@ public class AdminView extends UserView {
 		System.out.println("До свидания!");
 	}
 
-	/**
+	/*
 	 * Print list users.
+	 * 
 	 * @param masUser The array of users.
 	 * @param title String represents a title.
 	 */
@@ -83,32 +81,32 @@ public class AdminView extends UserView {
 		}
 	}
 
-	/**
-	 * Gets the list users from server.
+	/*
+	 * Print the list users from server.
 	 */
 	private void getUsers() {
 		List<User> masUser = this.getUserModel().getServer().getAllUsersForAdmin(this.getUserModel());
 		printListUsers(masUser, "Cписок пользователей");
 	}
 
-	/**
-	 * Gets the list students from server.
+	/*
+	 * Print the list students from server.
 	 */
 	private void getStudents() {
 		List<User> masUser =this.getUserModel().getServer().getStudentsForAdmin(this.getUserModel());
 		printListUsers(masUser, "Cписок студентов");
 	}
 
-	/**
-	 * Gets the list teachers from server.
+	/*
+	 * Print the list teachers from server.
 	 */
 	private void getTeachers() {
 		List<User> masUser = this.getUserModel().getServer().getTeachersForAdmin(this.getUserModel());
 		printListUsers(masUser, "Cписок преподавателей");
 	}
 
-	/**
-	 * Gets the list administrators from server.
+	/*
+	 * Print the list administrators from server.
 	 */
 	private void getAdministrators() {
 		List<User> masUser = this.getUserModel().getServer().getAdminsForAdmin(this.getUserModel());

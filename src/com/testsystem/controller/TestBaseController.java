@@ -1,7 +1,6 @@
 package com.testsystem.controller;
 
 import java.util.List;
-
 import com.testsystem.models.Test;
 import com.testsystem.models.TestBase;
 
@@ -9,12 +8,9 @@ import com.testsystem.models.TestBase;
  * Represents a controller to the database containing tests.
  * 
  * @author Oleg Shestakov
- * 
  * @author olshec@gmail.com
- * 
  * @version 1.0
  */
-
 public class TestBaseController {
 	private TestBase testBase;
 	
@@ -28,13 +24,16 @@ public class TestBaseController {
 
 	/** 
 	 * Creates a TestBaseController.
-	 *  @param testBaseModel the database containing tests.
+	 * 
+	 *  @param testBase The tests' database.
 	 */
-	public TestBaseController(TestBase testBaseModel) {
-		setTestBaseModel(testBaseModel);
+	public TestBaseController(TestBase testBase) {
+		setTestBaseModel(testBase);
 		}
 
 	/**
+	 * Gets all tests
+	 * 
 	 * @return the all tests.
 	 */
 	public List<Test> getAllTests() {
@@ -42,6 +41,8 @@ public class TestBaseController {
 	}
 
 	/**
+	 * Adds list of test
+	 * 
 	 * @param tests the tests to add.
 	 */
 	public void addTests(List<Test> tests) {
@@ -49,27 +50,34 @@ public class TestBaseController {
 	}
 	
 	/**
+	 * Gets test
+	 * 
+	 * @param The test id.
 	 * @return the TestModel.
 	 */
-	public Test getTest(int index) {
-		if (index < testBase.getTests().size() && index >= 0) {
-			return testBase.getTests().get(index);
+	public Test getTest(int idTest) {
+		if (idTest < testBase.getTests().size() && idTest >= 0) {
+			return testBase.getTests().get(idTest);
 		}
 		return null;
 	}
 
 	/**
-	 * @return the testBaseModel
+	 * Gets the database of tests.
+	 * 
+	 * @return  The tests' database.
 	 */
 	public TestBase getTestBaseModel() {
 		return testBase;
 	}
 
 	/**
-	 * @param testBaseModel the testBaseModel to set
+	 * Sets the database of tests.
+	 * 
+	 * @param testBase The tests' database.
 	 */
-	public void setTestBaseModel(TestBase testBaseModel) {
-		this.testBase = testBaseModel;
+	public void setTestBaseModel(TestBase testBase) {
+		this.testBase = testBase;
 	}
 
 }

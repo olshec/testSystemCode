@@ -2,7 +2,6 @@ package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.testsystem.models.User;
 import com.testsystem.models.UserBase;
 
@@ -10,12 +9,9 @@ import com.testsystem.models.UserBase;
  * Represents a controller to the database containing user.
  * 
  * @author Oleg Shestakov
- * 
  * @author olshec@gmail.com
- * 
  * @version 1.0
  */
-
 public class UserBaseController {
 	private UserBase userBase;
 
@@ -28,16 +24,19 @@ public class UserBaseController {
 	
 	/** 
 	 * Creates a UserBaseController.
-	 * @param userBaseModel the database containing user.
+	 * 
+	 * @param userBase the database containing user.
 	 */
-	public UserBaseController(UserBase userBaseModel) {
-		setUserBaseModel(userBaseModel);
+	public UserBaseController(UserBase userBase) {
+		setUserBaseModel(userBase);
 	}
 
 	/**
-	 * @param username the name of user.
-	 * @param password the password of user.
-	 * @return UserModel the user.
+	 * Gets user by login and password.
+	 * 
+	 * @param username The name of user.
+	 * @param password The password of user.
+	 * @return UserModel The user.
 	 */
 	public User getUser(String username, String password) {
 		List<User> users=userBase.getUsers();
@@ -50,21 +49,27 @@ public class UserBaseController {
 	}
 
 	/**
-	 * @return List<UserModel> the list users.
+	 * Gets all users
+	 * 
+	 * @return List<UserModel> the list of users.
 	 */
 	public List<User> getAllUsers() {
 		return userBase.getUsers();
 	}
 
 	/**
-	 * @param user the user's model.
+	 * Adds user.
+	 * 
+	 * @param user The user.
 	 */
 	public void addUser(User user) {
 		userBase.getUsers().add(user);
 	}
 
 	/**
-	 * @return boolean return true if database contains user.
+	 * Gets result: does the database have a user.
+	 * 
+	 * @return boolean Returns true if database contains user.
 	 */
 	public boolean hasUser(User user) {
 		List<User> users=userBase.getUsers();
@@ -77,23 +82,28 @@ public class UserBaseController {
 	}
 
 	/**
-	 * @return the userBaseModel.
+	 * Gets database of user.
+	 * 
+	 * @return the database of user.
 	 */
 	public UserBase getUserBaseModel() {
 		return userBase;
 	}
 
 	/**
-	 * @param userBaseModel the userBaseModel to set.
+	 * Sets database of user
+	 * 
+	 * @param userBase The database of user.
 	 */
-	public void setUserBaseModel(UserBase userBaseModel) {
-		this.userBase = userBaseModel;
+	public void setUserBaseModel(UserBase userBase) {
+		this.userBase = userBase;
 	}
 
 	/** 
 	 * Gets users by type.
-	 * @param typeUser the user's type.
-	 * @return List<UserModel> The list students.
+	 * 
+	 * @param typeUser The user's type.
+	 * @return List<UserModel> The list of students.
 	 */
 	public List<User> getUsersByType(String typeUser) {
 		List<User> masUserResult = new ArrayList<User>();

@@ -1,7 +1,9 @@
+/*
+ * This software is a testing system.
+ */
 package com.testsystem.views;
 
 import java.util.Scanner;
-
 import com.testsystem.controller.ServerController;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Student;
@@ -12,24 +14,21 @@ import com.testsystem.models.User;
  * This class is the entry point to the application.
  * 
  * @author Oleg Shestakov
- * 
  * @author olshec@gmail.com
- * 
  * @version 1.0
  */
-
 public class ClientView extends UserView {
 
 	/**
-	 * main.
-	 * Entry point to the application.
+	 * The main function.
+	 * The entry point to the application.
 	 */
 	public static void main(String[] args) {
 		new ClientView().openMenu();
 	}
 	
 	/** 
-	 * Menu.
+	 * Method for open menu.
 	*/
 	public void openMenu() {
 		String login ="";

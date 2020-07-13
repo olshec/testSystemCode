@@ -6,17 +6,14 @@ import com.testsystem.models.User;
  * Represents a user.
  * 
  * @author Oleg Shestakov
- * 
  * @author olshec@gmail.com
- * 
  * @version 1.0
  */
-
 public abstract class UserView {
 	private User user;
 	
 	/** 
-	 * Menu.
+	 * Method for open menu.
 	*/
 	public abstract void openMenu();
 	
@@ -33,6 +30,8 @@ public abstract class UserView {
 	}
 
 	/**
+	 * Gets user.
+	 * 
 	 * @return the userModel
 	 */
 	public User getUserModel() {
@@ -40,10 +39,12 @@ public abstract class UserView {
 	}
 
 	/**
-	 * @param userModel the userModel to set
+	 * Sets user.
+	 * 
+	 * @param user the user.
 	 */
-	public void setUserModel(User userModel) { 
-		this.user = userModel;
+	public void setUserModel(User user) { 
+		this.user = user;
 	}
 
 }

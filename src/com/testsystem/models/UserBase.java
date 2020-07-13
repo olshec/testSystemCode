@@ -7,9 +7,7 @@ import java.util.List;
  * Represents a database user.
  * 
  * @author Oleg Shestakov
- * 
  * @author olshec@gmail.com
- * 
  * @version 1.0
  */
 public class UserBase {
@@ -24,7 +22,8 @@ public class UserBase {
 	
 	/**
 	 * Creates a UserBaseModel.
-	 * @param users
+	 * 
+	 * @param users.
 	 */
 	public UserBase(List<User> users) {
 		super();
@@ -32,14 +31,18 @@ public class UserBase {
 	}
 
 	/**
-	 * @return the list users
+	 * Gets list of users.
+	 * 
+	 * @return the list users.
 	 */
 	public List<User> getUsers() {
 		return users;
 	}
 
 	/**
-	 * @param users the users to set
+	 * Sets users.
+	 * 
+	 * @param users the list of users.
 	 */
 	public void setUsers(List<User> users) {
 		this.users = users;
