@@ -20,62 +20,61 @@ import com.testsystem.models.User;
 public class ClientView extends UserView {
 
 	/**
-	 * The main function.
-	 * The entry point to the application.
+	 * The main function. The entry point to the application.
 	 */
 	public static void main(String[] args) {
 		new ClientView().openMenu();
 	}
-	
-	/** 
+
+	/**
 	 * Method for open menu.
-	*/
+	 */
 	public void openMenu() {
-		String login ="";
-		String password ="";
+		String login = "";
+		String password = "";
 		System.out.print("Введите логин: ");
 		Scanner myInput = new Scanner(System.in);
 		login = myInput.nextLine();
 		System.out.print("Введите пароль: ");
 		password = myInput.nextLine();
-		
+
 		ServerController server = new ServerController();
 		User user = server.login(login, password);
 
-		if(user==null) {
+		if (user == null) {
 			System.out.print("Неправильный логин или пароль.");
 			System.out.println("До свидания!");
 			return;
 		}
-		
-		UserView userView=null;
+
+		UserView userView = null;
 		System.out.print(user.getClass().getSimpleName());
-		
+
 		switch (user.getClass().getSimpleName()) {
 		case Administrator.nameModel:
-			userView=new AdminView(user);
+			userView = new AdminView(user);
 			break;
 		case Teacher.nameModel:
-			userView=new TeacherView(user);
+			userView = new TeacherView(user);
 			break;
 		case Student.nameModel:
-			userView=new StudentView(user);
+			userView = new StudentView(user);
 			break;
 		default:
 			break;
 		}
-		
-		//Student_1 login: "REgor", password: "1111"
-		//Student_2 login: "ShAnton", password: "1111"
-		
-		//Teacher_1 login: "KirovAnton", password: "12345678"
-		//SAdmin_1 login: "Admin1", password: "0000"
-		if(userView!=null)
+
+		// Student_1 login: "REgor", password: "1111"
+		// Student_2 login: "ShAnton", password: "1111"
+
+		// Teacher_1 login: "KirovAnton", password: "12345678"
+		// SAdmin_1 login: "Admin1", password: "0000"
+		if (userView != null)
 			userView.openMenu();
 		else {
 			System.out.print("Произошла непредвиденная ошибка!");
 			System.out.println("До свидания!");
 		}
 	}
-	
+
 }

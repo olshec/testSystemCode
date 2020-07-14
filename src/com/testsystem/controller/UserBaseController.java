@@ -13,16 +13,17 @@ import com.testsystem.models.UserBase;
  * @version 1.0
  */
 public class UserBaseController {
+	
 	private UserBase userBase;
 
-	/** 
+	/**
 	 * Creates a UserBaseController.
 	 */
 	public UserBaseController() {
 		userBase = new UserBase();
 	}
-	
-	/** 
+
+	/**
 	 * Creates a UserBaseController.
 	 * 
 	 * @param userBase the database containing user.
@@ -39,7 +40,7 @@ public class UserBaseController {
 	 * @return UserModel The user.
 	 */
 	public User getUser(String username, String password) {
-		List<User> users=userBase.getUsers();
+		List<User> users = userBase.getUsers();
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).getUserName().equals(username) && users.get(i).getPassword().equals(password)) {
 				return users.get(i);
@@ -72,7 +73,7 @@ public class UserBaseController {
 	 * @return boolean Returns true if database contains user.
 	 */
 	public boolean hasUser(User user) {
-		List<User> users=userBase.getUsers();
+		List<User> users = userBase.getUsers();
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).getId() == user.getId()) {
 				return true;
@@ -99,7 +100,7 @@ public class UserBaseController {
 		this.userBase = userBase;
 	}
 
-	/** 
+	/**
 	 * Gets users by type.
 	 * 
 	 * @param typeUser The user's type.
@@ -107,7 +108,7 @@ public class UserBaseController {
 	 */
 	public List<User> getUsersByType(String typeUser) {
 		List<User> masUserResult = new ArrayList<User>();
-		for (int i = 0; i <userBase.getUsers().size(); i++) {
+		for (int i = 0; i < userBase.getUsers().size(); i++) {
 			String className = userBase.getUsers().get(i).getClass().getSimpleName();
 			if (className.equals(typeUser)) {
 				masUserResult.add(userBase.getUsers().get(i));
@@ -115,5 +116,5 @@ public class UserBaseController {
 		}
 		return masUserResult;
 	}
-	
+
 }

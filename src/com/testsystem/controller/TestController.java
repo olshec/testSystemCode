@@ -16,11 +16,13 @@ public class TestController {
 
 	Test test;
 
-	/** 
+	/**
 	 * Creates a TestController.
 	 */
-	public TestController() {;}
-	
+	public TestController() {
+		;
+	}
+
 	/**
 	 * Creates a TestController.
 	 * 
@@ -30,9 +32,8 @@ public class TestController {
 		setTestModel(test);
 	}
 
-
 	/**
-	 * Gets  model of test.
+	 * Gets model of test.
 	 * 
 	 * @return the test.
 	 */
@@ -57,7 +58,7 @@ public class TestController {
 	public String getName() {
 		return test.getName();
 	}
-	
+
 	/**
 	 * Sets name of test.
 	 * 
@@ -66,15 +67,15 @@ public class TestController {
 	public void setName(String name) {
 		this.test.setName(name);
 	}
-	
+
 	/**
 	 * Adds result of test.
 	 * 
 	 * @param student The student for grading.
-	 * @param points The student point.
+	 * @param points  The student point.
 	 */
 	public void addResult(User student, int points) {
-		for (int i = 0; i <test.getStudents().size(); i++) {
+		for (int i = 0; i < test.getStudents().size(); i++) {
 			if (test.getStudents().get(i).getId() == student.getId()) {
 				test.getResults().set(i, points);
 			}
@@ -85,7 +86,8 @@ public class TestController {
 	 * Gets result: does the student have a test.
 	 * 
 	 * @param The student.
-	 * @return Returns the true if test student has this test. Otherwise returns false.
+	 * @return Returns the true if test student has this test. Otherwise returns
+	 *         false.
 	 */
 	public boolean hasStudent(User student) {
 		for (int i = 0; i < test.getStudents().size(); i++) {
@@ -119,7 +121,8 @@ public class TestController {
 	 * Gets result: does the teacher have a test.
 	 * 
 	 * @param The model of teacher.
-	 * @return Returns the true if test teacher has this test. Otherwise returns false.
+	 * @return Returns the true if test teacher has this test. Otherwise returns
+	 *         false.
 	 */
 	public boolean hasTeacher(User teacher) {
 		if (test.getTeacher().getId() == teacher.getId()) {
@@ -140,7 +143,7 @@ public class TestController {
 	/**
 	 * Gets the result of tests.
 	 * 
-	 * @return List<Integer>  the results of test.
+	 * @return List<Integer> the results of test.
 	 */
 	public List<Integer> getResults() {
 		return test.getResults();

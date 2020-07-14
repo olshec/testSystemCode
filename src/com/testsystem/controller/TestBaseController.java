@@ -12,24 +12,24 @@ import com.testsystem.models.TestBase;
  * @version 1.0
  */
 public class TestBaseController {
+
 	private TestBase testBase;
-	
-	
-	/** 
+
+	/**
 	 * Creates a TestBaseController.
 	 */
 	public TestBaseController() {
 		setTestBaseModel(new TestBase());
-		}
+	}
 
-	/** 
+	/**
 	 * Creates a TestBaseController.
 	 * 
-	 *  @param testBase The tests' database.
+	 * @param testBase The tests' database.
 	 */
 	public TestBaseController(TestBase testBase) {
 		setTestBaseModel(testBase);
-		}
+	}
 
 	/**
 	 * Gets all tests
@@ -48,7 +48,7 @@ public class TestBaseController {
 	public void addTests(List<Test> tests) {
 		this.testBase.setTests(tests);
 	}
-	
+
 	/**
 	 * Gets test
 	 * 
@@ -65,7 +65,7 @@ public class TestBaseController {
 	/**
 	 * Gets the database of tests.
 	 * 
-	 * @return  The tests' database.
+	 * @return The tests' database.
 	 */
 	public TestBase getTestBaseModel() {
 		return testBase;

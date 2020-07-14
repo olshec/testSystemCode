@@ -26,34 +26,34 @@ public class TeacherController extends UserController {
 	public TeacherController(User user) {
 		super(user);
 	}
-	
+
 	/**
 	 * Gets tests
 	 * 
 	 * @param testBase The tests' database.
-	 * @return  The all tests of teacher.
+	 * @return The all tests of teacher.
 	 */
 	public List<Test> getTests(TestBase testBase) {
 		ArrayList<Test> masTests = new ArrayList<Test>();
 		for (int i = 0; i < testBase.getTests().size(); i++) {
-			TestController testController=new TestController(testBase.getTests().get(i));
+			TestController testController = new TestController(testBase.getTests().get(i));
 			if (testController.hasTeacher(this.getUserModel())) {
 				masTests.add(testController.getTestModel());
 			}
 		}
 		return masTests;
 	}
-	
-	/** 
+
+	/**
 	 * Gets students test result.
 	 * 
-	 * @param idTest The test id.
+	 * @param idTest   The test id.
 	 * @param testBase The tests' database.
 	 * @return Test The test's model.
-	*/
-	public Test getTestResult( int idTest, TestBase testBase) {
-		
-		if(idTest>=0 && idTest<this.getTests(testBase).size() ) {
+	 */
+	public Test getTestResult(int idTest, TestBase testBase) {
+
+		if (idTest >= 0 && idTest < this.getTests(testBase).size()) {
 			return this.getTests(testBase).get(idTest);
 		}
 		return null;

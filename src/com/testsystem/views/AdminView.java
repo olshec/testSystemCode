@@ -16,15 +16,15 @@ public class AdminView extends UserView {
 	/**
 	 * Creates an administrator view.
 	 * 
-	 * @param user  The administrator's model
+	 * @param user The administrator's model
 	 */
 	public AdminView(User user) {
 		super(user);
 	}
 
-	/** 
+	/**
 	 * Method for open menu.
-	*/
+	 */
 	public void openMenu() {
 		int num = -1;
 		while (num != 0) {
@@ -70,6 +70,7 @@ public class AdminView extends UserView {
 	 * Print list users.
 	 * 
 	 * @param masUser The array of users.
+	 * 
 	 * @param title String represents a title.
 	 */
 	private void printListUsers(List<User> masUser, String title) {
@@ -93,7 +94,7 @@ public class AdminView extends UserView {
 	 * Print the list students from server.
 	 */
 	private void getStudents() {
-		List<User> masUser =this.getUserModel().getServer().getStudentsForAdmin(this.getUserModel());
+		List<User> masUser = this.getUserModel().getServer().getStudentsForAdmin(this.getUserModel());
 		printListUsers(masUser, "Cписок студентов");
 	}
 

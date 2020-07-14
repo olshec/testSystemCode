@@ -12,15 +12,15 @@ import com.testsystem.controller.ServerController;
 public class Teacher extends User {
 
 	public static final String nameModel = "Teacher";
-	
-	/** 
+
+	/**
 	 * Creates a TeacherModel.
 	 * 
-	 * @param lastName The user’s last name.
+	 * @param lastName  The user’s last name.
 	 * @param firstName The user’s first name.
-	 * @param server The user’s server.
-	 * @param username The user’s username.
-	 * @param password The user’s password.
+	 * @param server    The user’s server.
+	 * @param username  The user’s username.
+	 * @param password  The user’s password.
 	 */
 	public Teacher(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);

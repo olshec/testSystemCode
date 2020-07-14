@@ -10,20 +10,20 @@ import java.util.List;
  * @version 1.0
  */
 public class TestBase {
+	
 	private List<Test> tests;
 
-	
 	/**
 	 * Creates a TestBaseModel.
 	 */
 	public TestBase() {
-		//setTests(tests);
+		// setTests(tests);
 	}
-	
+
 	/**
 	 * Creates a TestBaseModel.
 	 * 
-	 * @param  list of tests.
+	 * @param list of tests.
 	 */
 	public TestBase(List<Test> tests) {
 		this.tests = tests;

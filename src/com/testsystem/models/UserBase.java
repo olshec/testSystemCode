@@ -11,6 +11,7 @@ import java.util.List;
  * @version 1.0
  */
 public class UserBase {
+	
 	private List<User> users;
 
 	/**
@@ -19,7 +20,7 @@ public class UserBase {
 	public UserBase() {
 		users = new ArrayList<User>();
 	}
-	
+
 	/**
 	 * Creates a UserBaseModel.
 	 * 
@@ -47,5 +48,5 @@ public class UserBase {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
-	
+
 }

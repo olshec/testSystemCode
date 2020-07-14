@@ -10,22 +10,23 @@ import java.util.List;
  * @version 1.0
  */
 public class Question {
+	
 	private String text;
 	private List<Answer> answers;
 	private Integer ID;
 	private static Integer idIncrement;
-	
+
 	static {
-		idIncrement=0;
+		idIncrement = 0;
 	}
-	
-	/** 
+
+	/**
 	 * Creates a QuestionModel.
 	 * 
 	 * @param text The question’s text.
 	 */
 	public Question(String text) {
-		this.ID=Question.idIncrement;
+		this.ID = Question.idIncrement;
 		Question.idIncrement++;
 		setText(text);
 	}
@@ -83,5 +84,5 @@ public class Question {
 	public void setID(Integer id) {
 		ID = id;
 	}
-	
+
 }

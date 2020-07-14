@@ -11,6 +11,7 @@ import java.util.List;
  * @version 1.0
  */
 public class Test {
+	
 	private String name;
 	private User teacher;
 	private List<Question> questions;
@@ -131,5 +132,3 @@ public class Test {
 	}
 	
 }
-	
-
