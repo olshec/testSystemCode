@@ -14,7 +14,7 @@ public class Administrator extends User {
 	public static final String nameModel = "Administrator";
 
 	/**
-	 * Creates a AdministratorModel.
+	 * Creates an AdministratorModel.
 	 * 
 	 * @param lastName  The user’s last name.
 	 * @param firstName The user’s first name.

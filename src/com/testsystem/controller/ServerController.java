@@ -3,6 +3,7 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 import com.testsystem.models.Administrator;
+import com.testsystem.models.Group;
 import com.testsystem.models.Question;
 import com.testsystem.models.Student;
 import com.testsystem.models.Teacher;
@@ -183,8 +184,9 @@ public class ServerController {
 		new TestBaseController(testBase).addTests(tests);
 		//testBaseController.addTests(tests);
 
-		User student1 = new Student("Шахматов", "Антон", this, "ShAnton", "1111");
-		User student2 = new Student("Романенко", "Егор", this, "REgor", "1111");
+		Group g1=new Group("Group 1");
+		User student1 = new Student("Шахматов", "Антон", this, "ShAnton", "1111", g1);
+		User student2 = new Student("Романенко", "Егор", this, "REgor", "1111", g1);
 
 		userBaseController.addUser(student1);
 		userBaseController.addUser(student2);
