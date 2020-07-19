@@ -16,8 +16,6 @@ public class Test {
 	private String name;
 	private User teacher;
 	private List<Question> questions;
-	//private List<User> students;
-	//private List<Integer> results;
 	private HashMap<User, Integer> studentResult;
 	
 	/**
@@ -39,8 +37,6 @@ public class Test {
 	
 	private void init() {
 		setQuestions(new ArrayList<Question>());
-		//setStudents(new ArrayList<User>());
-		//setResults(new ArrayList<Integer>()); 
 		setStudentResult(new HashMap<User, Integer>());
 	}
 	
@@ -97,42 +93,6 @@ public class Test {
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
-	
-	/**
-	 * Gets student.
-	 * 
-	 * @return the students
-	 */
-//	public List<User> getStudents() {
-//		return students;
-//	}
-	
-	/**
-	 * Sets student.
-	 * 
-	 * @param students the list of students.
-	 */
-//	public void setStudents(List<User> students) {
-//		this.students = students;
-//	}
-	
-	/**
-	 * Gets results of test.
-	 * 
-	 * @return the list of tests.
-	 */
-//	public List<Integer> getResults() {
-//		return results;
-//	}
-	
-	/**
-	 * Sets result.
-	 * 
-	 * @param results the list of tests.
-	 */
-//	public void setResults(List<Integer> results) {
-//		this.results = results;
-//	}
 
 	/**
 	 * @return the studentResult
