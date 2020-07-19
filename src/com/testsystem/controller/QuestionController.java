@@ -14,13 +14,12 @@ import com.testsystem.models.Question;
  */
 public class QuestionController {
 	
-	private List<Question> questions;
+	private Question question;
 
 	/**
 	 * Creates a QuestionController.
 	 */
 	public QuestionController() {
-		questions = new ArrayList<Question>();
 	}
 
 	/**
@@ -29,13 +28,8 @@ public class QuestionController {
 	 * @param idQuestion The ID question
 	 * @return The text question
 	 */
-	public String getText(int idQuestion) {
-		for (int i = 0; i < questions.size(); i++) {
-			if (questions.get(i).getID() == idQuestion) {
-				return questions.get(idQuestion).getText();
-			}
-		}
-		return null;
+	public String getText() {
+		return question.getText();
 	}
 
 	/**
@@ -44,12 +38,8 @@ public class QuestionController {
 	 * @param text       The text question
 	 * @param idQuestion The ID question
 	 */
-	public void setText(String text, int idQuestion) {
-		for (int i = 0; i < questions.size(); i++) {
-			if (questions.get(i).getID() == idQuestion) {
-				questions.get(idQuestion).setText(text);
-			}
-		}
+	public void setText(String text) {
+		question.setText(text);
 	}
 
 	/**
@@ -58,13 +48,8 @@ public class QuestionController {
 	 * @param idQuestion the index question
 	 * @return The answers
 	 */
-	public List<Answer> getAnswers(int idQuestion) {
-		for (int i = 0; i < questions.size(); i++) {
-			if (questions.get(i).getID() == idQuestion) {
-				return questions.get(idQuestion).getAnswers();
-			}
-		}
-		return null;
+	public List<Answer> getAnswers() {
+		return question.getAnswers();
 	}
 
 	/**
@@ -73,21 +58,8 @@ public class QuestionController {
 	 * @param answers    The answers
 	 * @param idQuestion The index question
 	 */
-	public void setAnswers(List<Answer> answers, int idQuestion) {
-		for (int i = 0; i < questions.size(); i++) {
-			if (questions.get(i).getID() == idQuestion) {
-				questions.get(idQuestion).setAnswers(answers);
-			}
-		}
-	}
-
-	/**
-	 * Adds new question.
-	 * 
-	 * @param question the question to add
-	 */
-	public void addQuestion(Question question) {
-		questions.add(question);
+	public void setAnswers(List<Answer> answers) {
+		question.setAnswers(answers);
 	}
 
 }
