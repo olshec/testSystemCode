@@ -1,5 +1,6 @@
 package com.testsystem.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.testsystem.models.Question;
 import com.testsystem.models.Test;
@@ -75,11 +76,7 @@ public class TestController {
 	 * @param points  The student point.
 	 */
 	public void addResult(User student, int points) {
-		for (int i = 0; i < test.getStudents().size(); i++) {
-			if (test.getStudents().get(i).getId() == student.getId()) {
-				test.getResults().set(i, points);
-			}
-		}
+		test.getStudentResult().put(student, points);
 	}
 
 	/**
@@ -90,12 +87,7 @@ public class TestController {
 	 *         false.
 	 */
 	public boolean hasStudent(User student) {
-		for (int i = 0; i < test.getStudents().size(); i++) {
-			if (test.getStudents().get(i).getId() == student.getId()) {
-				return true;
-			}
-		}
-		return false;
+		return test.getStudentResult().containsKey(student);
 	}
 
 	/**
@@ -113,8 +105,7 @@ public class TestController {
 	 * @param user The user for add to test.
 	 */
 	public void addStudent(User user) {
-		test.getStudents().add(user);
-		test.getResults().add(-1);
+		test.getStudentResult().put(user, -1);
 	}
 
 	/**
@@ -137,7 +128,7 @@ public class TestController {
 	 * @return students The list of students.
 	 */
 	public List<User> getStudents() {
-		return test.getStudents();
+		return new ArrayList<User>(test.getStudentResult().keySet());
 	}
 
 	/**
@@ -146,7 +137,7 @@ public class TestController {
 	 * @return List<Integer> the results of test.
 	 */
 	public List<Integer> getResults() {
-		return test.getResults();
+		return new ArrayList<Integer>(test.getStudentResult().values());
 	}
 
 	/**

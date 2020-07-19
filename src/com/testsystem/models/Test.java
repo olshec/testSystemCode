@@ -1,6 +1,7 @@
 package com.testsystem.models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -15,8 +16,9 @@ public class Test {
 	private String name;
 	private User teacher;
 	private List<Question> questions;
-	private List<User> students;
-	private List<Integer> results;
+	//private List<User> students;
+	//private List<Integer> results;
+	private HashMap<User, Integer> studentResult;
 	
 	/**
 	 * Creates a TestModel.
@@ -37,8 +39,9 @@ public class Test {
 	
 	private void init() {
 		setQuestions(new ArrayList<Question>());
-		setStudents(new ArrayList<User>());
-		setResults(new ArrayList<Integer>()); 
+		//setStudents(new ArrayList<User>());
+		//setResults(new ArrayList<Integer>()); 
+		setStudentResult(new HashMap<User, Integer>());
 	}
 	
 	/**
@@ -100,35 +103,49 @@ public class Test {
 	 * 
 	 * @return the students
 	 */
-	public List<User> getStudents() {
-		return students;
-	}
+//	public List<User> getStudents() {
+//		return students;
+//	}
 	
 	/**
 	 * Sets student.
 	 * 
 	 * @param students the list of students.
 	 */
-	public void setStudents(List<User> students) {
-		this.students = students;
-	}
+//	public void setStudents(List<User> students) {
+//		this.students = students;
+//	}
 	
 	/**
 	 * Gets results of test.
 	 * 
 	 * @return the list of tests.
 	 */
-	public List<Integer> getResults() {
-		return results;
-	}
+//	public List<Integer> getResults() {
+//		return results;
+//	}
 	
 	/**
 	 * Sets result.
 	 * 
 	 * @param results the list of tests.
 	 */
-	public void setResults(List<Integer> results) {
-		this.results = results;
+//	public void setResults(List<Integer> results) {
+//		this.results = results;
+//	}
+
+	/**
+	 * @return the studentResult
+	 */
+	public HashMap<User, Integer> getStudentResult() {
+		return studentResult;
+	}
+
+	/**
+	 * @param studentResult the studentResult to set
+	 */
+	public void setStudentResult(HashMap<User, Integer> studentResult) {
+		this.studentResult = studentResult;
 	}
 	
 }

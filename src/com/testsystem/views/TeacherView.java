@@ -1,7 +1,11 @@
 package com.testsystem.views;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+
+
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
 
@@ -88,14 +92,17 @@ public final class TeacherView extends UserView {
 		int indexTest = numTest - 1;// index begin from 0;
 		Test test = this.getUserModel().getServer().getTestResultForTeacher(this.getUserModel(), indexTest);
 		if (test != null) {
-			List<User> masStudent = test.getStudents();
-			List<Integer> masResult = test.getResults();
-			if (masResult.size() > 0) {
-				for (int i = 0; i < masResult.size(); i++) {
+			HashMap<User, Integer> studentResult=test.getStudentResult();
+			
+			if (studentResult.size() > 0) {
+				List<User> masStudent = new ArrayList<User>(test.getStudentResult().keySet());
+				List<Integer> masResult =  new ArrayList<Integer>(test.getStudentResult().values());
+				for (int i = 0; i < studentResult.keySet().size(); i++) {
 					String s = String.format("%d) %s %s: %d", i + 1, masStudent.get(i).getLastName(),
 							masStudent.get(i).getFirstName(), masResult.get(i));
 					System.out.println(s);
 				}
+
 			} else {
 				System.out.println("Результаты теста отсутствуют");
 			}
