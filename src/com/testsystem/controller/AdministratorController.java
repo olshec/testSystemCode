@@ -25,9 +25,9 @@ public class AdministratorController extends UserController {
 	/**
 	 * Gets users by type.
 	 * 
-	 * @param typeUser the user's type
-	 * @param userBase the database of users
-	 * @return List<UserModel> the list students
+	 * @param typeUser 			the user's type
+	 * @param userBase 			the database of users
+	 * @return List<UserModel> 	the list students
 	 */
 	public List<User> getUsersByType(String typeUser, UserBase userBase) {
 		return new UserBaseController(userBase).getUsersByType(typeUser);

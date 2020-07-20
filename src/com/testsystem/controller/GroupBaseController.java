@@ -31,6 +31,7 @@ public class GroupBaseController {
 
 	/**
 	 * Gets GroupBase.
+	 * 
 	 * @return the groupBase
 	 */
 	public GroupBase getGroupBase() {
