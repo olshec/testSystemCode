@@ -50,8 +50,6 @@ public class RatingCalculator {
 	 * @return int 		the rating of student
 	 */
 	public static HashMap<User, Integer> getRatingGroup(Group group, TestBase testBase, UserBase userBase) {
-		
-		UserBaseController userBaseController = new UserBaseController();
 		List<User> listStudent = new GroupBaseController().getStudentByGroup(userBase, group);
 		HashMap<User, Integer> groupRating=new HashMap<User, Integer>();
 		for(int i=0;i<listStudent.size();i++) {
