@@ -79,5 +79,4 @@ public class TestBaseController {
 	public void setTestBaseModel(TestBase testBase) {
 		this.testBase = testBase;
 	}
-
 }

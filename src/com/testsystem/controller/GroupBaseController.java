@@ -46,5 +46,4 @@ public class GroupBaseController {
 	public void setGroupBase(GroupBase groupBase) {
 		this.groupBase = groupBase;
 	}
-
 }

@@ -25,5 +25,4 @@ public class Teacher extends User {
 	public Teacher(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
-
 }

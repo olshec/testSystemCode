@@ -146,5 +146,4 @@ public class TestController {
 	public void addQuestion(Question question) {
 		test.getQuestions().add(question);
 	}
-
 }

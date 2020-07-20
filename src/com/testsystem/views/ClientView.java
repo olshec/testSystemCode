@@ -76,5 +76,4 @@ public class ClientView extends UserView {
 			System.out.println("До свидания!");
 		}
 	}
-
 }

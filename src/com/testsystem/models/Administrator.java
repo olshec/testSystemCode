@@ -25,5 +25,4 @@ public class Administrator extends User {
 	public Administrator(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
-
 }

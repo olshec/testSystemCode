@@ -85,6 +85,4 @@ public class StudentController extends UserController {
 	public Group getGroup() {
 		return ((Student)getUserModel()).getGroup();
 	}
-	
-
 }

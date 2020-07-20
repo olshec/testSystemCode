@@ -46,6 +46,4 @@ public class Student extends User {
 	public void setGroup(Group group) {
 		this.group = group;
 	}
-
-	
 }

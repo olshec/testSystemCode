@@ -48,5 +48,4 @@ public abstract class UserView {
 	public void setUserModel(User user) {
 		this.user = user;
 	}
-
 }

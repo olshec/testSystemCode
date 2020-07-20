@@ -46,5 +46,4 @@ public class TestBase {
 	public void setTests(List<Test> tests) {
 		this.tests = tests;
 	}
-
 }

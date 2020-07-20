@@ -42,5 +42,4 @@ public class AdministratorController extends UserController {
 	public List<User> getAllUsers(UserBase userBase) {
 		return new UserBaseController(userBase).getAllUsers();
 	}
-
 }

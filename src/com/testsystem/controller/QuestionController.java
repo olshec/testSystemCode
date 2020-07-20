@@ -58,5 +58,4 @@ public class QuestionController {
 	public void setAnswers(List<Answer> answers) {
 		question.setAnswers(answers);
 	}
-
 }

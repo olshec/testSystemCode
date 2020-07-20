@@ -70,5 +70,4 @@ public class RatingCalculator {
 //		int rating = count * 2 / testBase.getTests().size();
 		return new HashMap<User, Integer>();
 	}
-
 }

@@ -97,5 +97,4 @@ public final class StudentView extends UserView {
 			System.out.println(s);
 		}
 	}
-
 }

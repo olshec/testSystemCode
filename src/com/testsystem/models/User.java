@@ -106,5 +106,4 @@ public abstract class User {
 	public ServerController getServer() {
 		return this.server;
 	}
-
 }

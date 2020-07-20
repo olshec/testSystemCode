@@ -35,5 +35,4 @@ public abstract class UserController {
 	public void setUserModel(User user) {
 		this.user = user;
 	}
-
 }

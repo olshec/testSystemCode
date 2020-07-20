@@ -48,5 +48,4 @@ public class UserBase {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
-
 }

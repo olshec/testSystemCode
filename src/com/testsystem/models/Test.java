@@ -120,5 +120,4 @@ public class Test {
 	public int getStudentResult(User student) {
 		return studentsResult.get(student);
 	}
-	
 }

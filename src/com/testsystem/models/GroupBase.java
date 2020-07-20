@@ -48,5 +48,4 @@ public class GroupBase {
 	public void setGroups(List<Group> groups) {
 		this.groups = groups;
 	}
-	
 }

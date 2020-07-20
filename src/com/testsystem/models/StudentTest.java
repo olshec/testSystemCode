@@ -72,5 +72,4 @@ public class StudentTest {
 	public void setListAnswers(List<List<Integer>> listAnswers) {
 		this.listAnswers = listAnswers;
 	}
-
 }
