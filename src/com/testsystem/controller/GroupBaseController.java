@@ -1,7 +1,12 @@
 package com.testsystem.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.testsystem.models.Group;
 import com.testsystem.models.GroupBase;
+import com.testsystem.models.User;
+import com.testsystem.models.UserBase;
 
 /**
  * Represents a GroupBaseController.
@@ -48,8 +53,35 @@ public class GroupBaseController {
 		this.groupBase = groupBase;
 	}
 	
+	/**
+	 * Creates new group and adds it to database.
+	 * 
+	 * @param String the name of group to create and add
+	 */
 	public void addGroup(String name) {
 		Group group=new Group(name);
 		groupBase.getGroups().add(group);
+	}
+	
+	/**
+	 * Adds group.
+	 * 
+	 * @param group the group to add
+	 */
+	public void addGroup(Group group) {
+		groupBase.getGroups().add(group);
+	}
+	
+	/**
+	 * Gets student by group.
+	 * 
+	 * @param userBase the database of user
+	 */
+	public List<User> getStudentByGroup(UserBase userBase, Group group){
+		List<User> listUser = new ArrayList<User>();
+		for (int i=0; i < userBase.getUsers().size(); i++) {
+			listUser.add(userBase.getUsers().get(i));
+		}
+		return listUser;
 	}
 }

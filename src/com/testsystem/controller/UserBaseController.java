@@ -29,7 +29,7 @@ public class UserBaseController {
 	 * @param userBase the database containing user.
 	 */
 	public UserBaseController(UserBase userBase) {
-		setUserBaseModel(userBase);
+		setUserBase(userBase);
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class UserBaseController {
 	 * 
 	 * @param userBase the database of user
 	 */
-	public void setUserBaseModel(UserBase userBase) {
+	public void setUserBase(UserBase userBase) {
 		this.userBase = userBase;
 	}
 

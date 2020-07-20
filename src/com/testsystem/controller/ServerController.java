@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;
+import com.testsystem.models.GroupBase;
 import com.testsystem.models.Question;
 import com.testsystem.models.Student;
 import com.testsystem.models.Teacher;
@@ -23,6 +24,7 @@ public class ServerController {
 
 	private TestBase testBase;
 	private UserBase userBase;
+	private GroupBase groupBase;
 
 	/**
 	 * Creates a ServerController.
@@ -30,6 +32,7 @@ public class ServerController {
 	public ServerController() {
 		testBase = new TestBase();
 		userBase = new UserBase();
+		groupBase = new GroupBase();
 		// userBaseController = new UserBaseController(userBaseModel);
 
 		loadTest();
@@ -185,6 +188,7 @@ public class ServerController {
 		//testBaseController.addTests(tests);
 
 		Group g1=new Group("Group 1");
+		new GroupBaseController(groupBase).addGroup(g1);
 		User student1 = new Student("Шахматов", "Антон", this, "ShAnton", "1111", g1);
 		User student2 = new Student("Романенко", "Егор", this, "REgor", "1111", g1);
 
