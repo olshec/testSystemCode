@@ -23,7 +23,7 @@ public class Question {
 	/**
 	 * Creates a QuestionModel.
 	 * 
-	 * @param text The question’s text.
+	 * @param text the text of question
 	 */
 	public Question(String text) {
 		this.ID = Question.idIncrement;
@@ -34,7 +34,7 @@ public class Question {
 	/**
 	 * Gets text of question.
 	 * 
-	 * @return the text of question.
+	 * @return the text of question
 	 */
 	public String getText() {
 		return text;
@@ -61,14 +61,14 @@ public class Question {
 	/**
 	 * Sets answers for question.
 	 * 
-	 * @param answers the answers to set.
+	 * @param answers the answers to set
 	 */
 	public void setAnswers(List<Answer> answers) {
 		this.answers = answers;
 	}
 
 	/**
-	 * Gets id.
+	 * Gets ID of question.
 	 * 
 	 * @return the ID
 	 */
@@ -77,7 +77,7 @@ public class Question {
 	}
 
 	/**
-	 * Sets id.
+	 * Sets ID.
 	 * 
 	 * @param ID the ID to set
 	 */

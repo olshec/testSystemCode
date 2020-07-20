@@ -27,7 +27,7 @@ public class TestController {
 	/**
 	 * Creates a TestController.
 	 * 
-	 * @param The test.
+	 * @param the test
 	 */
 	public TestController(Test test) {
 		setTestModel(test);
@@ -36,7 +36,7 @@ public class TestController {
 	/**
 	 * Gets model of test.
 	 * 
-	 * @return the test.
+	 * @return the test
 	 */
 	public Test getTestModel() {
 		return test;
@@ -45,7 +45,7 @@ public class TestController {
 	/**
 	 * Sets the model of test.
 	 * 
-	 * @param test The test.
+	 * @param test the test
 	 */
 	public void setTestModel(Test test) {
 		this.test = test;
@@ -54,7 +54,7 @@ public class TestController {
 	/**
 	 * Gets name
 	 * 
-	 * @return The test's name.
+	 * @return the name of test
 	 */
 	public String getName() {
 		return test.getName();
@@ -63,7 +63,7 @@ public class TestController {
 	/**
 	 * Sets name of test.
 	 * 
-	 * @param name The name to set.
+	 * @param name the name to set.
 	 */
 	public void setName(String name) {
 		this.test.setName(name);
@@ -72,8 +72,8 @@ public class TestController {
 	/**
 	 * Adds result of test.
 	 * 
-	 * @param student The student for grading.
-	 * @param points  The student point.
+	 * @param student the student for grading
+	 * @param points  the student point
 	 */
 	public void addResult(User student, int points) {
 		test.getStudentResult().put(student, points);
@@ -82,27 +82,26 @@ public class TestController {
 	/**
 	 * Gets result: does the student have a test.
 	 * 
-	 * @param The student.
-	 * @return Returns the true if test student has this test. Otherwise returns
-	 *         false.
+	 * @param 	the student.
+	 * @return 	the true if test student has this test. Otherwise returns false.
 	 */
 	public boolean hasStudent(User student) {
 		return test.getStudentResult().containsKey(student);
 	}
 
 	/**
-	 * Gets number of question
+	 * Gets number of question.
 	 * 
-	 * @return The number of questions.
+	 * @return the number of questions
 	 */
 	public int getNumberQuestions() {
 		return test.getQuestions().size();
 	}
 
 	/**
-	 * Adds new student
+	 * Adds new student.
 	 * 
-	 * @param user The user for add to test.
+	 * @param user the user for add to test
 	 */
 	public void addStudent(User user) {
 		test.getStudentResult().put(user, -1);
@@ -111,9 +110,8 @@ public class TestController {
 	/**
 	 * Gets result: does the teacher have a test.
 	 * 
-	 * @param The model of teacher.
-	 * @return Returns the true if test teacher has this test. Otherwise returns
-	 *         false.
+	 * @param 	the model of teacher
+	 * @return  the true if test teacher has this test. Otherwise returns false
 	 */
 	public boolean hasTeacher(User teacher) {
 		if (test.getTeacher().getId() == teacher.getId()) {
@@ -123,9 +121,9 @@ public class TestController {
 	}
 
 	/**
-	 * Gets students
+	 * Gets students.
 	 * 
-	 * @return students The list of students.
+	 * @return students the list of students
 	 */
 	public List<User> getStudents() {
 		return new ArrayList<User>(test.getStudentResult().keySet());
@@ -134,16 +132,16 @@ public class TestController {
 	/**
 	 * Gets the result of tests.
 	 * 
-	 * @return List<Integer> the results of test.
+	 * @return List<Integer> the results of test
 	 */
 	public List<Integer> getResults() {
 		return new ArrayList<Integer>(test.getStudentResult().values());
 	}
 
 	/**
-	 * Adds new question
+	 * Adds new question.
 	 * 
-	 * @param question The question to add.
+	 * @param question the question to add
 	 */
 	public void addQuestion(Question question) {
 		test.getQuestions().add(question);

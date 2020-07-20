@@ -25,7 +25,7 @@ public class GroupBase {
 	/**
 	 * Creates a GroupBase.
 	 * 
-	 * @param groups The list of groups.
+	 * @param groups the list of groups
 	 */
 	public GroupBase(List<Group> groups) {
 		setGroups(groups);
@@ -34,7 +34,7 @@ public class GroupBase {
 	/**
 	 * Gets groups.
 	 * 
-	 * @return the groups.
+	 * @return the groups
 	 */
 	public List<Group> getGroups() {
 		return groups;
@@ -43,7 +43,7 @@ public class GroupBase {
 	/**
 	 * Sets groups.
 	 * 
-	 * @param groups The groups to set.
+	 * @param groups the groups to set
 	 */
 	public void setGroups(List<Group> groups) {
 		this.groups = groups;

@@ -36,11 +36,11 @@ public class ServerController {
 	}
 
 	/**
-	 * login function.
+	 * Method for login.
 	 * 
-	 * @param username The user's username.
-	 * @param password The user's password.
-	 * @return User The authenticated user.
+	 * @param username 	the user's username
+	 * @param password 	the user's password
+	 * @return User 	the authenticated user
 	 */
 	public User login(String username, String password) {
 		return new UserBaseController(userBase).getUser(username, password);
@@ -49,8 +49,8 @@ public class ServerController {
 	/**
 	 * Gets tests for student.
 	 * 
-	 * @param student The student.
-	 * @return List<Test> The list tests.
+	 * @param student 		the student
+	 * @return List<Test> 	the list tests
 	 */
 	public List<Test> getTestsForStudent(User student) {
 		return new StudentController(student).getTests(testBase);
@@ -59,9 +59,9 @@ public class ServerController {
 	/**
 	 * Gets student test information.
 	 * 
-	 * @param student   The student's model.
-	 * @param indexTest The test index.
-	 * @return The test's model.
+	 * @param student   the model of student
+	 * @param indexTest the test index
+	 * @return 			the model of test
 	 */
 	public Test getTestInfoForStudent(User student, int indexTest) {
 		return new StudentController(student).getTestInfo(indexTest, testBase);
@@ -70,9 +70,9 @@ public class ServerController {
 	/**
 	 * Gets student test number questions.
 	 * 
-	 * @param student   The student.
-	 * @param indexTest The test index.
-	 * @return The test.
+	 * @param student   the student
+	 * @param indexTest the test index
+	 * @return 			the test
 	 */
 	public int getNumberQuestionsInTest(User student, int indexTest) {
 		return new StudentController(student).getNumberQuestionsInTest(indexTest,
@@ -82,8 +82,8 @@ public class ServerController {
 	/**
 	 * Gets tests for teacher.
 	 * 
-	 * @param teacher The teacher.
-	 * @return List<Test> The list tests.
+	 * @param teacher		the teacher
+	 * @return List<Test> 	the list tests
 	 */
 	public List<Test> getTestsForTeacher(User teacher) {
 		return new TeacherController(teacher).getTests(testBase);
@@ -92,9 +92,9 @@ public class ServerController {
 	/**
 	 * Gets students test result.
 	 * 
-	 * @param teacher   The teacher.
-	 * @param indexTest The test id.
-	 * @return Test The test.
+	 * @param teacher   the teacher
+	 * @param indexTest the test id
+	 * @return Test 	the test
 	 */
 	public Test getTestResultForTeacher(User teacher, int idTest) {
 		return new TeacherController(teacher).getTestResult(idTest, testBase);
@@ -103,8 +103,8 @@ public class ServerController {
 	/**
 	 * Gets all users.
 	 * 
-	 * @param The administrator.
-	 * @return List<User> The list all administrators.
+	 * @param 				the administrator
+	 * @return List<User> 	the list all administrators
 	 */
 	public List<User> getAllUsersForAdmin(User admin) {
 		return new AdministratorController(admin)
@@ -114,8 +114,8 @@ public class ServerController {
 	/**
 	 * Gets students.
 	 * 
-	 * @param The administrator.
-	 * @return List<User> The list students.
+	 * @param 				the administrator
+	 * @return List<User> 	the list students
 	 */
 	public List<User> getStudentsForAdmin(User admin) {
 		return new AdministratorController(admin).getUsersByType(Student.nameModel, userBase);
@@ -124,8 +124,8 @@ public class ServerController {
 	/**
 	 * Gets teachers.
 	 * 
-	 * @param The administrator.
-	 * @return List<User> The list of teachers.
+	 * @param 				the administrator
+	 * @return List<User> 	the list of teachers
 	 */
 	public List<User> getTeachersForAdmin(User admin) {
 		return new AdministratorController(admin).getUsersByType(Teacher.nameModel, userBase);
@@ -134,8 +134,8 @@ public class ServerController {
 	/**
 	 * Gets administrators.
 	 * 
-	 * @param The administrator.
-	 * @return List<User> The list of administrators.
+	 * @param 				the administrator
+	 * @return List<User> 	the list of administrators
 	 */
 	public List<User> getAdminsForAdmin(User admin) {
 		return new AdministratorController(admin).getUsersByType(Administrator.nameModel, userBase);

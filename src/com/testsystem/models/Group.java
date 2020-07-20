@@ -22,14 +22,14 @@ public class Group {
 	/**
 	 * Creates a Group.
 	 * 
-	 * @param name  The name of group.
+	 * @param name  the name of group.
 	 */
 	public Group(String name) {
 		this.name=name;
 	}
 	
 	/**
-	 * Gets name
+	 * Gets name of group.
 	 * 
 	 * @return the name
 	 */
@@ -38,9 +38,9 @@ public class Group {
 	}
 
 	/**
-	 * Sets name
+	 * Sets name.
 	 * 
-	 * @param name the name to set
+	 * @param name the name to set.
 	 */
 	public void setName(String name) {
 		this.name = name;

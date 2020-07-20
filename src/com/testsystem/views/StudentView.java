@@ -17,7 +17,7 @@ public final class StudentView extends UserView {
 	/**
 	 * Creates a student view.
 	 * 
-	 * @param user The student.
+	 * @param user the student
 	 */
 	public StudentView(User user) {
 		super(user);

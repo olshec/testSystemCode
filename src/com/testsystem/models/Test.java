@@ -16,7 +16,7 @@ public class Test {
 	private String name;
 	private User teacher;
 	private List<Question> questions;
-	private HashMap<User, Integer> studentResult;
+	private HashMap<User, Integer> studentsResult;
 	
 	/**
 	 * Creates a TestModel.
@@ -26,8 +26,8 @@ public class Test {
 	/**
 	 * Creates a test.
 	 * 
-	 * @param  name The name of test.
-	 * @param teacher The teacher.
+	 * @param  name 	the name of test
+	 * @param teacher 	the teacher
 	 */
 	public Test(String name, User teacher) {
 		this.init();
@@ -70,7 +70,7 @@ public class Test {
 	/**
 	 * Sets teacher.
 	 * 
-	 * @param teacher the teacher.
+	 * @param teacher the teacher
 	 */
 	public void setTeacher(User teacher) {
 		this.teacher = teacher;
@@ -79,7 +79,7 @@ public class Test {
 	/**
 	 * Gets list of questions.
 	 * 
-	 * @return the questions.
+	 * @return the questions
 	 */
 	public List<Question> getQuestions() {
 		return questions;
@@ -88,24 +88,37 @@ public class Test {
 	/**
 	 * Sets questions.
 	 * 
-	 * @param questions the list of questions.
+	 * @param questions the list of questions
 	 */
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
 
 	/**
-	 * @return the studentResult
+	 * Gets students and their results.
+	 * 
+	 * @return the result of students
 	 */
 	public HashMap<User, Integer> getStudentResult() {
-		return studentResult;
+		return studentsResult;
 	}
 
 	/**
-	 * @param studentResult the studentResult to set
+	 * Sets students and their results.
+	 * 
+	 * @param studentResult the result of students to set
 	 */
 	public void setStudentResult(HashMap<User, Integer> studentResult) {
-		this.studentResult = studentResult;
+		this.studentsResult = studentResult;
+	}
+	
+	/**
+	 * Gets students and their results.
+	 * 
+	 * @return the result of student
+	 */
+	public int getStudentResult(User student) {
+		return studentsResult.get(student);
 	}
 	
 }

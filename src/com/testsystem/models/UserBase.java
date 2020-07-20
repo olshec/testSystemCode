@@ -15,16 +15,16 @@ public class UserBase {
 	private List<User> users;
 
 	/**
-	 * Creates a UserBaseModel.
+	 * Creates a UserBase.
 	 */
 	public UserBase() {
 		users = new ArrayList<User>();
 	}
 
 	/**
-	 * Creates a UserBaseModel.
+	 * Creates a UserBase.
 	 * 
-	 * @param users.
+	 * @param users the list of User
 	 */
 	public UserBase(List<User> users) {
 		super();
@@ -34,7 +34,7 @@ public class UserBase {
 	/**
 	 * Gets list of users.
 	 * 
-	 * @return the list users.
+	 * @return the list users
 	 */
 	public List<User> getUsers() {
 		return users;
@@ -43,7 +43,7 @@ public class UserBase {
 	/**
 	 * Sets users.
 	 * 
-	 * @param users the list of users.
+	 * @param users the list of users
 	 */
 	public void setUsers(List<User> users) {
 		this.users = users;

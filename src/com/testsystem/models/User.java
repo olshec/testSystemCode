@@ -28,20 +28,20 @@ public abstract class User {
 	}
 
 	/**
-	 * Creates an UserModel.
+	 * Creates an User.
 	 */
 	public User() {
 		;
 	}
 
 	/**
-	 * Creates an UserModel.
+	 * Creates an User.
 	 * 
-	 * @param lastName  The user’s last name.
-	 * @param firstName The user’s first name.
-	 * @param server    The user’s server.
-	 * @param username  The user’s username.
-	 * @param password  The user’s password.
+	 * @param lastName  the user’s last name
+	 * @param firstName the user’s first name
+	 * @param server    the user’s server
+	 * @param username  the user’s username
+	 * @param password  the user’s password
 	 */
 	public User(String lastName, String firstName, ServerController server, String username, String password) {
 		this.lastName = lastName;
@@ -56,7 +56,7 @@ public abstract class User {
 	/**
 	 * Gets the user’s first name.
 	 * 
-	 * @return String return first name.
+	 * @return String return first name
 	 */
 	public String getFirstName() {
 		return this.firstName;

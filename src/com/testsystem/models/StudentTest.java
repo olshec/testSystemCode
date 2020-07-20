@@ -20,7 +20,7 @@ public class StudentTest {
 	}
 
 	/**
-	 * Gets test
+	 * Gets test.
 	 * 
 	 * @return the test
 	 */
@@ -29,7 +29,7 @@ public class StudentTest {
 	}
 
 	/**
-	 * Sets test
+	 * Sets test.
 	 * 
 	 * @param test the test to set
 	 */
@@ -38,7 +38,7 @@ public class StudentTest {
 	}
 
 	/**
-	 * Gets student
+	 * Gets student.
 	 * 
 	 * @return the student
 	 */
@@ -47,7 +47,7 @@ public class StudentTest {
 	}
 
 	/**
-	 * Sets student
+	 * Sets student.
 	 * 
 	 * @param student the student to set
 	 */
@@ -56,7 +56,7 @@ public class StudentTest {
 	}
 
 	/**
-	 * Gets answers
+	 * Gets answers.
 	 * 
 	 * @return the listAnswers
 	 */
@@ -65,7 +65,7 @@ public class StudentTest {
 	}
 
 	/**
-	 * Sets answers
+	 * Sets answers.
 	 * 
 	 * @param listAnswers the listAnswers to set
 	 */

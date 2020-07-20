@@ -34,7 +34,7 @@ public abstract class UserView {
 	/**
 	 * Gets user.
 	 * 
-	 * @return the userModel
+	 * @return the user
 	 */
 	public User getUserModel() {
 		return user;
@@ -43,7 +43,7 @@ public abstract class UserView {
 	/**
 	 * Sets user.
 	 * 
-	 * @param user the user.
+	 * @param user the user
 	 */
 	public void setUserModel(User user) {
 		this.user = user;

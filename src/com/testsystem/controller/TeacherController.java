@@ -30,8 +30,8 @@ public class TeacherController extends UserController {
 	/**
 	 * Gets tests
 	 * 
-	 * @param testBase The tests' database.
-	 * @return The all tests of teacher.
+	 * @param testBase 	the database of tests
+	 * @return 			the all tests of teacher
 	 */
 	public List<Test> getTests(TestBase testBase) {
 		ArrayList<Test> masTests = new ArrayList<Test>();
@@ -47,9 +47,9 @@ public class TeacherController extends UserController {
 	/**
 	 * Gets students test result.
 	 * 
-	 * @param idTest   The test id.
-	 * @param testBase The tests' database.
-	 * @return Test The test's model.
+	 * @param idTest   	the test id
+	 * @param testBase 	the database
+	 * @return Test 	the model of tests
 	 */
 	public Test getTestResult(int idTest, TestBase testBase) {
 

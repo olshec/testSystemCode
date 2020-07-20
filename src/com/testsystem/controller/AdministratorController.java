@@ -5,7 +5,7 @@ import com.testsystem.models.User;
 import com.testsystem.models.UserBase;
 
 /**
- * AdministratorController
+ * Represents an AdministratorController.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com
@@ -25,9 +25,9 @@ public class AdministratorController extends UserController {
 	/**
 	 * Gets users by type.
 	 * 
-	 * @param typeUser The user's type.
-	 * @param userBase The database of users.
-	 * @return List<UserModel> The list students.
+	 * @param typeUser the user's type
+	 * @param userBase the database of users
+	 * @return List<UserModel> the list students
 	 */
 	public List<User> getUsersByType(String typeUser, UserBase userBase) {
 		return new UserBaseController(userBase).getUsersByType(typeUser);
@@ -36,8 +36,8 @@ public class AdministratorController extends UserController {
 	/**
 	 * Gets all users.
 	 * 
-	 * @param userBase The database of users.
-	 * @return List<UserModel> The list users.
+	 * @param userBase the database of users
+	 * @return List<UserModel> the list users
 	 */
 	public List<User> getAllUsers(UserBase userBase) {
 		return new UserBaseController(userBase).getAllUsers();

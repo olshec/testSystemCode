@@ -16,11 +16,11 @@ public class Administrator extends User {
 	/**
 	 * Creates an AdministratorModel.
 	 * 
-	 * @param lastName  The user’s last name.
-	 * @param firstName The user’s first name.
-	 * @param server    The user’s server.
-	 * @param username  The user’s username.
-	 * @param password  The user’s password.
+	 * @param lastName  the user’s last name
+	 * @param firstName the user’s first name
+	 * @param server    the user’s server
+	 * @param username  the user’s username
+	 * @param password  the user’s password
 	 */
 	public Administrator(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);

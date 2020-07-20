@@ -21,7 +21,7 @@ public final class TeacherView extends UserView {
 	/**
 	 * Creates a teacher view.
 	 * 
-	 * @param userModel The teacher.
+	 * @param user the teacher
 	 */
 	public TeacherView(User userModel) {
 		super(userModel);

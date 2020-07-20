@@ -30,7 +30,7 @@ public abstract class UserController {
 	/**
 	 * Sets user.
 	 * 
-	 * @param user The user.
+	 * @param user the user
 	 */
 	public void setUserModel(User user) {
 		this.user = user;

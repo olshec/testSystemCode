@@ -25,23 +25,23 @@ public class TestBaseController {
 	/**
 	 * Creates a TestBaseController.
 	 * 
-	 * @param testBase The tests' database.
+	 * @param testBase The database of tests
 	 */
 	public TestBaseController(TestBase testBase) {
 		setTestBaseModel(testBase);
 	}
 
 	/**
-	 * Gets all tests
+	 * Gets all tests.
 	 * 
-	 * @return the all tests.
+	 * @return the all tests
 	 */
 	public List<Test> getAllTests() {
 		return testBase.getTests();
 	}
 
 	/**
-	 * Adds list of test
+	 * Adds list of test.
 	 * 
 	 * @param tests the tests to add.
 	 */
@@ -50,10 +50,10 @@ public class TestBaseController {
 	}
 
 	/**
-	 * Gets test
+	 * Gets test.
 	 * 
-	 * @param The test id.
-	 * @return the TestModel.
+	 * @param 	the test id.
+	 * @return 	the TestModel.
 	 */
 	public Test getTest(int idTest) {
 		if (idTest < testBase.getTests().size() && idTest >= 0) {
@@ -65,7 +65,7 @@ public class TestBaseController {
 	/**
 	 * Gets the database of tests.
 	 * 
-	 * @return The tests' database.
+	 * @return The database of tests
 	 */
 	public TestBase getTestBaseModel() {
 		return testBase;
@@ -74,7 +74,7 @@ public class TestBaseController {
 	/**
 	 * Sets the database of tests.
 	 * 
-	 * @param testBase The tests' database.
+	 * @param testBase The database of tests
 	 */
 	public void setTestBaseModel(TestBase testBase) {
 		this.testBase = testBase;

@@ -5,6 +5,9 @@ package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.testsystem.models.Group;
+import com.testsystem.models.Student;
 import com.testsystem.models.Test;
 import com.testsystem.models.TestBase;
 import com.testsystem.models.User;
@@ -21,17 +24,17 @@ public class StudentController extends UserController {
 	/**
 	 * Creates a UserController.
 	 * 
-	 * @param userModel
+	 * @param user
 	 */
-	public StudentController(User userModel) {
-		super(userModel);
+	public StudentController(User user) {
+		super(user);
 	}
 
 	/**
 	 * Gets test
 	 * 
-	 * @param testBase The tests' database.
-	 * @return The all tests of student.
+	 * @param testBase 	the database of test
+	 * @return 			the all tests of student
 	 */
 	public List<Test> getTests(TestBase testBase) {
 		List<Test> testsStudent = new ArrayList<Test>();
@@ -47,9 +50,9 @@ public class StudentController extends UserController {
 	/**
 	 * Gets student test information.
 	 * 
-	 * @param idTest   The student's model.
-	 * @param testBase The tests' database.
-	 * @return The test's model.
+	 * @param idTest   	the model of student
+	 * @param testBase 	the database of student
+	 * @return 			the model of test
 	 */
 	public Test getTestInfo(int idTest, TestBase testBase) {
 		Test test = testBase.getTests().get(idTest);
@@ -63,9 +66,9 @@ public class StudentController extends UserController {
 	/**
 	 * Gets student test number questions.
 	 * 
-	 * @param idTest   The test id.
-	 * @param testBase The tests' database.
-	 * @return The number of tests.
+	 * @param idTest   	the test id.
+	 * @param testBase 	the tests' database.
+	 * @return 			the number of tests.
 	 */
 	public int getNumberQuestionsInTest(int idTest, TestBase testBase) {
 		if (idTest >= testBase.getTests().size() || idTest < 0) {
@@ -78,5 +81,10 @@ public class StudentController extends UserController {
 		}
 		return -1;
 	}
+	
+	public Group getGroup() {
+		return ((Student)getUserModel()).getGroup();
+	}
+	
 
 }

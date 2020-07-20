@@ -23,7 +23,7 @@ public class TestBase {
 	/**
 	 * Creates a TestBaseModel.
 	 * 
-	 * @param list of tests.
+	 * @param tests the list of tests
 	 */
 	public TestBase(List<Test> tests) {
 		this.tests = tests;
@@ -32,7 +32,7 @@ public class TestBase {
 	/**
 	 * Gets test.
 	 * 
-	 * @return the list of tests.
+	 * @return the list of tests
 	 */
 	public List<Test> getTests() {
 		return tests;
@@ -41,7 +41,7 @@ public class TestBase {
 	/**
 	 * Sets test.
 	 * 
-	 * @param tests the list of tests.
+	 * @param tests the list of tests
 	 */
 	public void setTests(List<Test> tests) {
 		this.tests = tests;

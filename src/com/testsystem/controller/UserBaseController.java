@@ -35,9 +35,9 @@ public class UserBaseController {
 	/**
 	 * Gets user by login and password.
 	 * 
-	 * @param username The name of user.
-	 * @param password The password of user.
-	 * @return UserModel The user.
+	 * @param username 		the name of user
+	 * @param password 		the password of user
+	 * @return UserModel 	the user
 	 */
 	public User getUser(String username, String password) {
 		List<User> users = userBase.getUsers();
@@ -50,9 +50,9 @@ public class UserBaseController {
 	}
 
 	/**
-	 * Gets all users
+	 * Gets all users.
 	 * 
-	 * @return List<UserModel> the list of users.
+	 * @return List<UserModel> the list of users
 	 */
 	public List<User> getAllUsers() {
 		return userBase.getUsers();
@@ -61,7 +61,7 @@ public class UserBaseController {
 	/**
 	 * Adds user.
 	 * 
-	 * @param user The user.
+	 * @param user the user.
 	 */
 	public void addUser(User user) {
 		userBase.getUsers().add(user);
@@ -70,7 +70,7 @@ public class UserBaseController {
 	/**
 	 * Gets result: does the database have a user.
 	 * 
-	 * @return boolean Returns true if database contains user.
+	 * @return boolean Returns true if database contains user
 	 */
 	public boolean hasUser(User user) {
 		List<User> users = userBase.getUsers();
@@ -85,16 +85,16 @@ public class UserBaseController {
 	/**
 	 * Gets database of user.
 	 * 
-	 * @return the database of user.
+	 * @return the database of user
 	 */
 	public UserBase getUserBaseModel() {
 		return userBase;
 	}
 
 	/**
-	 * Sets database of user
+	 * Sets database of user.
 	 * 
-	 * @param userBase The database of user.
+	 * @param userBase the database of user
 	 */
 	public void setUserBaseModel(UserBase userBase) {
 		this.userBase = userBase;
@@ -103,8 +103,8 @@ public class UserBaseController {
 	/**
 	 * Gets users by type.
 	 * 
-	 * @param typeUser The user's type.
-	 * @return List<UserModel> The list of students.
+	 * @param typeUser 			the type of user
+	 * @return List<UserModel> 	the list of students
 	 */
 	public List<User> getUsersByType(String typeUser) {
 		List<User> masUserResult = new ArrayList<User>();
