@@ -1,5 +1,6 @@
 package com.testsystem.controller;
 
+import com.testsystem.models.Group;
 import com.testsystem.models.GroupBase;
 
 /**
@@ -45,5 +46,10 @@ public class GroupBaseController {
 	 */
 	public void setGroupBase(GroupBase groupBase) {
 		this.groupBase = groupBase;
+	}
+	
+	public void addGroup(String name) {
+		Group group=new Group(name);
+		groupBase.getGroups().add(group);
 	}
 }
