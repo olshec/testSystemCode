@@ -25,7 +25,7 @@ public class GroupBaseController {
 	public GroupBaseController() {
 		groupBase = new GroupBase();
 	}
-	
+
 	/**
 	 * Creates a GroupBaseController.
 	 * 
@@ -52,17 +52,17 @@ public class GroupBaseController {
 	public void setGroupBase(GroupBase groupBase) {
 		this.groupBase = groupBase;
 	}
-	
+
 	/**
 	 * Creates new group and adds it to database.
 	 * 
 	 * @param String the name of group to create and add
 	 */
 	public void addGroup(String name) {
-		Group group=new Group(name);
+		Group group = new Group(name);
 		groupBase.getGroups().add(group);
 	}
-	
+
 	/**
 	 * Adds group.
 	 * 
@@ -71,17 +71,26 @@ public class GroupBaseController {
 	public void addGroup(Group group) {
 		groupBase.getGroups().add(group);
 	}
-	
+
 	/**
 	 * Gets student by group.
 	 * 
 	 * @param userBase the database of user
 	 */
-	public List<User> getStudentByGroup(UserBase userBase, Group group){
+	public List<User> getStudentByGroup(UserBase userBase, Group group) {
 		List<User> listUser = new ArrayList<User>();
-		for (int i=0; i < userBase.getUsers().size(); i++) {
+		for (int i = 0; i < userBase.getUsers().size(); i++) {
 			listUser.add(userBase.getUsers().get(i));
 		}
 		return listUser;
+	}
+
+	public Group getGroupByName(String name) {
+		for (int i = 0; i < groupBase.getGroups().size(); i++) {
+			if(groupBase.getGroups().get(i).getName().equals(name)) {
+				return groupBase.getGroups().get(i);
+			}	
+		}
+		return null;
 	}
 }
