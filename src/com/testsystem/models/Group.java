@@ -13,8 +13,6 @@ public class Group {
 	
 	/**
 	 * Creates a Group.
-	 * 
-	 * Default constructor
 	 */
 	public Group() {
 	}

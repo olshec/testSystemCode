@@ -15,9 +15,7 @@ public class StudentTest {
 	private Student student;
 	private List<List<Integer>> listAnswers;
 	
-	public StudentTest() {
-		
-	}
+	public StudentTest() {}
 
 	/**
 	 * Gets test.

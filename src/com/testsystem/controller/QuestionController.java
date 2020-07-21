@@ -18,8 +18,7 @@ public class QuestionController {
 	/**
 	 * Creates a QuestionController.
 	 */
-	public QuestionController() {
-	}
+	public QuestionController() {}
 
 	/**
 	 * Gets question text.

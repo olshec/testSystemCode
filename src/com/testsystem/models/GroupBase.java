@@ -16,7 +16,6 @@ public class GroupBase {
 	
 	/**
 	 * Creates a GroupBase.
-	 * Default constructor.
 	 */
 	public GroupBase() {
 		groups=new ArrayList<Group>();
