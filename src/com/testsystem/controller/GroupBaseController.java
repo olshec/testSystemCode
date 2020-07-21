@@ -85,6 +85,11 @@ public class GroupBaseController {
 		return listUser;
 	}
 
+	/**
+	 * Gets group by name.
+	 * 
+	 * @param name the name of group
+	 */
 	public Group getGroupByName(String name) {
 		for (int i = 0; i < groupBase.getGroups().size(); i++) {
 			if(groupBase.getGroups().get(i).getName().equals(name)) {
