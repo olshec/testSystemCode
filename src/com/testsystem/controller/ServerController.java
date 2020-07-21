@@ -117,22 +117,22 @@ public class ServerController {
 	 * Gets student test information.
 	 * 
 	 * @param student   the model of student
-	 * @param indexTest the test index
+	 * @param idTest the test index
 	 * @return 			the model of test
 	 */
-	public Test getTestInfoForStudent(User student, int indexTest) {
-		return new StudentController(student).getTestInfo(indexTest, testBase);
+	public Test getTestInfoForStudent(User student, int idTest) {
+		return new StudentController(student).getTestInfo(idTest, testBase);
 	}
 
 	/**
 	 * Gets student test number questions.
 	 * 
 	 * @param student   the student
-	 * @param indexTest the test index
+	 * @param idTest the test index
 	 * @return 			the test
 	 */
-	public int getNumberQuestionsInTest(User student, int indexTest) {
-		return new StudentController(student).getNumberQuestionsInTest(indexTest,
+	public int getNumberQuestionsInTest(User student, int idTest) {
+		return new StudentController(student).getNumberQuestionsInTest(idTest,
 				testBase);
 	}
 

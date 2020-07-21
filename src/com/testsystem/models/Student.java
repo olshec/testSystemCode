@@ -30,6 +30,15 @@ public class Student extends User {
 	}
 
 	/**
+	 * Gets name of model.
+	 * 
+	 * @return String return name of model
+	 */
+	public String getNameModel() {
+		return nameModel;
+	}
+	
+	/**
 	 * Gets group.
 	 * 
 	 * @return the group

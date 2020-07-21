@@ -11,7 +11,7 @@ import com.testsystem.controller.ServerController;
  */
 public abstract class User {
 
-	public static final String nameModel = "User";
+	//public static final String nameModel = "User";
 
 	private String firstName;
 	private String lastName;
@@ -30,9 +30,7 @@ public abstract class User {
 	/**
 	 * Creates an User.
 	 */
-	public User() {
-		;
-	}
+	public User() {}
 
 	/**
 	 * Creates an User.
@@ -52,7 +50,16 @@ public abstract class User {
 		this.id = idCount;
 		idCount++;
 	}
-
+	
+	/**
+	 * Gets name of model.
+	 * 
+	 * @return String return name of model
+	 */
+	public String getNameModel() {
+		return "User";
+	}
+	
 	/**
 	 * Gets the user’s first name.
 	 * 
@@ -128,6 +135,4 @@ public abstract class User {
 			return false;
 		return true;
 	}
-	
-	
 }

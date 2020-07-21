@@ -25,4 +25,13 @@ public class Teacher extends User {
 	public Teacher(String lastName, String firstName, ServerController server, String username, String password) {
 		super(lastName, firstName, server, username, password);
 	}
+	
+	/**
+	 * Gets name of model.
+	 * 
+	 * @return String return name of model
+	 */
+	public String getNameModel() {
+		return nameModel;
+	}
 }
