@@ -76,7 +76,6 @@ public class TestServer {
 		assertEquals(testController2.getName(), "Сетевые технологии");
 		assertEquals(testController2.getNumberQuestions(), 4);
 		assertEquals(lastNameTeacher, "Киров");
-		
 	}
 
 	@Test
