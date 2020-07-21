@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.testsystem.models.Group;
 import com.testsystem.models.GroupBase;
+import com.testsystem.models.Student;
 import com.testsystem.models.User;
 import com.testsystem.models.UserBase;
 
@@ -78,11 +79,15 @@ public class GroupBaseController {
 	 * @param userBase the database of user
 	 */
 	public List<User> getStudentByGroup(UserBase userBase, Group group) {
-		List<User> listUser = new ArrayList<User>();
-		for (int i = 0; i < userBase.getUsers().size(); i++) {
-			listUser.add(userBase.getUsers().get(i));
+		List<User> listStudentInBase = new UserBaseController(userBase)
+				.getUsersByType(Student.nameModel);
+		List<User> listStudent = new ArrayList<User>();
+		for (int i = 0; i < listStudentInBase.size(); i++) {
+			if (((Student)listStudentInBase.get(i)).getGroup().equals(group)){
+				listStudent.add(listStudentInBase.get(i));
+			}
 		}
-		return listUser;
+		return listStudent;
 	}
 
 	/**
@@ -92,9 +97,9 @@ public class GroupBaseController {
 	 */
 	public Group getGroupByName(String name) {
 		for (int i = 0; i < groupBase.getGroups().size(); i++) {
-			if(groupBase.getGroups().get(i).getName().equals(name)) {
+			if (groupBase.getGroups().get(i).getName().equals(name)) {
 				return groupBase.getGroups().get(i);
-			}	
+			}
 		}
 		return null;
 	}

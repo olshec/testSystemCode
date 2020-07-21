@@ -1,6 +1,8 @@
 package tests;
 
 import static org.junit.Assert.*;
+
+import java.util.HashMap;
 import java.util.List;
 import org.junit.Test;
 import com.testsystem.controller.AdministratorController;
@@ -16,7 +18,7 @@ import com.testsystem.models.UserBase;
 import tests.mocks.Server;
 
 public class TestServer {
-	
+
 	Server serverController;
 	User student1;
 	User teacher1;
@@ -95,55 +97,57 @@ public class TestServer {
 
 		assertEquals(listTest.size(), 3);
 	}
-	
+
 	@Test
 	public void testGetAllUsersForAdmin() {
-		List<User> listUser = new AdministratorController(admin1)
-		.getAllUsers(serverController.getUserBase());
+		List<User> listUser = new AdministratorController(admin1).getAllUsers(serverController.getUserBase());
 
 		assertEquals(listUser.size(), 6);
 	}
-	
+
 	@Test
 	public void testGetStudentsForAdmin() {
-		List<User> listUser = new AdministratorController(admin1)
-		.getUsersByType(Student.nameModel, serverController.getUserBase());
+		List<User> listUser = new AdministratorController(admin1).getUsersByType(Student.nameModel,
+				serverController.getUserBase());
 
 		assertEquals(listUser.size(), 4);
 	}
-	
+
 	@Test
 	public void testGetTeachersForAdmin() {
-		List<User> listUser = new AdministratorController(admin1)
-		.getUsersByType(Teacher.nameModel, serverController.getUserBase());
+		List<User> listUser = new AdministratorController(admin1).getUsersByType(Teacher.nameModel,
+				serverController.getUserBase());
 
 		assertEquals(listUser.size(), 1);
 	}
-	
+
 	@Test
 	public void testGetAdminsForAdmin() {
-		List<User> listUser = new AdministratorController(admin1)
-		.getUsersByType(Administrator.nameModel, serverController.getUserBase());
+		List<User> listUser = new AdministratorController(admin1).getUsersByType(Administrator.nameModel,
+				serverController.getUserBase());
 
 		assertEquals(listUser.size(), 1);
 	}
-	
+
 	@Test
 	public void testGetRatingUser() {
-		int rating = serverController.getRatingUser(student1);
+		int rating1 = serverController.getRatingUser(student1);
+		User student2 = serverController.login("REgor", "1111");
+		int rating2 = serverController.getRatingUser(student2);
+
+		assertEquals(rating1, 6);
+		assertEquals(rating2, 7);
+	}
+
+	@Test
+	public void testGetRatingGroup() {
+		HashMap<User, Integer> ratingGroup = serverController.getRatingGroup("Group 1"); 
+		int rating1 = ratingGroup.get(student1);
 		User student2 = serverController.login("REgor", "1111");
 		int rating2 = serverController.getRatingUser(student2);
 		
-		assertEquals(rating, 6);
+		assertEquals(ratingGroup.values().size(), 2);
+		assertEquals(rating1, 6);
 		assertEquals(rating2, 7);
 	}
-	
-	/*
-	 * @Test public void testGetRatingGroup() { int rating =
-	 * serverController.getRatingGroup("group1"); // User student2 =
-	 * serverController.login("REgor", "1111"); // int rating2 =
-	 * serverController.getRatingUser(student2);
-	 * 
-	 * assertEquals(rating, 6); // assertEquals(rating2, 7); }
-	 */
 }

@@ -78,6 +78,7 @@ public class Server extends ServerController {
 
 		Group g1=new Group("Group 1");
 		new GroupBaseController(getGroupBase()).addGroup(g1);
+		
 		User student1 = new Student("Шахматов", "Антон", this, "ShAnton", "1111", g1);
 		User student2 = new Student("Романенко", "Егор", this, "REgor", "1111", g1);
 		
@@ -110,7 +111,7 @@ public class Server extends ServerController {
 		testController.addResult(student3, 5);
 		testController.addResult(student4, 4);
 		
-		//add test2 and result to students
+		//add test3 and result to students
 		testController.setTest(test3);
 		testController.addStudent(student1);
 		testController.addStudent(student2);

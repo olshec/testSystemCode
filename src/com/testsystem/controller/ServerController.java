@@ -1,7 +1,9 @@
 package com.testsystem.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;
 import com.testsystem.models.GroupBase;
@@ -202,9 +204,10 @@ public class ServerController {
 		return RatingCalculator.getRatingStudent(student, testBase);
 	}
 	
-//	public int getRatingGroup(String nameGroup){
-//		Group group = new GroupBaseController().get
-//	}
+	public HashMap<User, Integer> getRatingGroup(String nameGroup){
+		Group group = new GroupBaseController(groupBase).getGroupByName(nameGroup);
+		return RatingCalculator.getRatingGroup(group, testBase, userBase);
+	}
 
 	private void loadTest() {
 		// BEGIN DATA FOR TEST
@@ -245,45 +248,52 @@ public class ServerController {
 		tests.add(test2);
 		tests.add(test3);
 
-		//TestBaseController testBaseController=new TestBaseController(testBaseModel);
 		new TestBaseController(testBase).addTests(tests);
-		//testBaseController.addTests(tests);
 
+		GroupBaseController groupBaseController = new GroupBaseController(groupBase);
 		Group g1=new Group("Group 1");
-		new GroupBaseController(groupBase).addGroup(g1);
+		groupBaseController.addGroup(g1);
 		User student1 = new Student("Шахматов", "Антон", this, "ShAnton", "1111", g1);
 		User student2 = new Student("Романенко", "Егор", this, "REgor", "1111", g1);
 		
 		Group g2=new Group("Group 2");
-		new GroupBaseController(groupBase).addGroup(g2);
+		groupBaseController.addGroup(g2);
 		User student3 = new Student("Сазонова", "Екатерина", this, "Kat", "1111", g2);
 		User student4 = new Student("Филонова", "Анна", this, "Anna", "1111", g2);
 
+		//add users to database
 		userBaseController.addUser(student1);
 		userBaseController.addUser(student2);
 		userBaseController.addUser(student3);
 		userBaseController.addUser(student4);
 
+		//add test3 and result to students
 		testController.setTest(test1);
-
 		testController.addStudent(student1);
 		testController.addStudent(student2);
-
 		testController.addResult(student1, 4);
-		testController.addResult(student2, 2);
+		testController.addResult(student2, 5);
 
+		//add test3 and result to students
 		testController.setTest(test2);
-
 		testController.addStudent(student1);
 		testController.addStudent(student2);
 		testController.addStudent(student3);
 		testController.addStudent(student4);
+		testController.addResult(student1, 3);
+		testController.addResult(student2, 4);
+		testController.addResult(student3, 4);
+		testController.addResult(student4, 5);
 		
+		//add test3 and result to students
+		testController.setTest(test3);
+		testController.addStudent(student1);
+		testController.addStudent(student2);
+		testController.addStudent(student3);
+		testController.addStudent(student4);
 		testController.addResult(student1, 3);
 		testController.addResult(student2, 4);
 		testController.addResult(student3, 5);
-		testController.addResult(student4, 4);
-
-		// END DATA FOR TEST
+		testController.addResult(student4, 5);
 	}
 }
