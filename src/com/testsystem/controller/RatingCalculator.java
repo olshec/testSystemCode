@@ -33,24 +33,25 @@ public class RatingCalculator {
 
 	/**
 	 * Gets rating for student. 
-	 * Rating of student = (count*100/(count question*5))/10.
+	 * Max_range = 10.
+	 * Max_point = count_question*5.
+	 * Rating of student = (point*100/(count_question*Max_point))/Max_range = (point*2/(count_question)).
 	 * 
 	 * @param student 	the student
 	 * @param testBase 	the database of test
 	 * @return int 		the rating of student
 	 */
 	public static int getRatingStudent(User student, TestBase testBase) {
-		int count = 0;
+		int point = 0;
 		for (int i = 0; i < testBase.getTests().size(); i++) {
-			count += testBase.getTests().get(i).getStudentResult(student);
+			point += testBase.getTests().get(i).getStudentResult(student);
 		}
-		int rating = count * 2 / testBase.getTests().size();
+		int rating = point * 2 / testBase.getTests().size();
 		return rating;
 	}
 	
 	/**
 	 * Gets rating for group. 
-	 * Rating of student = (count*100/(count question*5))/10.
 	 * 
 	 * @param student						the student
 	 * @param testBase 						the database of test
