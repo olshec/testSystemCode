@@ -98,7 +98,7 @@ public class Server extends ServerController {
 		testController.addStudent(student1);
 		testController.addStudent(student2);
 		testController.addResult(student1, 4);
-		testController.addResult(student2, 2);
+		testController.addResult(student2, 5);
 
 		//add test2 and result to students
 		testController.setTest(test2);
@@ -107,7 +107,7 @@ public class Server extends ServerController {
 		testController.addStudent(student3);
 		testController.addStudent(student4);
 		testController.addResult(student1, 3);
-		testController.addResult(student2, 5);
+		testController.addResult(student2, 4);
 		testController.addResult(student3, 5);
 		testController.addResult(student4, 4);
 		
@@ -118,7 +118,7 @@ public class Server extends ServerController {
 		testController.addStudent(student3);
 		testController.addStudent(student4);
 		testController.addResult(student1, 3);
-		testController.addResult(student2, 4);
+		testController.addResult(student2, 5);
 		testController.addResult(student3, 5);
 		testController.addResult(student4, 4);
 
