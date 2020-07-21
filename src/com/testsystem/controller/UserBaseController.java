@@ -19,9 +19,9 @@ public class UserBaseController {
 	/**
 	 * Creates a UserBaseController.
 	 */
-	public UserBaseController() {
-		userBase = new UserBase();
-	}
+//	public UserBaseController() {
+//		userBase = new UserBase();
+//	}
 
 	/**
 	 * Creates a UserBaseController.

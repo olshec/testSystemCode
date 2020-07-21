@@ -18,9 +18,9 @@ public class TestBaseController {
 	/**
 	 * Creates a TestBaseController.
 	 */
-	public TestBaseController() {
-		setTestBaseModel(new TestBase());
-	}
+//	public TestBaseController() {
+//		setTestBaseModel(new TestBase());
+//	}
 
 	/**
 	 * Creates a TestBaseController.

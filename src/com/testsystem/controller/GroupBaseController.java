@@ -23,9 +23,9 @@ public class GroupBaseController {
 	/**
 	 * Creates a GroupBaseController.
 	 */
-	public GroupBaseController() {
-		groupBase = new GroupBase();
-	}
+//	public GroupBaseController() {
+//		groupBase = new GroupBase();
+//	}
 
 	/**
 	 * Creates a GroupBaseController.
@@ -71,23 +71,6 @@ public class GroupBaseController {
 	 */
 	public void addGroup(Group group) {
 		groupBase.getGroups().add(group);
-	}
-
-	/**
-	 * Gets student by group.
-	 * 
-	 * @param userBase the database of user
-	 */
-	public List<User> getStudentByGroup(UserBase userBase, Group group) {
-		List<User> listStudentInBase = new UserBaseController(userBase)
-				.getUsersByType(Student.nameModel);
-		List<User> listStudent = new ArrayList<User>();
-		for (int i = 0; i < listStudentInBase.size(); i++) {
-			if (((Student)listStudentInBase.get(i)).getGroup().equals(group)){
-				listStudent.add(listStudentInBase.get(i));
-			}
-		}
-		return listStudent;
 	}
 
 	/**
