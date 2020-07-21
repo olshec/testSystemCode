@@ -39,6 +39,60 @@ public class ServerController {
 	}
 
 	/**
+	 * Gets database of tests.
+	 * 
+	 * @return the database of tests
+	 */
+	public TestBase getTestBase() {
+		return testBase;
+	}
+
+	/**
+	 * Sets database of tests.
+	 * 
+	 * @param testBase the database of tests
+	 */
+	public void setTestBase(TestBase testBase) {
+		this.testBase = testBase;
+	}
+
+	/**
+	 * Gets database of users.
+	 * 
+	 * @return the database of users
+	 */
+	public UserBase getUserBase() {
+		return userBase;
+	}
+
+	/**
+	 * Sets database of users.
+	 * 
+	 * @param userBase the database of users
+	 */
+	public void setUserBase(UserBase userBase) {
+		this.userBase = userBase;
+	}
+
+	/**
+	 * Gets database of groups.
+	 * 
+	 * @return the groupBase
+	 */
+	public GroupBase getGroupBase() {
+		return groupBase;
+	}
+
+	/**
+	 * Sets database of groups.
+	 * 
+	 * @param groupBase the groupBase to set
+	 */
+	public void setGroupBase(GroupBase groupBase) {
+		this.groupBase = groupBase;
+	}
+
+	/**
 	 * Method for login.
 	 * 
 	 * @param username 	the user's username
