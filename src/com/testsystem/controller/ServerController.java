@@ -192,7 +192,7 @@ public class ServerController {
 		User student1 = new Student("Шахматов", "Антон", this, "ShAnton", "1111", g1);
 		User student2 = new Student("Романенко", "Егор", this, "REgor", "1111", g1);
 		
-		Group g2=new Group("Group 1");
+		Group g2=new Group("Group 2");
 		new GroupBaseController(groupBase).addGroup(g2);
 		User student3 = new Student("Сазонова", "Екатерина", this, "Kat", "1111", g2);
 		User student4 = new Student("Филонова", "Анна", this, "Anna", "1111", g2);
