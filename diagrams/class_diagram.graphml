@@ -674,8 +674,8 @@ getServer: ServerController</y:MethodLabel>
       <data key="d8" xml:space="preserve"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="1148.5533642578123" y="1570.9837017906598"/>
+          <y:Path sx="-4.007829573611502" sy="6.232636171710055" tx="25.969317382125382" ty="97.11026476492464">
+            <y:Point x="1174.5226816399377" y="1577.2163379623698"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="white_diamond" target="none"/>
@@ -864,7 +864,6 @@ getServer: ServerController</y:MethodLabel>
     </edge>
     <edge id="e30" source="n24" target="n12">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -876,7 +875,6 @@ getServer: ServerController</y:MethodLabel>
     </edge>
     <edge id="e31" source="n24" target="n5">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
