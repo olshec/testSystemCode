@@ -12,6 +12,7 @@ import java.util.TreeMap;
 
 import com.testsystem.models.Group;
 import com.testsystem.models.Student;
+import com.testsystem.models.Test;
 import com.testsystem.models.TestBase;
 import com.testsystem.models.User;
 import com.testsystem.models.UserBase;
@@ -42,11 +43,13 @@ public class RatingCalculator {
 	 * @return int 		the rating of student
 	 */
 	public static int getRatingStudent(User student, TestBase testBase) {
+		StudentController stController = new StudentController(student);
+		List<Test> listTest = stController.getTests(testBase);
 		int point = 0;
-		for (int i = 0; i < testBase.getTests().size(); i++) {
-			point += testBase.getTests().get(i).getStudentResult(student);
+		for (int i = 0; i < listTest.size(); i++) {
+			point += listTest.get(i).getStudentResult(student);
 		}
-		int rating = point * 2 / testBase.getTests().size();
+		int rating = point * 2 / listTest.size();
 		return rating;
 	}
 	
