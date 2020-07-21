@@ -197,6 +197,14 @@ public class ServerController {
 	public List<User> getAdminsForAdmin(User admin) {
 		return new AdministratorController(admin).getUsersByType(Administrator.nameModel, userBase);
 	}
+	
+	public int getRatingUser(User student) {
+		return RatingCalculator.getRatingStudent(student, testBase);
+	}
+	
+//	public int getRatingGroup(String nameGroup){
+//		Group group = new GroupBaseController().get
+//	}
 
 	private void loadTest() {
 		// BEGIN DATA FOR TEST

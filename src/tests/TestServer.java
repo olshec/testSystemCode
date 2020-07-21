@@ -1,16 +1,11 @@
 package tests;
 
 import static org.junit.Assert.*;
-
 import java.util.List;
-
 import org.junit.Test;
-
 import com.testsystem.controller.AdministratorController;
-import com.testsystem.controller.StudentController;
 import com.testsystem.controller.TeacherController;
 import com.testsystem.controller.TestController;
-import com.testsystem.controller.UserBaseController;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.GroupBase;
 import com.testsystem.models.Student;
@@ -18,23 +13,20 @@ import com.testsystem.models.Teacher;
 import com.testsystem.models.TestBase;
 import com.testsystem.models.User;
 import com.testsystem.models.UserBase;
-
-import tests.mocks.ImportTest;
 import tests.mocks.Server;
 
 public class TestServer {
-//	private com.testsystem.models.Test userTest;
-
+	
 	Server serverController;
 	User student1;
 	User teacher1;
 	User admin1;
 
 	public TestServer() {
-		load();
+		loadData();
 	}
 
-	public void load() {
+	public void loadData() {
 		serverController = new Server();
 		student1 = serverController.login("ShAnton", "1111");
 		teacher1 = serverController.login("KirovAnton", "12345678");
@@ -69,7 +61,7 @@ public class TestServer {
 	@Test
 	public void testGetTestsForStudent() {
 		List<com.testsystem.models.Test> listTest = serverController.getTestsForStudent(student1);
-		assertEquals(listTest.size(), 2);
+		assertEquals(listTest.size(), 3);
 	}
 
 	@Test
@@ -135,4 +127,23 @@ public class TestServer {
 
 		assertEquals(listUser.size(), 1);
 	}
+	
+	@Test
+	public void testGetRatingUser() {
+		int rating = serverController.getRatingUser(student1);
+		User student2 = serverController.login("REgor", "1111");
+		int rating2 = serverController.getRatingUser(student2);
+		
+		assertEquals(rating, 6);
+		assertEquals(rating2, 7);
+	}
+	
+	/*
+	 * @Test public void testGetRatingGroup() { int rating =
+	 * serverController.getRatingGroup("group1"); // User student2 =
+	 * serverController.login("REgor", "1111"); // int rating2 =
+	 * serverController.getRatingUser(student2);
+	 * 
+	 * assertEquals(rating, 6); // assertEquals(rating2, 7); }
+	 */
 }
