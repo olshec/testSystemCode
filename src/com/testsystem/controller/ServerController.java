@@ -170,7 +170,7 @@ public class ServerController {
 		Question q5 = new Question("Характеристика OSI");
 		Question q6 = new Question("Протокол TCP");
 
-		testController.setTestModel(test2);
+		testController.setTest(test2);
 
 		testController.addQuestion(q3);
 		testController.addQuestion(q4);
@@ -191,11 +191,18 @@ public class ServerController {
 		new GroupBaseController(groupBase).addGroup(g1);
 		User student1 = new Student("Шахматов", "Антон", this, "ShAnton", "1111", g1);
 		User student2 = new Student("Романенко", "Егор", this, "REgor", "1111", g1);
+		
+		Group g2=new Group("Group 1");
+		new GroupBaseController(groupBase).addGroup(g2);
+		User student3 = new Student("Сазонова", "Екатерина", this, "Kat", "1111", g2);
+		User student4 = new Student("Филонова", "Анна", this, "Anna", "1111", g2);
 
 		userBaseController.addUser(student1);
 		userBaseController.addUser(student2);
+		userBaseController.addUser(student3);
+		userBaseController.addUser(student4);
 
-		testController.setTestModel(test1);
+		testController.setTest(test1);
 
 		testController.addStudent(student1);
 		testController.addStudent(student2);
@@ -203,10 +210,17 @@ public class ServerController {
 		testController.addResult(student1, 4);
 		testController.addResult(student2, 2);
 
-		testController.setTestModel(test2);
+		testController.setTest(test2);
 
 		testController.addStudent(student1);
-		testController.addResult(student1, 5);
+		testController.addStudent(student2);
+		testController.addStudent(student3);
+		testController.addStudent(student4);
+		
+		testController.addResult(student1, 3);
+		testController.addResult(student2, 4);
+		testController.addResult(student3, 5);
+		testController.addResult(student4, 4);
 
 		// END DATA FOR TEST
 	}

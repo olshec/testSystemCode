@@ -30,7 +30,7 @@ public class TestController {
 	 * @param the test
 	 */
 	public TestController(Test test) {
-		setTestModel(test);
+		setTest(test);
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class TestController {
 	 * 
 	 * @param test the test
 	 */
-	public void setTestModel(Test test) {
+	public void setTest(Test test) {
 		this.test = test;
 	}
 
