@@ -38,7 +38,7 @@ public class TestController {
 	 * 
 	 * @return the test
 	 */
-	public Test getTestModel() {
+	public Test getTest() {
 		return test;
 	}
 

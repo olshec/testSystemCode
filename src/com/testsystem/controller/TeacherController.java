@@ -38,7 +38,7 @@ public class TeacherController extends UserController {
 		for (int i = 0; i < testBase.getTests().size(); i++) {
 			TestController testController = new TestController(testBase.getTests().get(i));
 			if (testController.hasTeacher(this.getUserModel())) {
-				masTests.add(testController.getTestModel());
+				masTests.add(testController.getTest());
 			}
 		}
 		return masTests;
