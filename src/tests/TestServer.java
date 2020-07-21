@@ -127,22 +127,4 @@ public class TestServer {
 
 		assertEquals(listUser.size(), 1);
 	}
-
-	@Test
-	public void testGetRatingUser() {
-		int rating1 = serverController.getRatingUser(student1);
-		assertEquals(rating1, 6);
-	}
-
-	@Test
-	public void testGetRatingGroup() {
-		HashMap<User, Integer> ratingGroup = serverController.getRatingGroup("Group 1"); 
-		int rating1 = ratingGroup.get(student1);
-		User student2 = serverController.login("REgor", "1111");
-		int rating2 = ratingGroup.get(student2);
-		
-		assertEquals(ratingGroup.values().size(), 2);
-		assertEquals(rating1, 6);
-		assertEquals(rating2, 9);
-	}
 }
