@@ -165,7 +165,7 @@ public class ServerController {
 	 */
 	public List<User> getAllUsersForAdmin(User admin) {
 		return new AdministratorController(admin)
-				.getAllUsers(new UserBaseController(userBase).getUserBaseModel());
+				.getAllUsers(new UserBaseController(userBase).getUserBase());
 	}
 
 	/**

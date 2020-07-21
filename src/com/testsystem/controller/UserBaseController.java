@@ -87,7 +87,7 @@ public class UserBaseController {
 	 * 
 	 * @return the database of user
 	 */
-	public UserBase getUserBaseModel() {
+	public UserBase getUserBase() {
 		return userBase;
 	}
 
