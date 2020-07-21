@@ -68,7 +68,7 @@ public final class TeacherView extends UserView {
 	 * Print a list of tests from the server and prints.
 	 */
 	private void printTests() {
-		List<Test> mas = this.getUserModel().getServer().getTestsForTeacher(this.getUserModel());
+		List<Test> mas = this.getUser().getServer().getTestsForTeacher(this.getUser());
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
 			System.out.println(i + 1 + ") " + mas.get(i).getName());
@@ -90,7 +90,7 @@ public final class TeacherView extends UserView {
 			return;
 		}
 		int indexTest = numTest - 1;// index begin from 0;
-		Test test = this.getUserModel().getServer().getTestResultForTeacher(this.getUserModel(), indexTest);
+		Test test = this.getUser().getServer().getTestResultForTeacher(this.getUser(), indexTest);
 		if (test != null) {
 			HashMap<User, Integer> studentResult=test.getStudentResult();
 			

@@ -86,7 +86,7 @@ public class AdminView extends UserView {
 	 * Print the list users from server.
 	 */
 	private void getUsers() {
-		List<User> masUser = this.getUserModel().getServer().getAllUsersForAdmin(this.getUserModel());
+		List<User> masUser = this.getUser().getServer().getAllUsersForAdmin(this.getUser());
 		printListUsers(masUser, "Cписок пользователей");
 	}
 
@@ -94,7 +94,7 @@ public class AdminView extends UserView {
 	 * Print the list students from server.
 	 */
 	private void getStudents() {
-		List<User> masUser = this.getUserModel().getServer().getStudentsForAdmin(this.getUserModel());
+		List<User> masUser = this.getUser().getServer().getStudentsForAdmin(this.getUser());
 		printListUsers(masUser, "Cписок студентов");
 	}
 
@@ -102,7 +102,7 @@ public class AdminView extends UserView {
 	 * Print the list teachers from server.
 	 */
 	private void getTeachers() {
-		List<User> masUser = this.getUserModel().getServer().getTeachersForAdmin(this.getUserModel());
+		List<User> masUser = this.getUser().getServer().getTeachersForAdmin(this.getUser());
 		printListUsers(masUser, "Cписок преподавателей");
 	}
 
@@ -110,7 +110,7 @@ public class AdminView extends UserView {
 	 * Print the list administrators from server.
 	 */
 	private void getAdministrators() {
-		List<User> masUser = this.getUserModel().getServer().getAdminsForAdmin(this.getUserModel());
+		List<User> masUser = this.getUser().getServer().getAdminsForAdmin(this.getUser());
 		printListUsers(masUser, "Cписок администраторов");
 	}
 }

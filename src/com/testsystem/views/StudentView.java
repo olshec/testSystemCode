@@ -64,7 +64,7 @@ public final class StudentView extends UserView {
 	 * Print a list of student tests from the server and prints.
 	 */
 	private void printTestsStudent() {
-		List<Test> mas = this.getUserModel().getServer().getTestsForStudent(this.getUserModel());
+		List<Test> mas = this.getUser().getServer().getTestsForStudent(this.getUser());
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
 			System.out.println(i + 1 + ") " + mas.get(i).getName());
@@ -88,7 +88,7 @@ public final class StudentView extends UserView {
 			return;
 		}
 		// --numTest index begin from 0;
-		int quantityQuestions = this.getUserModel().getServer().getNumberQuestionsInTest(this.getUserModel(),
+		int quantityQuestions = this.getUser().getServer().getNumberQuestionsInTest(this.getUser(),
 				numTest - 1);
 		if (quantityQuestions < 0) {
 //				System.out.println("Теста с таким номером не существует!");

@@ -36,7 +36,7 @@ public abstract class UserView {
 	 * 
 	 * @return the user
 	 */
-	public User getUserModel() {
+	public User getUser() {
 		return user;
 	}
 
