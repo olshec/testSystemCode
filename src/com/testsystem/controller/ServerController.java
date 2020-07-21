@@ -267,14 +267,14 @@ public class ServerController {
 		userBaseController.addUser(student3);
 		userBaseController.addUser(student4);
 
-		//add test3 and result to students
+		//add test1 and result to students
 		testController.setTest(test1);
 		testController.addStudent(student1);
 		testController.addStudent(student2);
 		testController.addResult(student1, 4);
 		testController.addResult(student2, 5);
 
-		//add test3 and result to students
+		//add test2 and result to students
 		testController.setTest(test2);
 		testController.addStudent(student1);
 		testController.addStudent(student2);
