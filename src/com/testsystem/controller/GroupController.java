@@ -52,7 +52,6 @@ public class GroupController {
 	public void setGroup(Group group) {
 		this.group = group;
 	}
-	
 
 	/**
 	 * Gets student by group.
@@ -70,5 +69,4 @@ public class GroupController {
 		}
 		return listStudent;
 	}
-
 }
