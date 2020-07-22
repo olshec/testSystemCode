@@ -1,8 +1,9 @@
 package com.testsystem.views;
 
 import java.util.List;
-import java.util.Scanner;
+
 import com.testsystem.models.User;
+import com.testsystem.util.ModScanner;
 
 /**
  * Represents an administrator.
@@ -36,9 +37,8 @@ public class AdminView extends UserView {
 			System.out.println("4 - получить список администраторов");
 			System.out.print("?: ");
 
-			Scanner myInput = new Scanner(System.in);
 			try {
-				num = myInput.nextInt();
+				num = ModScanner.getScanner().nextInt();
 			} catch (java.util.InputMismatchException exception) {
 				num = -1;
 			}

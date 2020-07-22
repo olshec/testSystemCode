@@ -3,11 +3,9 @@ package com.testsystem.views;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Scanner;
-
-
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
+import com.testsystem.util.ModScanner;
 
 /**
  * Represents a teacher.
@@ -39,9 +37,8 @@ public final class TeacherView extends UserView {
 			System.out.println("2 - получить результаты теста");
 			System.out.print("?: ");
 
-			Scanner myInput = new Scanner(System.in);
 			try {
-				num = myInput.nextInt();
+				num = ModScanner.getScanner().nextInt();
 			} catch (java.util.InputMismatchException exception) {
 				num = -1;
 			}
@@ -81,10 +78,9 @@ public final class TeacherView extends UserView {
 	private void printTestResult() {
 
 		System.out.print("Введите номер теста: ");
-		Scanner myInput = new Scanner(System.in);
 		int numTest = 0;
 		try {
-			numTest = myInput.nextInt();
+			numTest = ModScanner.getScanner().nextInt();
 		} catch (java.util.InputMismatchException exception) {
 			System.out.println("Номер теста должен быть числом!");
 			return;

@@ -3,12 +3,12 @@
  */
 package com.testsystem.views;
 
-import java.util.Scanner;
 import com.testsystem.controller.ServerController;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Student;
 import com.testsystem.models.Teacher;
 import com.testsystem.models.User;
+import com.testsystem.util.ModScanner;
 
 /**
  * This class is the entry point to the application.
@@ -24,6 +24,7 @@ public class ClientView extends UserView {
 	 */
 	public static void main(String[] args) {
 		new ClientView().openMenu();
+		ModScanner.close();
 	}
 
 	/**
@@ -33,10 +34,9 @@ public class ClientView extends UserView {
 		String login = "";
 		String password = "";
 		System.out.print("Введите логин: ");
-		Scanner myInput = new Scanner(System.in);
-		login = myInput.nextLine();
+		login = ModScanner.getScanner().nextLine();
 		System.out.print("Введите пароль: ");
-		password = myInput.nextLine();
+		password = ModScanner.getScanner().nextLine();
 
 		ServerController server = new ServerController();
 		User user = server.login(login, password);

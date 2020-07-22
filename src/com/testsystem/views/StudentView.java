@@ -1,9 +1,9 @@
 package com.testsystem.views;
 
 import java.util.List;
-import java.util.Scanner;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
+import com.testsystem.util.ModScanner;
 
 /**
  * Represents a student.
@@ -35,10 +35,8 @@ public final class StudentView extends UserView {
 			System.out.println("2 - получить количество вопросов в тесте");
 			System.out.print("?: ");
 
-			Scanner myInput = new Scanner(System.in);
-			myInput.close();
 			try {
-				num = myInput.nextInt();
+				num = ModScanner.getScanner().nextInt();
 			} catch (java.util.InputMismatchException exception) {
 				num = -1;
 			}
@@ -79,11 +77,9 @@ public final class StudentView extends UserView {
 
 		System.out.print("Введите номер теста: ");
 
-		Scanner myInput = new Scanner(System.in);
-
 		int numTest = 0;
 		try {
-			numTest = myInput.nextInt();
+			numTest = ModScanner.getScanner().nextInt();
 		} catch (java.util.InputMismatchException exception) {
 //			System.out.println("Ошибка при вводе! Номер теста должен быть числом!");
 			return;
