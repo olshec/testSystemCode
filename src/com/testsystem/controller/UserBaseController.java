@@ -2,6 +2,8 @@ package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.testsystem.models.Test;
 import com.testsystem.models.User;
 import com.testsystem.models.UserBase;
 
@@ -32,6 +34,13 @@ public class UserBaseController {
 		setUserBase(userBase);
 	}
 
+	/**
+	 * Gets new UserBase.
+	 */
+	public static UserBase getNewUserBase() {
+		return new UserBase();
+	}
+	
 	/**
 	 * Gets user by login and password.
 	 * 

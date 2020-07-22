@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.models.Group;
+import com.testsystem.models.GroupBase;
 import com.testsystem.models.Student;
 import com.testsystem.models.User;
 import com.testsystem.models.UserBase;
@@ -22,9 +23,7 @@ public class GroupController {
 	/**
 	 * Creates a GroupController.
 	 */
-	public GroupController() {
-		
-	}
+	//public GroupController() {}
 	
 	/**
 	 * Creates a GroupController.
@@ -33,6 +32,13 @@ public class GroupController {
 	 */
 	public GroupController(Group group) {
 		setGroup(group);
+	}
+	
+	/**
+	 * Gets new Group.
+	 */
+	public static Group getNewGroup() {
+		return new Group();
 	}
 	
 	/**

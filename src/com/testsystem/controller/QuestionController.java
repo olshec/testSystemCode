@@ -2,6 +2,7 @@ package com.testsystem.controller;
 
 import java.util.List;
 import com.testsystem.models.Answer;
+import com.testsystem.models.Group;
 import com.testsystem.models.Question;
 
 /**
@@ -20,6 +21,14 @@ public class QuestionController {
 	 */
 	public QuestionController() {}
 
+	
+	/**
+	 * Gets new Question.
+	 */
+	public static Question getNewQuestion(String text) {
+		return new Question(text);
+	}
+	
 	/**
 	 * Gets question text.
 	 * 

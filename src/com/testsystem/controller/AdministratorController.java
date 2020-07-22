@@ -1,6 +1,8 @@
 package com.testsystem.controller;
 
 import java.util.List;
+
+import com.testsystem.models.Administrator;
 import com.testsystem.models.User;
 import com.testsystem.models.UserBase;
 
@@ -20,6 +22,14 @@ public class AdministratorController extends UserController {
 	 */
 	public AdministratorController(User user) {
 		super(user);
+	}
+	
+	/**
+	 * Gets new Administrator.
+	 */
+	public static Administrator getNewAdministrator(String lastName, String firstName, 
+			ServerController server, String username, String password) {
+		return new Administrator(lastName, firstName, server, username, password);
 	}
 
 	/**

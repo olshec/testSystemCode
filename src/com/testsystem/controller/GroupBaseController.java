@@ -3,6 +3,7 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;
 import com.testsystem.models.GroupBase;
 import com.testsystem.models.Student;
@@ -27,6 +28,14 @@ public class GroupBaseController {
 //		groupBase = new GroupBase();
 //	}
 
+	/**
+	 * Gets new GroupBase.
+	 * The database of group.
+	 */
+	public static GroupBase getNewGroupBase() {
+		return new GroupBase();
+	}
+	
 	/**
 	 * Creates a GroupBaseController.
 	 * 

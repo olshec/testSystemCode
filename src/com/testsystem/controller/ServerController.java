@@ -39,7 +39,7 @@ public class ServerController {
 
 		loadTest();
 	}
-
+	
 	/**
 	 * Gets database of tests.
 	 * 

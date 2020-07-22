@@ -5,6 +5,8 @@ package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.testsystem.models.Teacher;
 import com.testsystem.models.Test;
 import com.testsystem.models.TestBase;
 import com.testsystem.models.User;
@@ -26,7 +28,15 @@ public class TeacherController extends UserController {
 	public TeacherController(User user) {
 		super(user);
 	}
-
+	
+	/**
+	 * Gets new teacher.
+	 */
+	public static Teacher getNewTeacher(String lastName, String firstName, 
+			ServerController server, String username, String password) {
+		return new Teacher(lastName, firstName, server, username, password);
+	}
+	
 	/**
 	 * Gets tests
 	 * 
@@ -37,7 +47,7 @@ public class TeacherController extends UserController {
 		ArrayList<Test> masTests = new ArrayList<Test>();
 		for (int i = 0; i < testBase.getTests().size(); i++) {
 			TestController testController = new TestController(testBase.getTests().get(i));
-			if (testController.hasTeacher(this.getUserModel())) {
+			if (testController.hasTeacher(this.getUser())) {
 				masTests.add(testController.getTest());
 			}
 		}

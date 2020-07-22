@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.testsystem.models.Question;
 import com.testsystem.models.Test;
+import com.testsystem.models.TestBase;
 import com.testsystem.models.User;
 
 /**
@@ -20,9 +21,7 @@ public class TestController {
 	/**
 	 * Creates a TestController.
 	 */
-	public TestController() {
-		;
-	}
+	//public TestController() {}
 
 	/**
 	 * Creates a TestController.
@@ -33,6 +32,13 @@ public class TestController {
 		setTest(test);
 	}
 
+	/**
+	 * Gets new Test.
+	 */
+	public static Test getNewTest() {
+		return new Test();
+	}
+	
 	/**
 	 * Gets model of test.
 	 * 

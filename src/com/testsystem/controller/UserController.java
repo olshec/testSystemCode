@@ -23,7 +23,7 @@ public abstract class UserController {
 	 * 
 	 * @return the user
 	 */
-	public User getUserModel() {
+	public User getUser() {
 		return user;
 	}
 

@@ -1,6 +1,8 @@
 package com.testsystem.controller;
 
 import java.util.List;
+
+import com.testsystem.models.Question;
 import com.testsystem.models.Test;
 import com.testsystem.models.TestBase;
 
@@ -29,6 +31,13 @@ public class TestBaseController {
 	 */
 	public TestBaseController(TestBase testBase) {
 		setTestBaseModel(testBase);
+	}
+	
+	/**
+	 * Gets new TestBase.
+	 */
+	public static TestBase getNewTestBase() {
+		return new TestBase();
 	}
 
 	/**

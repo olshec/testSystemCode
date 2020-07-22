@@ -6,6 +6,7 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;
 import com.testsystem.models.Student;
 import com.testsystem.models.Test;
@@ -29,6 +30,14 @@ public class StudentController extends UserController {
 	public StudentController(User user) {
 		super(user);
 	}
+	
+	/**
+	 * Gets new student.
+	 */
+	public static Student getNewStudent(String lastName, String firstName, 
+			ServerController server, String username, String password, Group group) {
+		return new Student(lastName, firstName, server, username, password, group);
+	}
 
 	/**
 	 * Gets test
@@ -40,7 +49,7 @@ public class StudentController extends UserController {
 		List<Test> testsStudent = new ArrayList<Test>();
 		for (int i = 0; i < testBase.getTests().size(); i++) {
 			TestController testController = new TestController(testBase.getTests().get(i));
-			if (testController.hasStudent(this.getUserModel()) == true) {
+			if (testController.hasStudent(this.getUser()) == true) {
 				testsStudent.add(testBase.getTests().get(i));
 			}
 		}
@@ -57,7 +66,7 @@ public class StudentController extends UserController {
 	public Test getTestInfo(int idTest, TestBase testBase) {
 		Test test = testBase.getTests().get(idTest);
 		TestController testController = new TestController(test);
-		if (test != null && testController.hasStudent(this.getUserModel())) {
+		if (test != null && testController.hasStudent(this.getUser())) {
 			return testBase.getTests().get(idTest);
 		} else
 			return null;
@@ -76,13 +85,16 @@ public class StudentController extends UserController {
 		}
 		Test test = testBase.getTests().get(idTest);
 		TestController testController = new TestController(test);
-		if (test != null && testController.hasStudent(this.getUserModel())) {
+		if (test != null && testController.hasStudent(this.getUser())) {
 			return testBase.getTests().get(idTest).getQuestions().size();
 		}
 		return -1;
 	}
 	
+	/**
+	 * Gets group of student.
+	 */
 	public Group getGroup() {
-		return ((Student)getUserModel()).getGroup();
+		return ((Student)getUser()).getGroup();
 	}
 }
