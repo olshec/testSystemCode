@@ -8,6 +8,7 @@ import com.testsystem.controller.GroupBaseController;
 import com.testsystem.controller.GroupController;
 import com.testsystem.controller.QuestionController;
 import com.testsystem.controller.ServerController;
+import com.testsystem.controller.StudentController;
 import com.testsystem.controller.TeacherController;
 import com.testsystem.controller.TestBaseController;
 import com.testsystem.controller.TestController;
@@ -75,13 +76,13 @@ public class Server extends ServerController {
 		GroupBaseController groupBaseController = new GroupBaseController(getGroupBase());
 		Group g1 = GroupController.getNewGroup("Group 1");
 		groupBaseController.addGroup(g1);
-		User student1 = new Student("Шахматов", "Антон", this, "ShAnton", "1111", g1);
-		User student2 = new Student("Романенко", "Егор", this, "REgor", "1111", g1);
+		User student1 = StudentController.getNewStudent("Шахматов", "Антон", this, "ShAnton", "1111", g1);
+		User student2 = StudentController.getNewStudent("Романенко", "Егор", this, "REgor", "1111", g1);
 		
 		Group g2 = GroupController.getNewGroup("Group 2");
 		groupBaseController.addGroup(g2);
-		User student3 = new Student("Сазонова", "Екатерина", this, "Kat", "1111", g2);
-		User student4 = new Student("Филонова", "Анна", this, "Anna", "1111", g2);
+		User student3 = StudentController.getNewStudent("Сазонова", "Екатерина", this, "Kat", "1111", g2);
+		User student4 = StudentController.getNewStudent("Филонова", "Анна", this, "Anna", "1111", g2);
 
 		//add new student
 		userBaseController.addUser(student1);
