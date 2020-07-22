@@ -791,8 +791,8 @@ getServer: ServerController</y:MethodLabel>
           <y:Path sx="0.0" sy="98.40005493164062" tx="-103.70520314419684" ty="0.0">
             <y:Point x="-76.37499999999989" y="1030.3234943915818"/>
           </y:Path>
-          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
-          <y:Arrows source="none" target="plain"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -804,8 +804,8 @@ getServer: ServerController</y:MethodLabel>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
             <y:Point x="-1177.9772727272727" y="794.1206083198055"/>
           </y:Path>
-          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
-          <y:Arrows source="none" target="plain"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -817,8 +817,8 @@ getServer: ServerController</y:MethodLabel>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
             <y:Point x="-864.3847573667576" y="794.1206083198055"/>
           </y:Path>
-          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
-          <y:Arrows source="none" target="plain"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -830,8 +830,8 @@ getServer: ServerController</y:MethodLabel>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
             <y:Point x="-533.6315444761324" y="794.1206083198055"/>
           </y:Path>
-          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
-          <y:Arrows source="none" target="plain"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -843,8 +843,8 @@ getServer: ServerController</y:MethodLabel>
           <y:Path sx="0.0" sy="0.0" tx="-31.610244094870268" ty="-8.41772263400344">
             <y:Point x="-76.37499999999991" y="1562.5659791566563"/>
           </y:Path>
-          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
-          <y:Arrows source="none" target="plain"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -856,8 +856,8 @@ getServer: ServerController</y:MethodLabel>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
             <y:Point x="-76.37499999999991" y="1300.453616132304"/>
           </y:Path>
-          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
-          <y:Arrows source="none" target="plain"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
