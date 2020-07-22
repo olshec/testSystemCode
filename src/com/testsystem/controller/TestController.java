@@ -3,6 +3,7 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 import com.testsystem.models.Question;
+import com.testsystem.models.Teacher;
 import com.testsystem.models.Test;
 import com.testsystem.models.TestBase;
 import com.testsystem.models.User;
@@ -37,6 +38,13 @@ public class TestController {
 	 */
 	public static Test getNewTest() {
 		return new Test();
+	}
+	
+	/**
+	 * Gets new Test.
+	 */
+	public static Test getNewTest(String name, User teacher) {
+		return new Test(name, teacher);
 	}
 	
 	/**

@@ -32,11 +32,9 @@ public class ServerController {
 	 * Creates a ServerController.
 	 */
 	public ServerController() {
-		testBase = new TestBase();
-		userBase = new UserBase();
-		groupBase = new GroupBase();
-		// userBaseController = new UserBaseController(userBaseModel);
-
+		testBase = TestBaseController.getNewTestBase();
+		userBase = UserBaseController.getNewUserBase();
+		groupBase = GroupBaseController.getNewGroupBase();
 		loadTest();
 	}
 	
@@ -210,30 +208,31 @@ public class ServerController {
 	}
 
 	private void loadTest() {
-		// BEGIN DATA FOR TEST
 		UserBaseController userBaseController=new UserBaseController(userBase);
-		User admin1 = new Administrator("Примарев", "Игорь", this, "Admin1", "0000");
+		User admin1 = AdministratorController.getNewAdministrator("Примарев", 
+				"Игорь", this, "Admin1", "0000");
 		userBaseController.addUser(admin1);
 
-		User teacher1 = new Teacher("Киров", "Антон", this, "KirovAnton", "12345678");
+		User teacher1 = TeacherController.getNewTeacher("Киров", 
+				"Антон", this, "KirovAnton", "12345678");
 		userBaseController.addUser(teacher1);
 
-		Test test1 = new Test("Робототехника", teacher1);
-		Test test2 = new Test("Сетевые технологии", teacher1);
-		Test test3 = new Test("Информатика", teacher1);
+		Test test1 = TestController.getNewTest("Робототехника", teacher1);
+		Test test2 = TestController.getNewTest("Сетевые технологии", teacher1);
+		Test test3 = TestController.getNewTest("Информатика", teacher1);
 
-		Question q1 = new Question("Основы роботетхники");
-		Question q2 = new Question("AI");
-		Question q3 = new Question("Микроконтроллеры");
+		Question q1 = QuestionController.getNewQuestion("Основы роботетхники");
+		Question q2 = QuestionController.getNewQuestion("AI");
+		Question q3 = QuestionController.getNewQuestion("Микроконтроллеры");
 
 		TestController testController = new TestController(test1);
 		testController.addQuestion(q1);
 		testController.addQuestion(q2);
 		testController.addQuestion(q3);
 
-		Question q4 = new Question("Протокол HTTP");
-		Question q5 = new Question("Характеристика OSI");
-		Question q6 = new Question("Протокол TCP");
+		Question q4 = QuestionController.getNewQuestion("Протокол HTTP");
+		Question q5 = QuestionController.getNewQuestion("Характеристика OSI");
+		Question q6 = QuestionController.getNewQuestion("Протокол TCP");
 
 		testController.setTest(test2);
 
@@ -251,15 +250,15 @@ public class ServerController {
 		new TestBaseController(testBase).addTests(tests);
 
 		GroupBaseController groupBaseController = new GroupBaseController(groupBase);
-		Group g1=new Group("Group 1");
+		Group g1 = GroupController.getNewGroup("Group 1");
 		groupBaseController.addGroup(g1);
-		User student1 = new Student("Шахматов", "Антон", this, "ShAnton", "1111", g1);
-		User student2 = new Student("Романенко", "Егор", this, "REgor", "1111", g1);
+		User student1 = StudentController.getNewStudent("Шахматов", "Антон", this, "ShAnton", "1111", g1);
+		User student2 = StudentController.getNewStudent("Романенко", "Егор", this, "REgor", "1111", g1);
 		
-		Group g2=new Group("Group 2");
+		Group g2 = GroupController.getNewGroup("Group 2");
 		groupBaseController.addGroup(g2);
-		User student3 = new Student("Сазонова", "Екатерина", this, "Kat", "1111", g2);
-		User student4 = new Student("Филонова", "Анна", this, "Anna", "1111", g2);
+		User student3 = StudentController.getNewStudent("Сазонова", "Екатерина", this, "Kat", "1111", g2);
+		User student4 = StudentController.getNewStudent("Филонова", "Анна", this, "Anna", "1111", g2);
 
 		//add users to database
 		userBaseController.addUser(student1);

@@ -14,8 +14,7 @@ public class Group {
 	/**
 	 * Creates a Group.
 	 */
-	public Group() {
-	}
+	//public Group() {}
 	
 	/**
 	 * Creates a Group.

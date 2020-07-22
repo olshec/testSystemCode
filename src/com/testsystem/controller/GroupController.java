@@ -37,8 +37,8 @@ public class GroupController {
 	/**
 	 * Gets new Group.
 	 */
-	public static Group getNewGroup() {
-		return new Group();
+	public static Group getNewGroup(String name) {
+		return new Group(name);
 	}
 	
 	/**
