@@ -1,6 +1,6 @@
 # test system
 
-Main function in ClientView.
+Main function is in ClientView.
 
 Charts are designed with yEd.
 
