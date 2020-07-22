@@ -13,7 +13,7 @@ public class StudentTest {
 
 	private Test test;
 	private Student student;
-	private List<Question> listAnswers;
+	private List<Question> listQuestions;
 	
 	public StudentTest() {}
 
@@ -54,20 +54,20 @@ public class StudentTest {
 	}
 
 	/**
-	 * Gets answers.
+	 * Gets questions.
 	 * 
-	 * @return the listAnswers
+	 * @return the listQuestions
 	 */
 	public List<Question> getListAnswers() {
-		return listAnswers;
+		return listQuestions;
 	}
 
 	/**
-	 * Sets answers.
+	 * Sets questions.
 	 * 
-	 * @param listAnswers the listAnswers to set
+	 * @param listQuestions the listAnswers to set
 	 */
-	public void setListAnswers(List<Question> listAnswers) {
-		this.listAnswers = listAnswers;
+	public void setListAnswers(List<Question> listQuestions) {
+		this.listQuestions = listQuestions;
 	}
 }
