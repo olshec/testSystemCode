@@ -13,11 +13,8 @@ import com.testsystem.controller.TeacherController;
 import com.testsystem.controller.TestBaseController;
 import com.testsystem.controller.TestController;
 import com.testsystem.controller.UserBaseController;
-import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;
 import com.testsystem.models.Question;
-import com.testsystem.models.Student;
-import com.testsystem.models.Teacher;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
 

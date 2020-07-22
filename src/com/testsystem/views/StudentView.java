@@ -36,6 +36,7 @@ public final class StudentView extends UserView {
 			System.out.print("?: ");
 
 			Scanner myInput = new Scanner(System.in);
+			myInput.close();
 			try {
 				num = myInput.nextInt();
 			} catch (java.util.InputMismatchException exception) {

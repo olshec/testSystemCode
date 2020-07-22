@@ -2,7 +2,6 @@ package com.testsystem.controller;
 
 import java.util.List;
 import com.testsystem.models.Answer;
-import com.testsystem.models.Group;
 import com.testsystem.models.Question;
 
 /**
