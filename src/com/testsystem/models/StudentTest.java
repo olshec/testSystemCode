@@ -13,7 +13,7 @@ public class StudentTest {
 
 	private Test test;
 	private Student student;
-	private List<List<Integer>> listAnswers;
+	private List<Question> listAnswers;
 	
 	public StudentTest() {}
 
@@ -58,7 +58,7 @@ public class StudentTest {
 	 * 
 	 * @return the listAnswers
 	 */
-	public List<List<Integer>> getListAnswers() {
+	public List<Question> getListAnswers() {
 		return listAnswers;
 	}
 
@@ -67,7 +67,7 @@ public class StudentTest {
 	 * 
 	 * @param listAnswers the listAnswers to set
 	 */
-	public void setListAnswers(List<List<Integer>> listAnswers) {
+	public void setListAnswers(List<Question> listAnswers) {
 		this.listAnswers = listAnswers;
 	}
 }
