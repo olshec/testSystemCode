@@ -14,15 +14,15 @@ import com.testsystem.models.Test;
  */
 public class TestTableProvider {
 
-	private TestTable testBase;
+	private TestTable testTable;
 
 	/**
 	 * Creates a TestBaseTable.
 	 * 
 	 * @param testTable The table of tests
 	 */
-	public TestTableProvider(TestTable testBase) {
-		setTestTable(testBase);
+	public TestTableProvider(TestTable testTable) {
+		setTestTable(testTable);
 	}
 	
 	/**
@@ -38,7 +38,7 @@ public class TestTableProvider {
 	 * @return the all tests
 	 */
 	public List<Test> getAllTests() {
-		return testBase.getTests();
+		return testTable.getTests();
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class TestTableProvider {
 	 * @param tests the tests to add
 	 */
 	public void addTests(List<Test> tests) {
-		this.testBase.setTests(tests);
+		this.testTable.setTests(tests);
 	}
 
 	/**
@@ -57,8 +57,8 @@ public class TestTableProvider {
 	 * @return 	the TestModel.
 	 */
 	public Test getTest(int idTest) {
-		if (idTest < testBase.getTests().size() && idTest >= 0) {
-			return testBase.getTests().get(idTest);
+		if (idTest < testTable.getTests().size() && idTest >= 0) {
+			return testTable.getTests().get(idTest);
 		}
 		return null;
 	}
@@ -68,8 +68,8 @@ public class TestTableProvider {
 	 * 
 	 * @return the table of tests
 	 */
-	public TestTable getTestBaseModel() {
-		return testBase;
+	public TestTable getTestTable() {
+		return testTable;
 	}
 
 	/**
@@ -78,6 +78,6 @@ public class TestTableProvider {
 	 * @param testTable the table of tests
 	 */
 	public void setTestTable(TestTable testTable) {
-		this.testBase = testTable;
+		this.testTable = testTable;
 	}
 }

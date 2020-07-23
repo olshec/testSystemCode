@@ -15,7 +15,7 @@ import com.testsystem.models.User;
  */
 public class UserTableProvider {
 	
-	private UserTable userBase;
+	private UserTable userTable;
 
 	/**
 	 * Creates a UserBaseController.
@@ -41,7 +41,7 @@ public class UserTableProvider {
 	 * @return UserModel 	the user
 	 */
 	public User getUser(String username, String password) {
-		List<User> users = userBase.getUsers();
+		List<User> users = userTable.getUsers();
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).getUserName().equals(username) && users.get(i).getPassword().equals(password)) {
 				return users.get(i);
@@ -56,7 +56,7 @@ public class UserTableProvider {
 	 * @return List<UserModel> the list of users
 	 */
 	public List<User> getAllUsers() {
-		return userBase.getUsers();
+		return userTable.getUsers();
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class UserTableProvider {
 	 * @param user the user.
 	 */
 	public void addUser(User user) {
-		userBase.getUsers().add(user);
+		userTable.getUsers().add(user);
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class UserTableProvider {
 	 * @return boolean Returns true if database contains user
 	 */
 	public boolean hasUser(User user) {
-		List<User> users = userBase.getUsers();
+		List<User> users = userTable.getUsers();
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).getId() == user.getId()) {
 				return true;
@@ -89,16 +89,16 @@ public class UserTableProvider {
 	 * @return the database of user
 	 */
 	public UserTable getUserBase() {
-		return userBase;
+		return userTable;
 	}
 
 	/**
 	 * Sets database of user.
 	 * 
-	 * @param userBase the database of user
+	 * @param userTable the database of user
 	 */
-	public void setUserBase(UserTable userBase) {
-		this.userBase = userBase;
+	public void setUserBase(UserTable userTable) {
+		this.userTable = userTable;
 	}
 
 	/**
@@ -109,10 +109,10 @@ public class UserTableProvider {
 	 */
 	public List<User> getUsersByType(String typeUser) {
 		List<User> masUserResult = new ArrayList<User>();
-		for (int i = 0; i < userBase.getUsers().size(); i++) {
-			String className = userBase.getUsers().get(i).getClass().getSimpleName();
+		for (int i = 0; i < userTable.getUsers().size(); i++) {
+			String className = userTable.getUsers().get(i).getClass().getSimpleName();
 			if (className.equals(typeUser)) {
-				masUserResult.add(userBase.getUsers().get(i));
+				masUserResult.add(userTable.getUsers().get(i));
 			}
 		}
 		return masUserResult;
