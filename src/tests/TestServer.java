@@ -100,31 +100,32 @@ public class TestServer {
 
 	@Test
 	public void testGetAllUsersForAdmin() {
-		List<User> listUser = new AdministratorController(admin1).getAllUsers(serverController.getDaoProvider().getUserTable());
+		List<User> listUser = new AdministratorController(admin1, 
+				serverController.getDaoProvider()).getAllUsers();
 
 		assertEquals(listUser.size(), 6);
 	}
 
 	@Test
 	public void testGetStudentsForAdmin() {
-		List<User> listUser = new AdministratorController(admin1).getUsersByType(Student.nameModel,
-				serverController.getDaoProvider().getUserTable());
+		List<User> listUser = new AdministratorController(admin1, 
+				serverController.getDaoProvider()).getUsersByType(Student.nameModel);
 
 		assertEquals(listUser.size(), 4);
 	}
 
 	@Test
 	public void testGetTeachersForAdmin() {
-		List<User> listUser = new AdministratorController(admin1).getUsersByType(Teacher.nameModel,
-				serverController.getDaoProvider().getUserTable());
+		List<User> listUser = new AdministratorController(admin1, 
+				serverController.getDaoProvider()).getUsersByType(Teacher.nameModel);
 
 		assertEquals(listUser.size(), 1);
 	}
 
 	@Test
 	public void testGetAdminsForAdmin() {
-		List<User> listUser = new AdministratorController(admin1).getUsersByType(Administrator.nameModel,
-				serverController.getDaoProvider().getUserTable());
+		List<User> listUser = new AdministratorController(admin1, serverController.getDaoProvider())
+				.getUsersByType(Administrator.nameModel);
 
 		assertEquals(listUser.size(), 1);
 	}

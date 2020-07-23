@@ -5,9 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
-import com.testsystem.DAO.Providers.GroupTableProvider;
-import com.testsystem.DAO.Providers.TestTableProvider;
-import com.testsystem.DAO.Providers.UserTableProvider;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;
 import com.testsystem.models.Question;
@@ -60,7 +57,7 @@ public class ServerController {
 	 * @return User 	the authenticated user
 	 */
 	public User login(String username, String password) {
-		return new UserTableProvider(daoProvider.getUserTable()).getUser(username, password);
+		return new UserController(daoProvider).getUser(username, password);
 	}
 
 	/**
@@ -124,8 +121,7 @@ public class ServerController {
 	 * @return List<User> 	the list all administrators
 	 */
 	public List<User> getAllUsersForAdmin(User admin) {
-		return new AdministratorController(admin)
-				.getAllUsers(new UserTableProvider(daoProvider.getUserTable()).getUserBase());
+		return new UserController(admin, daoProvider).getAllUsers();
 	}
 
 	/**
@@ -135,7 +131,7 @@ public class ServerController {
 	 * @return List<User> 	the list students
 	 */
 	public List<User> getStudentsForAdmin(User admin) {
-		return new AdministratorController(admin).getUsersByType(Student.nameModel, daoProvider.getUserTable());
+		return new AdministratorController(admin, daoProvider).getUsersByType(Student.nameModel);
 	}
 
 	/**
@@ -145,7 +141,7 @@ public class ServerController {
 	 * @return List<User> 	the list of teachers
 	 */
 	public List<User> getTeachersForAdmin(User admin) {
-		return new AdministratorController(admin).getUsersByType(Teacher.nameModel, daoProvider.getUserTable());
+		return new AdministratorController(admin, daoProvider).getUsersByType(Teacher.nameModel);
 	}
 
 	/**
@@ -155,7 +151,7 @@ public class ServerController {
 	 * @return List<User> 	the list of administrators
 	 */
 	public List<User> getAdminsForAdmin(User admin) {
-		return new AdministratorController(admin).getUsersByType(Administrator.nameModel, daoProvider.getUserTable());
+		return new AdministratorController(admin, daoProvider).getUsersByType(Administrator.nameModel);
 	}
 	
 	public int getRatingUser(User student) {
@@ -163,19 +159,19 @@ public class ServerController {
 	}
 	
 	public HashMap<User, Integer> getRatingGroup(String nameGroup){
-		Group group = new GroupTableProvider(daoProvider.getGroupTable()).getGroupByName(nameGroup);
-		return RatingCalculator.getRatingGroup(group, daoProvider.getTestTable(), daoProvider.getUserTable());
+		Group group = GroupController.getGroupByName(nameGroup, daoProvider.getGroupTable());
+		return RatingCalculator.getRatingGroup(group, daoProvider);
 	}
 
 	private void loadTest() {
-		UserTableProvider userBaseController=new UserTableProvider(daoProvider.getUserTable());
+		UserController userController = new UserController(daoProvider);
 		User admin1 = AdministratorController.getNewAdministrator("Примарев", 
 				"Игорь", this, "Admin1", "0000");
-		userBaseController.addUser(admin1);
+		userController.addUser(admin1);
 
 		User teacher1 = TeacherController.getNewTeacher("Киров", 
 				"Антон", this, "KirovAnton", "12345678");
-		userBaseController.addUser(teacher1);
+		userController.addUser(teacher1);
 
 		Test test1 = TestController.getNewTest("Робототехника", teacher1);
 		Test test2 = TestController.getNewTest("Сетевые технологии", teacher1);
@@ -207,24 +203,23 @@ public class ServerController {
 		tests.add(test2);
 		tests.add(test3);
 
-		new TestTableProvider(daoProvider.getTestTable()).addTests(tests);
+		new TestController(getDaoProvider()).addTests(tests);
 
-		GroupTableProvider groupBaseController = new GroupTableProvider(daoProvider.getGroupTable());
 		Group g1 = GroupController.getNewGroup("Group 1");
-		groupBaseController.addGroup(g1);
+		GroupController.addGroup(g1,daoProvider.getGroupTable());
 		User student1 = StudentController.getNewStudent("Шахматов", "Антон", this, "ShAnton", "1111", g1);
 		User student2 = StudentController.getNewStudent("Романенко", "Егор", this, "REgor", "1111", g1);
 		
 		Group g2 = GroupController.getNewGroup("Group 2");
-		groupBaseController.addGroup(g2);
+		GroupController.addGroup(g2,daoProvider.getGroupTable());
 		User student3 = StudentController.getNewStudent("Сазонова", "Екатерина", this, "Kat", "1111", g2);
 		User student4 = StudentController.getNewStudent("Филонова", "Анна", this, "Anna", "1111", g2);
 
 		//add users to database
-		userBaseController.addUser(student1);
-		userBaseController.addUser(student2);
-		userBaseController.addUser(student3);
-		userBaseController.addUser(student4);
+		userController.addUser(student1);
+		userController.addUser(student2);
+		userController.addUser(student3);
+		userController.addUser(student4);
 
 		//add test1 and result to students
 		testController.setTest(test1);
@@ -253,6 +248,6 @@ public class ServerController {
 		testController.addResult(student1, 3);
 		testController.addResult(student2, 4);
 		testController.addResult(student3, 5);
-		testController.addResult(student4, 5);
+		testController.addResult(student4, 3);
 	}
 }

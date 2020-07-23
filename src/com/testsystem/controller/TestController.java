@@ -2,6 +2,8 @@ package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.testsystem.DAO.DAOProvider;
 import com.testsystem.models.Question;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
@@ -15,7 +17,8 @@ import com.testsystem.models.User;
  */
 public class TestController {
 
-	Test test;
+	private Test test;
+	private DAOProvider daoProvider;
 
 	/**
 	 * Creates a TestController.
@@ -24,27 +27,28 @@ public class TestController {
 
 	/**
 	 * Creates a TestController.
+	 */
+	public TestController(DAOProvider daoProvider) {
+		this.setDaoProvider(daoProvider);
+	}
+
+	/**
+	 * Creates a TestController.
 	 * 
 	 * @param the test
 	 */
 	public TestController(Test test) {
-		setTest(test);
+		this.setTest(test);
+	}
+	
+	/**
+	 * Creates a TestController.
+	 */
+	public TestController(DAOProvider daoProvider, Test test) {
+		this.setDaoProvider(daoProvider);
+		this.setTest(test);
 	}
 
-	/**
-	 * Gets new Test.
-	 */
-	public static Test getNewTest() {
-		return new Test();
-	}
-	
-	/**
-	 * Gets new Test.
-	 */
-	public static Test getNewTest(String name, User teacher) {
-		return new Test(name, teacher);
-	}
-	
 	/**
 	 * Gets model of test.
 	 * 
@@ -61,6 +65,69 @@ public class TestController {
 	 */
 	public void setTest(Test test) {
 		this.test = test;
+	}
+	
+	/**
+	 * Gets DAOProvider.
+	 * 
+	 * @return the DAOProvider
+	 */
+	public DAOProvider getDaoProvider() {
+		return daoProvider;
+	}
+	
+	/**
+	 * Sets DAOProvider.
+	 * 
+	 * @param daoProvider the DAOProvider to set
+	 */
+	public void setDaoProvider(DAOProvider daoProvider) {
+		this.daoProvider = daoProvider;
+	}
+	
+	/**
+	 * Gets new Test.
+	 */
+	public static Test getNewTest() {
+		return new Test();
+	}
+	
+	/**
+	 * Gets all tests.
+	 * 
+	 * @return the all tests
+	 */
+	public  List<Test> getAllTests() {
+		return daoProvider.getTestTable().getTests();
+	}
+
+	/**
+	 * Adds list of test.
+	 * 
+	 * @param tests the tests to add
+	 */
+	public void addTests(List<Test> tests) {
+		this.daoProvider.getTestTable().setTests(tests);
+	}
+
+	/**
+	 * Gets test.
+	 * 
+	 * @param 	the test id.
+	 * @return 	the TestModel.
+	 */
+	public Test getTest(int idTest) {
+		if (idTest < daoProvider.getTestTable().getTests().size() && idTest >= 0) {
+			return daoProvider.getTestTable().getTests().get(idTest);
+		}
+		return null;
+	}
+	
+	/**
+	 * Gets new Test.
+	 */
+	public static Test getNewTest(String name, User teacher) {
+		return new Test(name, teacher);
 	}
 
 	/**

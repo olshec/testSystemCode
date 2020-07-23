@@ -41,15 +41,15 @@ public class StudentController extends UserController {
 	/**
 	 * Gets test
 	 * 
-	 * @param testBase 	the database of test
+	 * @param testTable 	the database of test
 	 * @return 			the all tests of student
 	 */
-	public List<Test> getTests(TestTable testBase) {
+	public List<Test> getTests(TestTable testTable) {
 		List<Test> testsStudent = new ArrayList<Test>();
-		for (int i = 0; i < testBase.getTests().size(); i++) {
-			TestController testController = new TestController(testBase.getTests().get(i));
+		for (int i = 0; i < testTable.getTests().size(); i++) {
+			TestController testController = new TestController(testTable.getTests().get(i));
 			if (testController.hasStudent(this.getUser()) == true) {
-				testsStudent.add(testBase.getTests().get(i));
+				testsStudent.add(testTable.getTests().get(i));
 			}
 		}
 		return testsStudent;
@@ -59,14 +59,14 @@ public class StudentController extends UserController {
 	 * Gets student test information.
 	 * 
 	 * @param idTest   	the model of student
-	 * @param testBase 	the database of student
+	 * @param testTable 	the database of student
 	 * @return 			the model of test
 	 */
-	public Test getTestInfo(int idTest, TestTable testBase) {
-		Test test = testBase.getTests().get(idTest);
+	public Test getTestInfo(int idTest, TestTable testTable) {
+		Test test = testTable.getTests().get(idTest);
 		TestController testController = new TestController(test);
 		if (test != null && testController.hasStudent(this.getUser())) {
-			return testBase.getTests().get(idTest);
+			return testTable.getTests().get(idTest);
 		} else
 			return null;
 	}

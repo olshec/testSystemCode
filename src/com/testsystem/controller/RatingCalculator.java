@@ -8,8 +8,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import com.testsystem.DAO.DAOProvider;
 import com.testsystem.DAO.Tables.TestTable;
-import com.testsystem.DAO.Tables.UserTable;
 import com.testsystem.models.Group;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
@@ -56,12 +56,12 @@ public class RatingCalculator {
 	 * @param testBase 						the database of test
 	 * @return HashMap<User, Integer> 		the rating of student
 	 */
-	public static HashMap<User, Integer> getRatingGroup(Group group, TestTable testBase, UserTable userBase) {
-		List<User> listStudent = GroupController.getStudentByGroup(userBase, group);
+	public static HashMap<User, Integer> getRatingGroup(Group group, DAOProvider daoProvider) {
+		List<User> listStudent = new GroupController(daoProvider).getStudentByGroup(group);
 		HashMap<User, Integer> groupRating=new HashMap<User, Integer>();
 		for(int i=0;i<listStudent.size();i++) {
 			groupRating.put(listStudent.get(i), 
-					RatingCalculator.getRatingStudent(listStudent.get(i),testBase));
+					RatingCalculator.getRatingStudent(listStudent.get(i),daoProvider.getTestTable()));
 		}
 		groupRating = sortByValue(groupRating);
 		return groupRating;    	

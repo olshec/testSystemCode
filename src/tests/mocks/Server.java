@@ -3,9 +3,6 @@ package tests.mocks;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.DAO.Providers.GroupTableProvider;
-import com.testsystem.DAO.Providers.TestTableProvider;
-import com.testsystem.DAO.Providers.UserTableProvider;
 import com.testsystem.controller.AdministratorController;
 import com.testsystem.controller.GroupController;
 import com.testsystem.controller.QuestionController;
@@ -13,6 +10,7 @@ import com.testsystem.controller.ServerController;
 import com.testsystem.controller.StudentController;
 import com.testsystem.controller.TeacherController;
 import com.testsystem.controller.TestController;
+import com.testsystem.controller.UserController;
 import com.testsystem.models.Group;
 import com.testsystem.models.Question;
 import com.testsystem.models.Test;
@@ -20,21 +18,21 @@ import com.testsystem.models.User;
 
 public class Server extends ServerController {
 
-	public Server()  {
+	public Server() {
 		super();
-		getDaoProvider().clear();
-		loadTest();
+		//getDaoProvider().clear();
+		//loadTest();
 	}
 
 	private void loadTest() {
-		UserTableProvider userBaseController=new UserTableProvider(getDaoProvider().getUserTable());
+		UserController userController = new UserController(getDaoProvider());
 		User admin1 = AdministratorController.getNewAdministrator("Примарев", 
 				"Игорь", this, "Admin1", "0000");
-		userBaseController.addUser(admin1);
+		userController.addUser(admin1);
 
 		User teacher1 = TeacherController.getNewTeacher("Киров", 
 				"Антон", this, "KirovAnton", "12345678");
-		userBaseController.addUser(teacher1);
+		userController.addUser(teacher1);
 
 		Test test1 = TestController.getNewTest("Робототехника", teacher1);
 		Test test2 = TestController.getNewTest("Сетевые технологии", teacher1);
@@ -66,24 +64,23 @@ public class Server extends ServerController {
 		tests.add(test2);
 		tests.add(test3);
 
-		new TestTableProvider(getDaoProvider().getTestTable()).addTests(tests);
+		new TestController(getDaoProvider()).addTests(tests);
 
-		GroupTableProvider groupBaseController = new GroupTableProvider(getDaoProvider().getGroupTable());
 		Group g1 = GroupController.getNewGroup("Group 1");
-		groupBaseController.addGroup(g1);
+		GroupController.addGroup(g1,getDaoProvider().getGroupTable());
 		User student1 = StudentController.getNewStudent("Шахматов", "Антон", this, "ShAnton", "1111", g1);
 		User student2 = StudentController.getNewStudent("Романенко", "Егор", this, "REgor", "1111", g1);
 		
 		Group g2 = GroupController.getNewGroup("Group 2");
-		groupBaseController.addGroup(g2);
+		GroupController.addGroup(g2,getDaoProvider().getGroupTable());
 		User student3 = StudentController.getNewStudent("Сазонова", "Екатерина", this, "Kat", "1111", g2);
 		User student4 = StudentController.getNewStudent("Филонова", "Анна", this, "Anna", "1111", g2);
 
-		//add new student
-		userBaseController.addUser(student1);
-		userBaseController.addUser(student2);
-		userBaseController.addUser(student3);
-		userBaseController.addUser(student4);
+		//add users to database
+		userController.addUser(student1);
+		userController.addUser(student2);
+		userController.addUser(student3);
+		userController.addUser(student4);
 
 		//add test1 and result to students
 		testController.setTest(test1);
@@ -100,8 +97,8 @@ public class Server extends ServerController {
 		testController.addStudent(student4);
 		testController.addResult(student1, 3);
 		testController.addResult(student2, 4);
-		testController.addResult(student3, 5);
-		testController.addResult(student4, 4);
+		testController.addResult(student3, 4);
+		testController.addResult(student4, 5);
 		
 		//add test3 and result to students
 		testController.setTest(test3);
@@ -110,8 +107,8 @@ public class Server extends ServerController {
 		testController.addStudent(student3);
 		testController.addStudent(student4);
 		testController.addResult(student1, 3);
-		testController.addResult(student2, 5);
+		testController.addResult(student2, 4);
 		testController.addResult(student3, 5);
-		testController.addResult(student4, 4);
+		testController.addResult(student4, 3);
 	}
 }

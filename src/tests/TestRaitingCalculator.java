@@ -38,7 +38,7 @@ public class TestRaitingCalculator {
 		
 		assertEquals(ratingGroup.values().size(), 2);
 		assertEquals(rating1, 6);
-		assertEquals(rating2, 9);
+		assertEquals(rating2, 8);
 	}
 	
 	@Test

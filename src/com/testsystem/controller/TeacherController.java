@@ -40,13 +40,13 @@ public class TeacherController extends UserController {
 	/**
 	 * Gets tests
 	 * 
-	 * @param testBase 	the database of tests
+	 * @param testTable 	the database of tests
 	 * @return 			the all tests of teacher
 	 */
-	public List<Test> getTests(TestTable testBase) {
+	public List<Test> getTests(TestTable testTable) {
 		ArrayList<Test> masTests = new ArrayList<Test>();
-		for (int i = 0; i < testBase.getTests().size(); i++) {
-			TestController testController = new TestController(testBase.getTests().get(i));
+		for (int i = 0; i < testTable.getTests().size(); i++) {
+			TestController testController = new TestController(testTable.getTests().get(i));
 			if (testController.hasTeacher(this.getUser())) {
 				masTests.add(testController.getTest());
 			}
