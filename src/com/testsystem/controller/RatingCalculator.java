@@ -25,7 +25,7 @@ public class RatingCalculator {
 	/**
 	 * Creates a RatingCalculator.
 	 */
-	//private RatingCalculator() {}
+	private RatingCalculator() {}
 
 	/**
 	 * Gets rating for student. 
