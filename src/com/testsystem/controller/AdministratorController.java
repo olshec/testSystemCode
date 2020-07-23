@@ -2,9 +2,10 @@ package com.testsystem.controller;
 
 import java.util.List;
 
+import com.testsystem.DAO.Providers.UserTableProvider;
+import com.testsystem.DAO.Tables.UserTable;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.User;
-import com.testsystem.models.UserBase;
 
 /**
  * Represents an AdministratorController.
@@ -39,8 +40,8 @@ public class AdministratorController extends UserController {
 	 * @param userBase 			the database of users
 	 * @return List<UserModel> 	the list students
 	 */
-	public List<User> getUsersByType(String typeUser, UserBase userBase) {
-		return new UserBaseController(userBase).getUsersByType(typeUser);
+	public List<User> getUsersByType(String typeUser, UserTable userBase) {
+		return new UserTableProvider(userBase).getUsersByType(typeUser);
 	}
 
 	/**
@@ -49,7 +50,7 @@ public class AdministratorController extends UserController {
 	 * @param userBase the database of users
 	 * @return List<UserModel> the list users
 	 */
-	public List<User> getAllUsers(UserBase userBase) {
-		return new UserBaseController(userBase).getAllUsers();
+	public List<User> getAllUsers(UserTable userBase) {
+		return new UserTableProvider(userBase).getAllUsers();
 	}
 }

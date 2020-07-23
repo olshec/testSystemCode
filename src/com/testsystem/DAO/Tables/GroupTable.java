@@ -1,32 +1,34 @@
-package com.testsystem.models;
+package com.testsystem.DAO.Tables;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.models.Group;
+
 /**
- * Represents a database of group.
+ * Represents a table of group.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class GroupBase {
+public class GroupTable {
 
 	private List<Group> groups;
 	
 	/**
-	 * Creates a GroupBase.
+	 * Creates a GroupTable.
 	 */
-	public GroupBase() {
+	public GroupTable() {
 		groups=new ArrayList<Group>();
 	}
 
 	/**
-	 * Creates a GroupBase.
+	 * Creates a GroupTable.
 	 * 
 	 * @param groups the list of groups
 	 */
-	public GroupBase(List<Group> groups) {
+	public GroupTable(List<Group> groups) {
 		setGroups(groups);
 	}
 	

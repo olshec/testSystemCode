@@ -1,42 +1,36 @@
-package com.testsystem.controller;
+package com.testsystem.DAO.Providers;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.testsystem.DAO.Tables.UserTable;
 import com.testsystem.models.User;
-import com.testsystem.models.UserBase;
 
 /**
- * Represents a controller to the database containing user.
+ * Represents a provider to the database containing user.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class UserBaseController {
+public class UserTableProvider {
 	
-	private UserBase userBase;
-
-	/**
-	 * Creates a UserBaseController.
-	 */
-//	public UserBaseController() {
-//		userBase = new UserBase();
-//	}
+	private UserTable userBase;
 
 	/**
 	 * Creates a UserBaseController.
 	 * 
 	 * @param userBase the database containing user.
 	 */
-	public UserBaseController(UserBase userBase) {
+	public UserTableProvider(UserTable userBase) {
 		setUserBase(userBase);
 	}
 
 	/**
 	 * Gets new UserBase.
 	 */
-	public static UserBase getNewUserBase() {
-		return new UserBase();
+	public static UserTable getNewUserBase() {
+		return new UserTable();
 	}
 	
 	/**
@@ -94,7 +88,7 @@ public class UserBaseController {
 	 * 
 	 * @return the database of user
 	 */
-	public UserBase getUserBase() {
+	public UserTable getUserBase() {
 		return userBase;
 	}
 
@@ -103,7 +97,7 @@ public class UserBaseController {
 	 * 
 	 * @param userBase the database of user
 	 */
-	public void setUserBase(UserBase userBase) {
+	public void setUserBase(UserTable userBase) {
 		this.userBase = userBase;
 	}
 

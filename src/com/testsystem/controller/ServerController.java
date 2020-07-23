@@ -4,16 +4,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.testsystem.DAO.DAOProvider;
+import com.testsystem.DAO.Providers.GroupTableProvider;
+import com.testsystem.DAO.Providers.TestTableProvider;
+import com.testsystem.DAO.Providers.UserTableProvider;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;
-import com.testsystem.models.GroupBase;
 import com.testsystem.models.Question;
 import com.testsystem.models.Student;
 import com.testsystem.models.Teacher;
 import com.testsystem.models.Test;
-import com.testsystem.models.TestBase;
 import com.testsystem.models.User;
-import com.testsystem.models.UserBase;
 
 /**
  * Represents a server controller.
@@ -24,73 +25,32 @@ import com.testsystem.models.UserBase;
  */
 public class ServerController {
 
-	private TestBase testBase;
-	private UserBase userBase;
-	private GroupBase groupBase;
+	DAOProvider daoProvider;
 
 	/**
 	 * Creates a ServerController.
 	 */
 	public ServerController() {
-		testBase = TestBaseController.getNewTestBase();
-		userBase = UserBaseController.getNewUserBase();
-		groupBase = GroupBaseController.getNewGroupBase();
+		daoProvider = new DAOProvider();
 		loadTest();
 	}
-	
+
 	/**
-	 * Gets database of tests.
-	 * 
-	 * @return the database of tests
+	 * Gets DAOProvider.
+	 * @return the daoProvider
 	 */
-	public TestBase getTestBase() {
-		return testBase;
+	public DAOProvider getDaoProvider() {
+		return daoProvider;
 	}
 
 	/**
-	 * Sets database of tests.
-	 * 
-	 * @param testBase the database of tests
+	 * Sets DAOProvider.
+	 * @param daoProvider the daoProvider to set
 	 */
-	public void setTestBase(TestBase testBase) {
-		this.testBase = testBase;
+	public void setDaoProvider(DAOProvider daoProvider) {
+		this.daoProvider = daoProvider;
 	}
 
-	/**
-	 * Gets database of users.
-	 * 
-	 * @return the database of users
-	 */
-	public UserBase getUserBase() {
-		return userBase;
-	}
-
-	/**
-	 * Sets database of users.
-	 * 
-	 * @param userBase the database of users
-	 */
-	public void setUserBase(UserBase userBase) {
-		this.userBase = userBase;
-	}
-
-	/**
-	 * Gets database of groups.
-	 * 
-	 * @return the groupBase
-	 */
-	public GroupBase getGroupBase() {
-		return groupBase;
-	}
-
-	/**
-	 * Sets database of groups.
-	 * 
-	 * @param groupBase the groupBase to set
-	 */
-	public void setGroupBase(GroupBase groupBase) {
-		this.groupBase = groupBase;
-	}
 
 	/**
 	 * Method for login.
@@ -100,7 +60,7 @@ public class ServerController {
 	 * @return User 	the authenticated user
 	 */
 	public User login(String username, String password) {
-		return new UserBaseController(userBase).getUser(username, password);
+		return new UserTableProvider(daoProvider.getUserTable()).getUser(username, password);
 	}
 
 	/**
@@ -110,7 +70,7 @@ public class ServerController {
 	 * @return List<Test> 	the list tests
 	 */
 	public List<Test> getTestsForStudent(User student) {
-		return new StudentController(student).getTests(testBase);
+		return new StudentController(student).getTests(daoProvider.getTestTable());
 	}
 
 	/**
@@ -121,7 +81,7 @@ public class ServerController {
 	 * @return 			the model of test
 	 */
 	public Test getTestInfoForStudent(User student, int idTest) {
-		return new StudentController(student).getTestInfo(idTest, testBase);
+		return new StudentController(student).getTestInfo(idTest, daoProvider.getTestTable());
 	}
 
 	/**
@@ -133,7 +93,7 @@ public class ServerController {
 	 */
 	public int getNumberQuestionsInTest(User student, int idTest) {
 		return new StudentController(student).getNumberQuestionsInTest(idTest,
-				testBase);
+				daoProvider.getTestTable());
 	}
 
 	/**
@@ -143,7 +103,7 @@ public class ServerController {
 	 * @return List<Test> 	the list tests
 	 */
 	public List<Test> getTestsForTeacher(User teacher) {
-		return new TeacherController(teacher).getTests(testBase);
+		return new TeacherController(teacher).getTests(daoProvider.getTestTable());
 	}
 
 	/**
@@ -154,7 +114,7 @@ public class ServerController {
 	 * @return Test 	the test
 	 */
 	public Test getTestResultForTeacher(User teacher, int idTest) {
-		return new TeacherController(teacher).getTestResult(idTest, testBase);
+		return new TeacherController(teacher).getTestResult(idTest, daoProvider.getTestTable());
 	}
 
 	/**
@@ -165,7 +125,7 @@ public class ServerController {
 	 */
 	public List<User> getAllUsersForAdmin(User admin) {
 		return new AdministratorController(admin)
-				.getAllUsers(new UserBaseController(userBase).getUserBase());
+				.getAllUsers(new UserTableProvider(daoProvider.getUserTable()).getUserBase());
 	}
 
 	/**
@@ -175,7 +135,7 @@ public class ServerController {
 	 * @return List<User> 	the list students
 	 */
 	public List<User> getStudentsForAdmin(User admin) {
-		return new AdministratorController(admin).getUsersByType(Student.nameModel, userBase);
+		return new AdministratorController(admin).getUsersByType(Student.nameModel, daoProvider.getUserTable());
 	}
 
 	/**
@@ -185,7 +145,7 @@ public class ServerController {
 	 * @return List<User> 	the list of teachers
 	 */
 	public List<User> getTeachersForAdmin(User admin) {
-		return new AdministratorController(admin).getUsersByType(Teacher.nameModel, userBase);
+		return new AdministratorController(admin).getUsersByType(Teacher.nameModel, daoProvider.getUserTable());
 	}
 
 	/**
@@ -195,20 +155,20 @@ public class ServerController {
 	 * @return List<User> 	the list of administrators
 	 */
 	public List<User> getAdminsForAdmin(User admin) {
-		return new AdministratorController(admin).getUsersByType(Administrator.nameModel, userBase);
+		return new AdministratorController(admin).getUsersByType(Administrator.nameModel, daoProvider.getUserTable());
 	}
 	
 	public int getRatingUser(User student) {
-		return RatingCalculator.getRatingStudent(student, testBase);
+		return RatingCalculator.getRatingStudent(student, daoProvider.getTestTable());
 	}
 	
 	public HashMap<User, Integer> getRatingGroup(String nameGroup){
-		Group group = new GroupBaseController(groupBase).getGroupByName(nameGroup);
-		return RatingCalculator.getRatingGroup(group, testBase, userBase);
+		Group group = new GroupTableProvider(daoProvider.getGroupTable()).getGroupByName(nameGroup);
+		return RatingCalculator.getRatingGroup(group, daoProvider.getTestTable(), daoProvider.getUserTable());
 	}
 
 	private void loadTest() {
-		UserBaseController userBaseController=new UserBaseController(userBase);
+		UserTableProvider userBaseController=new UserTableProvider(daoProvider.getUserTable());
 		User admin1 = AdministratorController.getNewAdministrator("Примарев", 
 				"Игорь", this, "Admin1", "0000");
 		userBaseController.addUser(admin1);
@@ -247,9 +207,9 @@ public class ServerController {
 		tests.add(test2);
 		tests.add(test3);
 
-		new TestBaseController(testBase).addTests(tests);
+		new TestTableProvider(daoProvider.getTestTable()).addTests(tests);
 
-		GroupBaseController groupBaseController = new GroupBaseController(groupBase);
+		GroupTableProvider groupBaseController = new GroupTableProvider(daoProvider.getGroupTable());
 		Group g1 = GroupController.getNewGroup("Group 1");
 		groupBaseController.addGroup(g1);
 		User student1 = StudentController.getNewStudent("Шахматов", "Антон", this, "ShAnton", "1111", g1);

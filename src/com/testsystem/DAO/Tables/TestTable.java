@@ -1,31 +1,31 @@
-package com.testsystem.models;
+package com.testsystem.DAO.Tables;
 
 import java.util.List;
 
+import com.testsystem.models.Test;
+
 /**
- * Represents a database containing tests.
+ * Represents a table containing tests.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class TestBase {
+public class TestTable {
 	
 	private List<Test> tests;
 
 	/**
-	 * Creates a TestBaseModel.
+	 * Creates a TestTable.
 	 */
-	public TestBase() {
-		// setTests(tests);
-	}
+	public TestTable() {}
 
 	/**
-	 * Creates a TestBaseModel.
+	 * Creates a TestTable.
 	 * 
 	 * @param tests the list of tests
 	 */
-	public TestBase(List<Test> tests) {
+	public TestTable(List<Test> tests) {
 		this.tests = tests;
 	}
 

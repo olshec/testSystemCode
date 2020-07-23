@@ -3,16 +3,18 @@ package tests;
 import static org.junit.Assert.*;
 import java.util.List;
 import org.junit.Test;
+
+import com.testsystem.DAO.Tables.GroupTable;
+import com.testsystem.DAO.Tables.TestTable;
+import com.testsystem.DAO.Tables.UserTable;
 import com.testsystem.controller.AdministratorController;
 import com.testsystem.controller.TeacherController;
 import com.testsystem.controller.TestController;
 import com.testsystem.models.Administrator;
-import com.testsystem.models.GroupBase;
 import com.testsystem.models.Student;
 import com.testsystem.models.Teacher;
-import com.testsystem.models.TestBase;
 import com.testsystem.models.User;
-import com.testsystem.models.UserBase;
+
 import tests.mocks.Server;
 
 public class TestServer {
@@ -35,19 +37,19 @@ public class TestServer {
 
 	@Test
 	public void testCountTests() {
-		TestBase testBase = serverController.getTestBase();
+		TestTable testBase = serverController.getDaoProvider().getTestTable();
 		assertEquals(testBase.getTests().size(), 3);
 	}
 
 	@Test
 	public void testCountUsers() {
-		UserBase userBase = serverController.getUserBase();
+		UserTable userBase = serverController.getDaoProvider().getUserTable();
 		assertEquals(userBase.getUsers().size(), 6);
 	}
 
 	@Test
 	public void testCountGroups() {
-		GroupBase groupBase = serverController.getGroupBase();
+		GroupTable groupBase = serverController.getDaoProvider().getGroupTable();
 		assertEquals(groupBase.getGroups().size(), 2);
 	}
 
@@ -66,9 +68,9 @@ public class TestServer {
 
 	@Test
 	public void testGetTestInfoForStudent() {
-		com.testsystem.models.Test test1 = serverController.getTestBase().getTests().get(0);
+		com.testsystem.models.Test test1 = serverController.getDaoProvider().getTestTable().getTests().get(0);
 		com.testsystem.controller.TestController testController = new TestController(test1);
-		com.testsystem.models.Test test2 = serverController.getTestBase().getTests().get(1);
+		com.testsystem.models.Test test2 = serverController.getDaoProvider().getTestTable().getTests().get(1);
 		com.testsystem.controller.TestController testController2 = new TestController(test2);
 		String lastNameTeacher = testController.getTest().getTeacher().getLastName();
 
@@ -91,14 +93,14 @@ public class TestServer {
 	@Test
 	public void testGetTestsForTeacher() {
 		List<com.testsystem.models.Test> listTest = new TeacherController(teacher1)
-				.getTests(serverController.getTestBase());
+				.getTests(serverController.getDaoProvider().getTestTable());
 
 		assertEquals(listTest.size(), 3);
 	}
 
 	@Test
 	public void testGetAllUsersForAdmin() {
-		List<User> listUser = new AdministratorController(admin1).getAllUsers(serverController.getUserBase());
+		List<User> listUser = new AdministratorController(admin1).getAllUsers(serverController.getDaoProvider().getUserTable());
 
 		assertEquals(listUser.size(), 6);
 	}
@@ -106,7 +108,7 @@ public class TestServer {
 	@Test
 	public void testGetStudentsForAdmin() {
 		List<User> listUser = new AdministratorController(admin1).getUsersByType(Student.nameModel,
-				serverController.getUserBase());
+				serverController.getDaoProvider().getUserTable());
 
 		assertEquals(listUser.size(), 4);
 	}
@@ -114,7 +116,7 @@ public class TestServer {
 	@Test
 	public void testGetTeachersForAdmin() {
 		List<User> listUser = new AdministratorController(admin1).getUsersByType(Teacher.nameModel,
-				serverController.getUserBase());
+				serverController.getDaoProvider().getUserTable());
 
 		assertEquals(listUser.size(), 1);
 	}
@@ -122,7 +124,7 @@ public class TestServer {
 	@Test
 	public void testGetAdminsForAdmin() {
 		List<User> listUser = new AdministratorController(admin1).getUsersByType(Administrator.nameModel,
-				serverController.getUserBase());
+				serverController.getDaoProvider().getUserTable());
 
 		assertEquals(listUser.size(), 1);
 	}

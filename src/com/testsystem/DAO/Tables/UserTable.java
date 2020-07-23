@@ -1,32 +1,34 @@
-package com.testsystem.models;
+package com.testsystem.DAO.Tables;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.models.User;
+
 /**
- * Represents a database user.
+ * Represents a table user.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class UserBase {
+public class UserTable {
 	
 	private List<User> users;
 
 	/**
-	 * Creates a UserBase.
+	 * Creates a UserTable.
 	 */
-	public UserBase() {
+	public UserTable() {
 		users = new ArrayList<User>();
 	}
 
 	/**
-	 * Creates a UserBase.
+	 * Creates a UserTable.
 	 * 
 	 * @param users the list of User
 	 */
-	public UserBase(List<User> users) {
+	public UserTable(List<User> users) {
 		super();
 		this.users = users;
 	}

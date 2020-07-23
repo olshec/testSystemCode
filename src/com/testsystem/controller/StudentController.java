@@ -5,10 +5,11 @@ package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.testsystem.DAO.Tables.TestTable;
 import com.testsystem.models.Group;
 import com.testsystem.models.Student;
 import com.testsystem.models.Test;
-import com.testsystem.models.TestBase;
 import com.testsystem.models.User;
 
 /**
@@ -43,7 +44,7 @@ public class StudentController extends UserController {
 	 * @param testBase 	the database of test
 	 * @return 			the all tests of student
 	 */
-	public List<Test> getTests(TestBase testBase) {
+	public List<Test> getTests(TestTable testBase) {
 		List<Test> testsStudent = new ArrayList<Test>();
 		for (int i = 0; i < testBase.getTests().size(); i++) {
 			TestController testController = new TestController(testBase.getTests().get(i));
@@ -61,7 +62,7 @@ public class StudentController extends UserController {
 	 * @param testBase 	the database of student
 	 * @return 			the model of test
 	 */
-	public Test getTestInfo(int idTest, TestBase testBase) {
+	public Test getTestInfo(int idTest, TestTable testBase) {
 		Test test = testBase.getTests().get(idTest);
 		TestController testController = new TestController(test);
 		if (test != null && testController.hasStudent(this.getUser())) {
@@ -77,7 +78,7 @@ public class StudentController extends UserController {
 	 * @param testBase 	the tests' database.
 	 * @return 			the number of tests.
 	 */
-	public int getNumberQuestionsInTest(int idTest, TestBase testBase) {
+	public int getNumberQuestionsInTest(int idTest, TestTable testBase) {
 		if (idTest >= testBase.getTests().size() || idTest < 0) {
 			return -1;
 		}

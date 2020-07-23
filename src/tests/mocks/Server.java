@@ -3,16 +3,16 @@ package tests.mocks;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.DAO.Providers.GroupTableProvider;
+import com.testsystem.DAO.Providers.TestTableProvider;
+import com.testsystem.DAO.Providers.UserTableProvider;
 import com.testsystem.controller.AdministratorController;
-import com.testsystem.controller.GroupBaseController;
 import com.testsystem.controller.GroupController;
 import com.testsystem.controller.QuestionController;
 import com.testsystem.controller.ServerController;
 import com.testsystem.controller.StudentController;
 import com.testsystem.controller.TeacherController;
-import com.testsystem.controller.TestBaseController;
 import com.testsystem.controller.TestController;
-import com.testsystem.controller.UserBaseController;
 import com.testsystem.models.Group;
 import com.testsystem.models.Question;
 import com.testsystem.models.Test;
@@ -21,15 +21,13 @@ import com.testsystem.models.User;
 public class Server extends ServerController {
 
 	public Server()  {
-		getTestBase().getTests().clear();
-		getUserBase().getUsers().clear();
-		getGroupBase().getGroups().clear();
-		
+		super();
+		getDaoProvider().clear();
 		loadTest();
 	}
 
 	private void loadTest() {
-		UserBaseController userBaseController=new UserBaseController(getUserBase());
+		UserTableProvider userBaseController=new UserTableProvider(getDaoProvider().getUserTable());
 		User admin1 = AdministratorController.getNewAdministrator("Примарев", 
 				"Игорь", this, "Admin1", "0000");
 		userBaseController.addUser(admin1);
@@ -68,9 +66,9 @@ public class Server extends ServerController {
 		tests.add(test2);
 		tests.add(test3);
 
-		new TestBaseController(getTestBase()).addTests(tests);
+		new TestTableProvider(getDaoProvider().getTestTable()).addTests(tests);
 
-		GroupBaseController groupBaseController = new GroupBaseController(getGroupBase());
+		GroupTableProvider groupBaseController = new GroupTableProvider(getDaoProvider().getGroupTable());
 		Group g1 = GroupController.getNewGroup("Group 1");
 		groupBaseController.addGroup(g1);
 		User student1 = StudentController.getNewStudent("Шахматов", "Антон", this, "ShAnton", "1111", g1);

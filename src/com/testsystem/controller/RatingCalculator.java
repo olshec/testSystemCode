@@ -7,11 +7,12 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import com.testsystem.DAO.Tables.TestTable;
+import com.testsystem.DAO.Tables.UserTable;
 import com.testsystem.models.Group;
 import com.testsystem.models.Test;
-import com.testsystem.models.TestBase;
 import com.testsystem.models.User;
-import com.testsystem.models.UserBase;
 
 /**
  * Represents a RatingCalculator.
@@ -37,7 +38,7 @@ public class RatingCalculator {
 	 * @param testBase 	the database of test
 	 * @return int 		the rating of student
 	 */
-	public static int getRatingStudent(User student, TestBase testBase) {
+	public static int getRatingStudent(User student, TestTable testBase) {
 		StudentController stController = new StudentController(student);
 		List<Test> listTest = stController.getTests(testBase);
 		int point = 0;
@@ -55,7 +56,7 @@ public class RatingCalculator {
 	 * @param testBase 						the database of test
 	 * @return HashMap<User, Integer> 		the rating of student
 	 */
-	public static HashMap<User, Integer> getRatingGroup(Group group, TestBase testBase, UserBase userBase) {
+	public static HashMap<User, Integer> getRatingGroup(Group group, TestTable testBase, UserTable userBase) {
 		List<User> listStudent = GroupController.getStudentByGroup(userBase, group);
 		HashMap<User, Integer> groupRating=new HashMap<User, Integer>();
 		for(int i=0;i<listStudent.size();i++) {

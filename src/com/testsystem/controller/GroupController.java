@@ -3,10 +3,11 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.DAO.Providers.UserTableProvider;
+import com.testsystem.DAO.Tables.UserTable;
 import com.testsystem.models.Group;
 import com.testsystem.models.Student;
 import com.testsystem.models.User;
-import com.testsystem.models.UserBase;
 
 /**
  * Represents a GroupBaseController.
@@ -63,8 +64,8 @@ public class GroupController {
 	 * 
 	 * @param userBase the database of user
 	 */
-	public static List<User> getStudentByGroup(UserBase userBase, Group group) {
-		List<User> listStudentInBase = new UserBaseController(userBase)
+	public static List<User> getStudentByGroup(UserTable userBase, Group group) {
+		List<User> listStudentInBase = new UserTableProvider(userBase)
 				.getUsersByType(Student.nameModel);
 		List<User> listStudent = new ArrayList<User>();
 		for (int i = 0; i < listStudentInBase.size(); i++) {

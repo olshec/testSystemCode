@@ -6,9 +6,9 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.DAO.Tables.TestTable;
 import com.testsystem.models.Teacher;
 import com.testsystem.models.Test;
-import com.testsystem.models.TestBase;
 import com.testsystem.models.User;
 
 /**
@@ -43,7 +43,7 @@ public class TeacherController extends UserController {
 	 * @param testBase 	the database of tests
 	 * @return 			the all tests of teacher
 	 */
-	public List<Test> getTests(TestBase testBase) {
+	public List<Test> getTests(TestTable testBase) {
 		ArrayList<Test> masTests = new ArrayList<Test>();
 		for (int i = 0; i < testBase.getTests().size(); i++) {
 			TestController testController = new TestController(testBase.getTests().get(i));
@@ -61,7 +61,7 @@ public class TeacherController extends UserController {
 	 * @param testBase 	the database
 	 * @return Test 	the model of tests
 	 */
-	public Test getTestResult(int idTest, TestBase testBase) {
+	public Test getTestResult(int idTest, TestTable testBase) {
 
 		if (idTest >= 0 && idTest < this.getTests(testBase).size()) {
 			return this.getTests(testBase).get(idTest);
