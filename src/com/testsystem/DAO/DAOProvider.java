@@ -19,8 +19,6 @@ public class DAOProvider {
 	
 	/**
 	 * Creates a DAOProvider.
-	 * 
-	 * @param groupTable
 	 */
 	public DAOProvider() {
 		setTestTable(new TestTable());
