@@ -32,9 +32,8 @@ public class ModScanner {
 	 * Closes scanner.
 	 */
 	public static void close() {
-		if (scanner == null) {
-			scanner = new Scanner(System.in);
+		if (scanner != null) {
+			scanner.close();
 		}
-		scanner.close();
 	}
 }
