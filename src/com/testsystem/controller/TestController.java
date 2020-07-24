@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
 import com.testsystem.models.Question;
+import com.testsystem.models.StudentTestResult;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
 
@@ -155,7 +156,7 @@ public class TestController {
 	 * @param points  the student point
 	 */
 	public void addResult(User student, int points) {
-		test.getStudentResult().put(student, points);
+		test.getStudentResult().add(new StudentTestResult(student, points));
 	}
 
 	/**
@@ -165,7 +166,7 @@ public class TestController {
 	 * @return 	the true if test student has this test. Otherwise returns false.
 	 */
 	public boolean hasStudent(User student) {
-		return test.getStudentResult().containsKey(student);
+		return test.getStudentResult().getStudent(student);
 	}
 
 	/**
@@ -183,7 +184,7 @@ public class TestController {
 	 * @param user the user for add to test
 	 */
 	public void addStudent(User user) {
-		test.getStudentResult().put(user, -1);
+		test.getStudentResult().add(new StudentTestResult(user, -1));
 	}
 
 	/**
@@ -205,16 +206,7 @@ public class TestController {
 	 * @return students the list of students
 	 */
 	public List<User> getStudents() {
-		return new ArrayList<User>(test.getStudentResult().keySet());
-	}
-
-	/**
-	 * Gets the result of tests.
-	 * 
-	 * @return List<Integer> the results of test
-	 */
-	public List<Integer> getResults() {
-		return new ArrayList<Integer>(test.getStudentResult().values());
+		return new ArrayList<User>(test.getStudents());
 	}
 
 	/**

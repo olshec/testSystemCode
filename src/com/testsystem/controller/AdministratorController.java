@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
-import com.testsystem.DAO.Tables.UserTable;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.User;
 

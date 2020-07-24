@@ -1,16 +1,12 @@
 package com.testsystem.controller;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
-import com.testsystem.DAO.DAOProvider;
-import com.testsystem.DAO.Tables.TestTable;
 import com.testsystem.models.Group;
+import com.testsystem.models.StudentTestResult;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
 
@@ -26,68 +22,56 @@ public class RatingCalculator {
 	/**
 	 * Creates a RatingCalculator.
 	 */
-	private RatingCalculator() {}
+	private RatingCalculator() {
+	}
 
 	/**
-	 * Gets rating for student. 
-	 * Max_range = 10.
-	 * Max_point = count_question*5.
-	 * Rating of student = (point*100/(count_question*Max_point))/Max_range = (point*2/(count_question)).
+	 * Gets rating for student. Max_range = 10. Max_point = count_question*5. Rating
+	 * of student = (point*100/(count_question*Max_point))/Max_range =
+	 * (point*2/(count_question)).
 	 * 
-	 * @param student 	the student
-	 * @param testBase 	the database of test
-	 * @return int 		the rating of student
+	 * @param student  the student
+	 * @param listTest the list of test
+	 * @return int the rating of student
 	 */
-	public static int getRatingStudent(User student, TestTable testBase) {
-		StudentController stController = new StudentController(student);
-		List<Test> listTest = stController.getTests(testBase);
+	public static int getRatingStudent(User student, List<Test> listTest) {
 		int point = 0;
 		for (int i = 0; i < listTest.size(); i++) {
-			point += listTest.get(i).getStudentResult(student);
+			point += listTest.get(i).getStudentResult(student).getResult();
 		}
 		int rating = point * 2 / listTest.size();
 		return rating;
 	}
-	
+
 	/**
-	 * Gets rating for group. 
+	 * Gets rating for group.
 	 * 
-	 * @param student						the student
-	 * @param testBase 						the database of test
-	 * @return HashMap<User, Integer> 		the rating of student
+	 * @param student  the student
+	 * @param testBase the database of test
+	 * @return HashMap<User, Integer> the rating of student
 	 */
-	public static HashMap<User, Integer> getRatingGroup(Group group, DAOProvider daoProvider) {
-		List<User> listStudent = new GroupController(daoProvider).getStudentByGroup(group);
-		HashMap<User, Integer> groupRating=new HashMap<User, Integer>();
-		for(int i=0;i<listStudent.size();i++) {
-			groupRating.put(listStudent.get(i), 
-					RatingCalculator.getRatingStudent(listStudent.get(i),daoProvider.getTestTable()));
+	public static List<StudentTestResult> getRatingGroup(Group group, List<User> listStudent, List<Test> listTest) {
+		// List<User> listStudent = new
+		// GroupController(daoProvider).getStudentByGroup(group);
+		List<StudentTestResult> groupRating = new ArrayList<StudentTestResult>();
+		for (int i = 0; i < listStudent.size(); i++) {
+			User student = listStudent.get(i);
+			groupRating.add(new StudentTestResult(student, RatingCalculator.getRatingStudent(student, listTest)));
 		}
 		groupRating = sortByValue(groupRating);
-		return groupRating;    	
+		return groupRating;
 	}
+
+	// function to sort hashmap by values
+	private static List<StudentTestResult> sortByValue(List<StudentTestResult> listStudentResult) {
 	
-	// function to sort hashmap by values 
-    private static HashMap<User, Integer> sortByValue(HashMap<User, Integer> hm) 
-    { 
-        // Create a list from elements of HashMap 
-        List<Map.Entry<User, Integer> > list = 
-               new LinkedList<Map.Entry<User, Integer> >(hm.entrySet()); 
-  
-        // Sort the list 
-        Collections.sort(list, new Comparator<Map.Entry<User, Integer> >() { 
-            public int compare(Map.Entry<User, Integer> o1,  
-                               Map.Entry<User, Integer> o2) 
-            { 
-                return (o2.getValue().compareTo(o1.getValue())); 
-            } 
-        }); 
-          
-        // put data from sorted list to hashmap  
-        HashMap<User, Integer> temp = new LinkedHashMap<User, Integer>(); 
-        for (Map.Entry<User, Integer> aa : list) { 
-            temp.put(aa.getKey(), aa.getValue()); 
-        } 
-        return temp; 
-    } 
+		Collections.sort(listStudentResult, new Comparator<StudentTestResult>() {
+			@Override
+			public int compare(StudentTestResult o1, StudentTestResult o2) {
+				return (o2.getResult().compareTo(o1.getResult()));
+			}
+		});
+		
+		return listStudentResult;
+	}
 }

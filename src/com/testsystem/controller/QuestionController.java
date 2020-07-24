@@ -19,7 +19,6 @@ public class QuestionController {
 	 * Creates a QuestionController.
 	 */
 	public QuestionController() {}
-
 	
 	/**
 	 * Gets new Question.
@@ -40,8 +39,7 @@ public class QuestionController {
 	/**
 	 * Set text question.
 	 * 
-	 * @param text       the text question
-	 * @param idQuestion the ID question
+	 * @param text the text question
 	 */
 	public void setText(String text) {
 		question.setText(text);
@@ -50,8 +48,7 @@ public class QuestionController {
 	/**
 	 * Gets answers to a question.
 	 * 
-	 * @param idQuestion 	the index question
-	 * @return 				the answers
+	 * @return the answers
 	 */
 	public List<Answer> getAnswers() {
 		return question.getAnswers();
@@ -60,7 +57,7 @@ public class QuestionController {
 	/**
 	 * Set answers.
 	 * 
-	 * @param answers    the answers
+	 * @param answers the answers
 	 */
 	public void setAnswers(List<Answer> answers) {
 		question.setAnswers(answers);

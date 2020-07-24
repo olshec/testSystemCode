@@ -16,7 +16,7 @@ public class Test {
 	private String name;
 	private User teacher;
 	private List<Question> questions;
-	private HashMap<User, Integer> studentsResult;
+	private List<StudentTestResult> studentsResult;
 	
 	/**
 	 * Creates a TestModel.
@@ -37,7 +37,7 @@ public class Test {
 	
 	private void init() {
 		setQuestions(new ArrayList<Question>());
-		setStudentResult(new HashMap<User, Integer>());
+		setStudentResult(new ArrayList<StudentTestResult>());
 	}
 	
 	/**
@@ -99,7 +99,7 @@ public class Test {
 	 * 
 	 * @return the result of students
 	 */
-	public HashMap<User, Integer> getStudentResult() {
+	public List<StudentTestResult> getStudentResult() {
 		return studentsResult;
 	}
 
@@ -108,7 +108,7 @@ public class Test {
 	 * 
 	 * @param studentResult the result of students to set
 	 */
-	public void setStudentResult(HashMap<User, Integer> studentResult) {
+	public void setStudentResult(List<StudentTestResult> studentResult) {
 		this.studentsResult = studentResult;
 	}
 	
@@ -117,7 +117,12 @@ public class Test {
 	 * 
 	 * @return the result of student
 	 */
-	public int getStudentResult(User student) {
-		return studentsResult.get(student);
+	public StudentTestResult getStudentResult(User student) {
+		for (StudentTestResult st : studentsResult) {
+			if(student.equals(st)) {
+				return st;
+			}
+		}
+		return null;
 	}
 }

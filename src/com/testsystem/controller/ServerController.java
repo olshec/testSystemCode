@@ -1,7 +1,6 @@
 package com.testsystem.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
@@ -9,6 +8,7 @@ import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;
 import com.testsystem.models.Question;
 import com.testsystem.models.Student;
+import com.testsystem.models.StudentTestResult;
 import com.testsystem.models.Teacher;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
@@ -155,12 +155,15 @@ public class ServerController {
 	}
 	
 	public int getRatingUser(User student) {
-		return RatingCalculator.getRatingStudent(student, daoProvider.getTestTable());
+		return RatingCalculator.getRatingStudent(student, daoProvider.getTestTable().getTests());
 	}
 	
-	public HashMap<User, Integer> getRatingGroup(String nameGroup){
+	public List<StudentTestResult> getRatingGroup(String nameGroup){
 		Group group = GroupController.getGroupByName(nameGroup, daoProvider.getGroupTable());
-		return RatingCalculator.getRatingGroup(group, daoProvider);
+		List<StudentTestResult> ratingGroup = RatingCalculator.getRatingGroup(group, new GroupController(daoProvider)
+				.getStudentsByGroup(group), daoProvider.getTestTable().getTests());
+		
+		return ratingGroup;
 	}
 
 	private void loadTest() {
@@ -249,5 +252,9 @@ public class ServerController {
 		testController.addResult(student2, 4);
 		testController.addResult(student3, 5);
 		testController.addResult(student4, 3);
+		
+		List<StudentTestResult> res = getRatingGroup("Group 2");
+		int resSt1 = res.get(0).getResult();
+		resSt1 += 10000;
 	}
 }

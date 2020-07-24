@@ -50,6 +50,24 @@ public class GroupController {
 	}
 	
 	/**
+	 * Gets group.
+	 * 
+	 * @return the group
+	 */
+	public Group getGroup() {
+		return group;
+	}
+
+	/**
+	 * Sets group.
+	 * 
+	 * @param group the group to set
+	 */
+	public void setGroup(Group group) {
+		this.group = group;
+	}
+	
+	/**
 	 * Gets DAOProvider.
 	 * 
 	 * @return the DAOProvider
@@ -79,7 +97,7 @@ public class GroupController {
 	 * 
 	 * @param group the group of user
 	 */
-	public List<User> getStudentByGroup(Group group) {
+	public List<User> getStudentsByGroup(Group group) {
 		List<User> listStudentInBase = new UserController(daoProvider)
 				.getUsersByType(Student.nameModel);
 		List<User> listStudent = new ArrayList<User>();
@@ -122,23 +140,5 @@ public class GroupController {
 			}
 		}
 		return null;
-	}
-	
-	/**
-	 * Gets group.
-	 * 
-	 * @return the group
-	 */
-	public Group getGroup() {
-		return group;
-	}
-
-	/**
-	 * Sets group.
-	 * 
-	 * @param group the group to set
-	 */
-	public void setGroup(Group group) {
-		this.group = group;
 	}
 }
