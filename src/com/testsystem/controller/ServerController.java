@@ -13,6 +13,7 @@ import com.testsystem.models.StudentTestResult;
 import com.testsystem.models.Teacher;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
+import com.testsystem.util.ServiceLocator;
 
 /**
  * Represents a server controller.
@@ -30,6 +31,7 @@ public class ServerController {
 	 */
 	public ServerController() {
 		daoProvider = new DAOProvider();
+		ServiceLocator.setDaoProvider(daoProvider);
 		loadTest();
 	}
 
