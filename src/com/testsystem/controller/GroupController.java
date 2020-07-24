@@ -67,16 +67,7 @@ public class GroupController {
 	public void setGroup(Group group) {
 		this.group = group;
 	}
-	
-	/**
-	 * Gets DAOProvider.
-	 * 
-	 * @return the DAOProvider
-	 */
-	public DAOProvider getDaoProvider() {
-		return daoProvider;
-	}
-	
+
 	/**
 	 * Sets DAOProvider.
 	 * 
@@ -115,8 +106,9 @@ public class GroupController {
 	 * 
 	 * @param String the name of group to create and add
 	 */
-	public static void addGroup(String name, GroupTable groupTable) {
-		Group group = new Group(name);
+	public void addGroup(String name) {
+		Group group = GroupController.getNewGroup(name);
+		GroupTable groupTable = daoProvider.getGroupTable();
 		groupTable.getGroups().add(group);
 	}
 
@@ -125,7 +117,8 @@ public class GroupController {
 	 * 
 	 * @param group the group to add
 	 */
-	public static void addGroup(Group group, GroupTable groupTable) {
+	public void addGroup(Group group) {
+		GroupTable groupTable = daoProvider.getGroupTable();
 		groupTable.getGroups().add(group);
 	}
 
@@ -134,10 +127,11 @@ public class GroupController {
 	 * 
 	 * @param name the name of group
 	 */
-	public static Group getGroupByName(String name, GroupTable groupTable) {
-		for (int i = 0; i < groupTable.getGroups().size(); i++) {
-			if (groupTable.getGroups().get(i).getName().equals(name)) {
-				return groupTable.getGroups().get(i);
+	public Group getGroupByName(String name) {
+		List<Group> listGroup = daoProvider.getGroupTable().getGroups();
+		for (int i = 0; i < listGroup.size(); i++) {
+			if (listGroup.get(i).getName().equals(name)) {
+				return listGroup.get(i);
 			}
 		}
 		return null;

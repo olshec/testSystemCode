@@ -2,10 +2,12 @@ package com.testsystem.util;
 
 import com.testsystem.DAO.DAOProvider;
 import com.testsystem.controller.AdministratorController;
+import com.testsystem.controller.GroupController;
 import com.testsystem.controller.StudentController;
 import com.testsystem.controller.TeacherController;
 import com.testsystem.controller.TestController;
 import com.testsystem.controller.UserController;
+import com.testsystem.models.Group;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
 
@@ -29,6 +31,20 @@ public class ServiceLocator {
 		ServiceLocator.daoProvider = daoProvider;
 	}
 
+	/**
+	 * @return the testController
+	 */
+	public static GroupController getGroupController() {
+		return new GroupController(daoProvider);
+	}
+	
+	/**
+	 * @return the testController
+	 */
+	public static GroupController getGroupController(Group group) {
+		return new GroupController(group, daoProvider);
+	}
+	
 	/**
 	 * @return the testController
 	 */

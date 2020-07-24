@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
+import com.testsystem.DAO.Tables.TestTable;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;
 import com.testsystem.models.Question;
@@ -69,7 +70,7 @@ public class ServerController {
 	 * @return List<Test> 	the list tests
 	 */
 	public List<Test> getTestsForStudent(User student) {
-		return ServiceLocator.getStudentController(student).getTests(daoProvider.getTestTable());
+		return ServiceLocator.getStudentController(student).getTests();
 	}
 
 	/**
@@ -80,7 +81,7 @@ public class ServerController {
 	 * @return 			the model of test
 	 */
 	public Test getTestInfoForStudent(User student, int idTest) {
-		return ServiceLocator.getStudentController(student).getTestInfo(idTest, daoProvider.getTestTable());
+		return ServiceLocator.getStudentController(student).getTestInfo(idTest);
 	}
 
 	/**
@@ -91,8 +92,7 @@ public class ServerController {
 	 * @return 			the test
 	 */
 	public int getNumberQuestionsInTest(User student, int idTest) {
-		return ServiceLocator.getStudentController(student).getNumberQuestionsInTest(idTest,
-				daoProvider.getTestTable());
+		return ServiceLocator.getStudentController(student).getNumberQuestionsInTest(idTest);
 	}
 
 	/**
@@ -123,7 +123,7 @@ public class ServerController {
 	 * @return List<User> 	the list all administrators
 	 */
 	public List<User> getAllUsersForAdmin(User admin) {
-		return new UserController(admin, daoProvider).getAllUsers();
+		return ServiceLocator.getUserController(admin).getAllUsers();
 	}
 
 	/**
@@ -161,7 +161,7 @@ public class ServerController {
 	}
 	
 	public List<StudentTestResult> getRatingGroup(String nameGroup){
-		Group group = GroupController.getGroupByName(nameGroup, daoProvider.getGroupTable());
+		Group group = ServiceLocator.getGroupController().getGroupByName(nameGroup);
 		List<StudentTestResult> ratingGroup = RatingCalculator.getRatingGroup(group, new GroupController(daoProvider)
 				.getStudentsByGroup(group),daoProvider);
 		
@@ -211,12 +211,12 @@ public class ServerController {
 		ServiceLocator.getTestController().addTests(tests);
 
 		Group g1 = GroupController.getNewGroup("Group 1");
-		GroupController.addGroup(g1,daoProvider.getGroupTable());
+		ServiceLocator.getGroupController().addGroup(g1);
 		User student1 = StudentController.getNewStudent("Шахматов", "Антон", this, "ShAnton", "1111", g1);
 		User student2 = StudentController.getNewStudent("Романенко", "Егор", this, "REgor", "1111", g1);
 		
 		Group g2 = GroupController.getNewGroup("Group 2");
-		GroupController.addGroup(g2,daoProvider.getGroupTable());
+		ServiceLocator.getGroupController().addGroup(g2);
 		User student3 = StudentController.getNewStudent("Сазонова", "Екатерина", this, "Kat", "1111", g2);
 		User student4 = StudentController.getNewStudent("Филонова", "Анна", this, "Anna", "1111", g2);
 
@@ -254,5 +254,8 @@ public class ServerController {
 		testController.addResult(student2, 4);
 		testController.addResult(student3, 5);
 		testController.addResult(student4, 3);
+		
+		//TestTable testBase = getDaoProvider().getTestTable();
+		
 	}
 }

@@ -15,6 +15,7 @@ import com.testsystem.models.Group;
 import com.testsystem.models.Question;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
+import com.testsystem.util.ServiceLocator;
 
 public class Server extends ServerController {
 
@@ -67,12 +68,12 @@ public class Server extends ServerController {
 		new TestController(getDaoProvider()).addTests(tests);
 
 		Group g1 = GroupController.getNewGroup("Group 1");
-		GroupController.addGroup(g1,getDaoProvider().getGroupTable());
+		ServiceLocator.getGroupController().addGroup(g1);
 		User student1 = StudentController.getNewStudent("Шахматов", "Антон", this, "ShAnton", "1111", g1);
 		User student2 = StudentController.getNewStudent("Романенко", "Егор", this, "REgor", "1111", g1);
 		
 		Group g2 = GroupController.getNewGroup("Group 2");
-		GroupController.addGroup(g2,getDaoProvider().getGroupTable());
+		ServiceLocator.getGroupController().addGroup(g2);
 		User student3 = StudentController.getNewStudent("Сазонова", "Екатерина", this, "Kat", "1111", g2);
 		User student4 = StudentController.getNewStudent("Филонова", "Анна", this, "Anna", "1111", g2);
 

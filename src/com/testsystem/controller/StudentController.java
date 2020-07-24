@@ -67,7 +67,8 @@ public class StudentController extends UserController {
 	 * @param testTable 	the database of test
 	 * @return 			the all tests of student
 	 */
-	public List<Test> getTests(TestTable testTable) {
+	public List<Test> getTests() {
+		TestTable testTable = getDaoProvider().getTestTable();
 		List<Test> testsStudent = new ArrayList<Test>();
 		for (int i = 0; i < testTable.getTests().size(); i++) {
 			TestController testController = ServiceLocator.getTestController(testTable.getTests().get(i));
@@ -85,7 +86,8 @@ public class StudentController extends UserController {
 	 * @param testTable 	the database of student
 	 * @return 			the model of test
 	 */
-	public Test getTestInfo(int idTest, TestTable testTable) {
+	public Test getTestInfo(int idTest) {
+		TestTable testTable = getDaoProvider().getTestTable();
 		Test test = testTable.getTests().get(idTest);
 		TestController testController = new TestController(test);
 		if (test != null && testController.hasStudent(this.getUser())) {
@@ -98,17 +100,18 @@ public class StudentController extends UserController {
 	 * Gets student test number questions.
 	 * 
 	 * @param idTest   	the test id.
-	 * @param testBase 	the tests' database.
+	 * @param testTable the table of test.
 	 * @return 			the number of tests.
 	 */
-	public int getNumberQuestionsInTest(int idTest, TestTable testBase) {
-		if (idTest >= testBase.getTests().size() || idTest < 0) {
+	public int getNumberQuestionsInTest(int idTest) {
+		TestTable testTable = getDaoProvider().getTestTable();
+		if (idTest >= testTable.getTests().size() || idTest < 0) {
 			return -1;
 		}
-		Test test = testBase.getTests().get(idTest);
+		Test test = testTable.getTests().get(idTest);
 		TestController testController = new TestController(test);
 		if (test != null && testController.hasStudent(this.getUser())) {
-			return testBase.getTests().get(idTest).getQuestions().size();
+			return testTable.getTests().get(idTest).getQuestions().size();
 		}
 		return -1;
 	}

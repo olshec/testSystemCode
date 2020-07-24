@@ -28,7 +28,7 @@ public class RatingCalculator {
 	}
 
 	/**
-	 * Gets rating for student. Max_range = 10. Max_point = count_question*5. Rating
+	 * Gets rating for student. Max_range = 10. Max_point = count_question * 5. Rating
 	 * of student = (point*100/(count_question*Max_point))/Max_range =
 	 * (point*2/(count_question)).
 	 * 
@@ -52,12 +52,15 @@ public class RatingCalculator {
 	 * @param testBase the database of test
 	 * @return HashMap<User, Integer> the rating of student
 	 */
-	public static List<StudentTestResult> getRatingGroup(Group group, List<User> listStudent, DAOProvider daoProvider) {
+	public static List<StudentTestResult> getRatingGroup(Group group, 
+			List<User> listStudent, DAOProvider daoProvider) {
+		
 		List<StudentTestResult> groupRating = new ArrayList<StudentTestResult>();
 		for (int i = 0; i < listStudent.size(); i++) {
 			User student = listStudent.get(i);
-			groupRating.add(new StudentTestResult(student, RatingCalculator.
-					getRatingStudent(student, ServiceLocator.getTestController().getStudentTests(student))));
+			List<Test> listStudentTests = ServiceLocator.getTestController().getStudentTests(student);
+			int ratingStudent = RatingCalculator.getRatingStudent(student, listStudentTests);
+			groupRating.add(new StudentTestResult(student, ratingStudent));
 		}
 		groupRating = sortByValue(groupRating);
 		return groupRating;
@@ -71,7 +74,7 @@ public class RatingCalculator {
 				return (o2.getResult().compareTo(o1.getResult()));
 			}
 		});
-		
+
 		return listStudentResult;
 	}
 }
