@@ -1,7 +1,5 @@
 package com.testsystem.views;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import com.testsystem.models.StudentTestResult;

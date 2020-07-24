@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
+import com.testsystem.DAO.Tables.TestTable;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;
 import com.testsystem.models.Question;
@@ -158,10 +159,11 @@ public class ServerController {
 		return RatingCalculator.getRatingStudent(student, daoProvider.getTestTable().getTests());
 	}
 	
+	
 	public List<StudentTestResult> getRatingGroup(String nameGroup){
 		Group group = GroupController.getGroupByName(nameGroup, daoProvider.getGroupTable());
 		List<StudentTestResult> ratingGroup = RatingCalculator.getRatingGroup(group, new GroupController(daoProvider)
-				.getStudentsByGroup(group), daoProvider.getTestTable().getTests());
+				.getStudentsByGroup(group),daoProvider);
 		
 		return ratingGroup;
 	}
@@ -253,6 +255,7 @@ public class ServerController {
 		testController.addResult(student3, 5);
 		testController.addResult(student4, 3);
 		
+		TestTable testBase = getDaoProvider().getTestTable();
 		List<StudentTestResult> res = getRatingGroup("Group 2");
 		int resSt1 = res.get(0).getResult();
 		resSt1 += 10000;

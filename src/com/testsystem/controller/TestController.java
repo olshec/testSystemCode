@@ -2,9 +2,11 @@ package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListResourceBundle;
 
 import com.testsystem.DAO.DAOProvider;
 import com.testsystem.models.Question;
+import com.testsystem.models.Student;
 import com.testsystem.models.StudentTestResult;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
@@ -24,7 +26,7 @@ public class TestController {
 	/**
 	 * Creates a TestController.
 	 */
-	//public TestController() {}
+	// public TestController() {}
 
 	/**
 	 * Creates a TestController.
@@ -41,7 +43,7 @@ public class TestController {
 	public TestController(Test test) {
 		this.setTest(test);
 	}
-	
+
 	/**
 	 * Creates a TestController.
 	 */
@@ -67,7 +69,7 @@ public class TestController {
 	public void setTest(Test test) {
 		this.test = test;
 	}
-	
+
 	/**
 	 * Gets DAOProvider.
 	 * 
@@ -76,7 +78,7 @@ public class TestController {
 	public DAOProvider getDaoProvider() {
 		return daoProvider;
 	}
-	
+
 	/**
 	 * Sets DAOProvider.
 	 * 
@@ -85,20 +87,20 @@ public class TestController {
 	public void setDaoProvider(DAOProvider daoProvider) {
 		this.daoProvider = daoProvider;
 	}
-	
+
 	/**
 	 * Gets new Test.
 	 */
 	public static Test getNewTest() {
 		return new Test();
 	}
-	
+
 	/**
 	 * Gets all tests.
 	 * 
 	 * @return the all tests
 	 */
-	public  List<Test> getAllTests() {
+	public List<Test> getAllTests() {
 		return daoProvider.getTestTable().getTests();
 	}
 
@@ -114,8 +116,8 @@ public class TestController {
 	/**
 	 * Gets test.
 	 * 
-	 * @param 	the test id.
-	 * @return 	the TestModel.
+	 * @param the test id.
+	 * @return the TestModel.
 	 */
 	public Test getTest(int idTest) {
 		if (idTest < daoProvider.getTestTable().getTests().size() && idTest >= 0) {
@@ -123,7 +125,7 @@ public class TestController {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Gets new Test.
 	 */
@@ -162,11 +164,35 @@ public class TestController {
 	/**
 	 * Gets result: does the student have a test.
 	 * 
+	 * @param the student.
+	 * @return the true if test student has this test. Otherwise returns false.
+	 */
+	public boolean hasStudent(User student) {
+		for (StudentTestResult st : test.getStudentResult()) {
+			if (st.getStudent().equals(student)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Gets tests for student.
+	 * 
 	 * @param 	the student.
 	 * @return 	the true if test student has this test. Otherwise returns false.
 	 */
-	public boolean hasStudent(User student) {
-		return test.getStudentResult().getStudent(student);
+	public List<Test> getStudentTests(User student) {
+		List<Test> listTest = daoProvider.getTestTable().getTests();
+		List<Test> listTestReturn = new ArrayList<Test>();
+		for (Test test : listTest) {
+			for(int i=0; i < test.getStudentResult().size(); i++) {
+				if(test.getStudentResult().get(i).getStudent().equals(student)) {
+					listTestReturn.add(test);
+				}
+			}
+		}
+		return listTestReturn;
 	}
 
 	/**
@@ -190,8 +216,8 @@ public class TestController {
 	/**
 	 * Gets result: does the teacher have a test.
 	 * 
-	 * @param 	the model of teacher
-	 * @return  the true if test teacher has this test. Otherwise returns false
+	 * @param the model of teacher
+	 * @return the true if test teacher has this test. Otherwise returns false
 	 */
 	public boolean hasTeacher(User teacher) {
 		if (test.getTeacher().getId() == teacher.getId()) {
@@ -206,7 +232,12 @@ public class TestController {
 	 * @return students the list of students
 	 */
 	public List<User> getStudents() {
-		return new ArrayList<User>(test.getStudents());
+		List<User> listStudent = new ArrayList<User>();
+		List<StudentTestResult> listStudentTestResult = test.getStudentResult();
+		for (StudentTestResult studentTestResult : listStudentTestResult) {
+			listStudent.add(studentTestResult.getStudent());
+		}
+		return listStudent;
 	}
 
 	/**

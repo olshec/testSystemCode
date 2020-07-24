@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import com.testsystem.DAO.DAOProvider;
 import com.testsystem.models.Group;
 import com.testsystem.models.StudentTestResult;
 import com.testsystem.models.Test;
@@ -50,19 +51,18 @@ public class RatingCalculator {
 	 * @param testBase the database of test
 	 * @return HashMap<User, Integer> the rating of student
 	 */
-	public static List<StudentTestResult> getRatingGroup(Group group, List<User> listStudent, List<Test> listTest) {
-		// List<User> listStudent = new
-		// GroupController(daoProvider).getStudentByGroup(group);
+	public static List<StudentTestResult> getRatingGroup(Group group, List<User> listStudent, DAOProvider daoProvider) {
 		List<StudentTestResult> groupRating = new ArrayList<StudentTestResult>();
 		for (int i = 0; i < listStudent.size(); i++) {
 			User student = listStudent.get(i);
-			groupRating.add(new StudentTestResult(student, RatingCalculator.getRatingStudent(student, listTest)));
+			groupRating.add(new StudentTestResult(student, RatingCalculator.
+					getRatingStudent(student, new TestController(daoProvider).getStudentTests(student))));
 		}
 		groupRating = sortByValue(groupRating);
 		return groupRating;
 	}
 
-	// function to sort hashmap by values
+	// function to sort arrayList by values
 	private static List<StudentTestResult> sortByValue(List<StudentTestResult> listStudentResult) {
 	
 		Collections.sort(listStudentResult, new Comparator<StudentTestResult>() {

@@ -1,7 +1,6 @@
 package com.testsystem.models;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -119,7 +118,7 @@ public class Test {
 	 */
 	public StudentTestResult getStudentResult(User student) {
 		for (StudentTestResult st : studentsResult) {
-			if(student.equals(st)) {
+			if(st.getStudent().equals((User)student) && st.getResult() != -1) {
 				return st;
 			}
 		}
