@@ -110,18 +110,4 @@ public class Test {
 	public void setStudentResult(List<StudentTestResult> studentResult) {
 		this.studentsResult = studentResult;
 	}
-	
-	/**
-	 * Gets students and their results.
-	 * 
-	 * @return the result of student
-	 */
-	public StudentTestResult getStudentResult(User student) {
-		for (StudentTestResult st : studentsResult) {
-			if(st.getStudent().equals((User)student) && st.getResult() != -1) {
-				return st;
-			}
-		}
-		return null;
-	}
 }

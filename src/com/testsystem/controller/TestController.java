@@ -248,4 +248,18 @@ public class TestController {
 	public void addQuestion(Question question) {
 		test.getQuestions().add(question);
 	}
+	
+	/**
+	 * Gets students and their results.
+	 * 
+	 * @return the result of student
+	 */
+	public StudentTestResult getStudentResult(User student) {
+		for (StudentTestResult st : test.getStudentResult()) {
+			if(st.getStudent().equals((User)student) && st.getResult() != -1) {
+				return st;
+			}
+		}
+		return null;
+	}
 }
