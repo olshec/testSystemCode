@@ -10,6 +10,7 @@ import com.testsystem.models.Group;
 import com.testsystem.models.StudentTestResult;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
+import com.testsystem.util.ServiceLocator;
 
 /**
  * Represents a RatingCalculator.
@@ -38,7 +39,7 @@ public class RatingCalculator {
 	public static int getRatingStudent(User student, List<Test> listTest) {
 		int point = 0;
 		for (int i = 0; i < listTest.size(); i++) {
-			point +=new TestController(listTest.get(i)).getStudentResult(student).getResult();
+			point += ServiceLocator.getTestController(listTest.get(i)).getStudentResult(student).getResult();
 		}
 		int rating = point * 2 / listTest.size();
 		return rating;
@@ -56,7 +57,7 @@ public class RatingCalculator {
 		for (int i = 0; i < listStudent.size(); i++) {
 			User student = listStudent.get(i);
 			groupRating.add(new StudentTestResult(student, RatingCalculator.
-					getRatingStudent(student, new TestController(daoProvider).getStudentTests(student))));
+					getRatingStudent(student, ServiceLocator.getTestController().getStudentTests(student))));
 		}
 		groupRating = sortByValue(groupRating);
 		return groupRating;
@@ -64,7 +65,6 @@ public class RatingCalculator {
 
 	// function to sort arrayList by values
 	private static List<StudentTestResult> sortByValue(List<StudentTestResult> listStudentResult) {
-	
 		Collections.sort(listStudentResult, new Comparator<StudentTestResult>() {
 			@Override
 			public int compare(StudentTestResult o1, StudentTestResult o2) {

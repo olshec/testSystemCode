@@ -37,6 +37,4 @@ public class StudentTestResult {
 	public void setResult(Integer result) {
 		this.result = result;
 	}
-
-	
 }

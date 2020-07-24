@@ -6,10 +6,12 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.DAO.DAOProvider;
 import com.testsystem.DAO.Tables.TestTable;
 import com.testsystem.models.Teacher;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
+import com.testsystem.util.ServiceLocator;
 
 /**
  * TeacherController
@@ -25,10 +27,29 @@ public class TeacherController extends UserController {
 	 * 
 	 * @param user
 	 */
-	public TeacherController(User user) {
-		super(user);
+	public TeacherController(User teacher) {
+		super(teacher);
 	}
 	
+	/**
+	 * Creates a TeacherController.
+	 * 
+	 * @param daoProvider the DAOProvider
+	 */
+	public TeacherController(DAOProvider daoProvider) {
+		super(daoProvider);
+	}
+	
+	/**
+	 * Creates a TeacherController.
+	 * 
+	 * @param user
+	 * @param daoProvider the DAOProvider
+	 */
+	public TeacherController(User user, DAOProvider daoProvider) {
+		super(user, daoProvider);
+	}
+
 	/**
 	 * Gets new teacher.
 	 */
@@ -43,10 +64,11 @@ public class TeacherController extends UserController {
 	 * @param testTable 	the database of tests
 	 * @return 			the all tests of teacher
 	 */
-	public List<Test> getTests(TestTable testTable) {
+	public List<Test> getTests() {
+		TestTable testTable = getDaoProvider().getTestTable();
 		ArrayList<Test> masTests = new ArrayList<Test>();
 		for (int i = 0; i < testTable.getTests().size(); i++) {
-			TestController testController = new TestController(testTable.getTests().get(i));
+			TestController testController = ServiceLocator.getTestController(testTable.getTests().get(i));
 			if (testController.hasTeacher(this.getUser())) {
 				masTests.add(testController.getTest());
 			}
@@ -61,10 +83,10 @@ public class TeacherController extends UserController {
 	 * @param testBase 	the database
 	 * @return Test 	the model of tests
 	 */
-	public Test getTestResult(int idTest, TestTable testBase) {
+	public Test getTestResult(int idTest) {
 
-		if (idTest >= 0 && idTest < this.getTests(testBase).size()) {
-			return this.getTests(testBase).get(idTest);
+		if (idTest >= 0 && idTest < this.getTests().size()) {
+			return this.getTests().get(idTest);
 		}
 		return null;
 	}

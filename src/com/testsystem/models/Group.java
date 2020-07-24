@@ -13,11 +13,6 @@ public class Group {
 	
 	/**
 	 * Creates a Group.
-	 */
-	//public Group() {}
-	
-	/**
-	 * Creates a Group.
 	 * 
 	 * @param name  the name of group.
 	 */

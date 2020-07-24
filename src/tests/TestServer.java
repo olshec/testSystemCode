@@ -7,13 +7,12 @@ import org.junit.Test;
 import com.testsystem.DAO.Tables.GroupTable;
 import com.testsystem.DAO.Tables.TestTable;
 import com.testsystem.DAO.Tables.UserTable;
-import com.testsystem.controller.AdministratorController;
-import com.testsystem.controller.TeacherController;
 import com.testsystem.controller.TestController;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Student;
 import com.testsystem.models.Teacher;
 import com.testsystem.models.User;
+import com.testsystem.util.ServiceLocator;
 
 import tests.mocks.Server;
 
@@ -69,9 +68,9 @@ public class TestServer {
 	@Test
 	public void testGetTestInfoForStudent() {
 		com.testsystem.models.Test test1 = serverController.getDaoProvider().getTestTable().getTests().get(0);
-		com.testsystem.controller.TestController testController = new TestController(test1);
+		TestController testController = new TestController(test1);
 		com.testsystem.models.Test test2 = serverController.getDaoProvider().getTestTable().getTests().get(1);
-		com.testsystem.controller.TestController testController2 = new TestController(test2);
+		TestController testController2 = new TestController(test2);
 		String lastNameTeacher = testController.getTest().getTeacher().getLastName();
 
 		assertEquals(testController.getName(), "Робототехника");
@@ -92,39 +91,37 @@ public class TestServer {
 
 	@Test
 	public void testGetTestsForTeacher() {
-		List<com.testsystem.models.Test> listTest = new TeacherController(teacher1)
-				.getTests(serverController.getDaoProvider().getTestTable());
+		List<com.testsystem.models.Test> listTest = ServiceLocator.getTeacherController(teacher1).getTests();
 
 		assertEquals(listTest.size(), 3);
 	}
 
 	@Test
 	public void testGetAllUsersForAdmin() {
-		List<User> listUser = new AdministratorController(admin1, 
-				serverController.getDaoProvider()).getAllUsers();
+		List<User> listUser = ServiceLocator.getAdministratorController(admin1).getAllUsers();
 
 		assertEquals(listUser.size(), 6);
 	}
 
 	@Test
 	public void testGetStudentsForAdmin() {
-		List<User> listUser = new AdministratorController(admin1, 
-				serverController.getDaoProvider()).getUsersByType(Student.nameModel);
+		List<User> listUser = ServiceLocator.getAdministratorController(admin1)
+				.getUsersByType(Student.nameModel);
 
 		assertEquals(listUser.size(), 4);
 	}
 
 	@Test
 	public void testGetTeachersForAdmin() {
-		List<User> listUser = new AdministratorController(admin1, 
-				serverController.getDaoProvider()).getUsersByType(Teacher.nameModel);
+		List<User> listUser = ServiceLocator.getAdministratorController(admin1)
+				.getUsersByType(Teacher.nameModel);
 
 		assertEquals(listUser.size(), 1);
 	}
 
 	@Test
 	public void testGetAdminsForAdmin() {
-		List<User> listUser = new AdministratorController(admin1, serverController.getDaoProvider())
+		List<User> listUser = ServiceLocator.getAdministratorController(admin1)
 				.getUsersByType(Administrator.nameModel);
 
 		assertEquals(listUser.size(), 1);

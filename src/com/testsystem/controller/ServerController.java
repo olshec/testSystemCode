@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
-import com.testsystem.DAO.Tables.TestTable;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;
 import com.testsystem.models.Question;
@@ -60,7 +59,7 @@ public class ServerController {
 	 * @return User 	the authenticated user
 	 */
 	public User login(String username, String password) {
-		return new UserController(daoProvider).getUser(username, password);
+		return ServiceLocator.getUserController().getUser(username, password);
 	}
 
 	/**
@@ -70,7 +69,7 @@ public class ServerController {
 	 * @return List<Test> 	the list tests
 	 */
 	public List<Test> getTestsForStudent(User student) {
-		return new StudentController(student).getTests(daoProvider.getTestTable());
+		return ServiceLocator.getStudentController(student).getTests(daoProvider.getTestTable());
 	}
 
 	/**
@@ -81,7 +80,7 @@ public class ServerController {
 	 * @return 			the model of test
 	 */
 	public Test getTestInfoForStudent(User student, int idTest) {
-		return new StudentController(student).getTestInfo(idTest, daoProvider.getTestTable());
+		return ServiceLocator.getStudentController(student).getTestInfo(idTest, daoProvider.getTestTable());
 	}
 
 	/**
@@ -92,7 +91,7 @@ public class ServerController {
 	 * @return 			the test
 	 */
 	public int getNumberQuestionsInTest(User student, int idTest) {
-		return new StudentController(student).getNumberQuestionsInTest(idTest,
+		return ServiceLocator.getStudentController(student).getNumberQuestionsInTest(idTest,
 				daoProvider.getTestTable());
 	}
 
@@ -103,7 +102,7 @@ public class ServerController {
 	 * @return List<Test> 	the list tests
 	 */
 	public List<Test> getTestsForTeacher(User teacher) {
-		return new TeacherController(teacher).getTests(daoProvider.getTestTable());
+		return ServiceLocator.getTeacherController(teacher).getTests();
 	}
 
 	/**
@@ -114,7 +113,7 @@ public class ServerController {
 	 * @return Test 	the test
 	 */
 	public Test getTestResultForTeacher(User teacher, int idTest) {
-		return new TeacherController(teacher).getTestResult(idTest, daoProvider.getTestTable());
+		return ServiceLocator.getTeacherController(teacher).getTestResult(idTest);
 	}
 
 	/**
@@ -134,7 +133,7 @@ public class ServerController {
 	 * @return List<User> 	the list students
 	 */
 	public List<User> getStudentsForAdmin(User admin) {
-		return new AdministratorController(admin, daoProvider).getUsersByType(Student.nameModel);
+		return ServiceLocator.getAdministratorController(admin).getUsersByType(Student.nameModel);
 	}
 
 	/**
@@ -144,7 +143,7 @@ public class ServerController {
 	 * @return List<User> 	the list of teachers
 	 */
 	public List<User> getTeachersForAdmin(User admin) {
-		return new AdministratorController(admin, daoProvider).getUsersByType(Teacher.nameModel);
+		return ServiceLocator.getAdministratorController(admin).getUsersByType(Teacher.nameModel);
 	}
 
 	/**
@@ -154,13 +153,12 @@ public class ServerController {
 	 * @return List<User> 	the list of administrators
 	 */
 	public List<User> getAdminsForAdmin(User admin) {
-		return new AdministratorController(admin, daoProvider).getUsersByType(Administrator.nameModel);
+		return ServiceLocator.getAdministratorController(admin).getUsersByType(Administrator.nameModel);
 	}
 	
 	public int getRatingUser(User student) {
 		return RatingCalculator.getRatingStudent(student, daoProvider.getTestTable().getTests());
 	}
-	
 	
 	public List<StudentTestResult> getRatingGroup(String nameGroup){
 		Group group = GroupController.getGroupByName(nameGroup, daoProvider.getGroupTable());
@@ -171,7 +169,7 @@ public class ServerController {
 	}
 
 	private void loadTest() {
-		UserController userController = new UserController(daoProvider);
+		UserController userController = ServiceLocator.getUserController();
 		User admin1 = AdministratorController.getNewAdministrator("Примарев", 
 				"Игорь", this, "Admin1", "0000");
 		userController.addUser(admin1);
@@ -210,7 +208,7 @@ public class ServerController {
 		tests.add(test2);
 		tests.add(test3);
 
-		new TestController(getDaoProvider()).addTests(tests);
+		ServiceLocator.getTestController().addTests(tests);
 
 		Group g1 = GroupController.getNewGroup("Group 1");
 		GroupController.addGroup(g1,daoProvider.getGroupTable());
@@ -256,10 +254,5 @@ public class ServerController {
 		testController.addResult(student2, 4);
 		testController.addResult(student3, 5);
 		testController.addResult(student4, 3);
-		
-		TestTable testBase = getDaoProvider().getTestTable();
-		List<StudentTestResult> res = getRatingGroup("Group 2");
-		int resSt1 = res.get(0).getResult();
-		resSt1 += 10000;
 	}
 }

@@ -19,8 +19,7 @@ public class UserController {
 	/**
 	 * Creates an UserController.
 	 */
-	public UserController() {
-	}
+	public UserController() {}
 	
 	/**
 	 * Creates an UserController.

@@ -6,11 +6,13 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.DAO.DAOProvider;
 import com.testsystem.DAO.Tables.TestTable;
 import com.testsystem.models.Group;
 import com.testsystem.models.Student;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
+import com.testsystem.util.ServiceLocator;
 
 /**
  * Student Controller.
@@ -21,13 +23,34 @@ import com.testsystem.models.User;
  */
 public class StudentController extends UserController {
 
+	
 	/**
 	 * Creates a UserController.
 	 * 
-	 * @param user
+	 * @param user 
+	 * @param daoProvider
 	 */
 	public StudentController(User user) {
 		super(user);
+	}
+	
+	/**
+	 * Creates a UserController.
+	 * 
+	 * @param daoProvider
+	 */
+	public StudentController(DAOProvider daoProvider) {
+		super(daoProvider);
+	}
+	
+	/**
+	 * Creates a UserController.
+	 * 
+	 * @param user 
+	 * @param daoProvider
+	 */
+	public StudentController(User user, DAOProvider daoProvider) {
+		super(user, daoProvider);
 	}
 	
 	/**
@@ -47,7 +70,7 @@ public class StudentController extends UserController {
 	public List<Test> getTests(TestTable testTable) {
 		List<Test> testsStudent = new ArrayList<Test>();
 		for (int i = 0; i < testTable.getTests().size(); i++) {
-			TestController testController = new TestController(testTable.getTests().get(i));
+			TestController testController = ServiceLocator.getTestController(testTable.getTests().get(i));
 			if (testController.hasStudent(this.getUser()) == true) {
 				testsStudent.add(testTable.getTests().get(i));
 			}

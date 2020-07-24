@@ -8,6 +8,7 @@ import com.testsystem.DAO.Tables.GroupTable;
 import com.testsystem.models.Group;
 import com.testsystem.models.Student;
 import com.testsystem.models.User;
+import com.testsystem.util.ServiceLocator;
 
 /**
  * Represents a GroupBaseController.
@@ -98,7 +99,7 @@ public class GroupController {
 	 * @param group the group of user
 	 */
 	public List<User> getStudentsByGroup(Group group) {
-		List<User> listStudentInBase = new UserController(daoProvider)
+		List<User> listStudentInBase = ServiceLocator.getUserController()
 				.getUsersByType(Student.nameModel);
 		List<User> listStudent = new ArrayList<User>();
 		for (int i = 0; i < listStudentInBase.size(); i++) {

@@ -6,6 +6,7 @@ import java.util.List;
 import com.testsystem.DAO.DAOProvider;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.User;
+import com.testsystem.util.ServiceLocator;
 
 /**
  * Represents an AdministratorController.
@@ -81,7 +82,7 @@ public class AdministratorController extends UserController {
 	 * @return List<UserModel> the list users
 	 */
 	public List<User> getAllUsers() {
-		return new UserController(daoProvider).getAllUsers();
+		return ServiceLocator.getUserController().getAllUsers();
 	}
 	
 	/**
