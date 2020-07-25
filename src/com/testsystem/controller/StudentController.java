@@ -68,6 +68,7 @@ public class StudentController extends UserController {
 	 * @return 			the all tests of student
 	 */
 	public List<Test> getTests() {
+		@SuppressWarnings("unchecked")
 		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		List<Test> testsStudent = new ArrayList<Test>();
 		for (int i = 0; i < listTest.size(); i++) {
@@ -87,6 +88,7 @@ public class StudentController extends UserController {
 	 * @return 			the model of test
 	 */
 	public Test getTestInfo(int idTest) {
+		@SuppressWarnings("unchecked")
 		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		Test test = listTest.get(idTest);
 		TestController testController = new TestController(test);
@@ -104,6 +106,7 @@ public class StudentController extends UserController {
 	 * @return 			the number of tests.
 	 */
 	public int getNumberQuestionsInTest(int idTest) {
+		@SuppressWarnings("unchecked")
 		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		if (idTest >= listTest.size() || idTest < 0) {
 			return -1;

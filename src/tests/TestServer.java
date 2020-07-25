@@ -35,6 +35,7 @@ public class TestServer {
 
 	@Test
 	public void testCountTests() {
+		@SuppressWarnings("unchecked")
 		List<com.testsystem.models.Test> listTest = 
 				((Table<com.testsystem.models.Test>)serverController.getDaoProvider()
 						.getTable(com.testsystem.models.Test.nameModel)).getListRecord();
@@ -44,6 +45,7 @@ public class TestServer {
 
 	@Test
 	public void testCountUsers() {
+		@SuppressWarnings("unchecked")
 		List<User> listUser = ((Table<User>)serverController.getDaoProvider()
 						.getTable(User.nameModel)).getListRecord();
 		
@@ -52,6 +54,7 @@ public class TestServer {
 
 	@Test
 	public void testCountGroups() {
+		@SuppressWarnings("unchecked")
 		List<Group> listGroup = ((Table<Group>)serverController.getDaoProvider()
 				.getTable(Group.nameModel)).getListRecord();
 		
@@ -73,9 +76,11 @@ public class TestServer {
 
 	@Test
 	public void testGetTestInfoForStudent() {
+		@SuppressWarnings("unchecked")
 		com.testsystem.models.Test test1 = ((Table<com.testsystem.models.Test>)serverController.getDaoProvider()
 				.getTable(com.testsystem.models.Test.nameModel)).getListRecord().get(0);
 		TestController testController = new TestController(test1);
+		@SuppressWarnings("unchecked")
 		com.testsystem.models.Test test2 = ((Table<com.testsystem.models.Test>)serverController.getDaoProvider()
 				.getTable(com.testsystem.models.Test.nameModel)).getListRecord().get(1);
 		TestController testController2 = new TestController(test2);

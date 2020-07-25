@@ -100,6 +100,7 @@ public class TestController {
 	 * @return the all tests
 	 */
 	public List<Test> getAllTests() {
+		@SuppressWarnings("unchecked")
 		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		return listTest;
 	}
@@ -110,6 +111,7 @@ public class TestController {
 	 * @param tests the tests to add
 	 */
 	public void setTests(List<Test> tests) {
+		@SuppressWarnings("unchecked")
 		Table<Test> tableTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel));
 		tableTest.setListRecord(tests);
 	}
@@ -121,6 +123,7 @@ public class TestController {
 	 * @return the TestModel.
 	 */
 	public Test getTest(int idTest) {
+		@SuppressWarnings("unchecked")
 		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		if (idTest < listTest.size() && idTest >= 0) {
 			return listTest.get(idTest);
@@ -185,6 +188,7 @@ public class TestController {
 	 * @return 	the true if test student has this test. Otherwise returns false.
 	 */
 	public List<Test> getStudentTests(User student) {
+		@SuppressWarnings("unchecked")
 		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		List<Test> listTestReturn = new ArrayList<Test>();
 		for (Test test : listTest) {

@@ -95,6 +95,7 @@ public class AdministratorController extends UserController {
 	public List<User> getUsersByType(String typeUser) {
 		List<User> masUserResult = new ArrayList<User>();
 		// List<User> listUser =
+		@SuppressWarnings("unchecked")
 		Table<User> t = (Table<User>) daoProvider.getTable(User.nameModel);
 		List<User> listUser = t.getListRecord();
 		for (int i = 0; i < listUser.size(); i++) {

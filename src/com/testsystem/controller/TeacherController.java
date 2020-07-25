@@ -65,6 +65,7 @@ public class TeacherController extends UserController {
 	 * @return 			the all tests of teacher
 	 */
 	public List<Test> getTests() {
+		@SuppressWarnings("unchecked")
 		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		ArrayList<Test> masTests = new ArrayList<Test>();
 		for (int i = 0; i < listTest.size(); i++) {

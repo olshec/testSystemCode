@@ -107,6 +107,7 @@ public class GroupController {
 	 * @param String the name of group to create and add
 	 */
 	public void addGroup(String name) {
+		@SuppressWarnings("unchecked")
 		List<Group> groups = ((Table<Group>)daoProvider
 				.getTable(Group.nameModel)).getListRecord();
 		groups.add(GroupController.getNewGroup(name));
@@ -118,6 +119,7 @@ public class GroupController {
 	 * @param group the group to add
 	 */
 	public void addGroup(Group group) {
+		@SuppressWarnings("unchecked")
 		List<Group> groups = ((Table<Group>)daoProvider
 				.getTable(Group.nameModel)).getListRecord();
 		groups.add(group);
@@ -129,6 +131,7 @@ public class GroupController {
 	 * @param name the name of group
 	 */
 	public Group getGroupByName(String name) {
+		@SuppressWarnings("unchecked")
 		List<Group> listGroup = ((Table<Group>)daoProvider.getTable(Group.nameModel)).getListRecord();
 		for (int i = 0; i < listGroup.size(); i++) {
 			if (listGroup.get(i).getName().equals(name)) {

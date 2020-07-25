@@ -160,6 +160,7 @@ public class ServerController {
 	}
 	
 	public int getRatingUser(User student) {
+		@SuppressWarnings("unchecked")
 		List<Test> listTest = ((Table<Test>)daoProvider.getTable(Test.nameModel)).getListRecord();
 		return RatingCalculator.getRatingStudent(student, listTest);
 	}

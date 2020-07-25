@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
 import com.testsystem.DAO.Tables.Table;
-import com.testsystem.models.Group;
 import com.testsystem.models.User;
 
 /**
@@ -89,6 +88,7 @@ public class UserController {
 	 * @return UserModel 	the user
 	 */
 	public User getUser(String username, String password) {
+		@SuppressWarnings("unchecked")
 		List<User> users = ((Table<User>)getDaoProvider()
 				.getTable(User.nameModel)).getListRecord();
 		for (int i = 0; i < users.size(); i++) {
@@ -106,6 +106,7 @@ public class UserController {
 	 * @return List<UserModel> the list of users
 	 */
 	public List<User> getAllUsers() {
+		@SuppressWarnings("unchecked")
 		List<User> users = ((Table<User>)getDaoProvider()
 				.getTable(User.nameModel)).getListRecord();
 		return users;
@@ -117,6 +118,7 @@ public class UserController {
 	 * @param user the user.
 	 */
 	public void addUser(User user) {
+		@SuppressWarnings("unchecked")
 		List<User> users = ((Table<User>)getDaoProvider()
 				.getTable(User.nameModel)).getListRecord();
 		users.add(user);
@@ -128,6 +130,7 @@ public class UserController {
 	 * @return boolean Returns true if database contains user
 	 */
 	public boolean hasUser(User user) {
+		@SuppressWarnings("unchecked")
 		List<User> users = ((Table<User>)getDaoProvider()
 				.getTable(User.nameModel)).getListRecord();
 		for (int i = 0; i < users.size(); i++) {
@@ -145,6 +148,7 @@ public class UserController {
 	 * @return List<UserModel> 	the list of students
 	 */
 	public List<User> getUsersByType(String typeUser) {
+		@SuppressWarnings("unchecked")
 		List<User> users = ((Table<User>)getDaoProvider()
 				.getTable(User.nameModel)).getListRecord();
 		List<User> masUserResult = new ArrayList<User>();
