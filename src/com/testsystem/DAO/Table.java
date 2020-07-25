@@ -1,4 +1,4 @@
-package com.testsystem.DAO.Tables;
+package com.testsystem.DAO;
 
 import java.util.ArrayList;
 import java.util.List;

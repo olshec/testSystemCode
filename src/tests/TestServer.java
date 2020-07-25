@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import java.util.List;
 import org.junit.Test;
 
-import com.testsystem.DAO.Tables.Table;
+import com.testsystem.DAO.Table;
 import com.testsystem.controller.TestController;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;

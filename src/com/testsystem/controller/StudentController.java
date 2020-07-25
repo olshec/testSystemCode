@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
-import com.testsystem.DAO.Tables.Table;
+import com.testsystem.DAO.Table;
 import com.testsystem.models.Group;
 import com.testsystem.models.Student;
 import com.testsystem.models.Test;

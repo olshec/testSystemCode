@@ -3,8 +3,6 @@ package com.testsystem.DAO;
 
 import java.util.HashMap;
 
-import com.testsystem.DAO.Tables.TableInterface;
-
 public class DAOProvider {
 
 	// @param name

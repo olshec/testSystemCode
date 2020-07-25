@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
-import com.testsystem.DAO.Tables.Table;
+import com.testsystem.DAO.Table;
 import com.testsystem.models.Question;
 import com.testsystem.models.StudentTestResult;
 import com.testsystem.models.Test;

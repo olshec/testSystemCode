@@ -1,4 +1,4 @@
-package com.testsystem.DAO.Tables;
+package com.testsystem.DAO;
 
 public interface TableInterface {
 	public void clear();
