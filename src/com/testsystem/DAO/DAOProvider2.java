@@ -9,30 +9,30 @@ public class DAOProvider2 {
 
 	// @param name
 	// @param Table
-	HashMap<String, Object> tables;
+	HashMap<String, TableInterface> tables;
 
 	public DAOProvider2() {
-		tables = new HashMap<String, Object>();
+		tables = new HashMap<String, TableInterface>();
 	}
 
 	/**
 	 * @param tables
 	 */
-	public DAOProvider2(HashMap<String, Object> tables) {
+	public DAOProvider2(HashMap<String, TableInterface> tables) {
 		setTables(tables);
 	}
 
 	/**
 	 * @return the tables
 	 */
-	public HashMap<String, Object> getTables() {
+	public HashMap<String, TableInterface> getTables() {
 		return tables;
 	}
 
 	/**
 	 * @param tables the tables to set
 	 */
-	public void setTables(HashMap<String, Object> tables) {
+	public void setTables(HashMap<String, TableInterface> tables) {
 		this.tables = tables;
 	}
 
@@ -44,5 +44,12 @@ public class DAOProvider2 {
 			((TableInterface)v).clear();
 		});
 	}
+	
+	public void addTable(String name, TableInterface ti) {
+		tables.put(name, ti);
+	}
 
+	public TableInterface getTable(String name) {
+		return tables.get(name);
+	}
 }

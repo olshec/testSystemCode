@@ -3,7 +3,7 @@ package com.testsystem.DAO.Tables;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Table<T> implements TableInterface{
+public class Table<T extends TableInterface> {
 
 	private List<T> listRecord;
 
