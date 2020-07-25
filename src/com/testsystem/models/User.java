@@ -1,6 +1,5 @@
 package com.testsystem.models;
 
-import com.testsystem.DAO.TableInterface;
 import com.testsystem.controller.ServerController;
 
 /**

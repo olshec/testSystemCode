@@ -3,9 +3,9 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.DAO.DAOProvider;
 import com.testsystem.DAO.Table;
 import com.testsystem.models.User;
+import com.testsystem.util.ServiceLocator;
 
 /**
  * @author Oleg Shestakov
@@ -15,7 +15,6 @@ import com.testsystem.models.User;
 public class UserController {
 
 	private User user;
-	private DAOProvider daoProvider;
 	
 	/**
 	 * Creates an UserController.
@@ -29,21 +28,6 @@ public class UserController {
 		setUser(user);
 	}
 	
-	/**
-	 * Creates an UserController.
-	 */
-	public UserController(DAOProvider daoProvider) {
-		setDaoProvider(daoProvider);
-	}
-	
-	/**
-	 * Creates an UserController.
-	 */
-	public UserController(User user, DAOProvider daoProvider) {
-		setUser(user);
-		setDaoProvider(daoProvider);
-	}
-
 	/**
 	 * Gets user.
 	 * 
@@ -63,24 +47,6 @@ public class UserController {
 	}
 	
 	/**
-	 * Gets DAOProvider.
-	 * 
-	 * @return the DAOProvider
-	 */
-	public DAOProvider getDaoProvider() {
-		return daoProvider;
-	}
-	
-	/**
-	 * Sets DAOProvider.
-	 * 
-	 * @param daoProvider the DAOProvider to set
-	 */
-	public void setDaoProvider(DAOProvider daoProvider) {
-		this.daoProvider = daoProvider;
-	}
-	
-	/**
 	 * Gets user by login and password.
 	 * 
 	 * @param username 		the name of user
@@ -89,7 +55,7 @@ public class UserController {
 	 */
 	public User getUser(String username, String password) {
 		@SuppressWarnings("unchecked")
-		List<User> users = ((Table<User>)getDaoProvider()
+		List<User> users = ((Table<User>)ServiceLocator.getDaoProvider()
 				.getTable(User.nameModel)).getListRecord();
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).getUserName().equals(username) && users.get(i)
@@ -107,7 +73,7 @@ public class UserController {
 	 */
 	public List<User> getAllUsers() {
 		@SuppressWarnings("unchecked")
-		List<User> users = ((Table<User>)getDaoProvider()
+		List<User> users = ((Table<User>)ServiceLocator.getDaoProvider()
 				.getTable(User.nameModel)).getListRecord();
 		return users;
 	}
@@ -119,7 +85,7 @@ public class UserController {
 	 */
 	public void addUser(User user) {
 		@SuppressWarnings("unchecked")
-		List<User> users = ((Table<User>)getDaoProvider()
+		List<User> users = ((Table<User>)ServiceLocator.getDaoProvider()
 				.getTable(User.nameModel)).getListRecord();
 		users.add(user);
 	}
@@ -131,7 +97,7 @@ public class UserController {
 	 */
 	public boolean hasUser(User user) {
 		@SuppressWarnings("unchecked")
-		List<User> users = ((Table<User>)getDaoProvider()
+		List<User> users = ((Table<User>)ServiceLocator.getDaoProvider()
 				.getTable(User.nameModel)).getListRecord();
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).getId() == user.getId()) {
@@ -149,7 +115,7 @@ public class UserController {
 	 */
 	public List<User> getUsersByType(String typeUser) {
 		@SuppressWarnings("unchecked")
-		List<User> users = ((Table<User>)getDaoProvider()
+		List<User> users = ((Table<User>)ServiceLocator.getDaoProvider()
 				.getTable(User.nameModel)).getListRecord();
 		List<User> masUserResult = new ArrayList<User>();
 		for (int i = 0; i < users.size(); i++) {

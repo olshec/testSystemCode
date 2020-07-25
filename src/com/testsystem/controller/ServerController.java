@@ -167,8 +167,8 @@ public class ServerController {
 	
 	public List<StudentTestResult> getRatingGroup(String nameGroup){
 		Group group = ServiceLocator.getGroupController().getGroupByName(nameGroup);
-		List<StudentTestResult> ratingGroup = RatingCalculator.getRatingGroup(group, new GroupController(daoProvider)
-				.getStudentsByGroup(group),daoProvider);
+		List<StudentTestResult> ratingGroup = RatingCalculator.getRatingGroup(group, ServiceLocator.getGroupController()
+				.getStudentsByGroup(group));
 		
 		return ratingGroup;
 	}

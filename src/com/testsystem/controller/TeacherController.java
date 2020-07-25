@@ -6,7 +6,6 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.DAO.DAOProvider;
 import com.testsystem.DAO.Table;
 import com.testsystem.models.Teacher;
 import com.testsystem.models.Test;
@@ -31,23 +30,8 @@ public class TeacherController extends UserController {
 		super(teacher);
 	}
 	
-	/**
-	 * Creates a TeacherController.
-	 * 
-	 * @param daoProvider the DAOProvider
-	 */
-	public TeacherController(DAOProvider daoProvider) {
-		super(daoProvider);
-	}
-	
-	/**
-	 * Creates a TeacherController.
-	 * 
-	 * @param user
-	 * @param daoProvider the DAOProvider
-	 */
-	public TeacherController(User user, DAOProvider daoProvider) {
-		super(user, daoProvider);
+	public TeacherController() {
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -66,7 +50,7 @@ public class TeacherController extends UserController {
 	 */
 	public List<Test> getTests() {
 		@SuppressWarnings("unchecked")
-		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
+		List<Test> listTest = ((Table<Test>)ServiceLocator.getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		ArrayList<Test> masTests = new ArrayList<Test>();
 		for (int i = 0; i < listTest.size(); i++) {
 			TestController testController = ServiceLocator.getTestController(listTest.get(i));

@@ -3,7 +3,6 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.DAO.DAOProvider;
 import com.testsystem.DAO.Table;
 import com.testsystem.models.Group;
 import com.testsystem.models.Student;
@@ -20,7 +19,6 @@ import com.testsystem.util.ServiceLocator;
 public class GroupController {
 
 	private Group group;
-	private DAOProvider daoProvider;
 
 	/**
 	 * Creates a GroupController.
@@ -31,25 +29,10 @@ public class GroupController {
 		setGroup(group);
 	}
 	
-	/**
-	 * Creates a GroupController.
-	 * 
-	 * @param group the group
-	 */
-	public GroupController(DAOProvider daoProvider) {
-		setDaoProvider(daoProvider);
+	public GroupController() {
+		// TODO Auto-generated constructor stub
 	}
-	
-	/**
-	 * Creates a GroupController.
-	 * 
-	 * @param group the group
-	 */
-	public GroupController(Group group, DAOProvider daoProvider) {
-		setGroup(group);
-		setDaoProvider(daoProvider);
-	}
-	
+
 	/**
 	 * Gets group.
 	 * 
@@ -66,15 +49,6 @@ public class GroupController {
 	 */
 	public void setGroup(Group group) {
 		this.group = group;
-	}
-
-	/**
-	 * Sets DAOProvider.
-	 * 
-	 * @param daoProvider the DAOProvider to set
-	 */
-	public void setDaoProvider(DAOProvider daoProvider) {
-		this.daoProvider = daoProvider;
 	}
 	
 	/**
@@ -108,7 +82,7 @@ public class GroupController {
 	 */
 	public void addGroup(String name) {
 		@SuppressWarnings("unchecked")
-		List<Group> groups = ((Table<Group>)daoProvider
+		List<Group> groups = ((Table<Group>)ServiceLocator.getDaoProvider()
 				.getTable(Group.nameModel)).getListRecord();
 		groups.add(GroupController.getNewGroup(name));
 	}
@@ -120,7 +94,7 @@ public class GroupController {
 	 */
 	public void addGroup(Group group) {
 		@SuppressWarnings("unchecked")
-		List<Group> groups = ((Table<Group>)daoProvider
+		List<Group> groups = ((Table<Group>)ServiceLocator.getDaoProvider()
 				.getTable(Group.nameModel)).getListRecord();
 		groups.add(group);
 	}
@@ -132,7 +106,7 @@ public class GroupController {
 	 */
 	public Group getGroupByName(String name) {
 		@SuppressWarnings("unchecked")
-		List<Group> listGroup = ((Table<Group>)daoProvider.getTable(Group.nameModel)).getListRecord();
+		List<Group> listGroup = ((Table<Group>)ServiceLocator.getDaoProvider().getTable(Group.nameModel)).getListRecord();
 		for (int i = 0; i < listGroup.size(); i++) {
 			if (listGroup.get(i).getName().equals(name)) {
 				return listGroup.get(i);

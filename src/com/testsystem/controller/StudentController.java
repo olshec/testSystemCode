@@ -6,7 +6,6 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.DAO.DAOProvider;
 import com.testsystem.DAO.Table;
 import com.testsystem.models.Group;
 import com.testsystem.models.Student;
@@ -34,25 +33,10 @@ public class StudentController extends UserController {
 		super(user);
 	}
 	
-	/**
-	 * Creates a UserController.
-	 * 
-	 * @param daoProvider
-	 */
-	public StudentController(DAOProvider daoProvider) {
-		super(daoProvider);
+	public StudentController() {
+		// TODO Auto-generated constructor stub
 	}
-	
-	/**
-	 * Creates a UserController.
-	 * 
-	 * @param user 
-	 * @param daoProvider
-	 */
-	public StudentController(User user, DAOProvider daoProvider) {
-		super(user, daoProvider);
-	}
-	
+
 	/**
 	 * Gets new student.
 	 */
@@ -69,7 +53,7 @@ public class StudentController extends UserController {
 	 */
 	public List<Test> getTests() {
 		@SuppressWarnings("unchecked")
-		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
+		List<Test> listTest = ((Table<Test>)ServiceLocator.getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		List<Test> testsStudent = new ArrayList<Test>();
 		for (int i = 0; i < listTest.size(); i++) {
 			TestController testController = ServiceLocator.getTestController(listTest.get(i));
@@ -89,7 +73,7 @@ public class StudentController extends UserController {
 	 */
 	public Test getTestInfo(int idTest) {
 		@SuppressWarnings("unchecked")
-		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
+		List<Test> listTest = ((Table<Test>)ServiceLocator.getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		Test test = listTest.get(idTest);
 		TestController testController = new TestController(test);
 		if (test != null && testController.hasStudent(this.getUser())) {
@@ -107,7 +91,7 @@ public class StudentController extends UserController {
 	 */
 	public int getNumberQuestionsInTest(int idTest) {
 		@SuppressWarnings("unchecked")
-		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
+		List<Test> listTest = ((Table<Test>)ServiceLocator.getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		if (idTest >= listTest.size() || idTest < 0) {
 			return -1;
 		}

@@ -3,12 +3,12 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.DAO.DAOProvider;
 import com.testsystem.DAO.Table;
 import com.testsystem.models.Question;
 import com.testsystem.models.StudentTestResult;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
+import com.testsystem.util.ServiceLocator;
 
 /**
  * Represents a test controller.
@@ -20,19 +20,6 @@ import com.testsystem.models.User;
 public class TestController {
 
 	private Test test;
-	private DAOProvider daoProvider;
-
-	/**
-	 * Creates a TestController.
-	 */
-	// public TestController() {}
-
-	/**
-	 * Creates a TestController.
-	 */
-	public TestController(DAOProvider daoProvider) {
-		this.setDaoProvider(daoProvider);
-	}
 
 	/**
 	 * Creates a TestController.
@@ -40,15 +27,11 @@ public class TestController {
 	 * @param the test
 	 */
 	public TestController(Test test) {
-		this.setTest(test);
+		setTest(test);
 	}
 
-	/**
-	 * Creates a TestController.
-	 */
-	public TestController(DAOProvider daoProvider, Test test) {
-		this.setDaoProvider(daoProvider);
-		this.setTest(test);
+	public TestController() {
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -70,24 +53,6 @@ public class TestController {
 	}
 
 	/**
-	 * Gets DAOProvider.
-	 * 
-	 * @return the DAOProvider
-	 */
-	public DAOProvider getDaoProvider() {
-		return daoProvider;
-	}
-
-	/**
-	 * Sets DAOProvider.
-	 * 
-	 * @param daoProvider the DAOProvider to set
-	 */
-	public void setDaoProvider(DAOProvider daoProvider) {
-		this.daoProvider = daoProvider;
-	}
-
-	/**
 	 * Gets new Test.
 	 */
 	public static Test getNewTest() {
@@ -101,7 +66,7 @@ public class TestController {
 	 */
 	public List<Test> getAllTests() {
 		@SuppressWarnings("unchecked")
-		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
+		List<Test> listTest = ((Table<Test>)ServiceLocator.getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		return listTest;
 	}
 
@@ -112,7 +77,7 @@ public class TestController {
 	 */
 	public void setTests(List<Test> tests) {
 		@SuppressWarnings("unchecked")
-		Table<Test> tableTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel));
+		Table<Test> tableTest = ((Table<Test>)ServiceLocator.getDaoProvider().getTable(Test.nameModel));
 		tableTest.setListRecord(tests);
 	}
 
@@ -124,7 +89,7 @@ public class TestController {
 	 */
 	public Test getTest(int idTest) {
 		@SuppressWarnings("unchecked")
-		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
+		List<Test> listTest = ((Table<Test>)ServiceLocator.getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		if (idTest < listTest.size() && idTest >= 0) {
 			return listTest.get(idTest);
 		}
@@ -189,7 +154,7 @@ public class TestController {
 	 */
 	public List<Test> getStudentTests(User student) {
 		@SuppressWarnings("unchecked")
-		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
+		List<Test> listTest = ((Table<Test>)ServiceLocator.getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		List<Test> listTestReturn = new ArrayList<Test>();
 		for (Test test : listTest) {
 			for(int i=0; i < test.getStudentResult().size(); i++) {

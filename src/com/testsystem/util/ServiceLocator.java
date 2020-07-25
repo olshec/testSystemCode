@@ -20,7 +20,7 @@ public class ServiceLocator {
 	/**
 	 * @return the daoProvider
 	 */
-	public DAOProvider getDaoProvider() {
+	public static DAOProvider getDaoProvider() {
 		return daoProvider;
 	}
 
@@ -35,83 +35,83 @@ public class ServiceLocator {
 	 * @return the testController
 	 */
 	public static GroupController getGroupController() {
-		return new GroupController(daoProvider);
+		return new GroupController();
 	}
 	
 	/**
 	 * @return the testController
 	 */
 	public static GroupController getGroupController(Group group) {
-		return new GroupController(group, daoProvider);
+		return new GroupController(group);
 	}
 	
 	/**
 	 * @return the testController
 	 */
 	public static TestController getTestController() {
-		return new TestController(daoProvider);
+		return new TestController();
 	}
 	
 	/**
 	 * @return the testController
 	 */
 	public static TestController getTestController(Test test) {
-		return new TestController(daoProvider, test);
+		return new TestController(test);
 	}
 
 	/**
 	 * @return the userController
 	 */
 	public static UserController getUserController() {
-		return new UserController(daoProvider);
+		return new UserController();
 	}
 	
 	/**
 	 * @return the userController
 	 */
 	public static UserController getUserController(User user) {
-		return new UserController(user, daoProvider);
+		return new UserController(user);
 	}
 	
 	/**
 	 * @return the userController
 	 */
 	public static StudentController getStudentController() {
-		return new StudentController(daoProvider);
+		return new StudentController();
 	}
 	
 	/**
 	 * @return the userController
 	 */
 	public static StudentController getStudentController(User user) {
-		return new StudentController(user, daoProvider);
+		return new StudentController(user);
 	}
 	
 	/**
 	 * @return the userController
 	 */
 	public static AdministratorController getAdministratorController() {
-		return new AdministratorController(daoProvider);
+		return new AdministratorController();
 	}
 	
 	/**
 	 * @return the userController
 	 */
 	public static AdministratorController getAdministratorController(User user) {
-		return new AdministratorController(user, daoProvider);
+		return new AdministratorController(user);
 	}
 	
 	/**
 	 * @return the userController
 	 */
 	public static TeacherController getTeacherController() {
-		return new TeacherController(daoProvider);
+		return new TeacherController();
 	}
 	
 	/**
 	 * @return the userController
 	 */
 	public static TeacherController getTeacherController(User user) {
-		return new TeacherController(user, daoProvider);
+		return new TeacherController(user);
 	}
 }

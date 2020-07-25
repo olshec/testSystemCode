@@ -3,7 +3,6 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.DAO.DAOProvider;
 import com.testsystem.DAO.Table;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.User;
@@ -18,8 +17,6 @@ import com.testsystem.util.ServiceLocator;
  */
 public class AdministratorController extends UserController {
 
-	private DAOProvider daoProvider;
-
 	/**
 	 * Creates an AdministratorController.
 	 * 
@@ -29,43 +26,8 @@ public class AdministratorController extends UserController {
 		super(user);
 	}
 
-	/**
-	 * Creates an AdministratorController.
-	 * 
-	 * @param daoProvider
-	 */
-	public AdministratorController(DAOProvider daoProvider) {
-		super();
-		setDaoProvider(daoProvider);
-	}
-
-	/**
-	 * Creates an AdministratorController.
-	 * 
-	 * @param user
-	 * @param daoProvider
-	 */
-	public AdministratorController(User user, DAOProvider daoProvider) {
-		super(user);
-		setDaoProvider(daoProvider);
-	}
-
-	/**
-	 * Gets DAOProvider.
-	 * 
-	 * @return the DAOProvider
-	 */
-	public DAOProvider getDaoProvider() {
-		return daoProvider;
-	}
-
-	/**
-	 * Sets DAOProvider.
-	 * 
-	 * @param daoProvider the DAOProvider to set
-	 */
-	public void setDaoProvider(DAOProvider daoProvider) {
-		this.daoProvider = daoProvider;
+	public AdministratorController() {
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -96,7 +58,7 @@ public class AdministratorController extends UserController {
 		List<User> masUserResult = new ArrayList<User>();
 		// List<User> listUser =
 		@SuppressWarnings("unchecked")
-		Table<User> t = (Table<User>) daoProvider.getTable(User.nameModel);
+		Table<User> t = (Table<User>) ServiceLocator.getDaoProvider().getTable(User.nameModel);
 		List<User> listUser = t.getListRecord();
 		for (int i = 0; i < listUser.size(); i++) {
 			String className = listUser.get(i).getClass().getSimpleName();

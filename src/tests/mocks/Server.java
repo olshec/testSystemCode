@@ -26,7 +26,7 @@ public class Server extends ServerController {
 	}
 
 	private void loadTest() {
-		UserController userController = new UserController(getDaoProvider());
+		UserController userController = ServiceLocator.getUserController();
 		User admin1 = AdministratorController.getNewAdministrator("Примарев", 
 				"Игорь", this, "Admin1", "0000");
 		userController.addUser(admin1);
@@ -65,7 +65,7 @@ public class Server extends ServerController {
 		tests.add(test2);
 		tests.add(test3);
 
-		new TestController(getDaoProvider()).setTests(tests);
+		ServiceLocator.getTestController().setTests(tests);
 
 		Group g1 = GroupController.getNewGroup("Group 1");
 		ServiceLocator.getGroupController().addGroup(g1);

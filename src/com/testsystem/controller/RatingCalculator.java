@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import com.testsystem.DAO.DAOProvider;
 import com.testsystem.models.Group;
 import com.testsystem.models.StudentTestResult;
 import com.testsystem.models.Test;
@@ -53,7 +52,7 @@ public class RatingCalculator {
 	 * @return HashMap<User, Integer> the rating of student
 	 */
 	public static List<StudentTestResult> getRatingGroup(Group group, 
-			List<User> listStudent, DAOProvider daoProvider) {
+			List<User> listStudent) {
 		
 		List<StudentTestResult> groupRating = new ArrayList<StudentTestResult>();
 		for (int i = 0; i < listStudent.size(); i++) {
