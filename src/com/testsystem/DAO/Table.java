@@ -37,6 +37,7 @@ public class Table<T> implements TableInterface {
 		this.listRecord = listRecord;
 	}
 
+	@Override
 	public void clear() {
 		listRecord.clear();
 	}

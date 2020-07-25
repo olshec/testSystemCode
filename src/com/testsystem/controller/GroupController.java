@@ -20,6 +20,11 @@ public class GroupController {
 
 	private Group group;
 
+	
+	public GroupController() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	/**
 	 * Creates a GroupController.
 	 * 
@@ -27,10 +32,6 @@ public class GroupController {
 	 */
 	public GroupController(Group group) {
 		setGroup(group);
-	}
-	
-	public GroupController() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

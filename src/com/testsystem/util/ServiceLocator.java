@@ -15,7 +15,7 @@ public class ServiceLocator {
 
 	static DAOProvider daoProvider;
 	
-	public ServiceLocator() {}
+	private ServiceLocator() {}
 
 	/**
 	 * @return the daoProvider
