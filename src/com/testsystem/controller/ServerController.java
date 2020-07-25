@@ -191,7 +191,7 @@ public class ServerController {
 		Question q2 = QuestionController.getNewQuestion("AI");
 		Question q3 = QuestionController.getNewQuestion("Микроконтроллеры");
 
-		TestController testController = new TestController(test1);
+		TestController testController = ServiceLocator.getTestController(test1);
 		testController.addQuestion(q1);
 		testController.addQuestion(q2);
 		testController.addQuestion(q3);
