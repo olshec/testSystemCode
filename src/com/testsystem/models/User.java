@@ -1,5 +1,6 @@
 package com.testsystem.models;
 
+import com.testsystem.DAO.TableInterface;
 import com.testsystem.controller.ServerController;
 
 /**
@@ -113,7 +114,7 @@ public abstract class User {
 	public ServerController getServer() {
 		return this.server;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
