@@ -29,8 +29,7 @@ public class UserTable {
 	 * @param users the list of User
 	 */
 	public UserTable(List<User> users) {
-		super();
-		this.users = users;
+		setUsers(users);
 	}
 
 	/**
