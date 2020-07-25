@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
-import com.testsystem.DAO.Tables.TestTable;
+import com.testsystem.DAO.Tables.Table;
 import com.testsystem.models.Group;
 import com.testsystem.models.Student;
 import com.testsystem.models.Test;
@@ -68,12 +68,12 @@ public class StudentController extends UserController {
 	 * @return 			the all tests of student
 	 */
 	public List<Test> getTests() {
-		TestTable testTable = getDaoProvider().getTestTable();
+		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		List<Test> testsStudent = new ArrayList<Test>();
-		for (int i = 0; i < testTable.getTests().size(); i++) {
-			TestController testController = ServiceLocator.getTestController(testTable.getTests().get(i));
+		for (int i = 0; i < listTest.size(); i++) {
+			TestController testController = ServiceLocator.getTestController(listTest.get(i));
 			if (testController.hasStudent(this.getUser()) == true) {
-				testsStudent.add(testTable.getTests().get(i));
+				testsStudent.add(listTest.get(i));
 			}
 		}
 		return testsStudent;
@@ -87,11 +87,11 @@ public class StudentController extends UserController {
 	 * @return 			the model of test
 	 */
 	public Test getTestInfo(int idTest) {
-		TestTable testTable = getDaoProvider().getTestTable();
-		Test test = testTable.getTests().get(idTest);
+		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
+		Test test = listTest.get(idTest);
 		TestController testController = new TestController(test);
 		if (test != null && testController.hasStudent(this.getUser())) {
-			return testTable.getTests().get(idTest);
+			return listTest.get(idTest);
 		} else
 			return null;
 	}
@@ -104,14 +104,14 @@ public class StudentController extends UserController {
 	 * @return 			the number of tests.
 	 */
 	public int getNumberQuestionsInTest(int idTest) {
-		TestTable testTable = getDaoProvider().getTestTable();
-		if (idTest >= testTable.getTests().size() || idTest < 0) {
+		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
+		if (idTest >= listTest.size() || idTest < 0) {
 			return -1;
 		}
-		Test test = testTable.getTests().get(idTest);
+		Test test = listTest.get(idTest);
 		TestController testController = new TestController(test);
 		if (test != null && testController.hasStudent(this.getUser())) {
-			return testTable.getTests().get(idTest).getQuestions().size();
+			return listTest.get(idTest).getQuestions().size();
 		}
 		return -1;
 	}

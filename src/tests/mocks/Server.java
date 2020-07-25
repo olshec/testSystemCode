@@ -65,7 +65,7 @@ public class Server extends ServerController {
 		tests.add(test2);
 		tests.add(test3);
 
-		new TestController(getDaoProvider()).addTests(tests);
+		new TestController(getDaoProvider()).setTests(tests);
 
 		Group g1 = GroupController.getNewGroup("Group 1");
 		ServiceLocator.getGroupController().addGroup(g1);

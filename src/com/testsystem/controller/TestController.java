@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
+import com.testsystem.DAO.Tables.Table;
 import com.testsystem.models.Question;
 import com.testsystem.models.StudentTestResult;
 import com.testsystem.models.Test;
@@ -99,7 +100,8 @@ public class TestController {
 	 * @return the all tests
 	 */
 	public List<Test> getAllTests() {
-		return daoProvider.getTestTable().getTests();
+		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
+		return listTest;
 	}
 
 	/**
@@ -107,8 +109,9 @@ public class TestController {
 	 * 
 	 * @param tests the tests to add
 	 */
-	public void addTests(List<Test> tests) {
-		this.daoProvider.getTestTable().setTests(tests);
+	public void setTests(List<Test> tests) {
+		Table<Test> tableTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel));
+		tableTest.setListRecord(tests);
 	}
 
 	/**
@@ -118,8 +121,9 @@ public class TestController {
 	 * @return the TestModel.
 	 */
 	public Test getTest(int idTest) {
-		if (idTest < daoProvider.getTestTable().getTests().size() && idTest >= 0) {
-			return daoProvider.getTestTable().getTests().get(idTest);
+		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
+		if (idTest < listTest.size() && idTest >= 0) {
+			return listTest.get(idTest);
 		}
 		return null;
 	}
@@ -181,7 +185,7 @@ public class TestController {
 	 * @return 	the true if test student has this test. Otherwise returns false.
 	 */
 	public List<Test> getStudentTests(User student) {
-		List<Test> listTest = daoProvider.getTestTable().getTests();
+		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		List<Test> listTestReturn = new ArrayList<Test>();
 		for (Test test : listTest) {
 			for(int i=0; i < test.getStudentResult().size(); i++) {

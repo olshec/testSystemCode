@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
-import com.testsystem.DAO.Tables.GroupTable;
+import com.testsystem.DAO.Tables.Table;
 import com.testsystem.models.Group;
 import com.testsystem.models.Student;
 import com.testsystem.models.User;
@@ -107,9 +107,9 @@ public class GroupController {
 	 * @param String the name of group to create and add
 	 */
 	public void addGroup(String name) {
-		Group group = GroupController.getNewGroup(name);
-		GroupTable groupTable = daoProvider.getGroupTable();
-		groupTable.getGroups().add(group);
+		List<Group> groups = ((Table<Group>)daoProvider
+				.getTable(Group.nameModel)).getListRecord();
+		groups.add(GroupController.getNewGroup(name));
 	}
 
 	/**
@@ -118,8 +118,9 @@ public class GroupController {
 	 * @param group the group to add
 	 */
 	public void addGroup(Group group) {
-		GroupTable groupTable = daoProvider.getGroupTable();
-		groupTable.getGroups().add(group);
+		List<Group> groups = ((Table<Group>)daoProvider
+				.getTable(Group.nameModel)).getListRecord();
+		groups.add(group);
 	}
 
 	/**
@@ -128,7 +129,7 @@ public class GroupController {
 	 * @param name the name of group
 	 */
 	public Group getGroupByName(String name) {
-		List<Group> listGroup = daoProvider.getGroupTable().getGroups();
+		List<Group> listGroup = ((Table<Group>)daoProvider.getTable(Group.nameModel)).getListRecord();
 		for (int i = 0; i < listGroup.size(); i++) {
 			if (listGroup.get(i).getName().equals(name)) {
 				return listGroup.get(i);

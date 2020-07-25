@@ -11,7 +11,7 @@ import com.testsystem.controller.ServerController;
  */
 public abstract class User {
 
-	//public static final String nameModel = "User";
+	public static final String nameModel = "User";
 
 	private String firstName;
 	private String lastName;

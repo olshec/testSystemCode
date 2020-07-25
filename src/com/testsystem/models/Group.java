@@ -9,6 +9,8 @@ package com.testsystem.models;
  */
 public class Group {
 	
+	public static final String nameModel = "Group";
+	
 	private String name;
 	
 	/**
@@ -38,6 +40,15 @@ public class Group {
 		this.name = name;
 	}
 
+	/**
+	 * Gets name of model.
+	 * 
+	 * @return String return name of model
+	 */
+	public String getNameModel() {
+		return "Group";
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
-import com.testsystem.DAO.Tables.TestTable;
+import com.testsystem.DAO.Tables.Table;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;
 import com.testsystem.models.Question;
@@ -32,6 +32,9 @@ public class ServerController {
 	public ServerController() {
 		daoProvider = new DAOProvider();
 		ServiceLocator.setDaoProvider(daoProvider);
+		daoProvider.addTable(Group.nameModel, new Table<Group>());
+		daoProvider.addTable(User.nameModel, new Table<User>());
+		daoProvider.addTable(Test.nameModel, new Table<Test>());
 		loadTest();
 	}
 
@@ -157,7 +160,8 @@ public class ServerController {
 	}
 	
 	public int getRatingUser(User student) {
-		return RatingCalculator.getRatingStudent(student, daoProvider.getTestTable().getTests());
+		List<Test> listTest = ((Table<Test>)daoProvider.getTable(Test.nameModel)).getListRecord();
+		return RatingCalculator.getRatingStudent(student, listTest);
 	}
 	
 	public List<StudentTestResult> getRatingGroup(String nameGroup){
@@ -208,7 +212,7 @@ public class ServerController {
 		tests.add(test2);
 		tests.add(test3);
 
-		ServiceLocator.getTestController().addTests(tests);
+		ServiceLocator.getTestController().setTests(tests);
 
 		Group g1 = GroupController.getNewGroup("Group 1");
 		ServiceLocator.getGroupController().addGroup(g1);

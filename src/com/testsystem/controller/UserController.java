@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
+import com.testsystem.DAO.Tables.Table;
+import com.testsystem.models.Group;
 import com.testsystem.models.User;
 
 /**
@@ -87,7 +89,8 @@ public class UserController {
 	 * @return UserModel 	the user
 	 */
 	public User getUser(String username, String password) {
-		List<User> users = daoProvider.getUserTable().getUsers();
+		List<User> users = ((Table<User>)getDaoProvider()
+				.getTable(User.nameModel)).getListRecord();
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).getUserName().equals(username) && users.get(i)
 					.getPassword().equals(password)) {
@@ -103,7 +106,9 @@ public class UserController {
 	 * @return List<UserModel> the list of users
 	 */
 	public List<User> getAllUsers() {
-		return this.daoProvider.getUserTable().getUsers();
+		List<User> users = ((Table<User>)getDaoProvider()
+				.getTable(User.nameModel)).getListRecord();
+		return users;
 	}
 
 	/**
@@ -112,7 +117,9 @@ public class UserController {
 	 * @param user the user.
 	 */
 	public void addUser(User user) {
-		daoProvider.getUserTable().getUsers().add(user);
+		List<User> users = ((Table<User>)getDaoProvider()
+				.getTable(User.nameModel)).getListRecord();
+		users.add(user);
 	}
 
 	/**
@@ -121,7 +128,8 @@ public class UserController {
 	 * @return boolean Returns true if database contains user
 	 */
 	public boolean hasUser(User user) {
-		List<User> users = daoProvider.getUserTable().getUsers();
+		List<User> users = ((Table<User>)getDaoProvider()
+				.getTable(User.nameModel)).getListRecord();
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).getId() == user.getId()) {
 				return true;
@@ -137,11 +145,13 @@ public class UserController {
 	 * @return List<UserModel> 	the list of students
 	 */
 	public List<User> getUsersByType(String typeUser) {
+		List<User> users = ((Table<User>)getDaoProvider()
+				.getTable(User.nameModel)).getListRecord();
 		List<User> masUserResult = new ArrayList<User>();
-		for (int i = 0; i < daoProvider.getUserTable().getUsers().size(); i++) {
-			String className = daoProvider.getUserTable().getUsers().get(i).getClass().getSimpleName();
+		for (int i = 0; i < users.size(); i++) {
+			String className = users.get(i).getClass().getSimpleName();
 			if (className.equals(typeUser)) {
-				masUserResult.add(daoProvider.getUserTable().getUsers().get(i));
+				masUserResult.add(users.get(i));
 			}
 		}
 		return masUserResult;

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
+import com.testsystem.DAO.Tables.Table;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.User;
 import com.testsystem.util.ServiceLocator;
@@ -18,7 +19,7 @@ import com.testsystem.util.ServiceLocator;
 public class AdministratorController extends UserController {
 
 	private DAOProvider daoProvider;
-	
+
 	/**
 	 * Creates an AdministratorController.
 	 * 
@@ -27,7 +28,7 @@ public class AdministratorController extends UserController {
 	public AdministratorController(User user) {
 		super(user);
 	}
-	
+
 	/**
 	 * Creates an AdministratorController.
 	 * 
@@ -37,7 +38,7 @@ public class AdministratorController extends UserController {
 		super();
 		setDaoProvider(daoProvider);
 	}
-	
+
 	/**
 	 * Creates an AdministratorController.
 	 * 
@@ -48,7 +49,7 @@ public class AdministratorController extends UserController {
 		super(user);
 		setDaoProvider(daoProvider);
 	}
-	
+
 	/**
 	 * Gets DAOProvider.
 	 * 
@@ -57,7 +58,7 @@ public class AdministratorController extends UserController {
 	public DAOProvider getDaoProvider() {
 		return daoProvider;
 	}
-	
+
 	/**
 	 * Sets DAOProvider.
 	 * 
@@ -66,12 +67,12 @@ public class AdministratorController extends UserController {
 	public void setDaoProvider(DAOProvider daoProvider) {
 		this.daoProvider = daoProvider;
 	}
-	
+
 	/**
 	 * Gets new Administrator.
 	 */
-	public static Administrator getNewAdministrator(String lastName, String firstName, 
-			ServerController server, String username, String password) {
+	public static Administrator getNewAdministrator(String lastName, String firstName, ServerController server,
+			String username, String password) {
 		return new Administrator(lastName, firstName, server, username, password);
 	}
 
@@ -84,20 +85,22 @@ public class AdministratorController extends UserController {
 	public List<User> getAllUsers() {
 		return ServiceLocator.getUserController().getAllUsers();
 	}
-	
+
 	/**
 	 * Gets users by type.
 	 * 
-	 * @param typeUser 			the type of user
-	 * @return List<User> 		the list of students
+	 * @param typeUser the type of user
+	 * @return List<User> the list of students
 	 */
 	public List<User> getUsersByType(String typeUser) {
 		List<User> masUserResult = new ArrayList<User>();
-		for (int i = 0; i < daoProvider.getUserTable().getUsers().size(); i++) {
-			String className = daoProvider.getUserTable().getUsers().get(i)
-					.getClass().getSimpleName();
+		// List<User> listUser =
+		Table<User> t = (Table<User>) daoProvider.getTable(User.nameModel);
+		List<User> listUser = t.getListRecord();
+		for (int i = 0; i < listUser.size(); i++) {
+			String className = listUser.get(i).getClass().getSimpleName();
 			if (className.equals(typeUser)) {
-				masUserResult.add(daoProvider.getUserTable().getUsers().get(i));
+				masUserResult.add(listUser.get(i));
 			}
 		}
 		return masUserResult;

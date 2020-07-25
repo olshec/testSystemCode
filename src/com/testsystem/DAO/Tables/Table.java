@@ -3,7 +3,7 @@ package com.testsystem.DAO.Tables;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Table<T extends TableInterface> {
+public class Table<T> implements TableInterface {
 
 	private List<T> listRecord;
 
@@ -20,21 +20,21 @@ public class Table<T extends TableInterface> {
 	 * @param groups the list of groups
 	 */
 	public Table(List<T> list) {
-		setList(list);
+		setListRecord(list);
 	}
 
 	/**
 	 * @return the list
 	 */
-	public List<T> getList() {
+	public List<T> getListRecord() {
 		return listRecord;
 	}
 
 	/**
-	 * @param list the list to set
+	 * @param listRecord the list to set
 	 */
-	public void setList(List<T> list) {
-		this.listRecord = list;
+	public void setListRecord(List<T> listRecord) {
+		this.listRecord = listRecord;
 	}
 
 	public void clear() {

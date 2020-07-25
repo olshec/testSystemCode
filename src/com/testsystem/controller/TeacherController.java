@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
-import com.testsystem.DAO.Tables.TestTable;
+import com.testsystem.DAO.Tables.Table;
 import com.testsystem.models.Teacher;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
@@ -65,10 +65,10 @@ public class TeacherController extends UserController {
 	 * @return 			the all tests of teacher
 	 */
 	public List<Test> getTests() {
-		TestTable testTable = getDaoProvider().getTestTable();
+		List<Test> listTest = ((Table<Test>)getDaoProvider().getTable(Test.nameModel)).getListRecord();
 		ArrayList<Test> masTests = new ArrayList<Test>();
-		for (int i = 0; i < testTable.getTests().size(); i++) {
-			TestController testController = ServiceLocator.getTestController(testTable.getTests().get(i));
+		for (int i = 0; i < listTest.size(); i++) {
+			TestController testController = ServiceLocator.getTestController(listTest.get(i));
 			if (testController.hasTeacher(this.getUser())) {
 				masTests.add(testController.getTest());
 			}

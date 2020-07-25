@@ -4,11 +4,10 @@ import static org.junit.Assert.*;
 import java.util.List;
 import org.junit.Test;
 
-import com.testsystem.DAO.Tables.GroupTable;
-import com.testsystem.DAO.Tables.TestTable;
-import com.testsystem.DAO.Tables.UserTable;
+import com.testsystem.DAO.Tables.Table;
 import com.testsystem.controller.TestController;
 import com.testsystem.models.Administrator;
+import com.testsystem.models.Group;
 import com.testsystem.models.Student;
 import com.testsystem.models.Teacher;
 import com.testsystem.models.User;
@@ -36,20 +35,27 @@ public class TestServer {
 
 	@Test
 	public void testCountTests() {
-		TestTable testBase = serverController.getDaoProvider().getTestTable();
-		assertEquals(testBase.getTests().size(), 3);
+		List<com.testsystem.models.Test> listTest = 
+				((Table<com.testsystem.models.Test>)serverController.getDaoProvider()
+						.getTable(com.testsystem.models.Test.nameModel)).getListRecord();
+		
+		assertEquals(listTest.size(), 3);
 	}
 
 	@Test
 	public void testCountUsers() {
-		UserTable userBase = serverController.getDaoProvider().getUserTable();
-		assertEquals(userBase.getUsers().size(), 6);
+		List<User> listUser = ((Table<User>)serverController.getDaoProvider()
+						.getTable(User.nameModel)).getListRecord();
+		
+		assertEquals(listUser.size(), 6);
 	}
 
 	@Test
 	public void testCountGroups() {
-		GroupTable groupBase = serverController.getDaoProvider().getGroupTable();
-		assertEquals(groupBase.getGroups().size(), 2);
+		List<Group> listGroup = ((Table<Group>)serverController.getDaoProvider()
+				.getTable(Group.nameModel)).getListRecord();
+		
+		assertEquals(listGroup.size(), 2);
 	}
 
 	@Test
@@ -67,9 +73,11 @@ public class TestServer {
 
 	@Test
 	public void testGetTestInfoForStudent() {
-		com.testsystem.models.Test test1 = serverController.getDaoProvider().getTestTable().getTests().get(0);
+		com.testsystem.models.Test test1 = ((Table<com.testsystem.models.Test>)serverController.getDaoProvider()
+				.getTable(com.testsystem.models.Test.nameModel)).getListRecord().get(0);
 		TestController testController = new TestController(test1);
-		com.testsystem.models.Test test2 = serverController.getDaoProvider().getTestTable().getTests().get(1);
+		com.testsystem.models.Test test2 = ((Table<com.testsystem.models.Test>)serverController.getDaoProvider()
+				.getTable(com.testsystem.models.Test.nameModel)).getListRecord().get(1);
 		TestController testController2 = new TestController(test2);
 		String lastNameTeacher = testController.getTest().getTeacher().getLastName();
 

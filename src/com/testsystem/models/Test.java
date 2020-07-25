@@ -12,6 +12,8 @@ import java.util.List;
  */
 public class Test {
 	
+	public static final String nameModel = "Test";
+	
 	private String name;
 	private User teacher;
 	private List<Question> questions;
