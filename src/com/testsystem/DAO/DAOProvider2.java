@@ -8,10 +8,12 @@ import com.testsystem.models.Model;
 
 public class DAOProvider2 {
 
+	// @param name
+	// @param Table
 	HashMap<String, List<Model>> tables;
 	
 	public DAOProvider2() {
-		// TODO Auto-generated constructor stub
+		tables = new HashMap<String, List<Model>>();
 	}
 	
 	/**
