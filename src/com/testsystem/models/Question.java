@@ -9,7 +9,7 @@ import java.util.List;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class Question {
+public class Question extends Model {
 	
 	private String text;
 	private List<Answer> answers;
@@ -83,5 +83,10 @@ public class Question {
 	 */
 	public void setID(Integer id) {
 		ID = id;
+	}
+	
+	@Override
+	public String getNameModel() {
+		return "Question";
 	}
 }

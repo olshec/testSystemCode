@@ -9,7 +9,7 @@ import java.util.List;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class StudentTest {
+public class StudentTest extends Model {
 
 	private Test test;
 	private Student student;
@@ -69,5 +69,10 @@ public class StudentTest {
 	 */
 	public void setListAnswers(List<Question> listQuestions) {
 		this.listQuestions = listQuestions;
+	}
+	
+	@Override
+	public String getNameModel() {
+		return "StudentTest";
 	}
 }

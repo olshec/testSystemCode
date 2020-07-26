@@ -9,7 +9,7 @@ import com.testsystem.controller.ServerController;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public abstract class User {
+public abstract class User extends Model {
 
 	public static final String nameModel = "User";
 

@@ -10,7 +10,7 @@ import java.util.List;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class Test {
+public class Test extends Model {
 	
 	public static final String nameModel = "Test";
 	
@@ -111,5 +111,10 @@ public class Test {
 	 */
 	public void setStudentResult(List<StudentTestResult> studentResult) {
 		this.studentsResult = studentResult;
+	}
+
+	@Override
+	public String getNameModel() {
+		return "Test";
 	}
 }

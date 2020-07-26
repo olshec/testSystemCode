@@ -1,6 +1,6 @@
 package com.testsystem.models;
 
-public class StudentTestResult {
+public class StudentTestResult extends Model {
 
 	User student; 
 	Integer result;
@@ -36,5 +36,11 @@ public class StudentTestResult {
 	 */
 	public void setResult(Integer result) {
 		this.result = result;
+	}
+
+
+	@Override
+	public String getNameModel() {
+		return "StudentTestResult";
 	}
 }

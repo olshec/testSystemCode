@@ -7,4 +7,10 @@ package com.testsystem.models;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class Answer {}
+public class Answer extends Model {
+	
+	@Override
+	public String getNameModel() {
+		return "Answer";
+	}
+}
