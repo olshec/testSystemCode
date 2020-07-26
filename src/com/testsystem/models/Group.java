@@ -7,7 +7,7 @@ package com.testsystem.models;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class Group {
+public class Group extends Model{
 	
 	public static final String nameModel = "Group";
 	
