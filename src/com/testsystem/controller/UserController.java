@@ -1,12 +1,8 @@
 package com.testsystem.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.DAO.Table;
-import com.testsystem.models.Administrator;
-import com.testsystem.models.Group;
-import com.testsystem.models.Student;
+import com.testsystem.models.Model;
 import com.testsystem.models.User;
 import com.testsystem.util.ServiceLocator;
 
@@ -57,13 +53,12 @@ public class UserController {
 	 * @return UserModel 	the user
 	 */
 	public User getUser(String username, String password) {
-		@SuppressWarnings("unchecked")
-		List<User> users = ((Table<User>)ServiceLocator.getDaoProvider()
-				.getTable(User.nameModel)).getListRecord();
+		List<Model> users = ServiceLocator.getDaoProvider()
+				.getRecordsTable(User.nameModel);
 		for (int i = 0; i < users.size(); i++) {
-			if (users.get(i).getUserName().equals(username) && users.get(i)
-					.getPassword().equals(password)) {
-				return users.get(i);
+			User u = (User)users.get(i);
+			if (u.getUserName().equals(username) && u.getPassword().equals(password)) {
+				return u;
 			}
 		}
 		return null;
@@ -74,10 +69,9 @@ public class UserController {
 	 * 
 	 * @return List<UserModel> the list of users
 	 */
-	public List<User> getAllUsers() {
-		@SuppressWarnings("unchecked")
-		List<User> users = ((Table<User>)ServiceLocator.getDaoProvider()
-				.getTable(User.nameModel)).getListRecord();
+	public List<Model> getAllUsers() {
+		List<Model> users = ServiceLocator.getDaoProvider()
+				.getRecordsTable(User.nameModel);
 		return users;
 	}
 
@@ -87,10 +81,7 @@ public class UserController {
 	 * @param user the user.
 	 */
 	public void addUser(User user) {
-		@SuppressWarnings("unchecked")
-		List<User> users = ((Table<User>)ServiceLocator.getDaoProvider()
-				.getTable(User.nameModel)).getListRecord();
-		users.add(user);
+		ServiceLocator.getDaoProvider().addRecord(user.getNameModel(), user);
 	}
 
 	/**
@@ -99,11 +90,11 @@ public class UserController {
 	 * @return boolean Returns true if database contains user
 	 */
 	public boolean hasUser(User user) {
-		@SuppressWarnings("unchecked")
-		List<User> users = ((Table<User>)ServiceLocator.getDaoProvider()
-				.getTable(User.nameModel)).getListRecord();
+		List<Model> users = ServiceLocator.getDaoProvider()
+				.getRecordsTable(User.nameModel);
 		for (int i = 0; i < users.size(); i++) {
-			if (users.get(i).getId() == user.getId()) {
+			User u = (User)users.get(i);
+			if (u.getId() == user.getId()) {
 				return true;
 			}
 		}
@@ -116,17 +107,15 @@ public class UserController {
 	 * @param typeUser 			the type of user
 	 * @return List<UserModel> 	the list of students
 	 */
-	public List<User> getUsersByType(String typeUser) {
-		@SuppressWarnings("unchecked")
-		List<User> users = ((Table<User>)ServiceLocator.getDaoProvider()
-				.getTable(User.nameModel)).getListRecord();
-		List<User> masUserResult = new ArrayList<User>();
-		for (int i = 0; i < users.size(); i++) {
-			String className = users.get(i).getClass().getSimpleName();
+	public List<Model> getUsersByType(String typeUser) {
+		List<Model> listUserResult = ServiceLocator.getDaoProvider()
+				.getRecordsTable(User.nameModel);
+		for (int i = 0; i < listUserResult.size(); i++) {
+			String className = listUserResult.get(i).getNameModel();
 			if (className.equals(typeUser)) {
-				masUserResult.add(users.get(i));
+				listUserResult.add(listUserResult.get(i));
 			}
 		}
-		return masUserResult;
+		return listUserResult;
 	}
 }

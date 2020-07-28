@@ -3,7 +3,7 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.DAO.Table;
+import com.testsystem.models.Model;
 import com.testsystem.models.Question;
 import com.testsystem.models.StudentTestResult;
 import com.testsystem.models.Test;
@@ -64,9 +64,8 @@ public class TestController {
 	 * 
 	 * @return the all tests
 	 */
-	public List<Test> getAllTests() {
-		@SuppressWarnings("unchecked")
-		List<Test> listTest = ((Table<Test>)ServiceLocator.getDaoProvider().getTable(Test.nameModel)).getListRecord();
+	public List<Model> getAllTests() {
+		List<Model> listTest = ServiceLocator.getDaoProvider().getRecordsTable(Test.nameModel);
 		return listTest;
 	}
 
@@ -75,11 +74,10 @@ public class TestController {
 	 * 
 	 * @param tests the tests to add
 	 */
-	public void setTests(List<Test> tests) {
-		@SuppressWarnings("unchecked")
-		Table<Test> tableTest = ((Table<Test>)ServiceLocator.getDaoProvider().getTable(Test.nameModel));
-		tableTest.setListRecord(tests);
+	public void setTests(List<Model> tests) {
+		ServiceLocator.getDaoProvider().setTable(Test.nameModel, tests);
 	}
+	
 
 	/**
 	 * Gets test.
@@ -88,10 +86,9 @@ public class TestController {
 	 * @return the TestModel.
 	 */
 	public Test getTest(int idTest) {
-		@SuppressWarnings("unchecked")
-		List<Test> listTest = ((Table<Test>)ServiceLocator.getDaoProvider().getTable(Test.nameModel)).getListRecord();
+		List<Model> listTest = ServiceLocator.getDaoProvider().getRecordsTable(Test.nameModel);
 		if (idTest < listTest.size() && idTest >= 0) {
-			return listTest.get(idTest);
+			return (Test)listTest.get(idTest);
 		}
 		return null;
 	}
@@ -152,14 +149,15 @@ public class TestController {
 	 * @param 	the student.
 	 * @return 	the true if test student has this test. Otherwise returns false.
 	 */
-	public List<Test> getStudentTests(User student) {
-		@SuppressWarnings("unchecked")
-		List<Test> listTest = ((Table<Test>)ServiceLocator.getDaoProvider().getTable(Test.nameModel)).getListRecord();
-		List<Test> listTestReturn = new ArrayList<Test>();
-		for (Test test : listTest) {
-			for(int i=0; i < test.getStudentResult().size(); i++) {
-				if(test.getStudentResult().get(i).getStudent().equals(student)) {
-					listTestReturn.add(test);
+	public List<Model> getStudentTests(User student) {
+		List<Model> listTest = ServiceLocator.getDaoProvider()
+				.getRecordsTable(Test.nameModel);
+		List<Model> listTestReturn = new ArrayList<Model>();
+		for (Model test : listTest) {
+			Test t = (Test)test;
+			for(int i=0; i < t.getStudentResult().size(); i++) {
+				if(t.getStudentResult().get(i).getStudent().equals(student)) {
+					listTestReturn.add(t);
 				}
 			}
 		}

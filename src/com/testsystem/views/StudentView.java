@@ -1,6 +1,8 @@
 package com.testsystem.views;
 
 import java.util.List;
+
+import com.testsystem.models.Model;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
 import com.testsystem.util.ModScanner;
@@ -63,10 +65,10 @@ public final class StudentView extends UserView {
 	 * Print a list of student tests from the server and prints.
 	 */
 	private void printTestsStudent() {
-		List<Test> mas = this.getUser().getServer().getTestsForStudent(this.getUser());
+		List<Model> mas = this.getUser().getServer().getTestsForStudent(this.getUser());
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
-			System.out.println(i + 1 + ") " + mas.get(i).getName());
+			System.out.println(i + 1 + ") " + ((Test)mas.get(i)).getName());
 		}
 	}
 

@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import com.testsystem.models.Group;
+import com.testsystem.models.Model;
 import com.testsystem.models.StudentTestResult;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
@@ -35,10 +36,11 @@ public class RatingCalculator {
 	 * @param listTest the list of test
 	 * @return int the rating of student
 	 */
-	public static int getRatingStudent(User student, List<Test> listTest) {
+	public static int getRatingStudent(User student, List<Model> listTest) {
 		int point = 0;
 		for (int i = 0; i < listTest.size(); i++) {
-			point += ServiceLocator.getTestController(listTest.get(i)).getStudentResult(student).getResult();
+			Test test = (Test)listTest.get(i);
+			point += ServiceLocator.getTestController(test).getStudentResult(student).getResult();
 		}
 		int rating = point * 2 / listTest.size();
 		return rating;
@@ -57,7 +59,7 @@ public class RatingCalculator {
 		List<StudentTestResult> groupRating = new ArrayList<StudentTestResult>();
 		for (int i = 0; i < listStudent.size(); i++) {
 			User student = listStudent.get(i);
-			List<Test> listStudentTests = ServiceLocator.getTestController().getStudentTests(student);
+			List<Model> listStudentTests = ServiceLocator.getTestController().getStudentTests(student);
 			int ratingStudent = RatingCalculator.getRatingStudent(student, listStudentTests);
 			groupRating.add(new StudentTestResult(student, ratingStudent));
 		}

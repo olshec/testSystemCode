@@ -4,10 +4,10 @@ import static org.junit.Assert.*;
 import java.util.List;
 import org.junit.Test;
 
-import com.testsystem.DAO.Table;
 import com.testsystem.controller.TestController;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;
+import com.testsystem.models.Model;
 import com.testsystem.models.Student;
 import com.testsystem.models.Teacher;
 import com.testsystem.models.User;
@@ -35,29 +35,26 @@ public class TestServer {
 
 	@Test
 	public void testCountTests() {
-		@SuppressWarnings("unchecked")
-		List<com.testsystem.models.Test> listTest = 
-				((Table<com.testsystem.models.Test>)serverController.getDaoProvider()
-						.getTable(com.testsystem.models.Test.nameModel)).getListRecord();
+		List<com.testsystem.models.Model> listTest = ServiceLocator.getDaoProvider()
+				.getRecordsTable(com.testsystem.models.Test.nameModel);
+		
+		
 		
 		assertEquals(listTest.size(), 3);
 	}
 
 	@Test
 	public void testCountUsers() {
-		@SuppressWarnings("unchecked")
-		List<User> listUser = ((Table<User>)serverController.getDaoProvider()
-						.getTable(User.nameModel)).getListRecord();
+		List<Model> listUser = ServiceLocator.getDaoProvider()
+				.getRecordsTable(User.nameModel);
 		
 		assertEquals(listUser.size(), 6);
 	}
 
 	@Test
 	public void testCountGroups() {
-		@SuppressWarnings("unchecked")
-		List<Group> listGroup = ((Table<Group>)serverController.getDaoProvider()
-				.getTable(Group.nameModel)).getListRecord();
-		
+		List<Model> listGroup = ServiceLocator.getDaoProvider()
+				.getRecordsTable(Group.nameModel);
 		assertEquals(listGroup.size(), 2);
 	}
 
@@ -70,20 +67,23 @@ public class TestServer {
 
 	@Test
 	public void testGetTestsForStudent() {
-		List<com.testsystem.models.Test> listTest = serverController.getTestsForStudent(student1);
+		List<com.testsystem.models.Model> listTest = serverController.getTestsForStudent(student1);
 		assertEquals(listTest.size(), 3);
 	}
 
 	@Test
 	public void testGetTestInfoForStudent() {
-		@SuppressWarnings("unchecked")
-		com.testsystem.models.Test test1 = ((Table<com.testsystem.models.Test>)serverController.getDaoProvider()
-				.getTable(com.testsystem.models.Test.nameModel)).getListRecord().get(0);
+
+		List<Model> modelsTests = serverController.getDaoProvider()
+				.getRecordsTable(com.testsystem.models.Test.nameModel);
+		com.testsystem.models.Test test1 = (com.testsystem.models.Test)(modelsTests).get(0);
+//		List<Model> listGroup = ServiceLocator.getDaoProvider()
+//				.getRecordsTable(Group.nameModel);
 		TestController testController = new TestController(test1);
-		@SuppressWarnings("unchecked")
-		com.testsystem.models.Test test2 = ((Table<com.testsystem.models.Test>)serverController.getDaoProvider()
-				.getTable(com.testsystem.models.Test.nameModel)).getListRecord().get(1);
+
+		com.testsystem.models.Test test2 = (com.testsystem.models.Test)(modelsTests).get(1);
 		TestController testController2 = new TestController(test2);
+		
 		String lastNameTeacher = testController.getTest().getTeacher().getLastName();
 
 		assertEquals(testController.getName(), "Робототехника");
@@ -111,14 +111,14 @@ public class TestServer {
 
 	@Test
 	public void testGetAllUsersForAdmin() {
-		List<User> listUser = ServiceLocator.getAdministratorController(admin1).getAllUsers();
+		List<Model> listUser = ServiceLocator.getAdministratorController(admin1).getAllUsers();
 
 		assertEquals(listUser.size(), 6);
 	}
 
 	@Test
 	public void testGetStudentsForAdmin() {
-		List<User> listUser = ServiceLocator.getAdministratorController(admin1)
+		List<Model> listUser = ServiceLocator.getAdministratorController(admin1)
 				.getUsersByType(Student.nameModel);
 
 		assertEquals(listUser.size(), 4);
@@ -126,7 +126,7 @@ public class TestServer {
 
 	@Test
 	public void testGetTeachersForAdmin() {
-		List<User> listUser = ServiceLocator.getAdministratorController(admin1)
+		List<Model> listUser = ServiceLocator.getAdministratorController(admin1)
 				.getUsersByType(Teacher.nameModel);
 
 		assertEquals(listUser.size(), 1);
@@ -134,7 +134,7 @@ public class TestServer {
 
 	@Test
 	public void testGetAdminsForAdmin() {
-		List<User> listUser = ServiceLocator.getAdministratorController(admin1)
+		List<Model> listUser = ServiceLocator.getAdministratorController(admin1)
 				.getUsersByType(Administrator.nameModel);
 
 		assertEquals(listUser.size(), 1);

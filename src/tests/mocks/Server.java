@@ -12,6 +12,7 @@ import com.testsystem.controller.TeacherController;
 import com.testsystem.controller.TestController;
 import com.testsystem.controller.UserController;
 import com.testsystem.models.Group;
+import com.testsystem.models.Model;
 import com.testsystem.models.Question;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
@@ -59,7 +60,7 @@ public class Server extends ServerController {
 		testController.addQuestion(q5);
 		testController.addQuestion(q6);
 
-		List<Test> tests = new ArrayList<Test>();
+		List<Model> tests = new ArrayList<Model>();
 
 		tests.add(test1);
 		tests.add(test2);

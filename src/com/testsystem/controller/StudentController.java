@@ -6,8 +6,8 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.DAO.Table;
 import com.testsystem.models.Group;
+import com.testsystem.models.Model;
 import com.testsystem.models.Student;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
@@ -48,15 +48,14 @@ public class StudentController extends UserController {
 	/**
 	 * Gets test
 	 * 
-	 * @param testTable 	the database of test
 	 * @return 			the all tests of student
 	 */
-	public List<Test> getTests() {
-		@SuppressWarnings("unchecked")
-		List<Test> listTest = ((Table<Test>)ServiceLocator.getDaoProvider().getTable(Test.nameModel)).getListRecord();
-		List<Test> testsStudent = new ArrayList<Test>();
+	public List<Model> getTests() {
+		List<Model> listTest = ServiceLocator.getDaoProvider()
+				.getRecordsTable(Test.nameModel);
+		List<Model> testsStudent = new ArrayList<Model>();
 		for (int i = 0; i < listTest.size(); i++) {
-			TestController testController = ServiceLocator.getTestController(listTest.get(i));
+			TestController testController = ServiceLocator.getTestController((Test)listTest.get(i));
 			if (testController.hasStudent(this.getUser()) == true) {
 				testsStudent.add(listTest.get(i));
 			}
@@ -72,12 +71,12 @@ public class StudentController extends UserController {
 	 * @return 			the model of test
 	 */
 	public Test getTestInfo(int idTest) {
-		@SuppressWarnings("unchecked")
-		List<Test> listTest = ((Table<Test>)ServiceLocator.getDaoProvider().getTable(Test.nameModel)).getListRecord();
-		Test test = listTest.get(idTest);
+		List<Model> listTest = ServiceLocator.getDaoProvider()
+				.getRecordsTable(Test.nameModel);
+		Test test = (Test)listTest.get(idTest);
 		TestController testController = new TestController(test);
 		if (test != null && testController.hasStudent(this.getUser())) {
-			return listTest.get(idTest);
+			return (Test)listTest.get(idTest);
 		} else
 			return null;
 	}
@@ -90,15 +89,16 @@ public class StudentController extends UserController {
 	 * @return 			the number of tests.
 	 */
 	public int getNumberQuestionsInTest(int idTest) {
-		@SuppressWarnings("unchecked")
-		List<Test> listTest = ((Table<Test>)ServiceLocator.getDaoProvider().getTable(Test.nameModel)).getListRecord();
+		List<Model> listTest = ServiceLocator.getDaoProvider()
+				.getRecordsTable(Test.nameModel);
 		if (idTest >= listTest.size() || idTest < 0) {
 			return -1;
 		}
-		Test test = listTest.get(idTest);
+		Test test = (Test)listTest.get(idTest);
 		TestController testController = new TestController(test);
 		if (test != null && testController.hasStudent(this.getUser())) {
-			return listTest.get(idTest).getQuestions().size();
+			Test t = (Test)listTest.get(idTest);
+			return t.getQuestions().size();
 		}
 		return -1;
 	}

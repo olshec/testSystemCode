@@ -3,8 +3,8 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.DAO.Table;
 import com.testsystem.models.Administrator;
+import com.testsystem.models.Model;
 import com.testsystem.models.User;
 import com.testsystem.util.ServiceLocator;
 
@@ -44,7 +44,7 @@ public class AdministratorController extends UserController {
 	 * @param userBase the database of users
 	 * @return List<UserModel> the list users
 	 */
-	public List<User> getAllUsers() {
+	public List<Model> getAllUsers() {
 		return ServiceLocator.getUserController().getAllUsers();
 	}
 
@@ -52,18 +52,16 @@ public class AdministratorController extends UserController {
 	 * Gets users by type.
 	 * 
 	 * @param typeUser the type of user
-	 * @return List<User> the list of students
+	 * @return List<Model> the list of students
 	 */
-	public List<User> getUsersByType(String typeUser) {
-		List<User> masUserResult = new ArrayList<User>();
-		// List<User> listUser =
-		@SuppressWarnings("unchecked")
-		Table<User> t = (Table<User>) ServiceLocator.getDaoProvider().getTable(User.nameModel);
-		List<User> listUser = t.getListRecord();
-		for (int i = 0; i < listUser.size(); i++) {
-			String className = listUser.get(i).getClass().getSimpleName();
+	public List<Model> getUsersByType(String typeUser) {
+		List<Model> masUserResult = new ArrayList<Model>();
+		List<Model> records = ServiceLocator.getDaoProvider().getRecordsTable(User.nameModel);
+		//List<User> listUser = t.getListRecord();
+		for (int i = 0; i < records.size(); i++) {
+			String className = records.get(i).getNameModel();
 			if (className.equals(typeUser)) {
-				masUserResult.add(listUser.get(i));
+				masUserResult.add(records.get(i));
 			}
 		}
 		return masUserResult;

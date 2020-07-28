@@ -38,7 +38,6 @@ public class StudentTestResult extends Model {
 		this.result = result;
 	}
 
-
 	@Override
 	public String getNameModel() {
 		return "StudentTestResult";

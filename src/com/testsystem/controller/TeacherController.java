@@ -6,7 +6,7 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.DAO.Table;
+import com.testsystem.models.Model;
 import com.testsystem.models.Teacher;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
@@ -49,11 +49,11 @@ public class TeacherController extends UserController {
 	 * @return 			the all tests of teacher
 	 */
 	public List<Test> getTests() {
-		@SuppressWarnings("unchecked")
-		List<Test> listTest = ((Table<Test>)ServiceLocator.getDaoProvider().getTable(Test.nameModel)).getListRecord();
+		List<Model> listTest = ServiceLocator.getDaoProvider()
+				.getRecordsTable(Test.nameModel);
 		ArrayList<Test> masTests = new ArrayList<Test>();
 		for (int i = 0; i < listTest.size(); i++) {
-			TestController testController = ServiceLocator.getTestController(listTest.get(i));
+			TestController testController = ServiceLocator.getTestController((Test)listTest.get(i));
 			if (testController.hasTeacher(this.getUser())) {
 				masTests.add(testController.getTest());
 			}

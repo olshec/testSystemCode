@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.DAO.DAOProvider;
-import com.testsystem.DAO.Table;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;
+import com.testsystem.models.Model;
 import com.testsystem.models.Question;
 import com.testsystem.models.Student;
 import com.testsystem.models.StudentTestResult;
@@ -32,9 +32,9 @@ public class ServerController {
 	public ServerController() {
 		daoProvider = new DAOProvider();
 		ServiceLocator.setDaoProvider(daoProvider);
-		daoProvider.addTable(Group.nameModel, new Table<Group>());
-		daoProvider.addTable(User.nameModel, new Table<User>());
-		daoProvider.addTable(Test.nameModel, new Table<Test>());
+		daoProvider.addTable(Group.nameModel);
+		daoProvider.addTable(User.nameModel);
+		daoProvider.addTable(Test.nameModel);
 		loadTest();
 	}
 
@@ -72,7 +72,7 @@ public class ServerController {
 	 * @param student 		the student
 	 * @return List<Test> 	the list tests
 	 */
-	public List<Test> getTestsForStudent(User student) {
+	public List<Model> getTestsForStudent(User student) {
 		return ServiceLocator.getStudentController(student).getTests();
 	}
 
@@ -125,7 +125,7 @@ public class ServerController {
 	 * @param 				the administrator
 	 * @return List<User> 	the list all administrators
 	 */
-	public List<User> getAllUsersForAdmin(User admin) {
+	public List<Model> getAllUsersForAdmin(User admin) {
 		return ServiceLocator.getUserController(admin).getAllUsers();
 	}
 
@@ -135,7 +135,7 @@ public class ServerController {
 	 * @param 				the administrator
 	 * @return List<User> 	the list students
 	 */
-	public List<User> getStudentsForAdmin(User admin) {
+	public List<Model> getStudentsForAdmin(User admin) {
 		return ServiceLocator.getAdministratorController(admin).getUsersByType(Student.nameModel);
 	}
 
@@ -145,7 +145,7 @@ public class ServerController {
 	 * @param 				the administrator
 	 * @return List<User> 	the list of teachers
 	 */
-	public List<User> getTeachersForAdmin(User admin) {
+	public List<Model> getTeachersForAdmin(User admin) {
 		return ServiceLocator.getAdministratorController(admin).getUsersByType(Teacher.nameModel);
 	}
 
@@ -155,13 +155,14 @@ public class ServerController {
 	 * @param 				the administrator
 	 * @return List<User> 	the list of administrators
 	 */
-	public List<User> getAdminsForAdmin(User admin) {
+	public List<Model> getAdminsForAdmin(User admin) {
 		return ServiceLocator.getAdministratorController(admin).getUsersByType(Administrator.nameModel);
+		
 	}
 	
 	public int getRatingUser(User student) {
-		@SuppressWarnings("unchecked")
-		List<Test> listTest = ((Table<Test>)daoProvider.getTable(Test.nameModel)).getListRecord();
+		List<Model> listTest = ServiceLocator.getDaoProvider()
+				.getRecordsTable(Test.nameModel);
 		return RatingCalculator.getRatingStudent(student, listTest);
 	}
 	
@@ -207,7 +208,7 @@ public class ServerController {
 		testController.addQuestion(q5);
 		testController.addQuestion(q6);
 
-		List<Test> tests = new ArrayList<Test>();
+		List<Model> tests = new ArrayList<Model>();
 
 		tests.add(test1);
 		tests.add(test2);
