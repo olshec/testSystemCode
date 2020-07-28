@@ -81,7 +81,7 @@ public class UserController {
 	 * @param user the user.
 	 */
 	public void addUser(User user) {
-		ServiceLocator.getDaoProvider().addRecord(user.getNameModel(), user);
+		ServiceLocator.getDaoProvider().addRecord(user);
 	}
 
 	/**

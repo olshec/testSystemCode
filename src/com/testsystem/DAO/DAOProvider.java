@@ -1,70 +1,58 @@
 package com.testsystem.DAO;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import com.testsystem.models.Model;
 
 public class DAOProvider {
 
-	// @param name
-	// @param List<Model> is Table
-	private HashMap<String, List<Model>> database;
+	private Database database;
 	
 	public DAOProvider() {
-		database = new HashMap<String, List<Model>>();
+		database = new Database();
 	}
 	
 	/**
 	 * @param tables
 	 */
-	public DAOProvider(HashMap<String, List<Model>> tables) {
-		setTables(tables);
+	public DAOProvider(Database database) {
+		setDatabase(database);
 	}
 
 	/**
 	 * @return the tables
 	 */
-	public HashMap<String, List<Model>> getTables() {
+	public Database getDatabase() {
 		return database;
 	}
 
 	/**
-	 * @param tables the tables to set
+	 * @param database the tables to set
 	 */
-	public void setTables(HashMap<String, List<Model>> tables) {
-		this.database = tables;
+	public void setDatabase(Database database) {
+		this.database = database;
 	}
 	
 	/**
 	 * @param table the table to set
 	 */
-	public void setTable(String name, List<Model> table) {
-		database.remove(name);
-		database.put(name, table);
+	public void setTable(String name, List<Model> listRecord) {
+		database.setTable(name, listRecord);
 	}
 	
 	/**
 	 * Clears DAOProvider tables.
 	 */
 	public void clear() {
-		database.forEach((k, v) -> {
-			((List<Model>)v).clear();
-		});
+		database.clear();
 	}
 	
 	public void addTable(String name) {
-		List<Model> newTable = new ArrayList<Model>();
-		database.put(name, newTable);
+		database.addTable(name);
 	}
 	
-	public void addRecord(String name, Model record) {
-		database.forEach((k, v) -> {
-			if(((String)k).equals(name)) {
-				((List<Model>)v).add(record);	
-			}
-		});
+	public void addRecord(Model record) {
+		database.addRecord(record);
 	}
 	
 	/**
@@ -74,9 +62,6 @@ public class DAOProvider {
 	 * @return List<Model> the records of table
 	 */
 	public List<Model> getRecordsTable(String nameTable) {
-		for (String i : database.keySet()) {
-			return database.get(i);
-		}
-		return null;
+		return database.getTable(nameTable).getRecords();
 	}
 }
