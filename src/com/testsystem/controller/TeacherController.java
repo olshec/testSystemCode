@@ -29,10 +29,6 @@ public class TeacherController extends UserController {
 	public TeacherController(User teacher) {
 		super(teacher);
 	}
-	
-	public TeacherController() {
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
 	 * Gets new teacher.

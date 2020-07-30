@@ -16,11 +16,6 @@ public class QuestionController {
 	private Question question;
 
 	/**
-	 * Creates a QuestionController.
-	 */
-	public QuestionController() {}
-	
-	/**
 	 * Gets new Question.
 	 */
 	public static Question getNewQuestion(String text) {

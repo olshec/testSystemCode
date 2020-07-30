@@ -167,8 +167,8 @@ public class ServerController {
 	}
 	
 	public List<StudentTestResult> getRatingGroup(String nameGroup){
-		Group group = ServiceLocator.getGroupController().getGroupByName(nameGroup);
-		List<StudentTestResult> ratingGroup = RatingCalculator.getRatingGroup(group, ServiceLocator.getGroupController()
+		Group group = GroupController.getGroupByName(nameGroup);
+		List<StudentTestResult> ratingGroup = RatingCalculator.getRatingGroup(group, GroupController
 				.getStudentsByGroup(group));
 		
 		return ratingGroup;
@@ -214,15 +214,15 @@ public class ServerController {
 		tests.add(test2);
 		tests.add(test3);
 
-		ServiceLocator.getTestController().setTests(tests);
+		TestController.setTests(tests);
 
 		Group g1 = GroupController.getNewGroup("Group 1");
-		ServiceLocator.getGroupController().addGroup(g1);
+		GroupController.addGroup(g1);
 		User student1 = StudentController.getNewStudent("Шахматов", "Антон", this, "ShAnton", "1111", g1);
 		User student2 = StudentController.getNewStudent("Романенко", "Егор", this, "REgor", "1111", g1);
 		
 		Group g2 = GroupController.getNewGroup("Group 2");
-		ServiceLocator.getGroupController().addGroup(g2);
+		GroupController.addGroup(g2);
 		User student3 = StudentController.getNewStudent("Сазонова", "Екатерина", this, "Kat", "1111", g2);
 		User student4 = StudentController.getNewStudent("Филонова", "Анна", this, "Anna", "1111", g2);
 

@@ -30,10 +30,6 @@ public class TestController {
 		setTest(test);
 	}
 
-	public TestController() {
-		// TODO Auto-generated constructor stub
-	}
-
 	/**
 	 * Gets model of test.
 	 * 
@@ -74,7 +70,7 @@ public class TestController {
 	 * 
 	 * @param tests the tests to add
 	 */
-	public void setTests(List<Model> tests) {
+	public static void setTests(List<Model> tests) {
 		ServiceLocator.getDaoProvider().setTable(Test.nameModel, tests);
 	}
 	
@@ -149,7 +145,7 @@ public class TestController {
 	 * @param 	the student.
 	 * @return 	the true if test student has this test. Otherwise returns false.
 	 */
-	public List<Model> getStudentTests(User student) {
+	public static List<Model> getStudentTests(User student) {
 		List<Model> listTest = ServiceLocator.getDaoProvider()
 				.getRecordsTable(Test.nameModel);
 		List<Model> listTestReturn = new ArrayList<Model>();

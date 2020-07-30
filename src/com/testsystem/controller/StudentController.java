@@ -22,7 +22,6 @@ import com.testsystem.util.ServiceLocator;
  */
 public class StudentController extends UserController {
 
-	
 	/**
 	 * Creates a UserController.
 	 * 
@@ -33,10 +32,6 @@ public class StudentController extends UserController {
 		super(user);
 	}
 	
-	public StudentController() {
-		// TODO Auto-generated constructor stub
-	}
-
 	/**
 	 * Gets new student.
 	 */

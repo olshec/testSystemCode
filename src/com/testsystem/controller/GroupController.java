@@ -19,11 +19,6 @@ import com.testsystem.util.ServiceLocator;
 public class GroupController {
 
 	private Group group;
-
-	
-	public GroupController() {
-		// TODO Auto-generated constructor stub
-	}
 	
 	/**
 	 * Creates a GroupController.
@@ -64,7 +59,7 @@ public class GroupController {
 	 * 
 	 * @param group the group of user
 	 */
-	public List<User> getStudentsByGroup(Group group) {
+	public static List<User> getStudentsByGroup(Group group) {
 		List<Model> listStudentInBase = ServiceLocator.getDaoProvider()
 				.getRecordsTable(Student.nameModel);
 		List<User> listStudent = new ArrayList<User>();
@@ -82,7 +77,7 @@ public class GroupController {
 	 * 
 	 * @param String the name of group to create and add
 	 */
-	public void addGroup(String name) {
+	public static void addGroup(String name) {
 		List<Model> groups = ServiceLocator.getDaoProvider()
 				.getRecordsTable(Group.nameModel);
 		groups.add(GroupController.getNewGroup(name));
@@ -93,7 +88,7 @@ public class GroupController {
 	 * 
 	 * @param group the group to add
 	 */
-	public void addGroup(Group group) {
+	public static void addGroup(Group group) {
 		List<Model> groups = ServiceLocator.getDaoProvider()
 				.getRecordsTable(Group.nameModel);
 		groups.add(group);
@@ -104,7 +99,7 @@ public class GroupController {
 	 * 
 	 * @param name the name of group
 	 */
-	public Group getGroupByName(String name) {
+	public static Group getGroupByName(String name) {
 		List<Model> listGroup = ServiceLocator.getDaoProvider()
 				.getRecordsTable(Group.nameModel);
 		for (int i = 0; i < listGroup.size(); i++) {

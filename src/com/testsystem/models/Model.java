@@ -2,9 +2,7 @@ package com.testsystem.models;
 
 public abstract class Model {
 
-	public Model() {
-		// TODO Auto-generated constructor stub
-	}
+	public Model() {}
 	
 	/**
 	 * Gets name of model.

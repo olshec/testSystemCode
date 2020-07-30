@@ -26,10 +26,6 @@ public class AdministratorController extends UserController {
 		super(user);
 	}
 
-	public AdministratorController() {
-		// TODO Auto-generated constructor stub
-	}
-
 	/**
 	 * Gets new Administrator.
 	 */

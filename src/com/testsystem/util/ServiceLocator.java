@@ -30,26 +30,12 @@ public class ServiceLocator {
 	public static void setDaoProvider(DAOProvider daoProvider) {
 		ServiceLocator.daoProvider = daoProvider;
 	}
-
-	/**
-	 * @return the testController
-	 */
-	public static GroupController getGroupController() {
-		return new GroupController();
-	}
 	
 	/**
 	 * @return the testController
 	 */
 	public static GroupController getGroupController(Group group) {
 		return new GroupController(group);
-	}
-	
-	/**
-	 * @return the testController
-	 */
-	public static TestController getTestController() {
-		return new TestController();
 	}
 	
 	/**
@@ -76,13 +62,6 @@ public class ServiceLocator {
 	/**
 	 * @return the userController
 	 */
-	public static StudentController getStudentController() {
-		return new StudentController();
-	}
-	
-	/**
-	 * @return the userController
-	 */
 	public static StudentController getStudentController(User user) {
 		return new StudentController(user);
 	}
@@ -90,22 +69,8 @@ public class ServiceLocator {
 	/**
 	 * @return the userController
 	 */
-	public static AdministratorController getAdministratorController() {
-		return new AdministratorController();
-	}
-	
-	/**
-	 * @return the userController
-	 */
 	public static AdministratorController getAdministratorController(User user) {
 		return new AdministratorController(user);
-	}
-	
-	/**
-	 * @return the userController
-	 */
-	public static TeacherController getTeacherController() {
-		return new TeacherController();
 	}
 	
 	/**

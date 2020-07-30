@@ -22,12 +22,6 @@ import com.testsystem.util.ServiceLocator;
 public class RatingCalculator {
 
 	/**
-	 * Creates a RatingCalculator.
-	 */
-	private RatingCalculator() {
-	}
-
-	/**
 	 * Gets rating for student. Max_range = 10. Max_point = count_question * 5. Rating
 	 * of student = (point*100/(count_question*Max_point))/Max_range =
 	 * (point*2/(count_question)).
@@ -59,7 +53,7 @@ public class RatingCalculator {
 		List<StudentTestResult> groupRating = new ArrayList<StudentTestResult>();
 		for (int i = 0; i < listStudent.size(); i++) {
 			User student = listStudent.get(i);
-			List<Model> listStudentTests = ServiceLocator.getTestController().getStudentTests(student);
+			List<Model> listStudentTests = TestController.getStudentTests(student);
 			int ratingStudent = RatingCalculator.getRatingStudent(student, listStudentTests);
 			groupRating.add(new StudentTestResult(student, ratingStudent));
 		}
