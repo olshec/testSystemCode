@@ -36,9 +36,7 @@ public class TestServer {
 	@Test
 	public void testCountTests() {
 		List<com.testsystem.models.Model> listTest = ServiceLocator.getDaoProvider()
-				.getRecordsTable(com.testsystem.models.Test.nameModel);
-		
-		
+				.getRecordsTable(com.testsystem.models.Test.nameModel);	
 		
 		assertEquals(listTest.size(), 3);
 	}
@@ -55,6 +53,7 @@ public class TestServer {
 	public void testCountGroups() {
 		List<Model> listGroup = ServiceLocator.getDaoProvider()
 				.getRecordsTable(Group.nameModel);
+		
 		assertEquals(listGroup.size(), 2);
 	}
 
