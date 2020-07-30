@@ -8,15 +8,15 @@ import com.testsystem.models.Model;
 public class Table {
 
 	String name;
-	List<Model> listRecord;
+	List<Model> listRecords;
 	
 	public Table() {	
-		listRecord = new ArrayList<Model>();
+		listRecords = new ArrayList<Model>();
 	}
 
 	public Table(String name) {
 		this.name = name;
-		this.listRecord = new ArrayList<Model>();
+		this.listRecords = new ArrayList<Model>();
 	}
 	
 	/**
@@ -44,24 +44,24 @@ public class Table {
 	 * @return the table
 	 */
 	public List<Model> getRecords() {
-		return listRecord;
+		return listRecords;
 	}
 
 	/**
 	 * @param listModel the table to set
 	 */
 	public void setRecords(List<Model> listRecord) {
-		this.listRecord = listRecord;
+		this.listRecords = listRecord;
 	}
 	
 	public void addRecord(Model model) {
-		listRecord.add(model);
+		listRecords.add(model);
 	}
 	
 	/**
 	 * Clears DAOProvider tables.
 	 */
 	public void clear() {
-		listRecord.clear();
+		listRecords.clear();
 	}
 }
