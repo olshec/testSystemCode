@@ -33,7 +33,7 @@ public class ServerController {
 		daoProvider = new DAOProvider();
 		ServiceLocator.setDaoProvider(daoProvider);
 		daoProvider.addTable(Group.nameModel);
-		daoProvider.addTable(User.nameModel);
+		//daoProvider.addTable(User.nameModel);
 		daoProvider.addTable(Test.nameModel);
 		daoProvider.addTable(Teacher.nameModel);
 		daoProvider.addTable(Student.nameModel);
