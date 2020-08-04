@@ -40,7 +40,7 @@ public class AdministratorController extends UserController {
 	 * @return List<UserModel> the list users
 	 */
 	public List<Model> getAllUsers() {
-		return ServiceLocator.getUserController().getAllUsers();
+		return new UserController().getAllUsers();
 	}
 
 	/**

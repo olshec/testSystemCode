@@ -50,7 +50,7 @@ public class StudentController extends UserController {
 				.getRecordsTable(Test.nameModel);
 		List<Model> testsStudent = new ArrayList<Model>();
 		for (int i = 0; i < listTest.size(); i++) {
-			TestController testController = ServiceLocator.getTestController((Test)listTest.get(i));
+			TestController testController = new TestController((Test)listTest.get(i));
 			if (testController.hasStudent(this.getUser()) == true) {
 				testsStudent.add(listTest.get(i));
 			}

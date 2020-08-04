@@ -64,7 +64,7 @@ public class ServerController {
 	 * @return User 	the authenticated user
 	 */
 	public User login(String username, String password) {
-		return ServiceLocator.getUserController().getUser(username, password);
+		return new UserController().getUser(username, password);
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class ServerController {
 	 * @return List<Test> 	the list tests
 	 */
 	public List<Model> getTestsForStudent(User student) {
-		return ServiceLocator.getStudentController(student).getTests();
+		return new StudentController(student).getTests();
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class ServerController {
 	 * @return 			the model of test
 	 */
 	public Test getTestInfoForStudent(User student, int idTest) {
-		return ServiceLocator.getStudentController(student).getTestInfo(idTest);
+		return new StudentController(student).getTestInfo(idTest);
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class ServerController {
 	 * @return 			the test
 	 */
 	public int getNumberQuestionsInTest(User student, int idTest) {
-		return ServiceLocator.getStudentController(student).getNumberQuestionsInTest(idTest);
+		return new StudentController(student).getNumberQuestionsInTest(idTest);
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class ServerController {
 	 * @return List<Test> 	the list tests
 	 */
 	public List<Test> getTestsForTeacher(User teacher) {
-		return ServiceLocator.getTeacherController(teacher).getTests();
+		return new TeacherController(teacher).getTests();
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class ServerController {
 	 * @return Test 	the test
 	 */
 	public Test getTestResultForTeacher(User teacher, int idTest) {
-		return ServiceLocator.getTeacherController(teacher).getTestResult(idTest);
+		return new TeacherController(teacher).getTestResult(idTest);
 	}
 
 	/**
@@ -127,7 +127,7 @@ public class ServerController {
 	 * @return List<User> 	the list all administrators
 	 */
 	public List<Model> getAllUsersForAdmin(User admin) {
-		return ServiceLocator.getUserController(admin).getAllUsers();
+		return new UserController(admin).getAllUsers();
 	}
 
 	/**
@@ -137,7 +137,7 @@ public class ServerController {
 	 * @return List<User> 	the list students
 	 */
 	public List<Model> getStudentsForAdmin(User admin) {
-		return ServiceLocator.getAdministratorController(admin).getUsersByType(Student.nameModel);
+		return new AdministratorController(admin).getUsersByType(Student.nameModel);
 	}
 
 	/**
@@ -147,7 +147,7 @@ public class ServerController {
 	 * @return List<User> 	the list of teachers
 	 */
 	public List<Model> getTeachersForAdmin(User admin) {
-		return ServiceLocator.getAdministratorController(admin).getUsersByType(Teacher.nameModel);
+		return new AdministratorController(admin).getUsersByType(Teacher.nameModel);
 	}
 
 	/**
@@ -157,7 +157,7 @@ public class ServerController {
 	 * @return List<User> 	the list of administrators
 	 */
 	public List<Model> getAdminsForAdmin(User admin) {
-		return ServiceLocator.getAdministratorController(admin).getUsersByType(Administrator.nameModel);
+		return new AdministratorController(admin).getUsersByType(Administrator.nameModel);
 		
 	}
 	
@@ -189,7 +189,7 @@ public class ServerController {
 	}
 
 	private void loadTest() {
-		UserController userController = ServiceLocator.getUserController();
+		UserController userController = new UserController();
 		User admin1 = AdministratorController.getNewAdministrator("Примарев", 
 				"Игорь", this, "Admin1", "0000");
 		userController.addUser(admin1);
@@ -206,7 +206,7 @@ public class ServerController {
 		Question q2 = QuestionController.getNewQuestion("AI");
 		Question q3 = QuestionController.getNewQuestion("Микроконтроллеры");
 
-		TestController testController = ServiceLocator.getTestController(test1);
+		TestController testController = new TestController(test1);
 		testController.addQuestion(q1);
 		testController.addQuestion(q2);
 		testController.addQuestion(q3);

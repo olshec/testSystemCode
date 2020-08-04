@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 import java.util.List;
 import org.junit.Test;
 
+import com.testsystem.controller.AdministratorController;
+import com.testsystem.controller.TeacherController;
 import com.testsystem.controller.TestController;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;
@@ -109,21 +111,21 @@ public class TestServer {
 
 	@Test
 	public void testGetTestsForTeacher() {
-		List<com.testsystem.models.Test> listTest = ServiceLocator.getTeacherController(teacher1).getTests();
+		List<com.testsystem.models.Test> listTest = (new TeacherController(teacher1)).getTests();
 
 		assertEquals(listTest.size(), 3);
 	}
 
 	@Test
 	public void testGetAllUsersForAdmin() {
-		List<Model> listUser = ServiceLocator.getAdministratorController(admin1).getAllUsers();
+		List<Model> listUser = new AdministratorController(admin1).getAllUsers();
 
 		assertEquals(listUser.size(), 7);
 	}
 
 	@Test
 	public void testGetStudentsForAdmin() {
-		List<Model> listUser = ServiceLocator.getAdministratorController(admin1)
+		List<Model> listUser = new AdministratorController(admin1)
 				.getUsersByType(Student.nameModel);
 
 		assertEquals(listUser.size(), 5);
@@ -131,7 +133,7 @@ public class TestServer {
 
 	@Test
 	public void testGetTeachersForAdmin() {
-		List<Model> listUser = ServiceLocator.getAdministratorController(admin1)
+		List<Model> listUser = new AdministratorController(admin1)
 				.getUsersByType(Teacher.nameModel);
 
 		assertEquals(listUser.size(), 1);
@@ -139,7 +141,7 @@ public class TestServer {
 
 	@Test
 	public void testGetAdminsForAdmin() {
-		List<Model> listUser = ServiceLocator.getAdministratorController(admin1)
+		List<Model> listUser = new AdministratorController(admin1)
 				.getUsersByType(Administrator.nameModel);
 
 		assertEquals(listUser.size(), 1);

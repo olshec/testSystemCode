@@ -16,7 +16,6 @@ import com.testsystem.models.Model;
 import com.testsystem.models.Question;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
-import com.testsystem.util.ServiceLocator;
 
 public class Server extends ServerController {
 
@@ -27,7 +26,7 @@ public class Server extends ServerController {
 	}
 
 	private void loadTest() {
-		UserController userController = ServiceLocator.getUserController();
+		UserController userController = new UserController();
 		User admin1 = AdministratorController.getNewAdministrator("Примарев", 
 				"Игорь", this, "Admin1", "0000");
 		userController.addUser(admin1);

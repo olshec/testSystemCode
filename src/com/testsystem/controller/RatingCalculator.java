@@ -10,7 +10,6 @@ import com.testsystem.models.Model;
 import com.testsystem.models.StudentTestResult;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
-import com.testsystem.util.ServiceLocator;
 
 /**
  * Represents a RatingCalculator.
@@ -34,7 +33,7 @@ public class RatingCalculator {
 		int point = 0;
 		for (int i = 0; i < listTest.size(); i++) {
 			Test test = (Test)listTest.get(i);
-			point += ServiceLocator.getTestController(test).getStudentResult(student).getResult();
+			point += new TestController(test).getStudentResult(student).getResult();
 		}
 		int rating = point * 2 / listTest.size();
 		return rating;
