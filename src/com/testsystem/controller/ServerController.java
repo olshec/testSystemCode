@@ -35,6 +35,9 @@ public class ServerController {
 		daoProvider.addTable(Group.nameModel);
 		daoProvider.addTable(User.nameModel);
 		daoProvider.addTable(Test.nameModel);
+		daoProvider.addTable(Teacher.nameModel);
+		daoProvider.addTable(Student.nameModel);
+		daoProvider.addTable(Administrator.nameModel);
 		loadTest();
 	}
 

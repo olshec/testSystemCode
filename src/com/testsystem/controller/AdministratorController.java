@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Model;
+import com.testsystem.models.Teacher;
 import com.testsystem.models.User;
 import com.testsystem.util.ServiceLocator;
 
@@ -52,7 +53,7 @@ public class AdministratorController extends UserController {
 	 */
 	public List<Model> getUsersByType(String typeUser) {
 		List<Model> masUserResult = new ArrayList<Model>();
-		List<Model> records = ServiceLocator.getDaoProvider().getRecordsTable(User.nameModel);
+		List<Model> records = ServiceLocator.getDaoProvider().getRecordsTable(typeUser);
 		//List<User> listUser = t.getListRecord();
 		for (int i = 0; i < records.size(); i++) {
 			String className = records.get(i).getNameModel();

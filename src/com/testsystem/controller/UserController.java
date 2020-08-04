@@ -1,8 +1,12 @@
 package com.testsystem.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.models.Administrator;
 import com.testsystem.models.Model;
+import com.testsystem.models.Student;
+import com.testsystem.models.Teacher;
 import com.testsystem.models.User;
 import com.testsystem.util.ServiceLocator;
 
@@ -53,8 +57,24 @@ public class UserController {
 	 * @return UserModel 	the user
 	 */
 	public User getUser(String username, String password) {
+		User u = getListUserByType(Administrator.nameModel, username, password);
+		if(u != null) {
+			return u;
+		} 
+		u = getListUserByType(Teacher.nameModel, username, password);
+		if(u != null) {
+			return u;
+		} 	
+		u = getListUserByType(Student.nameModel, username, password);
+		if(u != null) {
+			return u;
+		} 
+		return null;
+	}
+	
+	private User getListUserByType(String nameModel, String username, String password) {
 		List<Model> users = ServiceLocator.getDaoProvider()
-				.getRecordsTable(User.nameModel);
+				.getRecordsTable(nameModel);
 		for (int i = 0; i < users.size(); i++) {
 			User u = (User)users.get(i);
 			if (u.getUserName().equals(username) && u.getPassword().equals(password)) {
@@ -62,6 +82,7 @@ public class UserController {
 			}
 		}
 		return null;
+
 	}
 
 	/**
@@ -70,9 +91,17 @@ public class UserController {
 	 * @return List<UserModel> the list of users
 	 */
 	public List<Model> getAllUsers() {
-		List<Model> users = ServiceLocator.getDaoProvider()
-				.getRecordsTable(User.nameModel);
-		return users;
+		List<Model> administrators = ServiceLocator.getDaoProvider()
+				.getRecordsTable(Administrator.nameModel);
+		List<Model> teachers = ServiceLocator.getDaoProvider()
+				.getRecordsTable(Teacher.nameModel);
+		List<Model> students = ServiceLocator.getDaoProvider()
+				.getRecordsTable(Student.nameModel);
+		List<Model> usersList = new ArrayList<Model>();
+		usersList.addAll(administrators);
+		usersList.addAll(teachers);
+		usersList.addAll(students);
+		return usersList;
 	}
 
 	/**

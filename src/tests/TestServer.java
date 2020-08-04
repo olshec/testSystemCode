@@ -43,10 +43,16 @@ public class TestServer {
 
 	@Test
 	public void testCountUsers() {
-		List<Model> listUser = ServiceLocator.getDaoProvider()
-				.getRecordsTable(User.nameModel);
+		List<Model> listUserAdmin = ServiceLocator.getDaoProvider()
+				.getRecordsTable(Administrator.nameModel);
+		List<Model> listUserTeacher = ServiceLocator.getDaoProvider()
+				.getRecordsTable(Teacher.nameModel);
+		List<Model> listUserStudent = ServiceLocator.getDaoProvider()
+				.getRecordsTable(Student.nameModel);
 		
-		assertEquals(listUser.size(), 6);
+		int countUsers = listUserAdmin.size() + listUserTeacher.size() +
+				listUserStudent.size();
+		assertEquals(countUsers, 6);
 	}
 
 	@Test
