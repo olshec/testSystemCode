@@ -1,18 +1,29 @@
 package com.testsystem.DAO;
 
 import java.util.List;
-
 import com.testsystem.models.Model;
 
+/**
+ * Represents a provider for database.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
+ */
 public class DAOProvider {
 
 	private Database database;
 	
+	/**
+	 * Creates a provider.
+	 */
 	public DAOProvider() {
 		database = new Database();
 	}
 	
 	/**
+	 * Creates a provider.
+	 * 
 	 * @param tables
 	 */
 	public DAOProvider(Database database) {
@@ -20,20 +31,27 @@ public class DAOProvider {
 	}
 
 	/**
-	 * @return the tables
+	 * Gets database.
+	 * 
+	 * @return Database the database
 	 */
 	public Database getDatabase() {
 		return database;
 	}
 
 	/**
-	 * @param database the tables to set
+	 * Sets database.
+	 * 
+	 * @param database the database to set
 	 */
 	public void setDatabase(Database database) {
 		this.database = database;
 	}
 	
 	/**
+	 * Sets table.
+	 * 
+	 * @param name the name of table
 	 * @param table the table to set
 	 */
 	public void setTable(String name, List<Model> listRecord) {
@@ -41,16 +59,26 @@ public class DAOProvider {
 	}
 	
 	/**
-	 * Clears DAOProvider tables.
+	 * Clears tables in database.
 	 */
 	public void clear() {
 		database.clear();
 	}
 	
+	/**
+	 * Adds a new table
+	 * 
+	 * @param name the name of table
+	 */
 	public void addTable(String name) {
 		database.addTable(name);
 	}
 	
+	/**
+	 * Adds a new record
+	 * 
+	 * @param record the model to add
+	 */
 	public void addRecord(Model record) {
 		database.addRecord(record);
 	}

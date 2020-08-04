@@ -5,6 +5,13 @@ import java.util.List;
 
 import com.testsystem.models.Model;
 
+/**
+ * Represents a database.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
+ */
 public class Database {
 
 	private HashMap<String, Table> tables;

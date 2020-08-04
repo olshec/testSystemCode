@@ -1,11 +1,7 @@
-/**
- * 
- */
 package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.testsystem.models.Model;
 import com.testsystem.models.Teacher;
 import com.testsystem.models.Test;

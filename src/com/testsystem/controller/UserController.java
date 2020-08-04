@@ -2,7 +2,6 @@ package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Model;
 import com.testsystem.models.Student;
@@ -54,7 +53,7 @@ public class UserController {
 	 * 
 	 * @param username 		the name of user
 	 * @param password 		the password of user
-	 * @return UserModel 	the user
+	 * @return User 		the user
 	 */
 	public User getUser(String username, String password) {
 		User u = getListUserByType(Administrator.nameModel, username, password);
@@ -72,6 +71,14 @@ public class UserController {
 		return null;
 	}
 	
+	/*
+	 * Gets user by type.
+	 * 
+	 * @param nameModel		the name of model user
+	 * @param username 		the name of user
+	 * @param password 		the password of user
+	 * @return User 		the user
+	 */
 	private User getListUserByType(String nameModel, String username, String password) {
 		List<Model> users = ServiceLocator.getDaoProvider()
 				.getRecordsTable(nameModel);
@@ -138,13 +145,7 @@ public class UserController {
 	 */
 	public List<Model> getUsersByType(String typeUser) {
 		List<Model> listUserResult = ServiceLocator.getDaoProvider()
-				.getRecordsTable(User.nameModel);
-		for (int i = 0; i < listUserResult.size(); i++) {
-			String className = listUserResult.get(i).getNameModel();
-			if (className.equals(typeUser)) {
-				listUserResult.add(listUserResult.get(i));
-			}
-		}
+				.getRecordsTable(typeUser);
 		return listUserResult;
 	}
 }

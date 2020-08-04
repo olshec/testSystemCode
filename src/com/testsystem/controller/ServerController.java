@@ -2,7 +2,6 @@ package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.testsystem.DAO.DAOProvider;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Group;
@@ -56,7 +55,6 @@ public class ServerController {
 	public void setDaoProvider(DAOProvider daoProvider) {
 		this.daoProvider = daoProvider;
 	}
-
 
 	/**
 	 * Method for login.
@@ -163,12 +161,25 @@ public class ServerController {
 		
 	}
 	
+	/**
+	 * Gets rating for student.
+	 * 
+	 * @param 		the student
+	 * @return int 	the rating
+	 */
 	public int getRatingUser(User student) {
 		List<Model> listTest = ServiceLocator.getDaoProvider()
 				.getRecordsTable(Test.nameModel);
 		return RatingCalculator.getRatingStudent(student, listTest);
 	}
 	
+	
+	/**
+	 * Gets rating for group.
+	 * 
+	 * @param  String 					the nameGroup 		
+	 * @return List<StudentTestResult>	the students results 
+	 */
 	public List<StudentTestResult> getRatingGroup(String nameGroup){
 		Group group = GroupController.getGroupByName(nameGroup);
 		List<StudentTestResult> ratingGroup = RatingCalculator.getRatingGroup(group, GroupController
