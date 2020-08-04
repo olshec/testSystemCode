@@ -223,6 +223,7 @@ public class ServerController {
 		GroupController.addGroup(g1);
 		User student1 = StudentController.getNewStudent("Шахматов", "Антон", this, "ShAnton", "1111", g1);
 		User student2 = StudentController.getNewStudent("Романенко", "Егор", this, "REgor", "1111", g1);
+		User student01 = StudentController.getNewStudent("Федоренко", "Игнат", this, "FeIgnat", "1111", g1);
 		
 		Group g2 = GroupController.getNewGroup("Group 2");
 		GroupController.addGroup(g2);
@@ -234,13 +235,16 @@ public class ServerController {
 		userController.addUser(student2);
 		userController.addUser(student3);
 		userController.addUser(student4);
+		userController.addUser(student01);
 
 		//add test1 and result to students
 		testController.setTest(test1);
 		testController.addStudent(student1);
 		testController.addStudent(student2);
+		testController.addStudent(student01);
 		testController.addResult(student1, 4);
 		testController.addResult(student2, 5);
+		testController.addResult(student01, 3);
 
 		//add test2 and result to students
 		testController.setTest(test2);
@@ -252,6 +256,7 @@ public class ServerController {
 		testController.addResult(student2, 4);
 		testController.addResult(student3, 4);
 		testController.addResult(student4, 5);
+		testController.addResult(student01, 3);
 		
 		//add test3 and result to students
 		testController.setTest(test3);
@@ -263,6 +268,7 @@ public class ServerController {
 		testController.addResult(student2, 4);
 		testController.addResult(student3, 5);
 		testController.addResult(student4, 3);
+		testController.addResult(student01, 2);
 		
 		//TestTable testBase = getDaoProvider().getTestTable();
 		

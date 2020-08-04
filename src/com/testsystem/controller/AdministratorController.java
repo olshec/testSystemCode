@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Model;
-import com.testsystem.models.Teacher;
 import com.testsystem.models.User;
 import com.testsystem.util.ServiceLocator;
 

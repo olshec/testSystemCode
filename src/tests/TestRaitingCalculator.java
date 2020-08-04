@@ -33,12 +33,17 @@ public class TestRaitingCalculator {
 	public void testGetRatingGroup() {
 		List<StudentTestResult> ratingGroup = serverController.getRatingGroup("Group 1"); 
 		
-		int rating1 = ratingGroup.get(0).getResult();
-		int rating2 = ratingGroup.get(1).getResult();
+		int rating1 = ratingGroup.get(0).getResult(); //"Романенко", "Егор"
+		int rating2 = ratingGroup.get(1).getResult();//"Шахматов", "Антон"
+		int rating3 = ratingGroup.get(2).getResult();//"Федоренко"
 		
-		assertEquals(ratingGroup.size(), 2);
+		assertEquals(ratingGroup.size(), 3);
 		assertEquals(rating1, 8);
 		assertEquals(rating2, 6);
+		assertEquals(rating3, 5);
+		assertEquals(ratingGroup.get(0).getStudent().getLastName(), "Романенко");
+		assertEquals(ratingGroup.get(1).getStudent().getLastName(), "Шахматов");
+		assertEquals(ratingGroup.get(2).getStudent().getLastName(), "Федоренко");
 	}
 	
 	@Test

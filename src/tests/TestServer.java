@@ -52,7 +52,7 @@ public class TestServer {
 		
 		int countUsers = listUserAdmin.size() + listUserTeacher.size() +
 				listUserStudent.size();
-		assertEquals(countUsers, 6);
+		assertEquals(countUsers, 7);
 	}
 
 	@Test
@@ -118,7 +118,7 @@ public class TestServer {
 	public void testGetAllUsersForAdmin() {
 		List<Model> listUser = ServiceLocator.getAdministratorController(admin1).getAllUsers();
 
-		assertEquals(listUser.size(), 6);
+		assertEquals(listUser.size(), 7);
 	}
 
 	@Test
@@ -126,7 +126,7 @@ public class TestServer {
 		List<Model> listUser = ServiceLocator.getAdministratorController(admin1)
 				.getUsersByType(Student.nameModel);
 
-		assertEquals(listUser.size(), 4);
+		assertEquals(listUser.size(), 5);
 	}
 
 	@Test
