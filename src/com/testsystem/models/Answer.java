@@ -9,6 +9,11 @@ package com.testsystem.models;
  */
 public class Answer extends Model {
 	
+	/**
+	 * Gets name of model.
+	 * 
+	 * @return String return name of model
+	 */
 	@Override
 	public String getNameModel() {
 		return "Answer";

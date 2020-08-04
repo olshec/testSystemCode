@@ -114,6 +114,9 @@ public abstract class User extends Model {
 		return this.server;
 	}
 	
+	/**
+	 * Returns the hash code.
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -122,6 +125,9 @@ public abstract class User extends Model {
 		return result;
 	}
 
+	/**
+	 * Equals check.
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

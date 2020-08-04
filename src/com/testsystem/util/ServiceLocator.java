@@ -11,6 +11,13 @@ import com.testsystem.models.Group;
 import com.testsystem.models.Test;
 import com.testsystem.models.User;
 
+/**
+ * Represents a ServiceLocator.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
+ */
 public class ServiceLocator {
 
 	static DAOProvider daoProvider;

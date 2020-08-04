@@ -113,6 +113,11 @@ public class Test extends Model {
 		this.studentsResult = studentResult;
 	}
 
+	/**
+	 * Gets name of model.
+	 * 
+	 * @return String return name of model
+	 */
 	@Override
 	public String getNameModel() {
 		return "Test";

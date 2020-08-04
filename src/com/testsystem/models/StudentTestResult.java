@@ -37,7 +37,12 @@ public class StudentTestResult extends Model {
 	public void setResult(Integer result) {
 		this.result = result;
 	}
-
+	
+	/**
+	 * Gets name of model.
+	 * 
+	 * @return String return name of model
+	 */
 	@Override
 	public String getNameModel() {
 		return "StudentTestResult";

@@ -71,6 +71,11 @@ public class StudentTest extends Model {
 		this.listQuestions = listQuestions;
 	}
 	
+	/**
+	 * Gets name of model.
+	 * 
+	 * @return String return name of model
+	 */
 	@Override
 	public String getNameModel() {
 		return "StudentTest";

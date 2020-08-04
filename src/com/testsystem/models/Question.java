@@ -85,6 +85,11 @@ public class Question extends Model {
 		ID = id;
 	}
 	
+	/**
+	 * Gets name of model.
+	 * 
+	 * @return String return name of model
+	 */
 	@Override
 	public String getNameModel() {
 		return "Question";

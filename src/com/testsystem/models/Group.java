@@ -10,7 +10,6 @@ package com.testsystem.models;
 public class Group extends Model{
 	
 	public static final String nameModel = "Group";
-	
 	private String name;
 	
 	/**
@@ -49,6 +48,9 @@ public class Group extends Model{
 		return "Group";
 	}
 	
+	/**
+	 * Returns the hash code.
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -57,6 +59,9 @@ public class Group extends Model{
 		return result;
 	}
 
+	/**
+	 * Equals check.
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
