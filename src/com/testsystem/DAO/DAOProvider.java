@@ -89,7 +89,7 @@ public class DAOProvider {
 	 * @param nameTable
 	 * @return List<Model> the records of table
 	 */
-	public List<Model> getRecordsTable(String nameTable) {
+	public List<Model> getRecords(String nameTable) {
 		return database.getTable(nameTable).getRecords();
 	}
 }

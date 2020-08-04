@@ -81,7 +81,7 @@ public class UserController {
 	 */
 	private User getListUserByType(String nameModel, String username, String password) {
 		List<Model> users = ServiceLocator.getDaoProvider()
-				.getRecordsTable(nameModel);
+				.getRecords(nameModel);
 		for (int i = 0; i < users.size(); i++) {
 			User u = (User)users.get(i);
 			if (u.getUserName().equals(username) && u.getPassword().equals(password)) {
@@ -99,11 +99,11 @@ public class UserController {
 	 */
 	public List<Model> getAllUsers() {
 		List<Model> administrators = ServiceLocator.getDaoProvider()
-				.getRecordsTable(Administrator.nameModel);
+				.getRecords(Administrator.nameModel);
 		List<Model> teachers = ServiceLocator.getDaoProvider()
-				.getRecordsTable(Teacher.nameModel);
+				.getRecords(Teacher.nameModel);
 		List<Model> students = ServiceLocator.getDaoProvider()
-				.getRecordsTable(Student.nameModel);
+				.getRecords(Student.nameModel);
 		List<Model> usersList = new ArrayList<Model>();
 		usersList.addAll(administrators);
 		usersList.addAll(teachers);
@@ -127,7 +127,7 @@ public class UserController {
 	 */
 	public boolean hasUser(User user) {
 		List<Model> users = ServiceLocator.getDaoProvider()
-				.getRecordsTable(User.nameModel);
+				.getRecords(User.nameModel);
 		for (int i = 0; i < users.size(); i++) {
 			User u = (User)users.get(i);
 			if (u.getId() == user.getId()) {
@@ -145,7 +145,7 @@ public class UserController {
 	 */
 	public List<Model> getUsersByType(String typeUser) {
 		List<Model> listUserResult = ServiceLocator.getDaoProvider()
-				.getRecordsTable(typeUser);
+				.getRecords(typeUser);
 		return listUserResult;
 	}
 }

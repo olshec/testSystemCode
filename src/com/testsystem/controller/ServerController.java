@@ -169,7 +169,7 @@ public class ServerController {
 	 */
 	public int getRatingUser(User student) {
 		List<Model> listTest = ServiceLocator.getDaoProvider()
-				.getRecordsTable(Test.nameModel);
+				.getRecords(Test.nameModel);
 		return RatingCalculator.getRatingStudent(student, listTest);
 	}
 	

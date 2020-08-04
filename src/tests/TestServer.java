@@ -38,7 +38,7 @@ public class TestServer {
 	@Test
 	public void testCountTests() {
 		List<com.testsystem.models.Model> listTest = ServiceLocator.getDaoProvider()
-				.getRecordsTable(com.testsystem.models.Test.nameModel);	
+				.getRecords(com.testsystem.models.Test.nameModel);	
 		
 		assertEquals(listTest.size(), 3);
 	}
@@ -46,11 +46,11 @@ public class TestServer {
 	@Test
 	public void testCountUsers() {
 		List<Model> listUserAdmin = ServiceLocator.getDaoProvider()
-				.getRecordsTable(Administrator.nameModel);
+				.getRecords(Administrator.nameModel);
 		List<Model> listUserTeacher = ServiceLocator.getDaoProvider()
-				.getRecordsTable(Teacher.nameModel);
+				.getRecords(Teacher.nameModel);
 		List<Model> listUserStudent = ServiceLocator.getDaoProvider()
-				.getRecordsTable(Student.nameModel);
+				.getRecords(Student.nameModel);
 		
 		int countUsers = listUserAdmin.size() + listUserTeacher.size() +
 				listUserStudent.size();
@@ -60,7 +60,7 @@ public class TestServer {
 	@Test
 	public void testCountGroups() {
 		List<Model> listGroup = ServiceLocator.getDaoProvider()
-				.getRecordsTable(Group.nameModel);
+				.getRecords(Group.nameModel);
 		
 		assertEquals(listGroup.size(), 2);
 	}
@@ -82,7 +82,7 @@ public class TestServer {
 	public void testGetTestInfoForStudent() {
 
 		List<Model> modelsTests = serverController.getDaoProvider()
-				.getRecordsTable(com.testsystem.models.Test.nameModel);
+				.getRecords(com.testsystem.models.Test.nameModel);
 		com.testsystem.models.Test test1 = (com.testsystem.models.Test)(modelsTests).get(0);
 //		List<Model> listGroup = ServiceLocator.getDaoProvider()
 //				.getRecordsTable(Group.nameModel);

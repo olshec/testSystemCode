@@ -36,7 +36,7 @@ public class Database {
 	 * 
 	 * @return the database
 	 */
-	public HashMap<String, Table> getDatabase() {
+	public HashMap<String, Table> getTables() {
 		return tables;
 	}
 

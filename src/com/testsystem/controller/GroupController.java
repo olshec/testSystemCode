@@ -60,7 +60,7 @@ public class GroupController {
 	 */
 	public static List<User> getStudentsByGroup(Group group) {
 		List<Model> listStudentInBase = ServiceLocator.getDaoProvider()
-				.getRecordsTable(Student.nameModel);
+				.getRecords(Student.nameModel);
 		List<User> listStudent = new ArrayList<User>();
 		for (int i = 0; i < listStudentInBase.size(); i++) {
 			Student st = (Student)listStudentInBase.get(i);
@@ -78,7 +78,7 @@ public class GroupController {
 	 */
 	public static void addGroup(String name) {
 		List<Model> groups = ServiceLocator.getDaoProvider()
-				.getRecordsTable(Group.nameModel);
+				.getRecords(Group.nameModel);
 		groups.add(GroupController.getNewGroup(name));
 	}
 
@@ -89,7 +89,7 @@ public class GroupController {
 	 */
 	public static void addGroup(Group group) {
 		List<Model> groups = ServiceLocator.getDaoProvider()
-				.getRecordsTable(Group.nameModel);
+				.getRecords(Group.nameModel);
 		groups.add(group);
 	}
 
@@ -100,7 +100,7 @@ public class GroupController {
 	 */
 	public static Group getGroupByName(String name) {
 		List<Model> listGroup = ServiceLocator.getDaoProvider()
-				.getRecordsTable(Group.nameModel);
+				.getRecords(Group.nameModel);
 		for (int i = 0; i < listGroup.size(); i++) {
 			Group g = (Group)listGroup.get(i);
 			if (g.getName().equals(name)) {
