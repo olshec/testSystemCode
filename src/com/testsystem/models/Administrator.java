@@ -1,7 +1,5 @@
 package com.testsystem.models;
 
-import com.testsystem.controller.ServerController;
-
 /**
  * Represents an administrator.
  * 
@@ -22,8 +20,8 @@ public class Administrator extends User {
 	 * @param username  the user’s username
 	 * @param password  the user’s password
 	 */
-	public Administrator(String lastName, String firstName, ServerController server, String username, String password) {
-		super(lastName, firstName, server, username, password);
+	public Administrator(String lastName, String firstName, String username, String password) {
+		super(lastName, firstName, username, password);
 	}
 	
 	/**

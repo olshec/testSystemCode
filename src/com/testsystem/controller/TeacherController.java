@@ -30,8 +30,8 @@ public class TeacherController extends UserController {
 	 * Gets new teacher.
 	 */
 	public static Teacher getNewTeacher(String lastName, String firstName, 
-			ServerController server, String username, String password) {
-		return new Teacher(lastName, firstName, server, username, password);
+			String username, String password) {
+		return new Teacher(lastName, firstName, username, password);
 	}
 	
 	/**
@@ -61,7 +61,6 @@ public class TeacherController extends UserController {
 	 * @return Test 	the model of tests
 	 */
 	public Test getTestResult(int idTest) {
-
 		if (idTest >= 0 && idTest < this.getTests().size()) {
 			return this.getTests().get(idTest);
 		}

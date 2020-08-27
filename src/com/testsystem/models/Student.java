@@ -1,7 +1,5 @@
 package com.testsystem.models;
 
-import com.testsystem.controller.ServerController;
-
 /**
  * Represents a student.
  * 
@@ -23,9 +21,9 @@ public class Student extends User {
 	 * @param username  the user’s username
 	 * @param password  the user’s password
 	 */
-	public Student(String lastName, String firstName, ServerController server, 
+	public Student(String lastName, String firstName,
 					String username, String password, Group group) {
-		super(lastName, firstName, server, username, password);
+		super(lastName, firstName, username, password);
 		setGroup(group);
 	}
 

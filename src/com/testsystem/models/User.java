@@ -1,7 +1,5 @@
 package com.testsystem.models;
 
-import com.testsystem.controller.ServerController;
-
 /**
  * Represents an user.
  * 
@@ -15,7 +13,6 @@ public abstract class User extends Model {
 
 	private String firstName;
 	private String lastName;
-	private ServerController server;
 	private String username;
 	private String password;
 	private int id;
@@ -41,10 +38,9 @@ public abstract class User extends Model {
 	 * @param username  the user’s username
 	 * @param password  the user’s password
 	 */
-	public User(String lastName, String firstName, ServerController server, String username, String password) {
+	public User(String lastName, String firstName, String username, String password) {
 		this.lastName = lastName;
 		this.firstName = firstName;
-		this.server = server;
 		this.username = username;
 		this.password = password;
 		this.id = idCount;
@@ -103,15 +99,6 @@ public abstract class User extends Model {
 	 */
 	public int getId() {
 		return this.id;
-	}
-
-	/**
-	 * Gets the user’s server.
-	 * 
-	 * @return Server return server
-	 */
-	public ServerController getServer() {
-		return this.server;
 	}
 	
 	/**

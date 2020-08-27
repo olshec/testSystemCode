@@ -1,14 +1,15 @@
 /*
  * This software is a testing system.
  */
-package com.testsystem.views;
+package com.testsystem.application;
 
-import com.testsystem.controller.ServerController;
+import com.testsystem.controller.FrontController;
 import com.testsystem.models.Administrator;
 import com.testsystem.models.Student;
 import com.testsystem.models.Teacher;
 import com.testsystem.models.User;
 import com.testsystem.util.ModScanner;
+import com.testsystem.view.ClientView;
 
 /**
  * This class is the entry point to the application.
@@ -17,13 +18,13 @@ import com.testsystem.util.ModScanner;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class ClientView extends UserView {
+public class ClientApplication extends UserApplication {
 
 	/**
 	 * The main function. The entry point to the application.
 	 */
 	public static void main(String[] args) {
-		new ClientView().openMenu();
+		new ClientApplication().openMenu();
 		ModScanner.close();
 	}
 
@@ -33,32 +34,31 @@ public class ClientView extends UserView {
 	public void openMenu() {
 		String login = "";
 		String password = "";
-		System.out.print("Введите логин: ");
+		new ClientView().printEnterLogin();
 		login = ModScanner.getScanner().nextLine();
-		System.out.print("Введите пароль: ");
+		new ClientView().printEnterPassword();
 		password = ModScanner.getScanner().nextLine();
 
-		ServerController server = new ServerController();
-		User user = server.login(login, password);
+		FrontController frontController = new FrontController();
+		User user = frontController.login(login, password);
 
 		if (user == null) {
-			System.out.print("Неправильный логин или пароль.");
-			System.out.println("До свидания!");
+			new ClientView().printErrorLoginOrPassword();
 			return;
 		}
 
-		UserView userView = null;
-		System.out.print(user.getClass().getSimpleName());
+		UserApplication userAplication = null;
+		//System.out.print(user.getClass().getSimpleName());
 
 		switch (user.getClass().getSimpleName()) {
 		case Administrator.nameModel:
-			userView = new AdminView(user);
+			userAplication = new AdminApplication(user, frontController);
 			break;
 		case Teacher.nameModel:
-			userView = new TeacherView(user);
+			userAplication = new TeacherApplication(user, frontController);
 			break;
 		case Student.nameModel:
-			userView = new StudentView(user);
+			userAplication = new StudentApplication(user, frontController);
 			break;
 		default:
 			break;
@@ -69,11 +69,10 @@ public class ClientView extends UserView {
 
 		// Teacher_1 login: "KirovAnton", password: "12345678"
 		// SAdmin_1 login: "Admin1", password: "0000"
-		if (userView != null)
-			userView.openMenu();
+		if (userAplication != null)
+			userAplication.openMenu();
 		else {
-			System.out.print("Произошла непредвиденная ошибка!");
-			System.out.println("До свидания!");
+			new ClientView().printUndefinedError();
 		}
 	}
 }

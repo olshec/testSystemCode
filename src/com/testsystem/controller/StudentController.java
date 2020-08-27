@@ -36,8 +36,8 @@ public class StudentController extends UserController {
 	 * Gets new student.
 	 */
 	public static Student getNewStudent(String lastName, String firstName, 
-			ServerController server, String username, String password, Group group) {
-		return new Student(lastName, firstName, server, username, password, group);
+			 String username, String password, Group group) {
+		return new Student(lastName, firstName, username, password, group);
 	}
 
 	/**

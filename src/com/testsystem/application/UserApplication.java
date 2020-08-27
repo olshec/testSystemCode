@@ -1,5 +1,6 @@
-package com.testsystem.views;
+package com.testsystem.application;
 
+import com.testsystem.controller.FrontController;
 import com.testsystem.models.User;
 
 /**
@@ -9,9 +10,10 @@ import com.testsystem.models.User;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public abstract class UserView {
+public abstract class UserApplication {
 	
 	private User user;
+	private FrontController frontController;
 
 	/**
 	 * Method for open menu.
@@ -21,14 +23,15 @@ public abstract class UserView {
 	/**
 	 * Creates a UserView.
 	 */
-	public UserView() {
+	public UserApplication() {
 	}
 
 	/**
 	 * Creates a UserView.
 	 */
-	public UserView(User userModel) {
+	public UserApplication(User userModel, FrontController frontController) {
 		setUserModel(userModel);
+		setFrontController(frontController);
 	}
 
 	/**
@@ -47,5 +50,13 @@ public abstract class UserView {
 	 */
 	public void setUserModel(User user) {
 		this.user = user;
+	}
+	
+	public void setFrontController(FrontController frontController) {
+		this.frontController = frontController;
+	}
+	
+	public FrontController getFrontController() {
+		return frontController;
 	}
 }

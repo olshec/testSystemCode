@@ -21,14 +21,14 @@ import com.testsystem.util.ServiceLocator;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class ServerController {
+public class FrontController {
 
 	DAOProvider daoProvider;
 
 	/**
 	 * Creates a ServerController.
 	 */
-	public ServerController() {
+	public FrontController() {
 		daoProvider = new DAOProvider();
 		ServiceLocator.setDaoProvider(daoProvider);
 		daoProvider.addTable(Group.nameModel);
@@ -191,11 +191,11 @@ public class ServerController {
 	private void loadTest() {
 		UserController userController = new UserController();
 		User admin1 = AdministratorController.getNewAdministrator("Примарев", 
-				"Игорь", this, "Admin1", "0000");
+				"Игорь", "Admin1", "0000");
 		userController.addUser(admin1);
 
 		User teacher1 = TeacherController.getNewTeacher("Киров", 
-				"Антон", this, "KirovAnton", "12345678");
+				"Антон", "KirovAnton", "12345678");
 		userController.addUser(teacher1);
 
 		Test test1 = TestController.getNewTest("Робототехника", teacher1);
@@ -232,14 +232,14 @@ public class ServerController {
 
 		Group g1 = GroupController.getNewGroup("Group 1");
 		GroupController.addGroup(g1);
-		User student1 = StudentController.getNewStudent("Шахматов", "Антон", this, "ShAnton", "1111", g1);
-		User student2 = StudentController.getNewStudent("Романенко", "Егор", this, "REgor", "1111", g1);
-		User student01 = StudentController.getNewStudent("Федоренко", "Игнат", this, "FeIgnat", "1111", g1);
+		User student1 = StudentController.getNewStudent("Шахматов", "Антон", "ShAnton", "1111", g1);
+		User student2 = StudentController.getNewStudent("Романенко", "Егор", "REgor", "1111", g1);
+		User student01 = StudentController.getNewStudent("Федоренко", "Игнат", "FeIgnat", "1111", g1);
 		
 		Group g2 = GroupController.getNewGroup("Group 2");
 		GroupController.addGroup(g2);
-		User student3 = StudentController.getNewStudent("Сазонова", "Екатерина", this, "Kat", "1111", g2);
-		User student4 = StudentController.getNewStudent("Филонова", "Анна", this, "Anna", "1111", g2);
+		User student3 = StudentController.getNewStudent("Сазонова", "Екатерина", "Kat", "1111", g2);
+		User student4 = StudentController.getNewStudent("Филонова", "Анна", "Anna", "1111", g2);
 
 		//add users to database
 		userController.addUser(student1);

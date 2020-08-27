@@ -29,8 +29,8 @@ public class AdministratorController extends UserController {
 	 * Gets new Administrator.
 	 */
 	public static Administrator getNewAdministrator(String lastName, 
-			String firstName, ServerController server, String username, String password) {
-		return new Administrator(lastName, firstName, server, username, password);
+			String firstName, String username, String password) {
+		return new Administrator(lastName, firstName, username, password);
 	}
 
 	/**

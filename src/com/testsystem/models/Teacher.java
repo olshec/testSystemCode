@@ -1,7 +1,5 @@
 package com.testsystem.models;
 
-import com.testsystem.controller.ServerController;
-
 /**
  * Represents a teacher.
  * 
@@ -13,7 +11,7 @@ public class Teacher extends User {
 
 	public static final String nameModel = "Teacher";
 
-	/**
+	/** 
 	 * Creates a TeacherModel.
 	 * 
 	 * @param lastName  the user’s last name
@@ -22,8 +20,8 @@ public class Teacher extends User {
 	 * @param username  the user’s username
 	 * @param password  the user’s password
 	 */
-	public Teacher(String lastName, String firstName, ServerController server, String username, String password) {
-		super(lastName, firstName, server, username, password);
+	public Teacher(String lastName, String firstName, String username, String password) {
+		super(lastName, firstName, username, password);
 	}
 	
 	/**
