@@ -53,7 +53,6 @@ public class AdministratorController extends UserController {
 	public List<Model> getUsersByType(String typeUser) {
 		List<Model> masUserResult = new ArrayList<Model>();
 		List<Model> records = ServiceLocator.getDaoProvider().getRecords(typeUser);
-		//List<User> listUser = t.getListRecord();
 		for (int i = 0; i < records.size(); i++) {
 			String className = records.get(i).getNameModel();
 			if (className.equals(typeUser)) {

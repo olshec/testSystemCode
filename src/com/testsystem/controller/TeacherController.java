@@ -3,7 +3,6 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.model.Model;
 import com.testsystem.model.Teacher;
 import com.testsystem.model.Test;
 import com.testsystem.model.User;
@@ -42,11 +41,11 @@ public class TeacherController extends UserController {
 	 * @return 			the all tests of teacher
 	 */
 	public List<Test> getTests() {
-		List<Model> listTest = ServiceLocator.getDaoProvider()
-				.getRecords(Test.nameModel);
+		List<Test> listTest = ServiceLocator.getDaoProvider()
+				.getTestsRecords(Test.nameModel);
 		ArrayList<Test> masTests = new ArrayList<Test>();
 		for (int i = 0; i < listTest.size(); i++) {
-			TestController testController = new TestController((Test)listTest.get(i));
+			TestController testController = new TestController(listTest.get(i));
 			if (testController.hasTeacher(this.getUser())) {
 				masTests.add(testController.getTest());
 			}

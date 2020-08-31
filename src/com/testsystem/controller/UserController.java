@@ -81,10 +81,10 @@ public class UserController {
 	 * @return User 		the user
 	 */
 	private User getListUserByType(String nameModel, String username, String password) {
-		List<Model> users = ServiceLocator.getDaoProvider()
-				.getRecords(nameModel);
+		List<User> users = ServiceLocator.getDaoProvider()
+				.getUsersRecords(nameModel);
 		for (int i = 0; i < users.size(); i++) {
-			User u = (User)users.get(i);
+			User u = users.get(i);
 			if (u.getUserName().equals(username) && u.getPassword().equals(password)) {
 				return u;
 			}
@@ -127,10 +127,10 @@ public class UserController {
 	 * @return boolean Returns true if database contains user
 	 */
 	public boolean hasUser(User user) {
-		List<Model> users = ServiceLocator.getDaoProvider()
-				.getRecords(User.nameModel);
+		List<User> users = ServiceLocator.getDaoProvider()
+				.getUsersRecords(User.nameModel);
 		for (int i = 0; i < users.size(); i++) {
-			User u = (User)users.get(i);
+			User u = users.get(i);
 			if (u.getId() == user.getId()) {
 				return true;
 			}

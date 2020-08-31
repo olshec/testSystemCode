@@ -7,7 +7,6 @@ import com.testsystem.model.Model;
 import com.testsystem.model.User;
 import com.testsystem.util.ModScanner;
 import com.testsystem.view.AdminView;
-import com.testsystem.view.StudentView;
 
 /**
  * Represents an application for administrator.

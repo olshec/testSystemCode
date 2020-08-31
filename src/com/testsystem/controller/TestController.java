@@ -60,8 +60,8 @@ public class TestController {
 	 * 
 	 * @return the all tests
 	 */
-	public List<Model> getAllTests() {
-		List<Model> listTest = ServiceLocator.getDaoProvider().getRecords(Test.nameModel);
+	public List<Test> getAllTests() {
+		List<Test> listTest = ServiceLocator.getDaoProvider().getTestsRecords(Test.nameModel);
 		return listTest;
 	}
 
@@ -82,9 +82,9 @@ public class TestController {
 	 * @return the TestModel.
 	 */
 	public Test getTest(int idTest) {
-		List<Model> listTest = ServiceLocator.getDaoProvider().getRecords(Test.nameModel);
+		List<Test> listTest = ServiceLocator.getDaoProvider().getTestsRecords(Test.nameModel);
 		if (idTest < listTest.size() && idTest >= 0) {
-			return (Test)listTest.get(idTest);
+			return listTest.get(idTest);
 		}
 		return null;
 	}
@@ -146,11 +146,11 @@ public class TestController {
 	 * @return 	the true if test student has this test. Otherwise returns false.
 	 */
 	public static List<Model> getStudentTests(User student) {
-		List<Model> listTest = ServiceLocator.getDaoProvider()
-				.getRecords(Test.nameModel);
+		List<Test> listTest = ServiceLocator.getDaoProvider()
+				.getTestsRecords(Test.nameModel);
 		List<Model> listTestReturn = new ArrayList<Model>();
-		for (Model test : listTest) {
-			Test t = (Test)test;
+		for (Test test : listTest) {
+			Test t = test;
 			for(int i=0; i < t.getStudentResult().size(); i++) {
 				if(t.getStudentResult().get(i).getStudent().equals(student)) {
 					listTestReturn.add(t);

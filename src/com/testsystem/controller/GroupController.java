@@ -60,16 +60,16 @@ public class GroupController {
 	 * @param group the group of user
 	 */
 	public static List<User> getStudentsByGroup(Group group) {
-		List<Model> listStudentInBase = ServiceLocator.getDaoProvider()
-				.getRecords(Student.nameModel);
-		List<User> listStudent = new ArrayList<User>();
+		List<Student> listStudentInBase = ServiceLocator.getDaoProvider()
+				.getStudentsRecords(Student.nameModel);
+		List<User> listStudentReturn = new ArrayList<User>();
 		for (int i = 0; i < listStudentInBase.size(); i++) {
-			Student st = (Student)listStudentInBase.get(i);
+			Student st = listStudentInBase.get(i);
 			if (st.getGroup().equals(group)){
-				listStudent.add(st);
+				listStudentReturn.add(st);
 			}
 		}
-		return listStudent;
+		return listStudentReturn;
 	}
 	
 	/**
@@ -100,10 +100,10 @@ public class GroupController {
 	 * @param name the name of group
 	 */
 	public static Group getGroupByName(String name) {
-		List<Model> listGroup = ServiceLocator.getDaoProvider()
-				.getRecords(Group.nameModel);
+		List<Group> listGroup = ServiceLocator.getDaoProvider()
+				.getGroupsRecords(Group.nameModel);
 		for (int i = 0; i < listGroup.size(); i++) {
-			Group g = (Group)listGroup.get(i);
+			Group g = listGroup.get(i);
 			if (g.getName().equals(name)) {
 				return g;
 			}

@@ -3,11 +3,9 @@ package com.testsystem.application;
 import java.util.List;
 
 import com.testsystem.controller.FrontController;
-import com.testsystem.model.StudentTestResult;
 import com.testsystem.model.Test;
 import com.testsystem.model.User;
 import com.testsystem.util.ModScanner;
-import com.testsystem.view.AdminView;
 import com.testsystem.view.TeacherView;
 
 /**
