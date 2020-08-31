@@ -15,11 +15,11 @@ import com.testsystem.model.Teacher;
 import com.testsystem.model.User;
 import com.testsystem.util.ServiceLocator;
 
-import tests.mocks.Server;
+import tests.mocks.TestFrontController;
 
 public class TestServer {
 
-	Server serverController;
+	TestFrontController frontController;
 	User student1;
 	User teacher1;
 	User admin1;
@@ -29,10 +29,10 @@ public class TestServer {
 	}
 
 	public void loadData() {
-		serverController = new Server();
-		student1 = serverController.login("ShAnton", "1111");
-		teacher1 = serverController.login("KirovAnton", "12345678");
-		admin1 = serverController.login("Admin1", "0000");
+		frontController = new TestFrontController();
+		student1 = frontController.login("ShAnton", "1111");
+		teacher1 = frontController.login("KirovAnton", "12345678");
+		admin1 = frontController.login("Admin1", "0000");
 	}
 
 	@Test
@@ -74,14 +74,14 @@ public class TestServer {
 
 	@Test
 	public void testGetTestsForStudent() {
-		List<com.testsystem.model.Model> listTest = serverController.getTestsForStudent(student1);
+		List<com.testsystem.model.Model> listTest = frontController.getTestsForStudent(student1);
 		assertEquals(listTest.size(), 3);
 	}
 
 	@Test
 	public void testGetTestInfoForStudent() {
 
-		List<Model> modelsTests = serverController.getDaoProvider()
+		List<Model> modelsTests = frontController.getDaoProvider()
 				.getRecords(com.testsystem.model.Test.nameModel);
 		com.testsystem.model.Test test1 = (com.testsystem.model.Test)(modelsTests).get(0);
 //		List<Model> listGroup = ServiceLocator.getDaoProvider()
@@ -102,8 +102,8 @@ public class TestServer {
 
 	@Test
 	public void testGetNumberQuestionsInTest() {
-		int countQuestion = serverController.getNumberQuestionsInTest(student1, 0);
-		int countQuestion2 = serverController.getNumberQuestionsInTest(student1, 1);
+		int countQuestion = frontController.getNumberQuestionsInTest(student1, 0);
+		int countQuestion2 = frontController.getNumberQuestionsInTest(student1, 1);
 
 		assertEquals(countQuestion, 3);
 		assertEquals(countQuestion2, 4);

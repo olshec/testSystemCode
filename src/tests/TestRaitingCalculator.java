@@ -8,31 +8,31 @@ import org.junit.Test;
 import com.testsystem.model.StudentTestResult;
 import com.testsystem.model.User;
 
-import tests.mocks.Server;
+import tests.mocks.TestFrontController;
 
 public class TestRaitingCalculator {
 
-	Server serverController;
+	TestFrontController frontController;
 	
 	public TestRaitingCalculator() {
 		loadData();
 	}
 
 	public void loadData() {
-		serverController = new Server();
+		frontController = new TestFrontController();
 	}
 	
 	@Test
 	public void testGetRatingUser() {
-		User student1 = serverController.login("ShAnton", "1111");
-		int rating1 = serverController.getRatingUser(student1);
+		User student1 = frontController.login("ShAnton", "1111");
+		int rating1 = frontController.getRatingUser(student1);
 
 		assertEquals(rating1, 6);
 	}
 
 	@Test
 	public void testGetRatingGroup() {
-		List<StudentTestResult> ratingGroup = serverController.getRatingGroup("Group 1"); 
+		List<StudentTestResult> ratingGroup = frontController.getRatingGroup("Group 1"); 
 		
 		int rating1 = ratingGroup.get(0).getResult(); //"Романенко", "Егор"
 		int rating2 = ratingGroup.get(1).getResult();//"Шахматов", "Антон"
@@ -49,8 +49,8 @@ public class TestRaitingCalculator {
 	
 	@Test
 	public void testSortRaiting() {
-		List<StudentTestResult> ratingGroup1 = serverController.getRatingGroup("Group 1"); 
-		List<StudentTestResult> ratingGroup2 = serverController.getRatingGroup("Group 2"); 
+		List<StudentTestResult> ratingGroup1 = frontController.getRatingGroup("Group 1"); 
+		List<StudentTestResult> ratingGroup2 = frontController.getRatingGroup("Group 2"); 
 		
 		String lastNameFirstStudentGroup1 =  ratingGroup1.get(0).getStudent().getLastName();
 		String lastNameSecondStudentGroup1 = ratingGroup1.get(1).getStudent().getLastName();

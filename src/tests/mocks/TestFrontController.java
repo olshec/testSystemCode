@@ -17,9 +17,9 @@ import com.testsystem.model.Question;
 import com.testsystem.model.Test;
 import com.testsystem.model.User;
 
-public class Server extends FrontController {
+public class TestFrontController extends FrontController {
 
-	public Server() {
+	public TestFrontController() {
 		super();
 		//getDaoProvider().clear();
 		//loadTest();
