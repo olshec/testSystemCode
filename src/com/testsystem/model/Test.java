@@ -1,4 +1,4 @@
-package com.testsystem.models;
+package com.testsystem.model;
 
 import java.util.ArrayList;
 import java.util.List;

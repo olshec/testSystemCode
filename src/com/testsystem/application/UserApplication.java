@@ -1,10 +1,10 @@
 package com.testsystem.application;
 
 import com.testsystem.controller.FrontController;
-import com.testsystem.models.User;
+import com.testsystem.model.User;
 
 /**
- * Represents a user.
+ * Abstract class application for user.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com

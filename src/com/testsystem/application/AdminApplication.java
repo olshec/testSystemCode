@@ -3,14 +3,14 @@ package com.testsystem.application;
 import java.util.List;
 
 import com.testsystem.controller.FrontController;
-import com.testsystem.models.Model;
-import com.testsystem.models.User;
+import com.testsystem.model.Model;
+import com.testsystem.model.User;
 import com.testsystem.util.ModScanner;
 import com.testsystem.view.AdminView;
 import com.testsystem.view.StudentView;
 
 /**
- * Represents an administrator.
+ * Represents an application for administrator.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com

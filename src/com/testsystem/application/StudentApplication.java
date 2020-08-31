@@ -3,9 +3,9 @@ package com.testsystem.application;
 import java.util.List;
 
 import com.testsystem.controller.FrontController;
-import com.testsystem.models.Model;
-import com.testsystem.models.Test;
-import com.testsystem.models.User;
+import com.testsystem.model.Model;
+import com.testsystem.model.Test;
+import com.testsystem.model.User;
 import com.testsystem.util.ModScanner;
 import com.testsystem.view.StudentView;
 
@@ -19,7 +19,7 @@ import com.testsystem.view.StudentView;
 public final class StudentApplication extends UserApplication {
 
 	/**
-	 * Creates a student view.
+	 * Creates an application for student.
 	 * 
 	 * @param user the student
 	 */

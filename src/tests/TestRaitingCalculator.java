@@ -5,8 +5,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.testsystem.models.StudentTestResult;
-import com.testsystem.models.User;
+import com.testsystem.model.StudentTestResult;
+import com.testsystem.model.User;
+
 import tests.mocks.Server;
 
 public class TestRaitingCalculator {

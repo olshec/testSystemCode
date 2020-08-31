@@ -7,12 +7,12 @@ import org.junit.Test;
 import com.testsystem.controller.AdministratorController;
 import com.testsystem.controller.TeacherController;
 import com.testsystem.controller.TestController;
-import com.testsystem.models.Administrator;
-import com.testsystem.models.Group;
-import com.testsystem.models.Model;
-import com.testsystem.models.Student;
-import com.testsystem.models.Teacher;
-import com.testsystem.models.User;
+import com.testsystem.model.Administrator;
+import com.testsystem.model.Group;
+import com.testsystem.model.Model;
+import com.testsystem.model.Student;
+import com.testsystem.model.Teacher;
+import com.testsystem.model.User;
 import com.testsystem.util.ServiceLocator;
 
 import tests.mocks.Server;
@@ -37,8 +37,8 @@ public class TestServer {
 
 	@Test
 	public void testCountTests() {
-		List<com.testsystem.models.Model> listTest = ServiceLocator.getDaoProvider()
-				.getRecords(com.testsystem.models.Test.nameModel);	
+		List<com.testsystem.model.Model> listTest = ServiceLocator.getDaoProvider()
+				.getRecords(com.testsystem.model.Test.nameModel);	
 		
 		assertEquals(listTest.size(), 3);
 	}
@@ -74,7 +74,7 @@ public class TestServer {
 
 	@Test
 	public void testGetTestsForStudent() {
-		List<com.testsystem.models.Model> listTest = serverController.getTestsForStudent(student1);
+		List<com.testsystem.model.Model> listTest = serverController.getTestsForStudent(student1);
 		assertEquals(listTest.size(), 3);
 	}
 
@@ -82,13 +82,13 @@ public class TestServer {
 	public void testGetTestInfoForStudent() {
 
 		List<Model> modelsTests = serverController.getDaoProvider()
-				.getRecords(com.testsystem.models.Test.nameModel);
-		com.testsystem.models.Test test1 = (com.testsystem.models.Test)(modelsTests).get(0);
+				.getRecords(com.testsystem.model.Test.nameModel);
+		com.testsystem.model.Test test1 = (com.testsystem.model.Test)(modelsTests).get(0);
 //		List<Model> listGroup = ServiceLocator.getDaoProvider()
 //				.getRecordsTable(Group.nameModel);
 		TestController testController = new TestController(test1);
 
-		com.testsystem.models.Test test2 = (com.testsystem.models.Test)(modelsTests).get(1);
+		com.testsystem.model.Test test2 = (com.testsystem.model.Test)(modelsTests).get(1);
 		TestController testController2 = new TestController(test2);
 		
 		String lastNameTeacher = testController.getTest().getTeacher().getLastName();
@@ -111,7 +111,7 @@ public class TestServer {
 
 	@Test
 	public void testGetTestsForTeacher() {
-		List<com.testsystem.models.Test> listTest = (new TeacherController(teacher1)).getTests();
+		List<com.testsystem.model.Test> listTest = (new TeacherController(teacher1)).getTests();
 
 		assertEquals(listTest.size(), 3);
 	}

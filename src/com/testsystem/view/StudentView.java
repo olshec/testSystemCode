@@ -2,15 +2,22 @@ package com.testsystem.view;
 
 import java.util.List;
 
-import com.testsystem.models.Model;
-import com.testsystem.models.Test;
+import com.testsystem.model.Model;
+import com.testsystem.model.Test;
 
+/**
+ * View for student.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
+ */
 public class StudentView extends UserView {
 
 	public StudentView() {
-		
+
 	}
-	
+
 	public void printMenu() {
 		System.out.println();
 		System.out.println("0 - выход");
@@ -25,7 +32,7 @@ public class StudentView extends UserView {
 	public void printTestsStudent(List<Model> mas) {
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
-			System.out.println(i + 1 + ") " + ((Test)mas.get(i)).getName());
+			System.out.println(i + 1 + ") " + ((Test) mas.get(i)).getName());
 		}
 	}
 
@@ -40,7 +47,7 @@ public class StudentView extends UserView {
 			String s = String.format("Количество вопросов в тесте %d: %d", numTest, quantityQuestions);
 			System.out.println(s);
 		}
-		
+
 	}
-	
+
 }

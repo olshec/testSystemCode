@@ -1,4 +1,4 @@
-package com.testsystem.models;
+package com.testsystem.model;
 
 public class StudentTestResult extends Model {
 

@@ -4,10 +4,10 @@
 package com.testsystem.application;
 
 import com.testsystem.controller.FrontController;
-import com.testsystem.models.Administrator;
-import com.testsystem.models.Student;
-import com.testsystem.models.Teacher;
-import com.testsystem.models.User;
+import com.testsystem.model.Administrator;
+import com.testsystem.model.Student;
+import com.testsystem.model.Teacher;
+import com.testsystem.model.User;
 import com.testsystem.util.ModScanner;
 import com.testsystem.view.ClientView;
 

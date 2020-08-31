@@ -2,10 +2,17 @@ package com.testsystem.view;
 
 import java.util.List;
 
-import com.testsystem.models.StudentTestResult;
-import com.testsystem.models.Test;
+import com.testsystem.model.StudentTestResult;
+import com.testsystem.model.Test;
 import com.testsystem.util.ModScanner;
 
+/**
+ * View for teacher.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
+ */
 public class TeacherView extends UserView {
 
 	public TeacherView() {

@@ -11,11 +11,11 @@ import com.testsystem.controller.StudentController;
 import com.testsystem.controller.TeacherController;
 import com.testsystem.controller.TestController;
 import com.testsystem.controller.UserController;
-import com.testsystem.models.Group;
-import com.testsystem.models.Model;
-import com.testsystem.models.Question;
-import com.testsystem.models.Test;
-import com.testsystem.models.User;
+import com.testsystem.model.Group;
+import com.testsystem.model.Model;
+import com.testsystem.model.Question;
+import com.testsystem.model.Test;
+import com.testsystem.model.User;
 
 public class Server extends FrontController {
 

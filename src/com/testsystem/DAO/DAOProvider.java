@@ -1,7 +1,10 @@
 package com.testsystem.DAO;
 
+import java.util.ArrayList;
 import java.util.List;
-import com.testsystem.models.Model;
+
+import com.testsystem.model.Model;
+import com.testsystem.model.Student;
 
 /**
  * Represents a provider for database.
@@ -89,7 +92,23 @@ public class DAOProvider {
 	 * @param nameTable
 	 * @return List<Model> the records of table
 	 */
-	public List<Model> getRecords(String nameTable) {
-		return database.getTable(nameTable).getRecords();
+//	public List<Model> getRecords(String nameTable) {
+//		return database.getTable(nameTable).getRecords();
+//	}
+	
+	/**
+	 * Gets all students from database
+	 * 
+	 * @param nameTable
+	 * @return List<Model> the records of table
+	 */
+	public List<Student> getStudentsRecords(String nameTable) {
+		List<Student> ls = new ArrayList<Student>();
+		List<Model> models = database.getTable(nameTable).getRecords();
+		for(Model st : models) {
+			ls.add((Student)st);
+		}
+		return ls;
 	}
+	
 }

@@ -2,7 +2,8 @@ package com.testsystem.DAO;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.testsystem.models.Model;
+
+import com.testsystem.model.Model;
 
 /**
  * Represents a table for database.

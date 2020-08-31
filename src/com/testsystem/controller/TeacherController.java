@@ -2,10 +2,11 @@ package com.testsystem.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.testsystem.models.Model;
-import com.testsystem.models.Teacher;
-import com.testsystem.models.Test;
-import com.testsystem.models.User;
+
+import com.testsystem.model.Model;
+import com.testsystem.model.Teacher;
+import com.testsystem.model.Test;
+import com.testsystem.model.User;
 import com.testsystem.util.ServiceLocator;
 
 /**

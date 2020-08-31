@@ -3,15 +3,15 @@ package com.testsystem.application;
 import java.util.List;
 
 import com.testsystem.controller.FrontController;
-import com.testsystem.models.StudentTestResult;
-import com.testsystem.models.Test;
-import com.testsystem.models.User;
+import com.testsystem.model.StudentTestResult;
+import com.testsystem.model.Test;
+import com.testsystem.model.User;
 import com.testsystem.util.ModScanner;
 import com.testsystem.view.AdminView;
 import com.testsystem.view.TeacherView;
 
 /**
- * Represents a teacher.
+ * Represents an application for teacher.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com
