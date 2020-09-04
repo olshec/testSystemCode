@@ -17,14 +17,14 @@ import com.testsystem.util.ServiceLocator;
 
 import tests.mocks.TestFrontController;
 
-public class TestServer {
+public class TestFrontController {
 
 	TestFrontController frontController;
 	User student1;
 	User teacher1;
 	User admin1;
 
-	public TestServer() {
+	public TestFrontController() {
 		loadData();
 	}
 
