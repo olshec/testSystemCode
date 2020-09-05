@@ -111,14 +111,17 @@ public final class TeacherView extends UserView {
 			if (studentResult.size() > 0) {
 				List<StudentTestResult> masStudent = test.getStudentResult();
 				for (int i = 0; i < masStudent.size(); i++) {
-					String s = String.format("%d) %s %s: %d", i + 1, masStudent.get(i).getStudent().getLastName(),
-							masStudent.get(i).getStudent().getFirstName(), masStudent.get(i).getResult());
-					System.out.println(s);
+					if(masStudent.get(i).getResult() >= 0) {
+						String s = String.format("%d) %s %s: %d", i + 1, 
+								masStudent.get(i).getStudent().getLastName(),
+								masStudent.get(i).getStudent().getFirstName(), 
+								masStudent.get(i).getResult());
+						System.out.println(s);
+					}
 				}
 			} else {
 				System.out.println("Результаты теста отсутствуют");
 			}
-
 		} else {
 			System.out.println("Теста с таким номером не существует");
 		}
