@@ -6,7 +6,6 @@ import com.testsystem.controller.FrontController;
 import com.testsystem.model.Model;
 import com.testsystem.model.User;
 import com.testsystem.util.ModScanner;
-import com.testsystem.view.AdminView;
 
 /**
  * Represents an application for administrator.
@@ -15,14 +14,14 @@ import com.testsystem.view.AdminView;
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class AdminApplication extends UserApplication {
+public class AdminView extends UserView {
 
 	/**
-	 * Creates an administrator view.
+	 * Represents a view for administrator.
 	 * 
-	 * @param user The administrator's model
+	 * @param user The administrator's view
 	 */
-	public AdminApplication(User user, FrontController frontController) {
+	public AdminView(User user, FrontController frontController) {
 		super(user, frontController);
 	}
 
@@ -32,8 +31,15 @@ public class AdminApplication extends UserApplication {
 	public void openMenu() {
 		int num = -1;
 		while (num != 0) {
-			new AdminView().printMenu();
-
+			
+			System.out.println();
+			System.out.println("0 - выход");
+			System.out.println("1 - получить список всех пользователей");
+			System.out.println("2 - получить список студентов");
+			System.out.println("3 - получить список преподавателей");
+			System.out.println("4 - получить список администраторов");
+			System.out.print("?: ");
+			
 			try {
 				num = ModScanner.getScanner().nextInt();
 			} catch (java.util.InputMismatchException exception) {
@@ -56,19 +62,35 @@ public class AdminApplication extends UserApplication {
 				getAdministrators();
 				break;
 			default:
-				new AdminView().printErrorEnter();
+				System.out.println("Неверный ввод! Попытайтесь еще раз.");
 				break;
 			}
 		}
-		new AdminView().printExit();
+		System.out.println("До свидания!");
 	}
 
+	/*
+	 * Print list users.
+	 * 
+	 * @param masUser The array of users.
+	 * @param title   String represents a title.
+	 */
+	private void printListUsers(List<Model> masUser, String title) {
+		System.out.println(title + ": ");
+		for (int i = 0; i < masUser.size(); i++) {
+			User user = (User) masUser.get(i);
+			String s = String.format("%d) %s %s  (%s)", i + 1, user.getLastName(), user.getFirstName(),
+					user.getNameModel());
+			System.out.println(s);
+		}
+	}
+	
 	/*
 	 * Print the list users from server.
 	 */
 	private void getUsers() {
 		List<Model> masUser = getFrontController().getAllUsersForAdmin(this.getUser());
-		new AdminView().printListUsers(masUser, "Cписок пользователей");
+		printListUsers(masUser, "Cписок пользователей");
 	}
 
 	/*
@@ -76,7 +98,7 @@ public class AdminApplication extends UserApplication {
 	 */
 	private void getStudents() {
 		List<Model> masUser = getFrontController().getStudentsForAdmin(this.getUser());
-		new AdminView().printListUsers(masUser, "Cписок студентов");
+		printListUsers(masUser, "Cписок студентов");
 	}
 
 	/*
@@ -84,7 +106,7 @@ public class AdminApplication extends UserApplication {
 	 */
 	private void getTeachers() {
 		List<Model> masUser = getFrontController().getTeachersForAdmin(this.getUser());
-		new AdminView().printListUsers(masUser, "Cписок преподавателей");
+		printListUsers(masUser, "Cписок преподавателей");
 	}
 
 	/*
@@ -92,6 +114,6 @@ public class AdminApplication extends UserApplication {
 	 */
 	private void getAdministrators() {
 		List<Model> masUser = getFrontController().getAdminsForAdmin(this.getUser());
-		new AdminView().printListUsers(masUser, "Cписок администраторов");
+		printListUsers(masUser, "Cписок администраторов");
 	}
 }

@@ -9,22 +9,22 @@ import com.testsystem.model.Student;
 import com.testsystem.model.Teacher;
 import com.testsystem.model.User;
 import com.testsystem.util.ModScanner;
-import com.testsystem.view.ClientView;
 
 /**
  * This class is the entry point to the application.
+ * Represents a view for unauthorized users.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com
  * @version 1.0
  */
-public class ClientApplication extends UserApplication {
+public class ClientView extends UserView {
 
 	/**
 	 * The main function. The entry point to the application.
 	 */
 	public static void main(String[] args) {
-		new ClientApplication().openMenu();
+		new ClientView().openMenu();
 		ModScanner.close();
 	}
 
@@ -34,31 +34,32 @@ public class ClientApplication extends UserApplication {
 	public void openMenu() {
 		String login = "";
 		String password = "";
-		new ClientView().printEnterLogin();
+		System.out.print("Введите логин: ");
 		login = ModScanner.getScanner().nextLine();
-		new ClientView().printEnterPassword();
+		System.out.print("Введите пароль: ");
 		password = ModScanner.getScanner().nextLine();
 
 		FrontController frontController = new FrontController();
 		User user = frontController.login(login, password);
 
 		if (user == null) {
-			new ClientView().printErrorLoginOrPassword();
+			System.out.print("Неправильный логин или пароль.");
+			System.out.println("До свидания!");
 			return;
 		}
 
-		UserApplication userAplication = null;
+		UserView userAplication = null;
 		//System.out.print(user.getClass().getSimpleName());
 
-		switch (user.getClass().getSimpleName()) {
+		switch (user.getNameModel()) {
 		case Administrator.nameModel:
-			userAplication = new AdminApplication(user, frontController);
+			userAplication = new AdminView(user, frontController);
 			break;
 		case Teacher.nameModel:
-			userAplication = new TeacherApplication(user, frontController);
+			userAplication = new TeacherView(user, frontController);
 			break;
 		case Student.nameModel:
-			userAplication = new StudentApplication(user, frontController);
+			userAplication = new StudentView(user, frontController);
 			break;
 		default:
 			break;
@@ -72,7 +73,8 @@ public class ClientApplication extends UserApplication {
 		if (userAplication != null)
 			userAplication.openMenu();
 		else {
-			new ClientView().printUndefinedError();
+			System.out.print("Произошла непредвиденная ошибка!");
+			System.out.println("До свидания!");
 		}
 	}
 }

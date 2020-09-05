@@ -4,25 +4,26 @@ import java.util.List;
 
 import com.testsystem.controller.FrontController;
 import com.testsystem.model.Model;
+import com.testsystem.model.Test;
 import com.testsystem.model.User;
 import com.testsystem.util.ModScanner;
-import com.testsystem.view.StudentView;
 
 /**
- * Represents a student.
+ * Represents a view for student.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com
  * @version 1.0
  */
-public final class StudentApplication extends UserApplication {
+public final class StudentView extends UserView {
 
 	/**
-	 * Creates an application for student.
+	 * Creates a view for student.
 	 * 
 	 * @param user the student
+	 * @param frontController the FrontController
 	 */
-	public StudentApplication(User user, FrontController frontController) {
+	public StudentView(User user, FrontController frontController) {
 		super(user, frontController);
 	}
 
@@ -33,7 +34,11 @@ public final class StudentApplication extends UserApplication {
 		int num = -1;
 		while (num != 0) {
 			
-			new StudentView().printMenu();
+			System.out.println();
+			System.out.println("0 - выход");
+			System.out.println("1 - получить список тестов");
+			System.out.println("2 - получить количество вопросов в тесте");
+			System.out.print("?: ");
 			
 			try {
 				num = ModScanner.getScanner().nextInt();
@@ -51,27 +56,40 @@ public final class StudentApplication extends UserApplication {
 				printNumberQuestions();
 				break;
 			default:
-				new StudentView().printErrorEnter();
+				System.out.println("Неверный ввод! Попытайтесь еще раз.");
 				break;
 			}
 
 		}
-		new StudentView().printExit();
+		System.out.println("До свидания!");
 	}
 
+	/**
+	 * Print a list of student tests from the server and prints.
+	 * 
+	 * @param mas the list of student
+	 */
+	private void printTestsStudent(List<Model> mas) {
+		System.out.println("Cписок тестов: ");
+		for (int i = 0; i < mas.size(); i++) {
+			System.out.println(i + 1 + ") " + ((Test) mas.get(i)).getName());
+		}
+	}
+	
 	/**
 	 * Print a list of student tests from the server and prints.
 	 */
 	private void printTestsStudent() {
 		List<Model> mas = getFrontController().getTestsForStudent(this.getUser());
-		new StudentView().printTestsStudent(mas);
+		printTestsStudent(mas);
 	}
 
 	/**
 	 * Print the number of test questions from the server and prints.
 	 */
 	private void printNumberQuestions() {
-		new StudentView().EnterNumberTest();
+		
+		System.out.print("Введите номер теста: ");
 
 		int numTest = 0;
 		try {
@@ -83,6 +101,12 @@ public final class StudentApplication extends UserApplication {
 		// --numTest index begin from 0;
 		int quantityQuestions = getFrontController().getNumberQuestionsInTest(this.getUser(),
 				numTest - 1);
-		new StudentView().PrintCountQuestionsInTest(numTest, quantityQuestions);
+		
+		if (quantityQuestions < 0) {
+			System.out.println("Теста с таким номером не существует!");
+		} else {
+			String s = String.format("Количество вопросов в тесте %d: %d", numTest, quantityQuestions);
+			System.out.println(s);
+		}
 	}
 }

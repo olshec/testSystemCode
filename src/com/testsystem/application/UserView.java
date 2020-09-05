@@ -4,13 +4,13 @@ import com.testsystem.controller.FrontController;
 import com.testsystem.model.User;
 
 /**
- * Abstract class application for user.
+ * Abstract class view.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com
  * @version 1.0
  */
-public abstract class UserApplication {
+public abstract class UserView {
 	
 	private User user;
 	private FrontController frontController;
@@ -23,13 +23,13 @@ public abstract class UserApplication {
 	/**
 	 * Creates a UserView.
 	 */
-	public UserApplication() {
+	public UserView() {
 	}
 
 	/**
 	 * Creates a UserView.
 	 */
-	public UserApplication(User userModel, FrontController frontController) {
+	public UserView(User userModel, FrontController frontController) {
 		setUserModel(userModel);
 		setFrontController(frontController);
 	}
@@ -52,10 +52,19 @@ public abstract class UserApplication {
 		this.user = user;
 	}
 	
+	/**
+	 * Sets frontController.
+	 * 
+	 * @param frontController the FrontController
+	 */
 	public void setFrontController(FrontController frontController) {
 		this.frontController = frontController;
 	}
 	
+	/**
+	 * Gets FrontController.
+	 * 
+	 */
 	public FrontController getFrontController() {
 		return frontController;
 	}
