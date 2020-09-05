@@ -1,4 +1,4 @@
-package com.testsystem.application;
+package com.testsystem.view;
 
 import java.util.List;
 

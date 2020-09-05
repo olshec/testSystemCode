@@ -1,4 +1,4 @@
-package com.testsystem.application;
+package com.testsystem.view;
 
 import com.testsystem.controller.FrontController;
 import com.testsystem.model.User;
