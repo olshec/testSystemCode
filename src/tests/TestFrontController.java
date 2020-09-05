@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.Test;
 
 import com.testsystem.controller.AdministratorController;
+import com.testsystem.controller.FrontController;
 import com.testsystem.controller.TeacherController;
 import com.testsystem.controller.TestController;
 import com.testsystem.model.Administrator;
@@ -15,11 +16,10 @@ import com.testsystem.model.Teacher;
 import com.testsystem.model.User;
 import com.testsystem.util.ServiceLocator;
 
-import tests.mocks.TestFrontController;
 
 public class TestFrontController {
 
-	TestFrontController frontController;
+	FrontController frontController;
 	User student1;
 	User teacher1;
 	User admin1;
@@ -29,7 +29,7 @@ public class TestFrontController {
 	}
 
 	public void loadData() {
-		frontController = new TestFrontController();
+		frontController = new FrontController();
 		student1 = frontController.login("ShAnton", "1111");
 		teacher1 = frontController.login("KirovAnton", "12345678");
 		admin1 = frontController.login("Admin1", "0000");
