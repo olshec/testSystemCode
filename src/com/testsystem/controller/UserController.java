@@ -98,14 +98,14 @@ public class UserController {
 	 * 
 	 * @return List<UserModel> the list of users
 	 */
-	public List<Model> getAllUsers() {
-		List<Model> administrators = ServiceLocator.getDaoProvider()
-				.getRecords(Administrator.nameModel);
-		List<Model> teachers = ServiceLocator.getDaoProvider()
-				.getRecords(Teacher.nameModel);
-		List<Model> students = ServiceLocator.getDaoProvider()
-				.getRecords(Student.nameModel);
-		List<Model> usersList = new ArrayList<Model>();
+	public List<User> getAllUsers() {
+		List<User> administrators = ServiceLocator.getDaoProvider()
+				.getAdministrators();
+		List<User> teachers = ServiceLocator.getDaoProvider()
+				.getTeachers();
+		List<User> students = ServiceLocator.getDaoProvider()
+				.getStudents();
+		List<User> usersList = new ArrayList<User>();
 		usersList.addAll(administrators);
 		usersList.addAll(teachers);
 		usersList.addAll(students);

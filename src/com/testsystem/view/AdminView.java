@@ -75,10 +75,10 @@ public class AdminView extends UserView {
 	 * @param masUser The array of users.
 	 * @param title   String represents a title.
 	 */
-	private void printListUsers(List<Model> masUser, String title) {
+	private void printListUsers(List<User> masUser, String title) {
 		System.out.println(title + ": ");
 		for (int i = 0; i < masUser.size(); i++) {
-			User user = (User) masUser.get(i);
+			User user = masUser.get(i);
 			String s = String.format("%d) %s %s  (%s)", i + 1, user.getLastName(), user.getFirstName(),
 					user.getNameModel());
 			System.out.println(s);
@@ -89,7 +89,7 @@ public class AdminView extends UserView {
 	 * Print the list users from server.
 	 */
 	private void getUsers() {
-		List<Model> masUser = getFrontController().getAllUsersForAdmin(this.getUser());
+		List<User> masUser = getFrontController().getAllUsersForAdmin(this.getUser());
 		printListUsers(masUser, "Cписок пользователей");
 	}
 
@@ -97,7 +97,7 @@ public class AdminView extends UserView {
 	 * Print the list students from server.
 	 */
 	private void getStudents() {
-		List<Model> masUser = getFrontController().getStudentsForAdmin(this.getUser());
+		List<User> masUser = getFrontController().getStudentsForAdmin(this.getUser());
 		printListUsers(masUser, "Cписок студентов");
 	}
 
@@ -105,7 +105,7 @@ public class AdminView extends UserView {
 	 * Print the list teachers from server.
 	 */
 	private void getTeachers() {
-		List<Model> masUser = getFrontController().getTeachersForAdmin(this.getUser());
+		List<User> masUser = getFrontController().getTeachersForAdmin(this.getUser());
 		printListUsers(masUser, "Cписок преподавателей");
 	}
 
@@ -113,7 +113,7 @@ public class AdminView extends UserView {
 	 * Print the list administrators from server.
 	 */
 	private void getAdministrators() {
-		List<Model> masUser = getFrontController().getAdminsForAdmin(this.getUser());
+		List<User> masUser = getFrontController().getAdminsForAdmin(this.getUser());
 		printListUsers(masUser, "Cписок администраторов");
 	}
 }

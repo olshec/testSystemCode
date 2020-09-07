@@ -136,7 +136,6 @@ public class DAOProvider {
 	 * @return List<Test> the records of table
 	 */
 	public List<Test> getTestsRecords(String nameTable) {
-		// TODO Auto-generated method stub
 		List<Test> ls = new ArrayList<Test>();
 		List<Model> models = database.getTable(nameTable).getRecords();
 		for(Model st : models) {
@@ -152,7 +151,15 @@ public class DAOProvider {
 	 * @return List<User> the records of table
 	 */
 	public List<User> getUsersRecords(String nameTable) {
-		// TODO Auto-generated method stub
+		List<User> ls = new ArrayList<User>();
+		List<Model> models = database.getTable(nameTable).getRecords();
+		for(Model st : models) {
+			ls.add((User)st);
+		}
+		return ls;
+	}
+
+	public List<User> getAdministrators(String nameTable) {
 		List<User> ls = new ArrayList<User>();
 		List<Model> models = database.getTable(nameTable).getRecords();
 		for(Model st : models) {

@@ -126,7 +126,7 @@ public class FrontController {
 	 * @param 				the administrator
 	 * @return List<User> 	the list all administrators
 	 */
-	public List<Model> getAllUsersForAdmin(User admin) {
+	public List<User> getAllUsersForAdmin(User admin) {
 		return new UserController(admin).getAllUsers();
 	}
 
@@ -136,8 +136,8 @@ public class FrontController {
 	 * @param 				the administrator
 	 * @return List<User> 	the list students
 	 */
-	public List<Model> getStudentsForAdmin(User admin) {
-		return new AdministratorController(admin).getUsersByType(Student.nameModel);
+	public List<User> getStudentsForAdmin(User admin) {
+		return new AdministratorController(admin).getStudents(Student.nameModel);
 	}
 
 	/**
