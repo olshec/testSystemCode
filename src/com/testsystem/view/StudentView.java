@@ -101,7 +101,6 @@ public final class StudentView extends UserView {
 		// --numTest index begin from 0;
 		int quantityQuestions = getFrontController().getNumberQuestionsInTest(this.getUser(),
 				numTest - 1);
-		
 		if (quantityQuestions < 0) {
 			System.out.println("Теста с таким номером не существует!");
 		} else {

@@ -28,9 +28,14 @@ public class AdministratorController extends UserController {
 	}
 
 	/**
+	 * Creates an AdministratorController.
+	 */
+	public AdministratorController() {}
+
+	/**
 	 * Gets new Administrator.
 	 */
-	public static Administrator getNewAdministrator(String lastName, 
+	public Administrator getNewAdministrator(String lastName, 
 			String firstName, String username, String password) {
 		return new Administrator(lastName, firstName, username, password);
 	}
@@ -56,12 +61,12 @@ public class AdministratorController extends UserController {
 		return usersList;
 	}
 
-	/**
-	 * Gets users by type.
-	 * 
-	 * @param typeUser the type of user
-	 * @return List<Model> the list of students
-	 */
+//	/**
+//	 * Gets users by type.
+//	 * 
+//	 * @param typeUser the type of user
+//	 * @return List<Model> the list of students
+//	 */
 //	public List<Model> getUsersByType(String typeUser) {
 //		List<Model> masUserResult = new ArrayList<Model>();
 //		List<Model> records = ServiceLocator.getDaoProvider().getRecords(typeUser);
@@ -80,6 +85,12 @@ public class AdministratorController extends UserController {
 //		return records;
 //	}
 
+	/**
+	 * Gets users by type.
+	 * 
+	 * @param typeUser the type of user
+	 * @return List<User> the list of users
+	 */
 	public List<User> getUsers(String typeUser) {
 		List<User> records = 
 				ServiceLocator.getDaoProvider().getUsersRecords(typeUser);

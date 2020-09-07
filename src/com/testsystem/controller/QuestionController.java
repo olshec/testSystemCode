@@ -19,7 +19,7 @@ public class QuestionController {
 	/**
 	 * Gets new Question.
 	 */
-	public static Question getNewQuestion(String text) {
+	public Question getNewQuestion(String text) {
 		return new Question(text);
 	}
 	

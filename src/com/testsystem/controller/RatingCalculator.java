@@ -52,7 +52,7 @@ public class RatingCalculator {
 		List<StudentTestResult> groupRating = new ArrayList<StudentTestResult>();
 		for (int i = 0; i < listStudent.size(); i++) {
 			User student = listStudent.get(i);
-			List<Test> listStudentTests = TestController.getStudentTests(student);
+			List<Test> listStudentTests = new TestController().getStudentTests(student);
 			int ratingStudent = RatingCalculator.getRatingStudent(student, listStudentTests);
 			groupRating.add(new StudentTestResult(student, ratingStudent));
 		}

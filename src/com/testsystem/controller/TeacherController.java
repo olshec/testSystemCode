@@ -19,6 +19,11 @@ public class TeacherController extends UserController {
 
 	/**
 	 * Creates a TeacherController.
+	 */
+	public TeacherController() {}
+	
+	/**
+	 * Creates a TeacherController.
 	 * 
 	 * @param user
 	 */
@@ -29,7 +34,7 @@ public class TeacherController extends UserController {
 	/**
 	 * Gets new teacher.
 	 */
-	public static Teacher getNewTeacher(String lastName, String firstName, 
+	public Teacher getNewTeacher(String lastName, String firstName, 
 			String username, String password) {
 		return new Teacher(lastName, firstName, username, password);
 	}
@@ -37,8 +42,7 @@ public class TeacherController extends UserController {
 	/**
 	 * Gets tests
 	 * 
-	 * @param testTable 	the database of tests
-	 * @return 			the all tests of teacher
+	 * @return the all tests of teacher
 	 */
 	public List<Test> getTests() {
 		List<Test> listTest = ServiceLocator.getDaoProvider()
@@ -57,7 +61,6 @@ public class TeacherController extends UserController {
 	 * Gets students test result.
 	 * 
 	 * @param idTest   	the test id
-	 * @param testBase 	the database
 	 * @return Test 	the model of tests
 	 */
 	public Test getTestResult(int idTest) {

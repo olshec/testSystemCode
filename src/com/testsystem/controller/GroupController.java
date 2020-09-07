@@ -22,6 +22,11 @@ public class GroupController {
 	
 	/**
 	 * Creates a GroupController.
+	 */
+	public GroupController() {}
+	
+	/**
+	 * Creates a GroupController.
 	 * 
 	 * @param group the group
 	 */
@@ -49,8 +54,10 @@ public class GroupController {
 	
 	/**
 	 * Gets new Group.
+	 * 
+	 * @param name the name of group
 	 */
-	public static Group getNewGroup(String name) {
+	public Group getNewGroup(String name) {
 		return new Group(name);
 	}
 	
@@ -59,7 +66,7 @@ public class GroupController {
 	 * 
 	 * @param group the group of user
 	 */
-	public static List<User> getStudentsByGroup(Group group) {
+	public List<User> getStudentsByGroup(Group group) {
 		List<Student> listStudentInBase = ServiceLocator.getDaoProvider()
 				.getStudentsRecords(Student.nameModel);
 		List<User> listStudentReturn = new ArrayList<User>();
@@ -77,10 +84,10 @@ public class GroupController {
 	 * 
 	 * @param String the name of group to create and add
 	 */
-	public static void addGroup(String name) {
+	public void addGroup(String name) {
 		List<Model> groups = ServiceLocator.getDaoProvider()
 				.getRecords(Group.nameModel);
-		groups.add(GroupController.getNewGroup(name));
+		groups.add(new GroupController().getNewGroup(name));
 	}
 
 	/**
@@ -88,7 +95,7 @@ public class GroupController {
 	 * 
 	 * @param group the group to add
 	 */
-	public static void addGroup(Group group) {
+	public void addGroup(Group group) {
 		List<Model> groups = ServiceLocator.getDaoProvider()
 				.getRecords(Group.nameModel);
 		groups.add(group);
@@ -99,7 +106,7 @@ public class GroupController {
 	 * 
 	 * @param name the name of group
 	 */
-	public static Group getGroupByName(String name) {
+	public Group getGroupByName(String name) {
 		List<Group> listGroup = ServiceLocator.getDaoProvider()
 				.getGroupsRecords(Group.nameModel);
 		for (int i = 0; i < listGroup.size(); i++) {

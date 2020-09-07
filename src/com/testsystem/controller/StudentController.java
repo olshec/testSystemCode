@@ -23,7 +23,12 @@ import com.testsystem.util.ServiceLocator;
 public class StudentController extends UserController {
 
 	/**
-	 * Creates a UserController.
+	 * Creates a StudentController.
+	 */
+	public StudentController() {}
+	
+	/**
+	 * Creates a StudentController.
 	 * 
 	 * @param user 
 	 * @param daoProvider
@@ -31,11 +36,11 @@ public class StudentController extends UserController {
 	public StudentController(User user) {
 		super(user);
 	}
-	
+
 	/**
 	 * Gets new student.
 	 */
-	public static Student getNewStudent(String lastName, String firstName, 
+	public Student getNewStudent(String lastName, String firstName, 
 			 String username, String password, Group group) {
 		return new Student(lastName, firstName, username, password, group);
 	}
@@ -62,7 +67,7 @@ public class StudentController extends UserController {
 	 * Gets student test information.
 	 * 
 	 * @param idTest   	the model of student
-	 * @param testTable 	the database of student
+	 * @param testTable the database of student
 	 * @return 			the model of test
 	 */
 	public Test getTestInfo(int idTest) {

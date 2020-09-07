@@ -78,7 +78,6 @@ public final class TeacherView extends UserView {
 	 * Print a result of students test from the server and prints.
 	 */
 	private void printTestResult() {
-
 		int numTest = enterNumberTest();
 		if (numTest != -1) {
 			int indexTest = numTest - 1;// index begin from 0;

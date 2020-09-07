@@ -41,6 +41,7 @@ public class FrontController {
 
 	/**
 	 * Gets DAOProvider.
+	 * 
 	 * @return the daoProvider
 	 */
 	public DAOProvider getDaoProvider() {
@@ -49,6 +50,7 @@ public class FrontController {
 
 	/**
 	 * Sets DAOProvider.
+	 * 
 	 * @param daoProvider the daoProvider to set
 	 */
 	public void setDaoProvider(DAOProvider daoProvider) {
@@ -79,8 +81,8 @@ public class FrontController {
 	/**
 	 * Gets student test information.
 	 * 
-	 * @param student   the model of student
-	 * @param idTest the test index
+	 * @param student   the student
+	 * @param idTest 	the test index
 	 * @return 			the model of test
 	 */
 	public Test getTestInfoForStudent(User student, int idTest) {
@@ -91,7 +93,7 @@ public class FrontController {
 	 * Gets student test number questions.
 	 * 
 	 * @param student   the student
-	 * @param idTest the test index
+	 * @param idTest 	the test index
 	 * @return 			the test
 	 */
 	public int getNumberQuestionsInTest(User student, int idTest) {
@@ -101,7 +103,7 @@ public class FrontController {
 	/**
 	 * Gets tests for teacher.
 	 * 
-	 * @param teacher		the teacher
+	 * @param  teacher		the teacher
 	 * @return List<Test> 	the list tests
 	 */
 	public List<Test> getTestsForTeacher(User teacher) {
@@ -111,9 +113,9 @@ public class FrontController {
 	/**
 	 * Gets students test result.
 	 * 
-	 * @param teacher   the teacher
-	 * @param indexTest the test id
-	 * @return Test 	the test
+	 * @param  teacher   the teacher
+	 * @param  indexTest the test id
+	 * @return Test 	 the test
 	 */
 	public Test getTestResultForTeacher(User teacher, int idTest) {
 		return new TeacherController(teacher).getTestResult(idTest);
@@ -122,7 +124,7 @@ public class FrontController {
 	/**
 	 * Gets all users.
 	 * 
-	 * @param 				the administrator
+	 * @param admin			the administrator
 	 * @return List<User> 	the list all administrators
 	 */
 	public List<User> getAllUsersForAdmin(User admin) {
@@ -132,7 +134,7 @@ public class FrontController {
 	/**
 	 * Gets students.
 	 * 
-	 * @param 				the administrator
+	 * @param admin			the administrator
 	 * @return List<User> 	the list students
 	 */
 	public List<User> getStudentsForAdmin(User admin) {
@@ -142,7 +144,7 @@ public class FrontController {
 	/**
 	 * Gets teachers.
 	 * 
-	 * @param 				the administrator
+	 * @param  admin 		the administrator
 	 * @return List<User> 	the list of teachers
 	 */
 	public List<User> getTeachersForAdmin(User admin) {
@@ -152,7 +154,7 @@ public class FrontController {
 	/**
 	 * Gets administrators.
 	 * 
-	 * @param 				the administrator
+	 * @param  admin		the administrator
 	 * @return List<User> 	the list of administrators
 	 */
 	public List<User> getAdminsForAdmin(User admin) {
@@ -163,8 +165,8 @@ public class FrontController {
 	/**
 	 * Gets rating for student.
 	 * 
-	 * @param student the student
-	 * @return int 	  the rating
+	 * @param  student the student
+	 * @return int 	   the rating
 	 */
 	public int getRatingUser(User student) {
 		List<Test> listTest = ServiceLocator.getDaoProvider()
@@ -176,12 +178,12 @@ public class FrontController {
 	/**
 	 * Gets rating for group.
 	 * 
-	 * @param  String 					the nameGroup 		
+	 * @param  nameGroup 				the name of group 		
 	 * @return List<StudentTestResult>	the students results 
 	 */
 	public List<StudentTestResult> getRatingGroup(String nameGroup){
-		Group group = GroupController.getGroupByName(nameGroup);
-		List<StudentTestResult> ratingGroup = RatingCalculator.getRatingGroup(group, GroupController
+		Group group = new GroupController().getGroupByName(nameGroup);
+		List<StudentTestResult> ratingGroup = RatingCalculator.getRatingGroup(group, new GroupController()
 				.getStudentsByGroup(group));
 		
 		return ratingGroup;
@@ -189,30 +191,30 @@ public class FrontController {
 
 	private void loadTest() {
 		UserController userController = new UserController();
-		User admin1 = AdministratorController.getNewAdministrator("Примарев", 
+		User admin1 = new AdministratorController().getNewAdministrator("Примарев", 
 				"Игорь", "Admin1", "0000");
 		userController.addUser(admin1);
 
-		User teacher1 = TeacherController.getNewTeacher("Киров", 
+		User teacher1 = new TeacherController().getNewTeacher("Киров", 
 				"Антон", "KirovAnton", "12345678");
 		userController.addUser(teacher1);
 
-		Test test1 = TestController.getNewTest("Робототехника", teacher1);
-		Test test2 = TestController.getNewTest("Сетевые технологии", teacher1);
-		Test test3 = TestController.getNewTest("Информатика", teacher1);
+		Test test1 = new TestController().getNewTest("Робототехника", teacher1);
+		Test test2 = new TestController().getNewTest("Сетевые технологии", teacher1);
+		Test test3 = new TestController().getNewTest("Информатика", teacher1);
 
-		Question q1 = QuestionController.getNewQuestion("Основы роботетхники");
-		Question q2 = QuestionController.getNewQuestion("AI");
-		Question q3 = QuestionController.getNewQuestion("Микроконтроллеры");
+		Question q1 = new QuestionController().getNewQuestion("Основы роботетхники");
+		Question q2 = new QuestionController().getNewQuestion("AI");
+		Question q3 = new QuestionController().getNewQuestion("Микроконтроллеры");
 
 		TestController testController = new TestController(test1);
 		testController.addQuestion(q1);
 		testController.addQuestion(q2);
 		testController.addQuestion(q3);
 
-		Question q4 = QuestionController.getNewQuestion("Протокол HTTP");
-		Question q5 = QuestionController.getNewQuestion("Характеристика OSI");
-		Question q6 = QuestionController.getNewQuestion("Протокол TCP");
+		Question q4 = new QuestionController().getNewQuestion("Протокол HTTP");
+		Question q5 = new QuestionController().getNewQuestion("Характеристика OSI");
+		Question q6 = new QuestionController().getNewQuestion("Протокол TCP");
 
 		testController.setTest(test2);
 
@@ -227,18 +229,18 @@ public class FrontController {
 		tests.add(test2);
 		tests.add(test3);
 
-		TestController.setTests(tests);
+		new TestController().setTests(tests);
 
-		Group g1 = GroupController.getNewGroup("Group 1");
-		GroupController.addGroup(g1);
-		User student1 = StudentController.getNewStudent("Шахматов", "Антон", "ShAnton", "1111", g1);
-		User student2 = StudentController.getNewStudent("Романенко", "Егор", "REgor", "1111", g1);
-		User student01 = StudentController.getNewStudent("Федоренко", "Игнат", "FeIgnat", "1111", g1);
+		Group g1 = new GroupController().getNewGroup("Group 1");
+		new GroupController().addGroup(g1);
+		User student1 	= 	new StudentController().getNewStudent("Шахматов", "Антон", "ShAnton", "1111", g1);
+		User student2 	= 	new StudentController().getNewStudent("Романенко", "Егор", "REgor", "1111", g1);
+		User student01 	= 	new StudentController().getNewStudent("Федоренко", "Игнат", "FeIgnat", "1111", g1);
 		
-		Group g2 = GroupController.getNewGroup("Group 2");
-		GroupController.addGroup(g2);
-		User student3 = StudentController.getNewStudent("Сазонова", "Екатерина", "Kat", "1111", g2);
-		User student4 = StudentController.getNewStudent("Филонова", "Анна", "Anna", "1111", g2);
+		Group g2 = new GroupController().getNewGroup("Group 2");
+		new GroupController().addGroup(g2);
+		User student3 = new StudentController().getNewStudent("Сазонова", "Екатерина", "Kat", "1111", g2);
+		User student4 = new StudentController().getNewStudent("Филонова", "Анна", "Anna", "1111", g2);
 
 		//add users to database
 		userController.addUser(student1);

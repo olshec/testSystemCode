@@ -21,7 +21,7 @@ public class Question extends Model {
 	}
 
 	/**
-	 * Creates a QuestionModel.
+	 * Creates a Question.
 	 * 
 	 * @param text the text of question
 	 */

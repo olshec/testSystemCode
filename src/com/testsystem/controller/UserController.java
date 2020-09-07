@@ -92,11 +92,11 @@ public class UserController {
 
 	}
 
-	/**
-	 * Gets all users.
-	 * 
-	 * @return List<UserModel> the list of users
-	 */
+//	/**
+//	 * Gets all users.
+//	 * 
+//	 * @return List<UserModel> the list of users
+//	 */
 //	public List<User> getAllUsers() {
 //		List<User> administrators = ServiceLocator.getDaoProvider()
 //				.getUsersRecords(Administrator.nameModel);
@@ -121,9 +121,9 @@ public class UserController {
 	}
 
 	/**
-	 * Gets result: does the database have a user.
+	 * Returns result: does the database have a user.
 	 * 
-	 * @return boolean Returns true if database contains user
+	 * @return boolean Returns true if database contains user. Otherwise returns false
 	 */
 	public boolean hasUser(User user) {
 		List<User> users = ServiceLocator.getDaoProvider()

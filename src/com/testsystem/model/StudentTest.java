@@ -15,6 +15,9 @@ public class StudentTest extends Model {
 	private Student student;
 	private List<Question> listQuestions;
 	
+	/**
+	 * Creates a StudentTest.
+	 */
 	public StudentTest() {}
 
 	/**

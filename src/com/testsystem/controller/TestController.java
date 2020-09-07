@@ -23,6 +23,11 @@ public class TestController {
 
 	/**
 	 * Creates a TestController.
+	 */
+	public TestController() {}
+	
+	/**
+	 * Creates a TestController.
 	 * 
 	 * @param the test
 	 */
@@ -51,7 +56,7 @@ public class TestController {
 	/**
 	 * Gets new Test.
 	 */
-	public static Test getNewTest() {
+	public Test getNewTest() {
 		return new Test();
 	}
 
@@ -70,7 +75,7 @@ public class TestController {
 	 * 
 	 * @param tests the tests to add
 	 */
-	public static void setTests(List<Model> tests) {
+	public void setTests(List<Model> tests) {
 		ServiceLocator.getDaoProvider().setTable(Test.nameModel, tests);
 	}
 	
@@ -78,8 +83,8 @@ public class TestController {
 	/**
 	 * Gets test.
 	 * 
-	 * @param the test id.
-	 * @return the TestModel.
+	 * @param  the test id.
+	 * @return the Test.
 	 */
 	public Test getTest(int idTest) {
 		List<Test> listTest = ServiceLocator.getDaoProvider().getTestsRecords(Test.nameModel);
@@ -92,7 +97,7 @@ public class TestController {
 	/**
 	 * Gets new Test.
 	 */
-	public static Test getNewTest(String name, User teacher) {
+	public Test getNewTest(String name, User teacher) {
 		return new Test(name, teacher);
 	}
 
@@ -143,9 +148,9 @@ public class TestController {
 	 * Gets tests for student.
 	 * 
 	 * @param 	the student.
-	 * @return 	the true if test student has this test. Otherwise returns false.
+	 * @return 	the list tests of student.
 	 */
-	public static List<Test> getStudentTests(User student) {
+	public List<Test> getStudentTests(User student) {
 		List<Test> listTest = ServiceLocator.getDaoProvider()
 				.getTestsRecords(Test.nameModel);
 		List<Test> listTestReturn = new ArrayList<Test>();

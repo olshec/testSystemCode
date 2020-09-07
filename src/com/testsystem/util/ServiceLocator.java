@@ -13,6 +13,9 @@ public class ServiceLocator {
 
 	static DAOProvider daoProvider;
 	
+	/**
+	 * Creates a ServiceLocator.
+	 */
 	private ServiceLocator() {}
 
 	/**

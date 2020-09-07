@@ -1,10 +1,20 @@
 package com.testsystem.model;
 
+/**
+ * Represents a result of student test.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
+ */
 public class StudentTestResult extends Model {
 
 	User student; 
 	Integer result;
 	
+	/**
+	 * Creates a StudentTestResult.
+	 */
 	public StudentTestResult(User student, Integer result) {
 		setStudent(student);
 		setResult(result);
