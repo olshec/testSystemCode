@@ -107,9 +107,9 @@ public final class TeacherView extends UserView {
 	 */
 	private void printTestResult(Test test) {
 		if (test != null) {
-			List<StudentTestResult> studentResult = test.getStudentResult();
+			List<StudentTestResult> studentResult = test.getStudentTestResult();
 			if (studentResult.size() > 0) {
-				List<StudentTestResult> masStudent = test.getStudentResult();
+				List<StudentTestResult> masStudent = test.getStudentTestResult();
 				for (int i = 0; i < masStudent.size(); i++) {
 					if(masStudent.get(i).getResult() >= 0) {
 						String s = String.format("%d) %s %s: %d", i + 1, 

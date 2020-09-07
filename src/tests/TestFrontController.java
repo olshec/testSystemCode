@@ -74,7 +74,7 @@ public class TestFrontController {
 
 	@Test
 	public void testGetTestsForStudent() {
-		List<com.testsystem.model.Model> listTest = frontController.getTestsForStudent(student1);
+		List<com.testsystem.model.Test> listTest = frontController.getTestsForStudent(student1);
 		assertEquals(listTest.size(), 3);
 	}
 
@@ -118,7 +118,7 @@ public class TestFrontController {
 
 	@Test
 	public void testGetAllUsersForAdmin() {
-		List<Model> listUser = new AdministratorController(admin1).getAllUsers();
+		List<User> listUser = new AdministratorController(admin1).getAllUsers();
 
 		assertEquals(listUser.size(), 7);
 	}

@@ -100,7 +100,7 @@ public class Test extends Model {
 	 * 
 	 * @return the result of students
 	 */
-	public List<StudentTestResult> getStudentResult() {
+	public List<StudentTestResult> getStudentTestResult() {
 		return studentsResult;
 	}
 

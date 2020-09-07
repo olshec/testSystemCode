@@ -45,10 +45,10 @@ public class StudentController extends UserController {
 	 * 
 	 * @return 			the all tests of student
 	 */
-	public List<Model> getTests() {
+	public List<Test> getTests() {
 		List<Test> listTest = ServiceLocator.getDaoProvider()
 				.getTestsRecords(Test.nameModel);
-		List<Model> testsStudent = new ArrayList<Model>();
+		List<Test> testsStudent = new ArrayList<Test>();
 		for (int i = 0; i < listTest.size(); i++) {
 			TestController testController = new TestController(listTest.get(i));
 			if (testController.hasStudent(this.getUser()) == true) {
@@ -89,10 +89,10 @@ public class StudentController extends UserController {
 		if (idTest >= listTest.size() || idTest < 0) {
 			return -1;
 		}
-		Test test = (Test)listTest.get(idTest);
+		Test test = listTest.get(idTest);
 		TestController testController = new TestController(test);
 		if (test != null && testController.hasStudent(this.getUser())) {
-			Test t = (Test)listTest.get(idTest);
+			Test t = listTest.get(idTest);
 			return t.getQuestions().size();
 		}
 		return -1;

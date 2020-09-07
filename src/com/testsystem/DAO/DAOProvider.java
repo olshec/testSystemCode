@@ -100,21 +100,6 @@ public class DAOProvider {
 	}
 	
 	/**
-	 * Gets all students from database
-	 * 
-	 * @param nameTable
-	 * @return List<Student> the records of table
-	 */
-	public List<Student> getStudentsRecords(String nameTable) {
-		List<Student> ls = new ArrayList<Student>();
-		List<Model> models = database.getTable(nameTable).getRecords();
-		for(Model st : models) {
-			ls.add((Student)st);
-		}
-		return ls;
-	}
-	
-	/**
 	 * Gets all groups from database
 	 * 
 	 * @param nameTable
@@ -159,13 +144,27 @@ public class DAOProvider {
 		return ls;
 	}
 
-	public List<User> getAdministrators(String nameTable) {
-		List<User> ls = new ArrayList<User>();
+	/**
+	 * Gets all students from database
+	 * 
+	 * @param nameTable
+	 * @return List<Student> the records of table
+	 */
+	public List<Student> getStudentsRecords(String nameTable) {
+		List<Student> ls = new ArrayList<Student>();
 		List<Model> models = database.getTable(nameTable).getRecords();
 		for(Model st : models) {
-			ls.add((User)st);
+			ls.add((Student)st);
 		}
 		return ls;
 	}
+//	public List<User> getAdministrators(String nameTable) {
+//		List<User> ls = new ArrayList<User>();
+//		List<Model> models = database.getTable(nameTable).getRecords();
+//		for(Model st : models) {
+//			ls.add((User)st);
+//		}
+//		return ls;
+//	}
 	
 }

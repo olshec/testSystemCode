@@ -1,6 +1,5 @@
 package com.testsystem.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.model.Administrator;
@@ -98,19 +97,19 @@ public class UserController {
 	 * 
 	 * @return List<UserModel> the list of users
 	 */
-	public List<User> getAllUsers() {
-		List<User> administrators = ServiceLocator.getDaoProvider()
-				.getAdministrators();
-		List<User> teachers = ServiceLocator.getDaoProvider()
-				.getTeachers();
-		List<User> students = ServiceLocator.getDaoProvider()
-				.getStudents();
-		List<User> usersList = new ArrayList<User>();
-		usersList.addAll(administrators);
-		usersList.addAll(teachers);
-		usersList.addAll(students);
-		return usersList;
-	}
+//	public List<User> getAllUsers() {
+//		List<User> administrators = ServiceLocator.getDaoProvider()
+//				.getUsersRecords(Administrator.nameModel);
+//		List<User> teachers = ServiceLocator.getDaoProvider()
+//				.getUsersRecords(Teacher.nameModel);
+//		List<User> students = ServiceLocator.getDaoProvider()
+//				.getUsersRecords(Student.nameModel);
+//		List<User> usersList = new ArrayList<User>();
+//		usersList.addAll(administrators);
+//		usersList.addAll(teachers);
+//		usersList.addAll(students);
+//		return usersList;
+//	}
 
 	/**
 	 * Adds user.

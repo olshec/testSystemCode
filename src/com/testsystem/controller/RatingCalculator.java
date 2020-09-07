@@ -29,10 +29,10 @@ public class RatingCalculator {
 	 * @param listTest the list of test
 	 * @return int the rating of student
 	 */
-	public static int getRatingStudent(User student, List<Model> listTest) {
+	public static int getRatingStudent(User student, List<Test> listTest) {
 		int point = 0;
 		for (int i = 0; i < listTest.size(); i++) {
-			Test test = (Test)listTest.get(i);
+			Test test = listTest.get(i);
 			point += new TestController(test).getStudentResult(student).getResult();
 		}
 		int rating = point * 2 / listTest.size();
@@ -52,7 +52,7 @@ public class RatingCalculator {
 		List<StudentTestResult> groupRating = new ArrayList<StudentTestResult>();
 		for (int i = 0; i < listStudent.size(); i++) {
 			User student = listStudent.get(i);
-			List<Model> listStudentTests = TestController.getStudentTests(student);
+			List<Test> listStudentTests = TestController.getStudentTests(student);
 			int ratingStudent = RatingCalculator.getRatingStudent(student, listStudentTests);
 			groupRating.add(new StudentTestResult(student, ratingStudent));
 		}

@@ -121,7 +121,7 @@ public class TestController {
 	 * @param points  the student point
 	 */
 	public void addResult(User student, int points) {
-		test.getStudentResult().add(new StudentTestResult(student, points));
+		test.getStudentTestResult().add(new StudentTestResult(student, points));
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class TestController {
 	 * @return the true if test student has this test. Otherwise returns false.
 	 */
 	public boolean hasStudent(User student) {
-		for (StudentTestResult st : test.getStudentResult()) {
+		for (StudentTestResult st : test.getStudentTestResult()) {
 			if (st.getStudent().equals(student)) {
 				return true;
 			}
@@ -145,14 +145,14 @@ public class TestController {
 	 * @param 	the student.
 	 * @return 	the true if test student has this test. Otherwise returns false.
 	 */
-	public static List<Model> getStudentTests(User student) {
+	public static List<Test> getStudentTests(User student) {
 		List<Test> listTest = ServiceLocator.getDaoProvider()
 				.getTestsRecords(Test.nameModel);
-		List<Model> listTestReturn = new ArrayList<Model>();
+		List<Test> listTestReturn = new ArrayList<Test>();
 		for (Test test : listTest) {
 			Test t = test;
-			for(int i=0; i < t.getStudentResult().size(); i++) {
-				if(t.getStudentResult().get(i).getStudent().equals(student)) {
+			for(int i=0; i < t.getStudentTestResult().size(); i++) {
+				if(t.getStudentTestResult().get(i).getStudent().equals(student)) {
 					listTestReturn.add(t);
 				}
 			}
@@ -175,7 +175,7 @@ public class TestController {
 	 * @param user the user for add to test
 	 */
 	public void addStudent(User user) {
-		test.getStudentResult().add(new StudentTestResult(user, -1));
+		test.getStudentTestResult().add(new StudentTestResult(user, -1));
 	}
 
 	/**
@@ -198,7 +198,7 @@ public class TestController {
 	 */
 	public List<User> getStudents() {
 		List<User> listStudent = new ArrayList<User>();
-		List<StudentTestResult> listStudentTestResult = test.getStudentResult();
+		List<StudentTestResult> listStudentTestResult = test.getStudentTestResult();
 		for (StudentTestResult studentTestResult : listStudentTestResult) {
 			listStudent.add(studentTestResult.getStudent());
 		}
@@ -220,8 +220,8 @@ public class TestController {
 	 * @return the result of student
 	 */
 	public StudentTestResult getStudentResult(User student) {
-		for (StudentTestResult st : test.getStudentResult()) {
-			if(st.getStudent().equals((User)student) && st.getResult() != -1) {
+		for (StudentTestResult st : test.getStudentTestResult()) {
+			if(st.getStudent().equals(student) && st.getResult() != -1) {
 				return st;
 			}
 		}

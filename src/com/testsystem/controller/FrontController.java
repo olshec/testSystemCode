@@ -32,7 +32,6 @@ public class FrontController {
 		daoProvider = new DAOProvider();
 		ServiceLocator.setDaoProvider(daoProvider);
 		daoProvider.addTable(Group.nameModel);
-		//daoProvider.addTable(User.nameModel);
 		daoProvider.addTable(Test.nameModel);
 		daoProvider.addTable(Teacher.nameModel);
 		daoProvider.addTable(Student.nameModel);
@@ -73,7 +72,7 @@ public class FrontController {
 	 * @param student 		the student
 	 * @return List<Test> 	the list tests
 	 */
-	public List<Model> getTestsForStudent(User student) {
+	public List<Test> getTestsForStudent(User student) {
 		return new StudentController(student).getTests();
 	}
 
@@ -127,7 +126,7 @@ public class FrontController {
 	 * @return List<User> 	the list all administrators
 	 */
 	public List<User> getAllUsersForAdmin(User admin) {
-		return new UserController(admin).getAllUsers();
+		return new AdministratorController(admin).getAllUsers();
 	}
 
 	/**
@@ -137,7 +136,7 @@ public class FrontController {
 	 * @return List<User> 	the list students
 	 */
 	public List<User> getStudentsForAdmin(User admin) {
-		return new AdministratorController(admin).getStudents(Student.nameModel);
+		return new AdministratorController(admin).getUsers(Student.nameModel);
 	}
 
 	/**
@@ -146,8 +145,8 @@ public class FrontController {
 	 * @param 				the administrator
 	 * @return List<User> 	the list of teachers
 	 */
-	public List<Model> getTeachersForAdmin(User admin) {
-		return new AdministratorController(admin).getUsersByType(Teacher.nameModel);
+	public List<User> getTeachersForAdmin(User admin) {
+		return new AdministratorController(admin).getUsers(Teacher.nameModel);
 	}
 
 	/**
@@ -156,20 +155,20 @@ public class FrontController {
 	 * @param 				the administrator
 	 * @return List<User> 	the list of administrators
 	 */
-	public List<Model> getAdminsForAdmin(User admin) {
-		return new AdministratorController(admin).getUsersByType(Administrator.nameModel);
+	public List<User> getAdminsForAdmin(User admin) {
+		return new AdministratorController(admin).getUsers(Administrator.nameModel);
 		
 	}
 	
 	/**
 	 * Gets rating for student.
 	 * 
-	 * @param 		the student
-	 * @return int 	the rating
+	 * @param student the student
+	 * @return int 	  the rating
 	 */
 	public int getRatingUser(User student) {
-		List<Model> listTest = ServiceLocator.getDaoProvider()
-				.getRecords(Test.nameModel);
+		List<Test> listTest = ServiceLocator.getDaoProvider()
+				.getTestsRecords(Test.nameModel);
 		return RatingCalculator.getRatingStudent(student, listTest);
 	}
 	

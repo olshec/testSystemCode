@@ -69,10 +69,10 @@ public final class StudentView extends UserView {
 	 * 
 	 * @param mas the list of student
 	 */
-	private void printTestsStudent(List<Model> mas) {
+	private void printTestsStudent(List<Test> mas) {
 		System.out.println("Cписок тестов: ");
 		for (int i = 0; i < mas.size(); i++) {
-			System.out.println(i + 1 + ") " + ((Test) mas.get(i)).getName());
+			System.out.println(i + 1 + ") " + (mas.get(i)).getName());
 		}
 	}
 	
@@ -80,7 +80,7 @@ public final class StudentView extends UserView {
 	 * Print a list of student tests from the server and prints.
 	 */
 	private void printTestsStudent() {
-		List<Model> mas = getFrontController().getTestsForStudent(this.getUser());
+		List<Test> mas = getFrontController().getTestsForStudent(this.getUser());
 		printTestsStudent(mas);
 	}
 
