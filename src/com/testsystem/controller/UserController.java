@@ -120,32 +120,32 @@ public class UserController {
 		ServiceLocator.getDaoProvider().addRecord(user);
 	}
 
-	/**
-	 * Returns result: does the database have a user.
-	 * 
-	 * @return boolean Returns true if database contains user. Otherwise returns false
-	 */
-	public boolean hasUser(User user) {
-		List<User> users = ServiceLocator.getDaoProvider()
-				.getUsersRecords(User.nameModel);
-		for (int i = 0; i < users.size(); i++) {
-			User u = users.get(i);
-			if (u.getId() == user.getId()) {
-				return true;
-			}
-		}
-		return false;
-	}
+//	/**
+//	 * Returns result: does the database have a user.
+//	 * 
+//	 * @return boolean Returns true if database contains user. Otherwise returns false
+//	 */
+//	public boolean hasUser(User user) {
+//		List<User> users = ServiceLocator.getDaoProvider()
+//				.getUsersRecords(User.nameModel);
+//		for (int i = 0; i < users.size(); i++) {
+//			User u = users.get(i);
+//			if (u.getId() == user.getId()) {
+//				return true;
+//			}
+//		}
+//		return false;
+//	}
 	
-	/**
-	 * Gets users by type.
-	 * 
-	 * @param typeUser 			the type of user
-	 * @return List<UserModel> 	the list of students
-	 */
-	public List<Model> getUsersByType(String typeUser) {
-		List<Model> listUserResult = ServiceLocator.getDaoProvider()
-				.getRecords(typeUser);
-		return listUserResult;
-	}
+//	/**
+//	 * Gets users by type.
+//	 * 
+//	 * @param typeUser 			the type of user
+//	 * @return List<UserModel> 	the list of students
+//	 */
+//	public List<Model> getUsersByType(String typeUser) {
+//		List<Model> listUserResult = ServiceLocator.getDaoProvider()
+//				.getRecords(typeUser);
+//		return listUserResult;
+//	}
 }

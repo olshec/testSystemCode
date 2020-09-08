@@ -27,14 +27,13 @@
             <y:MethodLabel xml:space="preserve">+ login(String username, String password): User
 + getTestsForStudent(User student): List&lt;Test&gt;
 + getTestInfoForStudent(User student, int idTest): Test
-+ getNumberQuestionsInTest(User student, int indexTest): int
++ getNumberQuestionsInTest(User student, int idTest): int
 + getTestsForTeacher(User teacher): List&lt;Test&gt;
 + getTestResultForTeacher(User teacher, int idTest): Test
-+ getAllUsersForAdmin(User adminModel): List&lt;User&gt;
-+ getStudentsForAdmin(User adminModel): List&lt;User&gt;
-+ getTeachersForAdmin(User adminModel):  List&lt;User&gt;
-+ getAdminsForAdmin(User adminModel): List&lt;User&gt;
-+ runTest(Integer idTest): ResultChecking</y:MethodLabel>
++ getAllUsersForAdmin(User admin): List&lt;User&gt;
++ getStudentsForAdmin(User admin): List&lt;User&gt;
++ getTeachersForAdmin(User admin):  List&lt;User&gt;
++ getAdminsForAdmin(User admin): List&lt;User&gt;</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
@@ -118,13 +117,16 @@
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="98.35751826171963" width="203.75" x="-4364.235670785596" y="330.7167001231928"/>
+          <y:Geometry height="98.35751826171963" width="341.76389588401344" x="-4433.242618727602" y="330.7167001231928"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="110.9453125" x="46.40234375" xml:space="preserve" y="3.0">UserController<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
-          <y:UML clipContent="true" constraint="" hasDetailsColor="false" omitDetails="false" stereotype="" use3DEffect="true">
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="110.9453125" x="115.40929169200672" xml:space="preserve" y="3.0">UserController<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:UML clipContent="false" constraint="" hasDetailsColor="false" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel xml:space="preserve"/>
-            <y:MethodLabel xml:space="preserve">+ getUserModel: User</y:MethodLabel>
+            <y:MethodLabel xml:space="preserve">+ getUser: User
++ setUser(User user)
++ getUser(String username, String password): User
++ addUser(User user)</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
@@ -133,14 +135,14 @@
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="85.5" width="266.43181783040535" x="-4709.169095061314" y="526.9907327159667"/>
+          <y:Geometry height="85.5" width="300.75321289062475" x="-4726.329792591423" y="526.9907327159667"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="179.1953125" x="43.618252665202675" xml:space="preserve" y="3.0">AdministratorController<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="179.1953125" x="60.778950195312376" xml:space="preserve" y="3.0">AdministratorController<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
           <y:UML clipContent="true" constraint="" hasDetailsColor="false" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel xml:space="preserve"/>
-            <y:MethodLabel xml:space="preserve">+ getUsersByType(String, UserBase): List&lt;User&gt;
-+ getUsers(UserBase): List&lt;User&gt;</y:MethodLabel>
+            <y:MethodLabel xml:space="preserve">+ getAllUsers(): List&lt;User&gt;
++ getUsers(String typeUser): List&lt;User&gt;</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
@@ -149,15 +151,16 @@
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="85.5" width="300.7532128906251" x="-4412.737277230908" y="526.9907327159667"/>
+          <y:Geometry height="98.35751826171963" width="300.7532128906251" x="-4412.737277230908" y="526.9907327159667"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="135.84716796875" x="82.45302246093755" xml:space="preserve" y="3.0">StudentController<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
           <y:UML clipContent="true" constraint="" hasDetailsColor="false" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel xml:space="preserve"/>
-            <y:MethodLabel xml:space="preserve">+ getTests(TestBase): List&lt;Test&gt;
-+ getTestInfo(int, TestBase): Test
-+ getNumberQuestionsInTest(int, TestBase): int</y:MethodLabel>
+            <y:MethodLabel xml:space="preserve">+ getTests(): List&lt;Test&gt;
++ getTestInfo(int idTest): Test
++ getNumberQuestionsInTest(int idTest): int
++ getGroup(): Group</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
@@ -172,8 +175,8 @@
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="136.0693359375" x="82.34193847656255" xml:space="preserve" y="3.0">TeacherController<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
           <y:UML clipContent="true" constraint="" hasDetailsColor="false" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel xml:space="preserve"/>
-            <y:MethodLabel xml:space="preserve">+ getTests(TestBase): List&lt;Test&gt;
-+ getTestResult(int, TestBase): Test</y:MethodLabel>
+            <y:MethodLabel xml:space="preserve">+ getTests(): List&lt;Test&gt;
++ getTestResult(int idTest): Test</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
@@ -262,7 +265,7 @@ getServer: ServerController</y:MethodLabel>
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="85.5" width="140.97584981963325" x="-4002.095382804788" y="789.0511608476189"/>
+          <y:Geometry height="85.5" width="140.97584981963325" x="-4002.095382804788" y="749.0201505383405"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="48.5732421875" x="46.20130381606663" xml:space="preserve" y="3.0">Group<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
@@ -278,14 +281,17 @@ getServer: ServerController</y:MethodLabel>
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="98.35751826171963" width="348.99008205045664" x="-4436.855711810826" y="782.6224017167591"/>
+          <y:Geometry height="134.38542754007017" width="348.99008205045664" x="-4436.855711810826" y="724.5774367683055"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="121.99658203125" x="113.49675000960332" xml:space="preserve" y="3.0">GroupController<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
           <y:UML clipContent="false" constraint="" hasDetailsColor="false" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel xml:space="preserve"/>
-            <y:MethodLabel xml:space="preserve">+ getNewGroup(String name): Group        &lt;&lt;static&gt;&gt;
-+ getStudentByGroup(UserBase, Group ): List&lt;User&gt;</y:MethodLabel>
+            <y:MethodLabel xml:space="preserve">+ getNewGroup(String name): Group 
++ getStudentsByGroup(Group): List&lt;User&gt;
++ addGroup(String name)
++ addGroup(Group group)
++ getGroupByName(String name): Group</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
@@ -312,19 +318,27 @@ getServer: ServerController</y:MethodLabel>
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="215.612189096081" width="244.53124999999977" x="-4582.660074493966" y="1385.4563938670485"/>
+          <y:Geometry height="215.612189096081" width="335.9087028659794" x="-4582.660074493966" y="1385.4563938670485"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="109.06005859375" x="67.73559570312489" xml:space="preserve" y="3.0">TestController<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="109.06005859375" x="113.42432213611471" xml:space="preserve" y="3.0">TestController<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
           <y:UML clipContent="true" constraint="" hasDetailsColor="false" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel xml:space="preserve"/>
-            <y:MethodLabel xml:space="preserve">+ addResult(Test, User, int points)
-+ hasStudent(Test, User): boolean
+            <y:MethodLabel xml:space="preserve">+ getAllTests(): List&lt;Test&gt;
++ getTest(int idTest): Test
++ getStudents(): List&lt;User&gt;
++ getStudentTests(User student): List&lt;Test&gt; 
++ getStudentResult(User student): StudentTestResult
 + getNumberQuestions(Test): int
-+ addStudent(Test, User)
-+ hasTeacher(Test, User): boolean
-+ getStudents(Test): List&lt;User&gt;
-+ getResults(Test): List&lt;Integer&gt;
++ addStudent(User)
++ hasTeacher(User): boolean
++ addQuestion(Question question)
++ addResult(User, int points)
++ hasStudent(User): boolean
+
+
+
+
 + addQuestion(Test, Question)
 + checkTest(Test): ResultChecking</y:MethodLabel>
           </y:UML>
@@ -371,7 +385,7 @@ getServer: ServerController</y:MethodLabel>
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="157.6875" width="215.75321289062512" x="-3670.23086549585" y="1618.8229690644403"/>
+          <y:Geometry height="157.6875" width="215.75321289062512" x="-3722.271178897912" y="1618.8229690644403"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="94.060546875" x="60.84633300781256" xml:space="preserve" y="3.0">StudentTest<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
@@ -526,10 +540,10 @@ getServer: ServerController</y:MethodLabel>
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="213.3794854597936" width="215.75321289062512" x="-3670.23086549585" y="1138.8532412940287"/>
+          <y:Geometry height="213.3794854597936" width="319.8338396947489" x="-3774.311492299974" y="1138.8532412940287"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="35.63671875" x="90.05824707031256" xml:space="preserve" y="3.0">Test<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="35.63671875" x="142.09856047237446" xml:space="preserve" y="3.0">Test<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
           <y:UML clipContent="true" constraint="" hasDetailsColor="false" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel xml:space="preserve"/>
             <y:MethodLabel xml:space="preserve">+ getId(): Integer
@@ -540,10 +554,8 @@ getServer: ServerController</y:MethodLabel>
 + setTeacher(User)
 + getQuestions: List&lt;Question&gt;
 + setQuestions(List&lt;Question&gt;)
-+ getStudents: List&lt;User&gt;
-+ setStudents(List&lt;User&gt;)
-+ getResults: List&lt;Integer&gt;
-+ setResults(List&lt;Integer&gt;)
++ getStudentTestResult: List&lt;StudentTestResult&gt;
++ setStudentResult(List&lt;StudentTestResult&gt;)
 
 
 
@@ -577,14 +589,14 @@ getServer: ServerController</y:MethodLabel>
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="91.75" width="431.4960012753493" x="-4436.855711810826" y="924.2230144801423"/>
+          <y:Geometry height="91.75" width="458.18334148153485" x="-4436.855711810826" y="924.2230144801423"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="199.9521484375" x="115.77192641892464" xml:space="preserve" y="3.0">RatingCalculatorController<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="199.9521484375" x="129.11559652201743" xml:space="preserve" y="3.0">RatingCalculatorController<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
           <y:UML clipContent="true" constraint="" hasDetailsColor="false" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel xml:space="preserve"/>
-            <y:MethodLabel xml:space="preserve">+ getRatingStudent(User student, TestTable): Integer     {static}
-+ getRatingGroup(Group, TestTable, UserTable): Integer  {static}</y:MethodLabel>
+            <y:MethodLabel xml:space="preserve">+ getRatingStudent(User student, List&lt;Test&gt; listTest): Integer     {static}
++ getRatingGroup(Group, List&lt;User&gt; listStudent): Integer            {static}</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
@@ -593,13 +605,15 @@ getServer: ServerController</y:MethodLabel>
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="91.75" width="341.76389588401355" x="-3140.41469963246" y="334.02045925405264"/>
+          <y:Geometry height="133.38225072164954" width="341.76389588401355" x="-3140.41469963246" y="301.108888120032"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="98.2373046875" x="121.76329559825678" xml:space="preserve" y="3.0">DAOProvider<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
           <y:UML clipContent="false" constraint="" hasDetailsColor="false" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel xml:space="preserve"/>
             <y:MethodLabel xml:space="preserve">+ setTable(String name, List&lt;Model&gt; listRecord)
++ clear()
++ addTable(String name)
 + addRecord(Model record)
 + getRecords(String nameTable): List&lt;Model&gt;</y:MethodLabel>
           </y:UML>
@@ -692,7 +706,7 @@ getServer: ServerController</y:MethodLabel>
       <data key="d8" xml:space="preserve"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="5.6843418860808015E-14" ty="17.316742634670845"/>
+          <y:Path sx="0.0" sy="0.0" tx="9.534737808705057E-14" ty="17.316742634670845"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
           <y:BendStyle smoothed="false"/>
@@ -774,7 +788,7 @@ getServer: ServerController</y:MethodLabel>
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
             <y:Point x="-4748.215672158929" y="76.64261044000278"/>
-            <y:Point x="-4738.136203477996" y="831.8011608476189"/>
+            <y:Point x="-4738.136203477996" y="791.7701505383405"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
@@ -785,7 +799,7 @@ getServer: ServerController</y:MethodLabel>
     <edge id="e13" source="n18" target="n17">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="49.95336267732455" sy="92.25883662091474" tx="-130.5838835555437" ty="64.77279124850925"/>
+          <y:Path sx="0.0" sy="107.82593956557685" tx="-130.5838835555437" ty="64.77279124850925"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
@@ -811,7 +825,7 @@ getServer: ServerController</y:MethodLabel>
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
             <y:Point x="-4747.597888216294" y="76.64261044000278"/>
-            <y:Point x="-4738.136203477996" y="831.8011608476189"/>
+            <y:Point x="-4738.136203477996" y="791.7701505383405"/>
             <y:Point x="-4732.419768220471" y="1493.2624884150896"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
@@ -889,8 +903,8 @@ getServer: ServerController</y:MethodLabel>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="white_diamond" target="none"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="25.263671875" x="86.15450708023081" xml:space="preserve" y="3.6205154891770235">0..*<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="3.620500215251456" distanceToCenter="false" position="right" ratio="1.0" segment="-1"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="11.634765625" x="21.270316819421623" xml:space="preserve" y="1.058530829383244">1<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="1.0585155554573533" distanceToCenter="false" position="right" ratio="0.1714475589852223" segment="-1"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="25.263671875" x="86.08468286148081" xml:space="preserve" y="3.6205154891770235">0..*<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="3.620500215251456" distanceToCenter="false" position="right" ratio="1.0" segment="-1"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="11.634765625" x="21.200492600671623" xml:space="preserve" y="1.058530829383244">1<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="1.0585155554573533" distanceToCenter="false" position="right" ratio="0.1714475589852223" segment="-1"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -929,8 +943,8 @@ getServer: ServerController</y:MethodLabel>
     <edge id="e25" source="n18" target="n25">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="-95.63862511954812" sy="107.83262466633369" tx="-70.8930014274165" ty="0.0">
-            <y:Point x="-4556.033074613514" y="2161.2533734963063"/>
+          <y:Path sx="-131.37726367404215" sy="107.83262466633369" tx="-70.8930014274165" ty="0.0">
+            <y:Point x="-4546.0829867350185" y="2161.2533734963063"/>
             <y:Point x="-2941.6751889898105" y="2161.2533734963063"/>
             <y:Point x="-2941.6751889898105" y="1923.9013453493721"/>
           </y:Path>
@@ -1018,7 +1032,7 @@ getServer: ServerController</y:MethodLabel>
       <data key="d8" xml:space="preserve"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:Path sx="170.9121155355533" sy="12.09544577319582" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="white_diamond" target="none"/>
           <y:BendStyle smoothed="false"/>
@@ -1051,7 +1065,7 @@ getServer: ServerController</y:MethodLabel>
     <edge id="e35" source="n18" target="n29">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="-25.2153589948216" ty="48.01989452452949">
+          <y:Path sx="-45.688726432989824" sy="-107.78627698068931" tx="-37.37939740755419" ty="48.01989452452949">
             <y:Point x="-4460.394449493966" y="1293.562878548455"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>

@@ -106,7 +106,7 @@ public class TestController {
 	 * 
 	 * @return the name of test
 	 */
-	public String getName() {
+	public String getNameTest() {
 		return test.getName();
 	}
 
@@ -224,7 +224,7 @@ public class TestController {
 	 * 
 	 * @return the result of student
 	 */
-	public StudentTestResult getStudentResult(User student) {
+	public StudentTestResult getStudentTestResult(User student) {
 		for (StudentTestResult st : test.getStudentTestResult()) {
 			if(st.getStudent().equals(student) && st.getResult() != -1) {
 				return st;
