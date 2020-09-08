@@ -385,49 +385,6 @@ getServer: ServerController</y:MethodLabel>
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="157.6875" width="215.75321289062512" x="-3722.271178897912" y="1618.8229690644403"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="94.060546875" x="60.84633300781256" xml:space="preserve" y="3.0">StudentTest<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
-          <y:UML clipContent="true" constraint="" hasDetailsColor="false" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel xml:space="preserve">- test: Test
-- student: User
-- listQuestions: List&lt;Question&gt;</y:AttributeLabel>
-            <y:MethodLabel xml:space="preserve">+ getTest(): Test
-+ setTest(Test)
-+ getStudent: Student
-+ setStudent(Student)
-
-
-
-</y:MethodLabel>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-    </node>
-    <node id="n22">
-      <data key="d4" xml:space="preserve"/>
-      <data key="d6">
-        <y:UMLClassNode>
-          <y:Geometry height="75.3207160450387" width="215.75321289062512" x="-4353.885821869722" y="1660.0063610419206"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="167.48388671875" x="24.13466308593756" xml:space="preserve" y="3.0">StudentTestController<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
-          <y:UML clipContent="true" constraint="" hasDetailsColor="false" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel xml:space="preserve"/>
-            <y:MethodLabel xml:space="preserve">+ getResult(Test): Integer
-
-
-
-</y:MethodLabel>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-    </node>
-    <node id="n23">
-      <data key="d4" xml:space="preserve"/>
-      <data key="d6">
-        <y:UMLClassNode>
           <y:Geometry height="129.5625" width="268.41750638432336" x="-3338.083530029144" y="1859.1200953493721"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
@@ -444,7 +401,7 @@ getServer: ServerController</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n24">
+    <node id="n22">
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -465,7 +422,7 @@ getServer: ServerController</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n25">
+    <node id="n23">
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -483,7 +440,7 @@ getServer: ServerController</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n26">
+    <node id="n24">
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -498,7 +455,7 @@ getServer: ServerController</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n27">
+    <node id="n25">
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -517,7 +474,7 @@ getServer: ServerController</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n28">
+    <node id="n26">
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -536,7 +493,7 @@ getServer: ServerController</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n29">
+    <node id="n27">
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -564,7 +521,7 @@ getServer: ServerController</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n30">
+    <node id="n28">
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -585,7 +542,7 @@ getServer: ServerController</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n31">
+    <node id="n29">
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -601,7 +558,7 @@ getServer: ServerController</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n32">
+    <node id="n30">
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -834,7 +791,7 @@ getServer: ServerController</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e16" source="n24" target="n23">
+    <edge id="e16" source="n22" target="n21">
       <data key="d8" xml:space="preserve"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -847,7 +804,7 @@ getServer: ServerController</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e17" source="n26" target="n25">
+    <edge id="e17" source="n24" target="n23">
       <data key="d8" xml:space="preserve"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -861,7 +818,7 @@ getServer: ServerController</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e18" source="n27" target="n25">
+    <edge id="e18" source="n25" target="n23">
       <data key="d8" xml:space="preserve"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -872,7 +829,7 @@ getServer: ServerController</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e19" source="n28" target="n25">
+    <edge id="e19" source="n26" target="n23">
       <data key="d8" xml:space="preserve"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -896,7 +853,7 @@ getServer: ServerController</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e21" source="n29" target="n24">
+    <edge id="e21" source="n27" target="n22">
       <data key="d8" xml:space="preserve"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -909,18 +866,7 @@ getServer: ServerController</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e22" source="n21" target="n29">
-      <data key="d8" xml:space="preserve"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="white_diamond" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e23" source="n16" target="n15">
+    <edge id="e22" source="n16" target="n15">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -930,7 +876,7 @@ getServer: ServerController</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e24" source="n19" target="n23">
+    <edge id="e23" source="n19" target="n21">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -940,7 +886,7 @@ getServer: ServerController</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e25" source="n18" target="n25">
+    <edge id="e24" source="n18" target="n23">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-131.37726367404215" sy="107.83262466633369" tx="-70.8930014274165" ty="0.0">
@@ -954,7 +900,7 @@ getServer: ServerController</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e26" source="n17" target="n25">
+    <edge id="e25" source="n17" target="n23">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-66.41612908540446" ty="0.0">
@@ -968,7 +914,7 @@ getServer: ServerController</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e27" source="n0" target="n6">
+    <edge id="e26" source="n0" target="n6">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -980,7 +926,7 @@ getServer: ServerController</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e28" source="n0" target="n31">
+    <edge id="e27" source="n0" target="n29">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -994,7 +940,7 @@ getServer: ServerController</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e29" source="n0" target="n32">
+    <edge id="e28" source="n0" target="n30">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1004,7 +950,7 @@ getServer: ServerController</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e30" source="n6" target="n10">
+    <edge id="e29" source="n6" target="n10">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -1017,7 +963,7 @@ getServer: ServerController</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e31" source="n30" target="n20">
+    <edge id="e30" source="n28" target="n20">
       <data key="d8" xml:space="preserve"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1028,7 +974,7 @@ getServer: ServerController</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e32" source="n32" target="n30">
+    <edge id="e31" source="n30" target="n28">
       <data key="d8" xml:space="preserve"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1039,30 +985,7 @@ getServer: ServerController</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e33" source="n22" target="n21">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e34" source="n0" target="n22">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="-4748.277647100572" y="76.64261044000278"/>
-            <y:Point x="-4732.258728865961" y="1697.66671906444"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="3.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e35" source="n18" target="n29">
+    <edge id="e32" source="n18" target="n27">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-45.688726432989824" sy="-107.78627698068931" tx="-37.37939740755419" ty="48.01989452452949">
