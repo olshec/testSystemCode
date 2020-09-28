@@ -10,9 +10,9 @@ package com.testsystem.model;
 public class Answer extends Model {
 	
 	private String text;
-	private boolean correct;
 	private String information;
-	private Boolean checked;
+	private boolean correct;
+	private boolean checked;
 	
 	/**
 	 * Get text of answer.
