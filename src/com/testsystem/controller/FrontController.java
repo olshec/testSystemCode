@@ -237,7 +237,7 @@ public class FrontController {
 		Group g2 = new GroupController().getNewGroup("Group 2");
 		new GroupController().addGroup(g2);
 		User student3 = new StudentController().getNewStudent("Сазонова", "Екатерина", "Kat", "1111", g2);
-		User student4 = new StudentController().getNewStudent("Филонова", "Анна", "Anna", "1111", g2);
+		User student4 = new StudentController().getNewStudent("Фролова", "Анна", "Anna", "1111", g2);
 
 		//add users to database
 		userController.addUser(student1);
