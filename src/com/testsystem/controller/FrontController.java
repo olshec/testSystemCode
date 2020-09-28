@@ -182,10 +182,7 @@ public class FrontController {
 	 * @return List<StudentTestResult>	the students results 
 	 */
 	public List<StudentTestResult> getRatingGroup(String nameGroup){
-		Group group = new GroupController().getGroupByName(nameGroup);
-		List<StudentTestResult> ratingGroup = RatingCalculator.getRatingGroup(group, new GroupController()
-				.getStudentsByGroup(group));
-		
+		List<StudentTestResult> ratingGroup = new GroupController().getRatingGroup(nameGroup);
 		return ratingGroup;
 	}
 
