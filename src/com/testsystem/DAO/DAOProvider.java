@@ -158,6 +158,7 @@ public class DAOProvider {
 		}
 		return ls;
 	}
+	
 //	public List<User> getAdministrators(String nameTable) {
 //		List<User> ls = new ArrayList<User>();
 //		List<Model> models = database.getTable(nameTable).getRecords();

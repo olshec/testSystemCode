@@ -64,7 +64,7 @@ public final class StudentView extends UserView {
 	}
 
 	/**
-	 * Print a list of student tests from the server and prints.
+	 * Print a list of tests.
 	 * 
 	 * @param mas the list of student
 	 */
