@@ -12,6 +12,7 @@ public class Answer extends Model {
 	private String text;
 	private boolean correct;
 	private String information;
+	private Boolean checked;
 	
 	/**
 	 * Get text of answer.
@@ -65,6 +66,24 @@ public class Answer extends Model {
 	 */
 	public void setInformation(String information) {
 		this.information = information;
+	}
+
+	/**
+	 * Returns true if answer is checked, false otherwise.
+	 * 
+	 * @return the checked
+	 */
+	public Boolean getChecked() {
+		return checked;
+	}
+
+	/**
+	 * Sets answer to checked.
+	 * 
+	 * @param checked the checked to set
+	 */
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
 	}
 
 	/**
