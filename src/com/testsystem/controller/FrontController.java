@@ -8,15 +8,11 @@ import com.testsystem.model.Group;
 import com.testsystem.model.Model;
 import com.testsystem.model.Question;
 import com.testsystem.model.Student;
-import com.testsystem.model.StudentResultOfTest;
 import com.testsystem.model.StudentTestResult;
 import com.testsystem.model.Teacher;
 import com.testsystem.model.Test;
-import com.testsystem.model.TestsResult;
 import com.testsystem.model.User;
 import com.testsystem.util.ServiceLocator;
-
-import junit.framework.TestResult;
 
 /**
  * Represents a server controller.
@@ -40,7 +36,6 @@ public class FrontController {
 		daoProvider.addTable(new Teacher().getNameModel());
 		daoProvider.addTable(new Student().getNameModel());
 		daoProvider.addTable(new Administrator().getNameModel());
-		daoProvider.addTable(new TestsResult().getNameModel());
 		loadTest();
 	}
 
@@ -283,30 +278,6 @@ public class FrontController {
 		testController.addResult(student3, 5);
 		testController.addResult(student4, 3);
 		testController.addResult(student01, 2);
-		
-		//The results of test.
-		TestsResult testsResult = new TestsResult();
-		TestsResultController testResultsController = new TestsResultController(testsResult);
-		//StudentResultOfTestController 
-		
-		//add results students for test1
-		testResultsController.addTestResult(new StudentResultOfTest(student1, test1, 4));
-		testResultsController.addTestResult(new StudentResultOfTest(student2, test1, 5));
-		testResultsController.addTestResult(new StudentResultOfTest(student01, test1, 3));
-		
-		//add results students for test2
-		testResultsController.addTestResult(new StudentResultOfTest(student1, test2, 3));
-		testResultsController.addTestResult(new StudentResultOfTest(student2, test2, 4));
-		testResultsController.addTestResult(new StudentResultOfTest(student3, test2, 4));
-		testResultsController.addTestResult(new StudentResultOfTest(student4, test2, 5));
-		testResultsController.addTestResult(new StudentResultOfTest(student01, test2, 3));
-		
-		//add results students for test2
-		testResultsController.addTestResult(new StudentResultOfTest(student1, test3, 3));
-		testResultsController.addTestResult(new StudentResultOfTest(student2, test3, 4));
-		testResultsController.addTestResult(new StudentResultOfTest(student3, test3, 4));
-		testResultsController.addTestResult(new StudentResultOfTest(student4, test3, 5));
-		testResultsController.addTestResult(new StudentResultOfTest(student01, test3, 3));
 		
 		//TestTable testBase = getDaoProvider().getTestTable();
 		
