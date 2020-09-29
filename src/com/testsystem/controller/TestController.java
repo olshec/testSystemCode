@@ -66,7 +66,7 @@ public class TestController {
 	 * @return the all tests
 	 */
 	public List<Test> getAllTests() {
-		List<Test> listTest = ServiceLocator.getDaoProvider().getTestsRecords(Test.nameModel);
+		List<Test> listTest = ServiceLocator.getDaoProvider().getTestsRecords(new Test().getNameModel());
 		return listTest;
 	}
 
@@ -76,7 +76,7 @@ public class TestController {
 	 * @param tests the tests to add
 	 */
 	public void setTests(List<Model> tests) {
-		ServiceLocator.getDaoProvider().setTable(Test.nameModel, tests);
+		ServiceLocator.getDaoProvider().setTable(new Test().getNameModel(), tests);
 	}
 	
 
@@ -87,7 +87,7 @@ public class TestController {
 	 * @return the Test.
 	 */
 	public Test getTest(int idTest) {
-		List<Test> listTest = ServiceLocator.getDaoProvider().getTestsRecords(Test.nameModel);
+		List<Test> listTest = ServiceLocator.getDaoProvider().getTestsRecords(new Test().getNameModel());
 		if (idTest < listTest.size() && idTest >= 0) {
 			return listTest.get(idTest);
 		}
@@ -152,7 +152,7 @@ public class TestController {
 	 */
 	public List<Test> getStudentTests(User student) {
 		List<Test> listTest = ServiceLocator.getDaoProvider()
-				.getTestsRecords(Test.nameModel);
+				.getTestsRecords(new Test().getNameModel());
 		List<Test> listTestReturn = new ArrayList<Test>();
 		for (Test test : listTest) {
 			Test t = test;

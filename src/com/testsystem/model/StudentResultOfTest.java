@@ -1,23 +1,21 @@
 package com.testsystem.model;
 
-/**
- * Represents a result of student test.
- * 
- * @author Oleg Shestakov
- * @author olshec@gmail.com
- * @version 1.0
- */
-public class StudentTestResult extends Model {
-
-	User student;
-	Integer result;
+public class StudentResultOfTest extends Model{
 	
+	User student;
+	Test test;
+	Integer result;
+
 	/**
-	 * Creates a StudentTestResult.
+	 * @param student
+	 * @param test
+	 * @param result
 	 */
-	public StudentTestResult(User student, Integer result) {
-		setStudent(student);
-		setResult(result);
+	public StudentResultOfTest(User student, Test test, Integer result) {
+		super();
+		this.student = student;
+		this.test = test;
+		this.result = result;
 	}
 
 	/**
@@ -49,12 +47,27 @@ public class StudentTestResult extends Model {
 	}
 	
 	/**
+	 * @return the test
+	 */
+	public Test getTest() {
+		return test;
+	}
+
+	/**
+	 * @param test the test to set
+	 */
+	public void setTest(Test test) {
+		this.test = test;
+	}
+
+	/**
 	 * Gets name of model.
 	 * 
 	 * @return String return name of model
 	 */
 	@Override
 	public String getNameModel() {
-		return "StudentTestResult";
+		return "StudentResultOfTest";
 	}
+	
 }

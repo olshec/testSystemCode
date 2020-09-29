@@ -9,8 +9,6 @@ package com.testsystem.model;
  */
 public abstract class User extends Model {
 
-	public static final String nameModel = "User";
-
 	private String firstName;
 	private String lastName;
 	private String username;

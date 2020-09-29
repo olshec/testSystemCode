@@ -8,11 +8,15 @@ import com.testsystem.model.Group;
 import com.testsystem.model.Model;
 import com.testsystem.model.Question;
 import com.testsystem.model.Student;
+import com.testsystem.model.StudentResultOfTest;
 import com.testsystem.model.StudentTestResult;
 import com.testsystem.model.Teacher;
 import com.testsystem.model.Test;
+import com.testsystem.model.TestsResult;
 import com.testsystem.model.User;
 import com.testsystem.util.ServiceLocator;
+
+import junit.framework.TestResult;
 
 /**
  * Represents a server controller.
@@ -31,11 +35,12 @@ public class FrontController {
 	public FrontController() {
 		daoProvider = new DAOProvider();
 		ServiceLocator.setDaoProvider(daoProvider);
-		daoProvider.addTable(Group.nameModel);
-		daoProvider.addTable(Test.nameModel);
-		daoProvider.addTable(Teacher.nameModel);
-		daoProvider.addTable(Student.nameModel);
-		daoProvider.addTable(Administrator.nameModel);
+		daoProvider.addTable(new Group().getNameModel());
+		daoProvider.addTable(new Test().getNameModel());
+		daoProvider.addTable(new Teacher().getNameModel());
+		daoProvider.addTable(new Student().getNameModel());
+		daoProvider.addTable(new Administrator().getNameModel());
+		daoProvider.addTable(new TestsResult().getNameModel());
 		loadTest();
 	}
 
@@ -138,7 +143,7 @@ public class FrontController {
 	 * @return List<User> 	the list students
 	 */
 	public List<User> getStudentsForAdmin(User admin) {
-		return new AdministratorController(admin).getUsers(Student.nameModel);
+		return new AdministratorController(admin).getUsers(new Student().getNameModel());
 	}
 
 	/**
@@ -148,7 +153,7 @@ public class FrontController {
 	 * @return List<User> 	the list of teachers
 	 */
 	public List<User> getTeachersForAdmin(User admin) {
-		return new AdministratorController(admin).getUsers(Teacher.nameModel);
+		return new AdministratorController(admin).getUsers(new Teacher().getNameModel());
 	}
 
 	/**
@@ -158,7 +163,7 @@ public class FrontController {
 	 * @return List<User> 	the list of administrators
 	 */
 	public List<User> getAdminsForAdmin(User admin) {
-		return new AdministratorController(admin).getUsers(Administrator.nameModel);
+		return new AdministratorController(admin).getUsers(new Administrator().getNameModel());
 		
 	}
 	
@@ -170,7 +175,7 @@ public class FrontController {
 	 */
 	public int getRatingUser(User student) {
 		List<Test> listTest = ServiceLocator.getDaoProvider()
-				.getTestsRecords(Test.nameModel);
+				.getTestsRecords(new Test().getNameModel());
 		return RatingCalculator.getRatingStudent(student, listTest);
 	}
 	
@@ -278,6 +283,30 @@ public class FrontController {
 		testController.addResult(student3, 5);
 		testController.addResult(student4, 3);
 		testController.addResult(student01, 2);
+		
+		//The results of test.
+		TestsResult testsResult = new TestsResult();
+		TestsResultController testResultsController = new TestsResultController(testsResult);
+		//StudentResultOfTestController 
+		
+		//add results students for test1
+		testResultsController.addTestResult(new StudentResultOfTest(student1, test1, 4));
+		testResultsController.addTestResult(new StudentResultOfTest(student2, test1, 5));
+		testResultsController.addTestResult(new StudentResultOfTest(student01, test1, 3));
+		
+		//add results students for test2
+		testResultsController.addTestResult(new StudentResultOfTest(student1, test2, 3));
+		testResultsController.addTestResult(new StudentResultOfTest(student2, test2, 4));
+		testResultsController.addTestResult(new StudentResultOfTest(student3, test2, 4));
+		testResultsController.addTestResult(new StudentResultOfTest(student4, test2, 5));
+		testResultsController.addTestResult(new StudentResultOfTest(student01, test2, 3));
+		
+		//add results students for test2
+		testResultsController.addTestResult(new StudentResultOfTest(student1, test3, 3));
+		testResultsController.addTestResult(new StudentResultOfTest(student2, test3, 4));
+		testResultsController.addTestResult(new StudentResultOfTest(student3, test3, 4));
+		testResultsController.addTestResult(new StudentResultOfTest(student4, test3, 5));
+		testResultsController.addTestResult(new StudentResultOfTest(student01, test3, 3));
 		
 		//TestTable testBase = getDaoProvider().getTestTable();
 		

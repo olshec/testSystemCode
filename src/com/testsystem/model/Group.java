@@ -9,8 +9,12 @@ package com.testsystem.model;
  */
 public class Group extends Model{
 	
-	public static final String nameModel = "Group";
 	private String name;
+	
+	/**
+	 * Creates a Group.
+	 */
+	public Group() {}
 	
 	/**
 	 * Creates a Group.

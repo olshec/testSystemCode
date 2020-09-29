@@ -12,8 +12,6 @@ import java.util.List;
  */
 public class Test extends Model {
 	
-	public static final String nameModel = "Test";
-	
 	private String name;
 	private User teacher;
 	private List<Question> questions;

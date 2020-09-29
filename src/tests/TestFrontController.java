@@ -38,7 +38,7 @@ public class TestFrontController {
 	@Test
 	public void testCountTests() {
 		List<com.testsystem.model.Model> listTest = ServiceLocator.getDaoProvider()
-				.getRecords(com.testsystem.model.Test.nameModel);	
+				.getRecords(new com.testsystem.model.Test().getNameModel());	
 		
 		assertEquals(listTest.size(), 3);
 	}
@@ -46,11 +46,11 @@ public class TestFrontController {
 	@Test
 	public void testCountUsers() {
 		List<Model> listUserAdmin = ServiceLocator.getDaoProvider()
-				.getRecords(Administrator.nameModel);
+				.getRecords(new Administrator().getNameModel());
 		List<Model> listUserTeacher = ServiceLocator.getDaoProvider()
-				.getRecords(Teacher.nameModel);
+				.getRecords(new Teacher().getNameModel());
 		List<Model> listUserStudent = ServiceLocator.getDaoProvider()
-				.getRecords(Student.nameModel);
+				.getRecords(new Student().getNameModel());
 		
 		int countUsers = listUserAdmin.size() + listUserTeacher.size() +
 				listUserStudent.size();
@@ -60,14 +60,14 @@ public class TestFrontController {
 	@Test
 	public void testCountGroups() {
 		List<Model> listGroup = ServiceLocator.getDaoProvider()
-				.getRecords(Group.nameModel);
+				.getRecords(new Group().getNameModel());
 		
 		assertEquals(listGroup.size(), 2);
 	}
 
 	@Test
 	public void testLogin() {
-		assertEquals(student1.getNameModel(), Student.nameModel);
+		assertEquals(student1.getNameModel(), new Student().getNameModel());
 		assertEquals(student1.getLastName(), "Шахматов");
 		assertEquals(student1.getFirstName(), "Антон");
 	}
@@ -82,7 +82,7 @@ public class TestFrontController {
 	public void testGetTestInfoForStudent() {
 
 		List<Model> modelsTests = frontController.getDaoProvider()
-				.getRecords(com.testsystem.model.Test.nameModel);
+				.getRecords(new com.testsystem.model.Test().getNameModel());
 		com.testsystem.model.Test test1 = (com.testsystem.model.Test)(modelsTests).get(0);
 //		List<Model> listGroup = ServiceLocator.getDaoProvider()
 //				.getRecordsTable(Group.nameModel);

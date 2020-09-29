@@ -46,7 +46,7 @@ public class TeacherController extends UserController {
 	 */
 	public List<Test> getTests() {
 		List<Test> listTest = ServiceLocator.getDaoProvider()
-				.getTestsRecords(Test.nameModel);
+				.getTestsRecords(new Test().getNameModel());
 		ArrayList<Test> masTests = new ArrayList<Test>();
 		for (int i = 0; i < listTest.size(); i++) {
 			TestController testController = new TestController(listTest.get(i));

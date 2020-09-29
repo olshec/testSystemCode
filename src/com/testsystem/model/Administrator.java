@@ -8,8 +8,11 @@ package com.testsystem.model;
  * @version 1.0
  */
 public class Administrator extends User {
-
-	public static final String nameModel = "Administrator";
+	
+	/**
+	 * Creates an AdministratorModel.
+	 */
+	public Administrator() {	}
 	
 	/**
 	 * Creates an AdministratorModel.
@@ -30,6 +33,6 @@ public class Administrator extends User {
 	 * @return String return name of model
 	 */
 	public String getNameModel() {
-		return nameModel ;
+		return "Administrator" ;
 	}
 }

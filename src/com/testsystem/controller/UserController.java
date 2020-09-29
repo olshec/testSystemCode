@@ -56,15 +56,15 @@ public class UserController {
 	 * @return User 		the user
 	 */
 	public User getUser(String username, String password) {
-		User u = getListUserByType(Administrator.nameModel, username, password);
+		User u = getListUserByType(new Administrator().getNameModel(), username, password);
 		if(u != null) {
 			return u;
 		} 
-		u = getListUserByType(Teacher.nameModel, username, password);
+		u = getListUserByType(new Teacher().getNameModel(), username, password);
 		if(u != null) {
 			return u;
 		} 	
-		u = getListUserByType(Student.nameModel, username, password);
+		u = getListUserByType(new Student().getNameModel(), username, password);
 		if(u != null) {
 			return u;
 		} 

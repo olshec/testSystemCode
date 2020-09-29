@@ -39,7 +39,7 @@ public class AdministratorController extends UserController {
 			String firstName, String username, String password) {
 		return new Administrator(lastName, firstName, username, password);
 	}
-
+    
 	/**
 	 * Gets all users.
 	 * 
@@ -49,11 +49,11 @@ public class AdministratorController extends UserController {
 	public List<User> getAllUsers() {
 		//return new UserController().getAllUsers();
 		List<User> administrators = ServiceLocator.getDaoProvider()
-				.getUsersRecords(new Administrator().getNameModel());
+				.getUsersRecords(Administrator.nameModel);
 		List<User> teachers = ServiceLocator.getDaoProvider()
-				.getUsersRecords(new Teacher().getNameModel());
+				.getUsersRecords(Teacher.nameModel);
 		List<User> students = ServiceLocator.getDaoProvider()
-				.getUsersRecords(new Student().getNameModel());
+				.getUsersRecords(Student.nameModel);
 		List<User> usersList = new ArrayList<User>();
 		usersList.addAll(administrators);
 		usersList.addAll(teachers);
@@ -94,6 +94,9 @@ public class AdministratorController extends UserController {
 	public List<User> getUsers(String typeUser) {
 		List<User> records = 
 				ServiceLocator.getDaoProvider().getUsersRecords(typeUser);
+		List<User> students;
+		students.
+		
 		return records;
 	}
 }

@@ -52,13 +52,13 @@ public class ClientView extends UserView {
 		//System.out.print(user.getClass().getSimpleName());
 
 		switch (user.getNameModel()) {
-		case Administrator.nameModel:
+		case "Administrator":
 			userAplication = new AdminView(user, frontController);
 			break;
-		case Teacher.nameModel:
+		case "Teacher":
 			userAplication = new TeacherView(user, frontController);
 			break;
-		case Student.nameModel:
+		case "Student":
 			userAplication = new StudentView(user, frontController);
 			break;
 		default:

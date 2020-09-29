@@ -9,9 +9,13 @@ package com.testsystem.model;
  */
 public class Student extends User {
 
-	public static final String nameModel = "Student";
 	private Group group;
 
+	/**
+	 * Creates a StudentModel.
+	 */
+	public Student() {}
+	
 	/**
 	 * Creates a StudentModel.
 	 * 
@@ -33,7 +37,7 @@ public class Student extends User {
 	 * @return String return name of model
 	 */
 	public String getNameModel() {
-		return nameModel;
+		return "Student";
 	}
 	
 	/**
