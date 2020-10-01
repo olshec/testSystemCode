@@ -61,30 +61,6 @@ public class AdministratorController extends UserController {
 		return usersList;
 	}
 
-//	/**
-//	 * Gets users by type.
-//	 * 
-//	 * @param typeUser the type of user
-//	 * @return List<Model> the list of students
-//	 */
-//	public List<Model> getUsersByType(String typeUser) {
-//		List<Model> masUserResult = new ArrayList<Model>();
-//		List<Model> records = ServiceLocator.getDaoProvider().getRecords(typeUser);
-//		for (int i = 0; i < records.size(); i++) {
-//			String className = records.get(i).getNameModel();
-//			if (className.equals(typeUser)) {
-//				masUserResult.add(records.get(i));
-//			}
-//		}
-//		return masUserResult;
-//	}
-
-//	public List<User> getStudents() {
-//		List<User> records = 
-//				ServiceLocator.getDaoProvider().getStudents(Student.nameModel);
-//		return records;
-//	}
-
 	/**
 	 * Gets users by type.
 	 * 
