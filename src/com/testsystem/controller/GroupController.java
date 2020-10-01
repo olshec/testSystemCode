@@ -96,7 +96,7 @@ public class GroupController {
 	 * 
 	 * @param group the group to add
 	 */
-	public void addGroup(Group group) {
+	public void saveGroupIndatabase(Group group) {
 		List<Model> groups = ServiceLocator.getDaoProvider()
 				.getRecords(new Group().getNameModel());
 		groups.add(group);

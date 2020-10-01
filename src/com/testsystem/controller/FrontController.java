@@ -190,11 +190,11 @@ public class FrontController {
 		UserController userController = new UserController();
 		User admin1 = new AdministratorController().getNewAdministrator("Примарев", 
 				"Игорь", "Admin1", "0000");
-		userController.addUser(admin1);
+		userController.saveUserInDatabase(admin1);
 
 		User teacher1 = new TeacherController().getNewTeacher("Киров", 
 				"Антон", "KirovAnton", "12345678");
-		userController.addUser(teacher1);
+		userController.saveUserInDatabase(teacher1);
 
 		Test test1 = new TestController().getNewTest("Робототехника", teacher1);
 		Test test2 = new TestController().getNewTest("Сетевые технологии", teacher1);
@@ -229,22 +229,22 @@ public class FrontController {
 		new TestController().setTests(tests);
 
 		Group g1 = new GroupController().getNewGroup("Group 1");
-		new GroupController().addGroup(g1);
+		new GroupController().saveGroupIndatabase(g1);
 		User student1 	= 	new StudentController().getNewStudent("Шахматов", "Антон", "ShAnton", "1111", g1);
 		User student2 	= 	new StudentController().getNewStudent("Романенко", "Егор", "REgor", "1111", g1);
 		User student01 	= 	new StudentController().getNewStudent("Федоренко", "Игнат", "FeIgnat", "1111", g1);
 		
 		Group g2 = new GroupController().getNewGroup("Group 2");
-		new GroupController().addGroup(g2);
+		new GroupController().saveGroupIndatabase(g2);
 		User student3 = new StudentController().getNewStudent("Сазонова", "Екатерина", "Kat", "1111", g2);
 		User student4 = new StudentController().getNewStudent("Фролова", "Анна", "Anna", "1111", g2);
 
 		//add users to database
-		userController.addUser(student1);
-		userController.addUser(student2);
-		userController.addUser(student3);
-		userController.addUser(student4);
-		userController.addUser(student01);
+		userController.saveUserInDatabase(student1);
+		userController.saveUserInDatabase(student2);
+		userController.saveUserInDatabase(student3);
+		userController.saveUserInDatabase(student4);
+		userController.saveUserInDatabase(student01);
 
 		//add test1 and result to students
 		testController.setTest(test1);

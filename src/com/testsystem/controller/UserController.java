@@ -115,7 +115,7 @@ public class UserController {
 	 * 
 	 * @param user the user.
 	 */
-	public void addUser(User user) {
+	public void saveUserInDatabase(User user) {
 		ServiceLocator.getDaoProvider().addRecord(user);
 	}
 
