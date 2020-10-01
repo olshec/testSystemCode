@@ -12,7 +12,6 @@ public class StudentResultOfTest extends Model{
 	 * @param result
 	 */
 	public StudentResultOfTest(User student, Test test, Integer result) {
-		super();
 		this.student = student;
 		this.test = test;
 		this.result = result;
