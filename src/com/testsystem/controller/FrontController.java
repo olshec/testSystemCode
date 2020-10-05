@@ -8,6 +8,7 @@ import com.testsystem.model.Group;
 import com.testsystem.model.Model;
 import com.testsystem.model.Question;
 import com.testsystem.model.Student;
+import com.testsystem.model.StudentResultOfTest;
 import com.testsystem.model.StudentTestResult;
 import com.testsystem.model.Teacher;
 import com.testsystem.model.Test;
@@ -36,6 +37,7 @@ public class FrontController {
 		daoProvider.addTable(new Teacher().getNameModel());
 		daoProvider.addTable(new Student().getNameModel());
 		daoProvider.addTable(new Administrator().getNameModel());
+		daoProvider.addTable(new StudentResultOfTest().getNameModel());
 		loadTest();
 	}
 
@@ -229,13 +231,13 @@ public class FrontController {
 		new TestController().setTests(tests);
 
 		Group g1 = new GroupController().getNewGroup("Group 1");
-		new GroupController().saveGroupIndatabase(g1);
+		new GroupController().saveGroupInDatabase(g1);
 		User student1 	= 	new StudentController().getNewStudent("Шахматов", "Антон", "ShAnton", "1111", g1);
 		User student2 	= 	new StudentController().getNewStudent("Романенко", "Егор", "REgor", "1111", g1);
 		User student01 	= 	new StudentController().getNewStudent("Федоренко", "Игнат", "FeIgnat", "1111", g1);
 		
 		Group g2 = new GroupController().getNewGroup("Group 2");
-		new GroupController().saveGroupIndatabase(g2);
+		new GroupController().saveGroupInDatabase(g2);
 		User student3 = new StudentController().getNewStudent("Сазонова", "Екатерина", "Kat", "1111", g2);
 		User student4 = new StudentController().getNewStudent("Фролова", "Анна", "Anna", "1111", g2);
 

@@ -8,7 +8,7 @@ import org.junit.Test;
 import com.testsystem.model.StudentTestResult;
 import com.testsystem.model.User;
 
-import tests.mocks.TestFrontController;
+import tests.stubs.TestFrontController;
 
 public class TestRaitingCalculator {
 

@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.testsystem.model.Model;
 import com.testsystem.model.Question;
+import com.testsystem.model.StudentResultOfTest;
 import com.testsystem.model.StudentTestResult;
 import com.testsystem.model.Test;
 import com.testsystem.model.User;
@@ -125,8 +126,11 @@ public class TestController {
 	 * @param student the student for grading
 	 * @param points  the student point
 	 */
-	public void addResult(User student, int points) {
-		test.getStudentTestResult().add(new StudentTestResult(student, points));
+	public void addResult(User student, Test test, int points) {
+		//test.getStudentTestResult().add(new StudentTestResult(student, points));
+		List<StudentResultOfTest> ls = ServiceLocator.getDaoProvider().getStudentResultOfTestRecords();
+		ls.add(new StudentResultOfTest(student, test, points));
+		
 	}
 
 	/**
@@ -152,7 +156,7 @@ public class TestController {
 	 */
 	public List<Test> getStudentTests(User student) {
 		List<Test> listTest = ServiceLocator.getDaoProvider()
-				.getTestsRecords(new Test().getNameModel());
+				.getTestsRecords();
 		List<Test> listTestReturn = new ArrayList<Test>();
 		for (Test test : listTest) {
 			Test t = test;

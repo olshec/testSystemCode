@@ -15,7 +15,7 @@ public class Test extends Model {
 	private String name;
 	private User teacher;
 	private List<Question> questions;
-	private List<StudentTestResult> studentsResult;
+	//private List<StudentTestResult> studentsResult;
 	
 	/**
 	 * Creates a TestModel.
@@ -36,7 +36,7 @@ public class Test extends Model {
 	
 	private void init() {
 		setQuestions(new ArrayList<Question>());
-		setStudentResult(new ArrayList<StudentTestResult>());
+		//setStudentResult(new ArrayList<StudentTestResult>());
 	}
 	
 	/**
@@ -93,23 +93,23 @@ public class Test extends Model {
 		this.questions = questions;
 	}
 
-	/**
-	 * Gets students and their results.
-	 * 
-	 * @return the result of students
-	 */
-	public List<StudentTestResult> getStudentTestResult() {
-		return studentsResult;
-	}
-
-	/**
-	 * Sets students and their results.
-	 * 
-	 * @param studentResult the result of students to set
-	 */
-	public void setStudentResult(List<StudentTestResult> studentResult) {
-		this.studentsResult = studentResult;
-	}
+//	/**
+//	 * Gets students and their results.
+//	 * 
+//	 * @return the result of students
+//	 */
+//	public List<StudentTestResult> getStudentTestResult() {
+//		return studentsResult;
+//	}
+//
+//	/**
+//	 * Sets students and their results.
+//	 * 
+//	 * @param studentResult the result of students to set
+//	 */
+//	public void setStudentResult(List<StudentTestResult> studentResult) {
+//		this.studentsResult = studentResult;
+//	}
 
 	/**
 	 * Gets name of model.

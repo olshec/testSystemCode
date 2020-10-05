@@ -6,6 +6,7 @@ import java.util.List;
 import com.testsystem.model.Group;
 import com.testsystem.model.Model;
 import com.testsystem.model.Student;
+import com.testsystem.model.StudentResultOfTest;
 import com.testsystem.model.Test;
 import com.testsystem.model.User;
 
@@ -167,5 +168,35 @@ public class DAOProvider {
 //		}
 //		return ls;
 //	}
+	
+	/**
+	 * Gets all tests from database
+	 * 
+	 * @param nameTable
+	 * @return List<Test> the records of table
+	 */
+	public List<Test> getTestsRecords() {
+		List<Test> ls = new ArrayList<Test>();
+		List<Model> models = database.getTable(new Test().getNameModel()).getRecords();
+		for(Model st : models) {
+			ls.add((Test)st);
+		}
+		return ls;
+	}
+	
+	/**
+	 * Gets all student result of test from database
+	 * 
+	 * @param nameTable
+	 * @return List<Test> the records of table
+	 */
+	public List<StudentResultOfTest> getStudentResultOfTestRecords() {
+		List<StudentResultOfTest> ls = new ArrayList<StudentResultOfTest>();
+		List<Model> models = database.getTable(new StudentResultOfTest().getNameModel()).getRecords();
+		for(Model st : models) {
+			ls.add((StudentResultOfTest)st);
+		}
+		return ls;
+	}
 	
 }

@@ -5,6 +5,13 @@ public class StudentResultOfTest extends Model{
 	User student;
 	Test test;
 	Integer result;
+	
+	/**
+	 * 
+	 */
+	public StudentResultOfTest() {
+		super();
+	}
 
 	/**
 	 * @param student
