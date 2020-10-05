@@ -130,7 +130,6 @@ public class TestController {
 		//test.getStudentTestResult().add(new StudentTestResult(student, points));
 		List<StudentResultOfTest> ls = ServiceLocator.getDaoProvider().getStudentResultOfTestRecords();
 		ls.add(new StudentResultOfTest(student, test, points));
-		
 	}
 
 	/**

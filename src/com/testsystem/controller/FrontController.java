@@ -253,9 +253,9 @@ public class FrontController {
 		testController.addStudent(student1);
 		testController.addStudent(student2);
 		testController.addStudent(student01);
-		testController.addResult(student1, 4);
-		testController.addResult(student2, 5);
-		testController.addResult(student01, 3);
+		testController.addResult(student1, test1, 4);
+		testController.addResult(student2, test1, 5);
+		testController.addResult(student01, test1, 3);
 
 		//add test2 and result to students
 		testController.setTest(test2);
@@ -263,11 +263,11 @@ public class FrontController {
 		testController.addStudent(student2);
 		testController.addStudent(student3);
 		testController.addStudent(student4);
-		testController.addResult(student1, 3);
-		testController.addResult(student2, 4);
-		testController.addResult(student3, 4);
-		testController.addResult(student4, 5);
-		testController.addResult(student01, 3);
+		testController.addResult(student1, test2, 3);
+		testController.addResult(student2, test2, 4);
+		testController.addResult(student3, test2, 4);
+		testController.addResult(student4, test2, 5);
+		testController.addResult(student01, test2, 3);
 		
 		//add test3 and result to students
 		testController.setTest(test3);
@@ -275,11 +275,11 @@ public class FrontController {
 		testController.addStudent(student2);
 		testController.addStudent(student3);
 		testController.addStudent(student4);
-		testController.addResult(student1, 3);
-		testController.addResult(student2, 4);
-		testController.addResult(student3, 5);
-		testController.addResult(student4, 3);
-		testController.addResult(student01, 2);
+		testController.addResult(student1, test3, 3);
+		testController.addResult(student2, test3, 4);
+		testController.addResult(student3, test3, 5);
+		testController.addResult(student4, test3, 3);
+		testController.addResult(student01, test3, 2);
 		
 		//TestTable testBase = getDaoProvider().getTestTable();
 		
