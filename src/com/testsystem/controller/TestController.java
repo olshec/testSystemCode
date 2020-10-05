@@ -138,9 +138,11 @@ public class TestController {
 	 * @param the student.
 	 * @return the true if test student has this test. Otherwise returns false.
 	 */
-	public boolean hasStudent(User student) {
-		for (StudentTestResult st : test.getStudentTestResult()) {
-			if (st.getStudent().equals(student)) {
+	public boolean hasStudentThisTest(User student, Test test) {
+		List<StudentResultOfTest> ls = ServiceLocator.getDaoProvider()
+				.getStudentResultOfTestRecords();
+		for (StudentResultOfTest studentResult : ls) {
+			if (studentResult.getStudent().equals(student)) {
 				return true;
 			}
 		}
@@ -154,17 +156,14 @@ public class TestController {
 	 * @return 	the list tests of student.
 	 */
 	public List<Test> getStudentTests(User student) {
-		List<Test> listTest = ServiceLocator.getDaoProvider()
-				.getTestsRecords();
+		List<StudentResultOfTest> listStudentResultofTest = ServiceLocator.getDaoProvider()
+				.getStudentResultOfTestRecords();
 		List<Test> listTestReturn = new ArrayList<Test>();
-		for (Test test : listTest) {
-			Test t = test;
-			for(int i=0; i < t.getStudentTestResult().size(); i++) {
-				if(t.getStudentTestResult().get(i).getStudent().equals(student)) {
-					listTestReturn.add(t);
+		for (StudentResultOfTest result : listStudentResultofTest) {
+				if(result.getStudent().equals(student)) {
+					listTestReturn.add(result.getTest());
 				}
 			}
-		}
 		return listTestReturn;
 	}
 

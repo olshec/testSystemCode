@@ -54,8 +54,8 @@ public class StudentController extends UserController {
 				.getTestsRecords(new Test().getNameModel());
 		List<Test> testsStudent = new ArrayList<Test>();
 		for (int i = 0; i < listTest.size(); i++) {
-			TestController testController = new TestController(listTest.get(i));
-			if (testController.hasStudent(this.getUser()) == true) {
+			TestController testController = new TestController();
+			if (testController.hasStudentThisTest(this.getUser(), listTest.get(i)) == true) {
 				testsStudent.add(listTest.get(i));
 			}
 		}
@@ -74,7 +74,7 @@ public class StudentController extends UserController {
 				.getTestsRecords(new Test().getNameModel());
 		Test test = listTest.get(idTest);
 		TestController testController = new TestController(test);
-		if (test != null && testController.hasStudent(this.getUser())) {
+		if (test != null && testController.hasStudentThisTest(this.getUser(), test)) {
 			return listTest.get(idTest);
 		} else
 			return null;
@@ -95,7 +95,7 @@ public class StudentController extends UserController {
 		}
 		Test test = listTest.get(idTest);
 		TestController testController = new TestController(test);
-		if (test != null && testController.hasStudent(this.getUser())) {
+		if (test != null && testController.hasStudentThisTest(this.getUser(), test)) {
 			Test t = listTest.get(idTest);
 			return t.getQuestions().size();
 		}
