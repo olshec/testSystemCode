@@ -15,12 +15,21 @@ public class Test extends Model {
 	private String name;
 	private User teacher;
 	private List<Question> questions;
+	private List<User> students;
 	//private List<StudentTestResult> studentsResult;
+	private Integer id;
+	private static Integer idIncrement;
+	
+	static {
+		idIncrement = 0;
+	}
 	
 	/**
 	 * Creates a TestModel.
 	 */
-	public Test() {}
+	public Test() {
+		this.init();
+	}
 	
 	/**
 	 * Creates a test.
@@ -35,10 +44,19 @@ public class Test extends Model {
 	}
 	
 	private void init() {
+		this.id = Test.idIncrement;
+		Test.idIncrement++;
 		setQuestions(new ArrayList<Question>());
-		//setStudentResult(new ArrayList<StudentTestResult>());
+		setStudents(new ArrayList<User>());
 	}
 	
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+
 	/**
 	 * Gets name.
 	 * 
@@ -93,6 +111,8 @@ public class Test extends Model {
 		this.questions = questions;
 	}
 
+	
+	
 //	/**
 //	 * Gets students and their results.
 //	 * 
@@ -110,6 +130,20 @@ public class Test extends Model {
 //	public void setStudentResult(List<StudentTestResult> studentResult) {
 //		this.studentsResult = studentResult;
 //	}
+
+	/**
+	 * @return the users
+	 */
+	public List<User> getStudents() {
+		return students;
+	}
+
+	/**
+	 * @param users the users to set
+	 */
+	public void setStudents(List<User> users) {
+		this.students = users;
+	}
 
 	/**
 	 * Gets name of model.

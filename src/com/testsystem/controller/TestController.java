@@ -182,7 +182,7 @@ public class TestController {
 	 * @param user the user for add to test
 	 */
 	public void addStudent(User user) {
-		test.getStudentTestResult().add(new StudentTestResult(user, -1));
+		test.getStudents().add(user);
 	}
 
 	/**
@@ -198,19 +198,19 @@ public class TestController {
 		return false;
 	}
 
-	/**
-	 * Gets students.
-	 * 
-	 * @return students the list of students
-	 */
-	public List<User> getStudents() {
-		List<User> listStudent = new ArrayList<User>();
-		List<StudentTestResult> listStudentTestResult = test.getStudentTestResult();
-		for (StudentTestResult studentTestResult : listStudentTestResult) {
-			listStudent.add(studentTestResult.getStudent());
-		}
-		return listStudent;
-	}
+//	/**
+//	 * Gets students.
+//	 * 
+//	 * @return students the list of students
+//	 */
+//	public List<User> getStudents() {
+//		List<User> listStudent = new ArrayList<User>();
+//		List<StudentTestResult> listStudentTestResult = test.getStudentTestResult();
+//		for (StudentTestResult studentTestResult : listStudentTestResult) {
+//			listStudent.add(studentTestResult.getStudent());
+//		}
+//		return listStudent;
+//	}
 
 	/**
 	 * Adds new question.
@@ -226,12 +226,9 @@ public class TestController {
 	 * 
 	 * @return the result of student
 	 */
-	public StudentTestResult getStudentTestResult(User student) {
-		for (StudentTestResult st : test.getStudentTestResult()) {
-			if(st.getStudent().equals(student) && st.getResult() != -1) {
-				return st;
-			}
-		}
-		return null;
+	public StudentResultOfTest getStudentTestResult(User student) {
+		StudentResultOfTestController resultController = new StudentResultOfTestController();
+		return resultController.getResultsOfTest(student);
 	}
+	
 }

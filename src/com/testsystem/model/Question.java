@@ -13,7 +13,7 @@ public class Question extends Model {
 	
 	private String text;
 	private List<Answer> answers;
-	private Integer ID;
+	private Integer id;
 	private static Integer idIncrement;
 
 	static {
@@ -26,7 +26,7 @@ public class Question extends Model {
 	 * @param text the text of question
 	 */
 	public Question(String text) {
-		this.ID = Question.idIncrement;
+		this.id = Question.idIncrement;
 		Question.idIncrement++;
 		setText(text);
 	}
@@ -73,16 +73,16 @@ public class Question extends Model {
 	 * @return the ID
 	 */
 	public Integer getID() {
-		return ID;
+		return id;
 	}
 
 	/**
 	 * Sets ID.
 	 * 
-	 * @param ID the ID to set
+	 * @param id the ID to set
 	 */
 	public void setID(Integer id) {
-		ID = id;
+		id = id;
 	}
 	
 	/**

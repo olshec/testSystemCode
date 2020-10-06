@@ -119,7 +119,7 @@ public class FrontController {
 	 * @param  indexTest the test id
 	 * @return Test 	 the test
 	 */
-	public Test getTestResultForTeacher(User teacher, int idTest) {
+	public List<StudentResultOfTest> getTestResultForTeacher(User teacher, int idTest) {
 		return new TeacherController(teacher).getTestResult(idTest);
 	}
 

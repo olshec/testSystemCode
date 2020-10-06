@@ -3,6 +3,7 @@ package com.testsystem.view;
 import java.util.List;
 
 import com.testsystem.controller.FrontController;
+import com.testsystem.model.StudentResultOfTest;
 import com.testsystem.model.StudentTestResult;
 import com.testsystem.model.Test;
 import com.testsystem.model.User;
@@ -81,8 +82,8 @@ public final class TeacherView extends UserView {
 		int numTest = enterNumberTest();
 		if (numTest != -1) {
 			int indexTest = numTest - 1;// index begin from 0;
-			Test test = getFrontController().getTestResultForTeacher(this.getUser(), indexTest);
-			printTestResult(test);
+			List<StudentResultOfTest> ls = getFrontController().getTestResultForTeacher(this.getUser(), indexTest);
+			printTestResult(ls);
 		}
 	}
 	
@@ -104,17 +105,15 @@ public final class TeacherView extends UserView {
 	/**
 	 * Print a result of students test.
 	 */
-	private void printTestResult(Test test) {
-		if (test != null) {
-			List<StudentTestResult> studentResult = test.getStudentTestResult();
-			if (studentResult.size() > 0) {
-				List<StudentTestResult> masStudent = test.getStudentTestResult();
-				for (int i = 0; i < masStudent.size(); i++) {
-					if(masStudent.get(i).getResult() >= 0) {
+	private void printTestResult(List<StudentResultOfTest> resultsTest) {
+		if (resultsTest != null) {
+			if (resultsTest.size() > 0) {
+				for (int i = 0; i < resultsTest.size(); i++) {
+					if(resultsTest.get(i).getResult() >= 0) {
 						String s = String.format("%d) %s %s: %d", i + 1, 
-								masStudent.get(i).getStudent().getLastName(),
-								masStudent.get(i).getStudent().getFirstName(), 
-								masStudent.get(i).getResult());
+								resultsTest.get(i).getStudent().getLastName(),
+								resultsTest.get(i).getStudent().getFirstName(), 
+								resultsTest.get(i).getResult());
 						System.out.println(s);
 					}
 				}
