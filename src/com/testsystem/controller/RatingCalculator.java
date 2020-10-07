@@ -7,7 +7,6 @@ import java.util.List;
 
 import com.testsystem.model.Group;
 import com.testsystem.model.StudentResultOfTest;
-import com.testsystem.model.StudentTestResult;
 import com.testsystem.model.Test;
 import com.testsystem.model.User;
 

@@ -6,7 +6,6 @@ import java.util.List;
 import org.junit.Test;
 
 import com.testsystem.model.StudentResultOfTest;
-import com.testsystem.model.StudentTestResult;
 import com.testsystem.model.User;
 
 import tests.stubs.TestFrontController;

@@ -9,7 +9,6 @@ import com.testsystem.model.Model;
 import com.testsystem.model.Question;
 import com.testsystem.model.Student;
 import com.testsystem.model.StudentResultOfTest;
-import com.testsystem.model.StudentTestResult;
 import com.testsystem.model.Teacher;
 import com.testsystem.model.Test;
 import com.testsystem.model.User;
