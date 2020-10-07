@@ -36,9 +36,12 @@ public class StudentResultOfTestController {
 	}
 	
 	public StudentResultOfTest getResultsOfTest(User student, Test test) {
-		List<StudentResultOfTest> records = ServiceLocator.getDaoProvider().getStudentResultOfTestRecords();
+		List<StudentResultOfTest> records = ServiceLocator.getDaoProvider().
+				getStudentResultOfTestRecords();
 		for(StudentResultOfTest result: records) {
-			if (test.equals(test) && result.getStudent().equals(student) && result.getResult() != -1) {
+			if (result.getTest().equals(test) && 
+					result.getStudent().equals(student) && 
+					result.getResult() != -1) {
 				return result;
 			}
 		}
