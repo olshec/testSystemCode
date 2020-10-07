@@ -274,11 +274,5 @@ public class FrontController {
 		testController.saveResultInDatabase(student4, test3, 3);
 		testController.saveResultInDatabase(student01, test3, 2);
 		
-		List<StudentResultOfTest> ratingGroup = getRatingGroup("Group 1"); 
-		
-		int rating1 = ratingGroup.get(0).getResult(); //"Романенко", "Егор"
-		int rating2 = ratingGroup.get(1).getResult();//"Шахматов", "Антон"
-		int rating3 = ratingGroup.get(2).getResult();//"Федоренко"
-		
 	}
 }
