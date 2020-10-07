@@ -6,6 +6,7 @@ import java.util.List;
 import com.testsystem.model.Group;
 import com.testsystem.model.Model;
 import com.testsystem.model.Student;
+import com.testsystem.model.StudentResultOfTest;
 import com.testsystem.model.StudentTestResult;
 import com.testsystem.model.User;
 import com.testsystem.util.ServiceLocator;
@@ -125,11 +126,10 @@ public class GroupController {
 	 * @param  nameGroup 				the name of group 		
 	 * @return List<StudentTestResult>	the students results 
 	 */
-	public List<StudentTestResult> getRatingGroup(String nameGroup){
+	public List<StudentResultOfTest> getRatingGroup(String nameGroup){
 		Group group = this.getGroupByName(nameGroup);
-		List<StudentTestResult> ratingGroup = RatingCalculator.getRatingGroup(group, new GroupController()
+		List<StudentResultOfTest> ratingGroup = RatingCalculator.getRatingGroup(group, new GroupController()
 				.getStudentsByGroup(group));
-		
 		return ratingGroup;
 	}
 }

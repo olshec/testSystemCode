@@ -183,8 +183,8 @@ public class FrontController {
 	 * @param  nameGroup 				the name of group 		
 	 * @return List<StudentTestResult>	the students results 
 	 */
-	public List<StudentTestResult> getRatingGroup(String nameGroup){
-		List<StudentTestResult> ratingGroup = new GroupController().getRatingGroup(nameGroup);
+	public List<StudentResultOfTest> getRatingGroup(String nameGroup){
+		List<StudentResultOfTest> ratingGroup = new GroupController().getRatingGroup(nameGroup);
 		return ratingGroup;
 	}
 
