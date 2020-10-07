@@ -32,7 +32,7 @@ public class RatingCalculator {
 		int point = 0;
 		for (int i = 0; i < listTest.size(); i++) {
 			Test test = listTest.get(i);
-			point += new TestController(test).getStudentTestResult(student).getResult();
+			point += new TestController(test).getStudentTestResult(student, listTest.get(i)).getResult();
 		}
 		int rating = point * 2 / listTest.size();
 		return rating;

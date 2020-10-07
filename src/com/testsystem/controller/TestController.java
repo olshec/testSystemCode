@@ -3,6 +3,7 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.model.Group;
 import com.testsystem.model.Model;
 import com.testsystem.model.Question;
 import com.testsystem.model.StudentResultOfTest;
@@ -71,16 +72,6 @@ public class TestController {
 	}
 
 	/**
-	 * Adds list of test.
-	 * 
-	 * @param tests the tests to add
-	 */
-	public void setTests(List<Model> tests) {
-		ServiceLocator.getDaoProvider().setTable(new Test().getNameModel(), tests);
-	}
-	
-
-	/**
 	 * Gets test.
 	 * 
 	 * @param  the test id.
@@ -125,10 +116,8 @@ public class TestController {
 	 * @param student the student for grading
 	 * @param points  the student point
 	 */
-	public void addResult(User student, Test test, int points) {
-		//test.getStudentTestResult().add(new StudentTestResult(student, points));
-		List<StudentResultOfTest> ls = ServiceLocator.getDaoProvider().getStudentResultOfTestRecords();
-		ls.add(new StudentResultOfTest(student, test, points));
+	public void saveResultInDatabase(User student, Test test, int points) {
+		ServiceLocator.getDaoProvider().addRecord(new StudentResultOfTest(student, test, points));
 	}
 
 	/**
@@ -225,9 +214,15 @@ public class TestController {
 	 * 
 	 * @return the result of student
 	 */
-	public StudentResultOfTest getStudentTestResult(User student) {
+	public StudentResultOfTest getStudentTestResult(User student, Test test) {
 		StudentResultOfTestController resultController = new StudentResultOfTestController();
-		return resultController.getResultsOfTest(student);
+		return resultController.getResultsOfTest(student, test);
+	}
+
+	public void saveTest(Test test1) {
+		List<Model> tests = ServiceLocator.getDaoProvider()
+				.getRecords(new Test().getNameModel());
+		tests.add(test1);
 	}
 	
 }

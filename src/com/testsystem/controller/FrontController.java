@@ -206,6 +206,9 @@ public class FrontController {
 		Question q3 = new QuestionController().getNewQuestion("Микроконтроллеры");
 
 		TestController testController = new TestController(test1);
+		testController.saveTest(test1);
+		testController.saveTest(test2);
+		testController.saveTest(test3);
 		testController.addQuestion(q1);
 		testController.addQuestion(q2);
 		testController.addQuestion(q3);
@@ -215,19 +218,10 @@ public class FrontController {
 		Question q6 = new QuestionController().getNewQuestion("Протокол TCP");
 
 		testController.setTest(test2);
-
 		testController.addQuestion(q3);
 		testController.addQuestion(q4);
 		testController.addQuestion(q5);
 		testController.addQuestion(q6);
-
-		List<Model> tests = new ArrayList<Model>();
-
-		tests.add(test1);
-		tests.add(test2);
-		tests.add(test3);
-
-		new TestController().setTests(tests);
 
 		Group g1 = new GroupController().getNewGroup("Group 1");
 		new GroupController().saveGroupInDatabase(g1);
@@ -252,9 +246,9 @@ public class FrontController {
 		testController.addStudent(student1);
 		testController.addStudent(student2);
 		testController.addStudent(student01);
-		testController.addResult(student1, test1, 4);
-		testController.addResult(student2, test1, 5);
-		testController.addResult(student01, test1, 3);
+		testController.saveResultInDatabase(student1, test1, 4);
+		testController.saveResultInDatabase(student2, test1, 5);
+		testController.saveResultInDatabase(student01, test1, 3);
 
 		//add test2 and result to students
 		testController.setTest(test2);
@@ -262,11 +256,11 @@ public class FrontController {
 		testController.addStudent(student2);
 		testController.addStudent(student3);
 		testController.addStudent(student4);
-		testController.addResult(student1, test2, 3);
-		testController.addResult(student2, test2, 4);
-		testController.addResult(student3, test2, 4);
-		testController.addResult(student4, test2, 5);
-		testController.addResult(student01, test2, 3);
+		testController.saveResultInDatabase(student1, test2, 3);
+		testController.saveResultInDatabase(student2, test2, 4);
+		testController.saveResultInDatabase(student3, test2, 4);
+		testController.saveResultInDatabase(student4, test2, 5);
+		testController.saveResultInDatabase(student01, test2, 3);
 		
 		//add test3 and result to students
 		testController.setTest(test3);
@@ -274,13 +268,17 @@ public class FrontController {
 		testController.addStudent(student2);
 		testController.addStudent(student3);
 		testController.addStudent(student4);
-		testController.addResult(student1, test3, 3);
-		testController.addResult(student2, test3, 4);
-		testController.addResult(student3, test3, 5);
-		testController.addResult(student4, test3, 3);
-		testController.addResult(student01, test3, 2);
+		testController.saveResultInDatabase(student1, test3, 3);
+		testController.saveResultInDatabase(student2, test3, 4);
+		testController.saveResultInDatabase(student3, test3, 5);
+		testController.saveResultInDatabase(student4, test3, 3);
+		testController.saveResultInDatabase(student01, test3, 2);
 		
-		//TestTable testBase = getDaoProvider().getTestTable();
+		List<StudentResultOfTest> ratingGroup = getRatingGroup("Group 1"); 
+		
+		int rating1 = ratingGroup.get(0).getResult(); //"Романенко", "Егор"
+		int rating2 = ratingGroup.get(1).getResult();//"Шахматов", "Антон"
+		int rating3 = ratingGroup.get(2).getResult();//"Федоренко"
 		
 	}
 }

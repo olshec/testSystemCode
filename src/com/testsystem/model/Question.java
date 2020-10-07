@@ -82,7 +82,7 @@ public class Question extends Model {
 	 * @param id the ID to set
 	 */
 	public void setID(Integer id) {
-		id = id;
+		this.id = id;
 	}
 	
 	/**

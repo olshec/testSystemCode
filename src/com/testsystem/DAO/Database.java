@@ -99,7 +99,6 @@ public class Database {
 	 */
 	public void setTable(String name, List<Model> listRecord) {
 		this.getTable(name).setRecords(listRecord);
-		
 	}
 	
 }

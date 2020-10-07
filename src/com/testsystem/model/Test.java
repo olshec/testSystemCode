@@ -144,6 +144,34 @@ public class Test extends Model {
 	public void setStudents(List<User> users) {
 		this.students = users;
 	}
+	
+	/**
+	 * Returns the hash code.
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 32;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	/**
+	 * Equals check.
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Test other = (Test) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
 
 	/**
 	 * Gets name of model.

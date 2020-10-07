@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.model.StudentResultOfTest;
+import com.testsystem.model.Test;
 import com.testsystem.model.User;
 import com.testsystem.util.ServiceLocator;
 
@@ -34,10 +35,10 @@ public class StudentResultOfTestController {
 		return ls;
 	}
 	
-	public StudentResultOfTest getResultsOfTest(User student) {
+	public StudentResultOfTest getResultsOfTest(User student, Test test) {
 		List<StudentResultOfTest> records = ServiceLocator.getDaoProvider().getStudentResultOfTestRecords();
 		for(StudentResultOfTest result: records) {
-			if (result.getStudent().equals(student) && result.getResult() != -1) {
+			if (test.equals(test) && result.getStudent().equals(student) && result.getResult() != -1) {
 				return result;
 			}
 		}
