@@ -86,6 +86,35 @@ public class Question extends Model {
 	}
 	
 	/**
+	 * Returns the hash code.
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 33;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	/**
+	 * Equals check.
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Question other = (Question) obj;
+		if (this.id != other.id) {
+			return false;
+		}
+		return true;
+	}
+	
+	/**
 	 * Gets name of model.
 	 * 
 	 * @return String return name of model

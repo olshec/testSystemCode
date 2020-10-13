@@ -1,0 +1,39 @@
+Question: Какие планеты солнечной системы вращаются в направлении, противоположном Земле?
+Variant: Венера
+Correct: True
+Variant: Уран
+Correct: True
+Variant: Плутон
+Correct: False
+Variant: Юпитер
+Correct: False
+
+Question: Какой ученый является изобретателем космической ракеты?
+Variant: Нил Армстронг
+Correct: False
+Variant: Циолковский
+Correct: True
+Variant: Сергей Павлович Королев
+Correct: False
+Variant: Вернер фон Браун
+Correct: False
+
+Question: Как звали человека, который первым высадился на Луну?
+Variant: Даниил Армстронг
+Correct: False
+Variant: Арнольд Армстронг
+Correct: False
+Variant: Джек Армстронг
+Correct: False
+Variant: Нил Армстронг
+Correct: True
+
+Question: Как называется ближайшая к Солнцу планета?
+Variant: Марс
+Correct: False
+Variant: Плутон
+Correct: False
+Variant: Меркурий
+Correct: True
+Variant: Юпитер
+Correct: False
