@@ -1,21 +1,21 @@
 package tests.stubs;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.testsystem.controller.AdministratorController;
-import com.testsystem.controller.GroupController;
-import com.testsystem.controller.QuestionController;
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//import com.testsystem.controller.AdministratorController;
+//import com.testsystem.controller.GroupController;
+//import com.testsystem.controller.QuestionController;
 import com.testsystem.controller.FrontController;
-import com.testsystem.controller.StudentController;
-import com.testsystem.controller.TeacherController;
-import com.testsystem.controller.TestController;
-import com.testsystem.controller.UserController;
-import com.testsystem.model.Group;
-import com.testsystem.model.Model;
-import com.testsystem.model.Question;
-import com.testsystem.model.Test;
-import com.testsystem.model.User;
+//import com.testsystem.controller.StudentController;
+//import com.testsystem.controller.TeacherController;
+//import com.testsystem.controller.TestController;
+//import com.testsystem.controller.UserController;
+//import com.testsystem.model.Group;
+//import com.testsystem.model.Model;
+//import com.testsystem.model.Question;
+//import com.testsystem.model.Test;
+//import com.testsystem.model.User;
 
 public class TestFrontController extends FrontController {
 
@@ -25,7 +25,7 @@ public class TestFrontController extends FrontController {
 		//loadTest();
 	}
 
-	private void loadTest() {
+//	private void loadTest() {
 //		UserController userController = new UserController();
 //		User admin1 = new AdministratorController().getNewAdministrator("Примарев", 
 //				"Игорь", "Admin1", "0000");
@@ -117,5 +117,5 @@ public class TestFrontController extends FrontController {
 //		testController.addResult(student3, 5);
 //		testController.addResult(student4, 3);
 //		testController.addResult(student01, 2);
-	}
+//	}
 }

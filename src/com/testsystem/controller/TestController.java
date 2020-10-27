@@ -3,7 +3,6 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.model.Group;
 import com.testsystem.model.Model;
 import com.testsystem.model.Question;
 import com.testsystem.model.StudentResultOfTest;
@@ -219,7 +218,7 @@ public class TestController {
 		return resultController.getResultsOfTest(student, test);
 	}
 
-	public void saveTest(Test test1) {
+	public static void saveTest(Test test1) {
 		List<Model> tests = ServiceLocator.getDaoProvider()
 				.getRecords(new Test().getNameModel());
 		tests.add(test1);
