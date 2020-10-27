@@ -113,6 +113,9 @@ public final class StudentView extends UserView {
 	}
 	
 
+	/**
+	 * Runs test.
+	 */
 	private void runTest() {
 		System.out.print("Введите номер теста: ");
 

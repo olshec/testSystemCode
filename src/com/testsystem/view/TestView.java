@@ -14,7 +14,7 @@ public class TestView {
 	}
 	
 	/**
-	 * Runs test
+	 * Runs test.
 	 */
 	public void runTest(User student, Test test) {
 		
