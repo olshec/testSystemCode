@@ -89,6 +89,17 @@ public class FrontController {
 	public Test getTestInfoForStudent(User student, int idTest) {
 		return new StudentController(student).getTestInfo(idTest);
 	}
+	
+	/**
+	 * Gets test for student.
+	 * 
+	 * @param student   the student
+	 * @param idTest 	the test index
+	 * @return 			the model of test
+	 */
+	public Test getTestForStudent(User student, int idTest) {
+		return new StudentController(student).getTest(idTest);
+	}
 
 	/**
 	 * Gets student test number questions.

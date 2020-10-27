@@ -66,10 +66,26 @@ public class StudentController extends UserController {
 	 * Gets student test information.
 	 * 
 	 * @param idTest   	the model of student
-	 * @param testTable the database of student
 	 * @return 			the model of test
 	 */
 	public Test getTestInfo(int idTest) {
+		List<Test> listTest = ServiceLocator.getDaoProvider()
+				.getTestsRecords(new Test().getNameModel());
+		Test test = listTest.get(idTest);
+		TestController testController = new TestController(test);
+		if (test != null && testController.hasStudentThisTest(this.getUser(), test)) {
+			return listTest.get(idTest);
+		} else
+			return null;
+	}
+	
+	/**
+	 * Gets test for student.
+	 * 
+	 * @param idTest   	the model of student
+	 * @return 			the model of test
+	 */
+	public Test getTest(int idTest) {
 		List<Test> listTest = ServiceLocator.getDaoProvider()
 				.getTestsRecords(new Test().getNameModel());
 		Test test = listTest.get(idTest);

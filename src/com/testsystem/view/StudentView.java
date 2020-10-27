@@ -37,6 +37,7 @@ public final class StudentView extends UserView {
 			System.out.println("0 - выход");
 			System.out.println("1 - получить список тестов");
 			System.out.println("2 - получить количество вопросов в тесте");
+			System.out.println("3 - пройти тест");
 			System.out.print("?: ");
 			
 			try {
@@ -53,6 +54,9 @@ public final class StudentView extends UserView {
 				break;
 			case 2:
 				printNumberQuestions();
+				break;
+			case 3:
+				runTest();
 				break;
 			default:
 				System.out.println("Неверный ввод! Попытайтесь еще раз.");
@@ -107,4 +111,27 @@ public final class StudentView extends UserView {
 			System.out.println(s);
 		}
 	}
+	
+
+	private void runTest() {
+		System.out.print("Введите номер теста: ");
+
+		int numTest = 0;
+		try {
+			numTest = ModScanner.getScanner().nextInt();
+		} catch (java.util.InputMismatchException exception) {
+			System.out.println("Ошибка при вводе! Номер теста должен быть числом!");
+			return;
+		}
+		// --numTest index begin from 0;
+		Test test = getFrontController().getTestForStudent(this.getUser(), numTest - 1);
+		if (test == null) {
+			System.out.println("Теста с таким номером не существует!");
+		} else {
+			TestView testView = new TestView();
+			testView.runTest(this.getUser(), test);
+		}
+		
+	}
+	
 }
