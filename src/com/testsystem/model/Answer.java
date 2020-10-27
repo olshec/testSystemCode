@@ -14,6 +14,46 @@ public class Answer extends Model {
 	private boolean correct;
 	private boolean checked;
 	
+	
+	
+	/**
+	 * Constructor
+	 */
+	public Answer() {
+		super();
+	}
+
+	/**
+	 * Constructor with parameters
+	 * 
+	 * @param text
+	 * @param information
+	 * @param correct
+	 * @param checked
+	 */
+	public Answer(String text, String information, boolean correct, boolean checked) {
+		super();
+		setText(text);
+		setInformation(information);
+		setCorrect(correct);
+		setChecked(checked);
+	}
+	
+	/**
+	 * Constructor with parameters
+	 * 
+	 * @param text
+	 * @param information
+	 * @param correct
+	 */
+	public Answer(String text, String information, boolean correct) {
+		super();
+		setText(text);
+		setInformation(information);
+		setCorrect(correct);
+		setChecked(false);
+	}
+
 	/**
 	 * Get text of answer.
 	 * 

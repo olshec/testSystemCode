@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.testsystem.DAO.DAOProvider;
 import com.testsystem.model.Administrator;
+import com.testsystem.model.Answer;
 import com.testsystem.model.Group;
 import com.testsystem.model.Model;
 import com.testsystem.model.Question;
@@ -197,18 +198,43 @@ public class FrontController {
 				"Антон", "KirovAnton", "12345678");
 		userController.saveUserInDatabase(teacher1);
 
-		Test test1 = new TestController().getNewTest("Робототехника", teacher1);
+		Test test1 = new TestController().getNewTest("Космология", teacher1);
 		Test test2 = new TestController().getNewTest("Сетевые технологии", teacher1);
 		Test test3 = new TestController().getNewTest("Информатика", teacher1);
 
-		Question q1 = new QuestionController().getNewQuestion("Основы роботетхники");
-		Question q2 = new QuestionController().getNewQuestion("AI");
-		Question q3 = new QuestionController().getNewQuestion("Микроконтроллеры");
+		Question q1 = new QuestionController().getNewQuestion("Какие планеты солнечной системы вращаются в направлении, противоположном Земле?");
+		List<Answer> answersForQuestion1 = new ArrayList<Answer>();
+		answersForQuestion1.add(new Answer("Венера", "", true));
+		answersForQuestion1.add(new Answer("Уран", "", true));
+		answersForQuestion1.add(new Answer("Плутон", "", false));
+		answersForQuestion1.add(new Answer("Юпитер", "", false));
+		
+		Question q2 = new QuestionController().getNewQuestion("Какой ученый является изобретателем космической ракеты?");
+		List<Answer> answersForQuestion2 = new ArrayList<Answer>();
+		answersForQuestion2.add(new Answer("Нил Армстронг", "", false));
+		answersForQuestion2.add(new Answer("Циолковский", "", true));
+		answersForQuestion2.add(new Answer("Сергей Павлович Королев", "", false));
+		answersForQuestion2.add(new Answer("Вернер фон Браун", "", false));
+		
+		Question q3 = new QuestionController().getNewQuestion("Как звали человека, который первым высадился на Луну?");
+		List<Answer> answersForQuestion3 = new ArrayList<Answer>();
+		answersForQuestion3.add(new Answer("Даниил Армстронг", "", false));
+		answersForQuestion3.add(new Answer("Джек Армстронг", "", false));
+		answersForQuestion3.add(new Answer("Арнольд Армстронг", "", false));
+		answersForQuestion3.add(new Answer("Нил Армстронг", "", true));
+		
+		Question q3_2 = new QuestionController().getNewQuestion("Как называется ближайшая к Солнцу планета?");
+		List<Answer> answersForQuestion4 = new ArrayList<Answer>();
+		answersForQuestion4.add(new Answer("Марс", "", false));
+		answersForQuestion4.add(new Answer("Плутон", "", false));
+		answersForQuestion4.add(new Answer("Меркурий", "", true));
+		answersForQuestion4.add(new Answer("Юпитер", "", true));
 
 		TestController testController = new TestController(test1);
 		testController.saveTest(test1);
 		testController.saveTest(test2);
 		testController.saveTest(test3);
+		
 		testController.addQuestion(q1);
 		testController.addQuestion(q2);
 		testController.addQuestion(q3);
