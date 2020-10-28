@@ -2,8 +2,8 @@ package com.testsystem.controller;
 
 import java.util.List;
 
-import com.testsystem.model.Answer;
-import com.testsystem.model.Question;
+import com.testsystem.model.test.Answer;
+import com.testsystem.model.test.Question;
 
 /**
  * Represents a question controller.

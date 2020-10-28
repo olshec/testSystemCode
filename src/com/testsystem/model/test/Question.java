@@ -1,6 +1,8 @@
-package com.testsystem.model;
+package com.testsystem.model.test;
 
 import java.util.List;
+
+import com.testsystem.model.Model;
 
 /**
  * Represents a question.

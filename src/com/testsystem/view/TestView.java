@@ -3,10 +3,10 @@ package com.testsystem.view;
 import java.util.List;
 
 import com.testsystem.controller.QuestionController;
-import com.testsystem.model.Answer;
-import com.testsystem.model.Question;
-import com.testsystem.model.Test;
 import com.testsystem.model.User;
+import com.testsystem.model.test.Answer;
+import com.testsystem.model.test.Question;
+import com.testsystem.model.test.Test;
 import com.testsystem.util.ModScanner;
 
 public class TestView {
@@ -16,7 +16,6 @@ public class TestView {
 	 */
 	public TestView() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

@@ -1,7 +1,10 @@
-package com.testsystem.model;
+package com.testsystem.model.test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.testsystem.model.Model;
+import com.testsystem.model.User;
 
 /**
  * Represents a test.

@@ -1,8 +1,10 @@
-package com.testsystem.model;
+package com.testsystem.model.test;
 
 import java.util.List;
 
-public class ResultTest {
+import com.testsystem.model.Model;
+
+public class ResultTest extends Model {
 	
 	private int numberQuestions;
 	private int numberCorrectQuestions;
@@ -16,7 +18,6 @@ public class ResultTest {
 	 */
 	public ResultTest() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**
@@ -96,5 +97,13 @@ public class ResultTest {
 		this.resultQuestions = resultQuestions;
 	}
 	
-	
+	/**
+	 * Gets name of model.
+	 * 
+	 * @return String return name of model
+	 */
+	@Override
+	public String getNameModel() {
+		return "ResultTest";
+	}
 }

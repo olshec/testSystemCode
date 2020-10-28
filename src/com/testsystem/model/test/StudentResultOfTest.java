@@ -1,4 +1,7 @@
-package com.testsystem.model;
+package com.testsystem.model.test;
+
+import com.testsystem.model.Model;
+import com.testsystem.model.User;
 
 public class StudentResultOfTest extends Model{
 	

@@ -38,7 +38,7 @@ public class TestFrontController {
 	@Test
 	public void testCountTests() {
 		List<com.testsystem.model.Model> listTest = ServiceLocator.getDaoProvider()
-				.getRecords(new com.testsystem.model.Test().getNameModel());	
+				.getRecords(new com.testsystem.model.test.Test().getNameModel());	
 		
 		assertEquals(listTest.size(), 3);
 	}
@@ -74,7 +74,7 @@ public class TestFrontController {
 
 	@Test
 	public void testGetTestsForStudent() {
-		List<com.testsystem.model.Test> listTest = frontController.getTestsForStudent(student1);
+		List<com.testsystem.model.test.Test> listTest = frontController.getTestsForStudent(student1);
 		assertEquals(listTest.size(), 3);
 	}
 
@@ -82,13 +82,13 @@ public class TestFrontController {
 	public void testGetTestInfoForStudent() {
 
 		List<Model> modelsTests = frontController.getDaoProvider()
-				.getRecords(new com.testsystem.model.Test().getNameModel());
-		com.testsystem.model.Test test1 = (com.testsystem.model.Test)(modelsTests).get(0);
+				.getRecords(new com.testsystem.model.test.Test().getNameModel());
+		com.testsystem.model.test.Test test1 = (com.testsystem.model.test.Test)(modelsTests).get(0);
 //		List<Model> listGroup = ServiceLocator.getDaoProvider()
 //				.getRecordsTable(Group.nameModel);
 		TestController testController = new TestController(test1);
 
-		com.testsystem.model.Test test2 = (com.testsystem.model.Test)(modelsTests).get(1);
+		com.testsystem.model.test.Test test2 = (com.testsystem.model.test.Test)(modelsTests).get(1);
 		TestController testController2 = new TestController(test2);
 		
 		String lastNameTeacher = testController.getTest().getTeacher().getLastName();
@@ -111,7 +111,7 @@ public class TestFrontController {
 
 	@Test
 	public void testGetTestsForTeacher() {
-		List<com.testsystem.model.Test> listTest = (new TeacherController(teacher1)).getTests();
+		List<com.testsystem.model.test.Test> listTest = (new TeacherController(teacher1)).getTests();
 
 		assertEquals(listTest.size(), 3);
 	}
