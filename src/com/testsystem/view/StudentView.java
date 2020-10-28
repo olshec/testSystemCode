@@ -134,7 +134,6 @@ public final class StudentView extends UserView {
 			TestView testView = new TestView();
 			testView.runTest(this.getUser(), test);
 		}
-		
 	}
 	
 }

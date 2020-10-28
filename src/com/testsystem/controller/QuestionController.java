@@ -17,6 +17,21 @@ public class QuestionController {
 	private Question question;
 
 	/**
+	 * 
+	 */
+	public QuestionController() {
+		super();
+	}
+
+	/**
+	 * @param question
+	 */
+	public QuestionController(Question question) {
+		super();
+		this.question = question;
+	}
+
+	/**
 	 * Gets new Question.
 	 */
 	public Question getNewQuestion(String text) {
@@ -57,5 +72,19 @@ public class QuestionController {
 	 */
 	public void setAnswers(List<Answer> answers) {
 		question.setAnswers(answers);
+	}
+	
+	/**
+	 * Checks answers.
+	 * 
+	 * @param answers the answers
+	 */
+	public void setCheckAnswers(String answerString) {
+		String []answerOptions = answerString.split(" ");
+		List<Answer> answers = question.getAnswers();
+		for(int i=0; i<answerOptions.length; i++) {
+			Integer answer = Integer.parseInt(answerOptions[i]);
+			answers.get(answer).setChecked(true);
+		}
 	}
 }
