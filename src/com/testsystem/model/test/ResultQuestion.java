@@ -15,6 +15,7 @@ public class ResultQuestion extends Model {
 	public ResultQuestion() {
 		super();
 	}
+	
 	/**
 	 * @param numberAnswers
 	 * @param numberCorrectAnswers
@@ -28,6 +29,7 @@ public class ResultQuestion extends Model {
 		setPercentCorrectAnswers(percentCorrectAnswers);
 		setQuestion(question);
 	}
+	
 	/**
 	 * @return the numberAnswers
 	 */
@@ -40,36 +42,42 @@ public class ResultQuestion extends Model {
 	public void setNumberAnswers(int numberAnswers) {
 		this.numberAnswers = numberAnswers;
 	}
+	
 	/**
 	 * @return the numberCorrectAnswers
 	 */
 	public int getNumberCorrectAnswers() {
 		return numberCorrectAnswers;
 	}
+	
 	/**
 	 * @param numberCorrectAnswers the numberCorrectAnswers to set
 	 */
 	public void setNumberCorrectAnswers(int numberCorrectAnswers) {
 		this.numberCorrectAnswers = numberCorrectAnswers;
 	}
+	
 	/**
 	 * @return the percentCorrectAnswers
 	 */
 	public int getPercentCorrectAnswers() {
 		return percentCorrectAnswers;
 	}
+	
 	/**
 	 * @param percentCorrectAnswers the percentCorrectAnswers to set
 	 */
 	public void setPercentCorrectAnswers(int percentCorrectAnswers) {
 		this.percentCorrectAnswers = percentCorrectAnswers;
 	}
+	
 	/**
 	 * @return the question
 	 */
 	public Question getQuestion() {
 		return question;
 	}
+	
 	/**
 	 * @param question the question to set
 	 */
