@@ -124,4 +124,9 @@ public class StudentController extends UserController {
 	public Group getGroup() {
 		return ((Student)getUser()).getGroup();
 	}
+
+	public Test getResultTest(int idTest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

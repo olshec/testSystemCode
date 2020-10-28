@@ -102,6 +102,17 @@ public class FrontController {
 	}
 
 	/**
+	 * Gets result of test for student.
+	 * 
+	 * @param student   the student
+	 * @param idTest 	the test index
+	 * @return 			the model of test
+	 */
+	public Test getResultTestForStudent(User student, int idTest) {
+		return new StudentController(student).getResultTest(idTest);
+	}
+	
+	/**
 	 * Gets student test number questions.
 	 * 
 	 * @param student   the student
@@ -171,7 +182,6 @@ public class FrontController {
 	 */
 	public List<User> getAdminsForAdmin(User admin) {
 		return new AdministratorController(admin).getUsers(new Administrator().getNameModel());
-		
 	}
 	
 	/**
