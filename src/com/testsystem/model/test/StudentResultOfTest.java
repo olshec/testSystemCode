@@ -3,7 +3,7 @@ package com.testsystem.model.test;
 import com.testsystem.model.Model;
 import com.testsystem.model.User;
 
-public class StudentResultOfTest extends Model{
+public class StudentResultOfTest extends Model {
 	
 	User student;
 	Test test;

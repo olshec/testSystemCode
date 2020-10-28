@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.testsystem.controller.FrontController;
 import com.testsystem.model.User;
-import com.testsystem.model.test.StudentResultOfTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.util.ModScanner;
 

@@ -1,7 +1,5 @@
 package com.testsystem.model.test;
 
-import java.util.List;
-
 import com.testsystem.model.Model;
 
 public class ResultQuestion extends Model {
