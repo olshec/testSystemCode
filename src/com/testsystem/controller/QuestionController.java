@@ -84,6 +84,7 @@ public class QuestionController {
 		List<Answer> answers = question.getAnswers();
 		for(int i=0; i<answerOptions.length; i++) {
 			Integer answer = Integer.parseInt(answerOptions[i]);
+			answer--; //for index
 			answers.get(answer).setChecked(true);
 		}
 	}

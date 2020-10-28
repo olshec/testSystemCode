@@ -1,6 +1,5 @@
 package com.testsystem.view;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.controller.QuestionController;
@@ -26,12 +25,14 @@ public class TestView {
 	public void runTest(User student, Test test) {
 		greeting();
 		List<Question> questions = test.getQuestions();
+		ModScanner.getScanner().nextLine();
 		for (Question q : questions) {
 			System.out.println(q.getText());
 			List<Answer> answers = q.getAnswers();
 			for (Answer a : answers) {
 				System.out.println(a.getText());
 			}
+			System.out.print("Введите ответ: ");
 			String answer = ModScanner.getScanner().nextLine();
 			setAnswers(answer, q);
 		}
