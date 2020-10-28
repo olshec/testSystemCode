@@ -101,9 +101,10 @@ public final class StudentView extends UserView {
 //			System.out.println("Ошибка при вводе! Номер теста должен быть числом!");
 			return;
 		}
-		// --numTest index begin from 0;
-		int quantityQuestions = getFrontController().getNumberQuestionsInTest(this.getUser(),
-				numTest - 1);
+		// numTest index begin from 0;
+		numTest--;
+		int quantityQuestions = getFrontController().
+				getNumberQuestionsInTest(this.getUser(), numTest);
 		if (quantityQuestions < 0) {
 			System.out.println("Теста с таким номером не существует!");
 		} else {
