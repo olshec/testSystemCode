@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.model.Group;
+import com.testsystem.model.ResultTest;
 import com.testsystem.model.Student;
 import com.testsystem.model.Test;
 import com.testsystem.model.User;
@@ -125,7 +126,13 @@ public class StudentController extends UserController {
 		return ((Student)getUser()).getGroup();
 	}
 
-	public Test getResultTest(int idTest) {
+	/**
+	 * Returns result test.
+	 * 
+	 * @param idTest
+	 * @return
+	 */
+	public ResultTest getResultTest(int idTest) {
 		// TODO Auto-generated method stub
 		return null;
 	}

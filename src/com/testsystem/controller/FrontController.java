@@ -7,6 +7,7 @@ import com.testsystem.model.Administrator;
 import com.testsystem.model.Answer;
 import com.testsystem.model.Group;
 import com.testsystem.model.Question;
+import com.testsystem.model.ResultTest;
 import com.testsystem.model.Student;
 import com.testsystem.model.StudentResultOfTest;
 import com.testsystem.model.Teacher;
@@ -108,7 +109,7 @@ public class FrontController {
 	 * @param idTest 	the test index
 	 * @return 			the model of test
 	 */
-	public Test getResultTestForStudent(User student, int idTest) {
+	public ResultTest getResultTestForStudent(User student, int idTest) {
 		return new StudentController(student).getResultTest(idTest);
 	}
 	
