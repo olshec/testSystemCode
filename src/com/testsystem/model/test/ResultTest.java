@@ -6,7 +6,6 @@ import com.testsystem.model.Model;
 
 public class ResultTest extends Model {
 	
-	private int numberQuestions;
 	private int numberCorrectQuestions;
 	private int percentCorrectQuesionts;
 	
@@ -27,10 +26,9 @@ public class ResultTest extends Model {
 	 * @param studentResultOfTest
 	 * @param resultQuestions
 	 */
-	public ResultTest(int numberQuestions, int numberCorrectQuestions, int percentCorrectQuesionts,
+	public ResultTest(int numberCorrectQuestions, int percentCorrectQuesionts,
 			StudentResultOfTest studentResultOfTest, List<ResultQuestion> resultQuestions) {
 		super();
-		this.numberQuestions = numberQuestions;
 		this.numberCorrectQuestions = numberCorrectQuestions;
 		this.percentCorrectQuesionts = percentCorrectQuesionts;
 		this.studentResultOfTest = studentResultOfTest;
@@ -38,35 +36,26 @@ public class ResultTest extends Model {
 	}
 
 	/**
-	 * @return the numberQuestions
-	 */
-	public int getNumberQuestions() {
-		return numberQuestions;
-	}
-	/**
-	 * @param numberQuestions the numberQuestions to set
-	 */
-	public void setNumberQuestions(int numberQuestions) {
-		this.numberQuestions = numberQuestions;
-	}
-	/**
 	 * @return the numberCorrectQuestions
 	 */
 	public int getNumberCorrectQuestions() {
 		return numberCorrectQuestions;
 	}
+	
 	/**
 	 * @param numberCorrectQuestions the numberCorrectQuestions to set
 	 */
 	public void setNumberCorrectQuestions(int numberCorrectQuestions) {
 		this.numberCorrectQuestions = numberCorrectQuestions;
 	}
+	
 	/**
 	 * @return the percentCorrectQuesionts
 	 */
 	public int getPercentCorrectQuesionts() {
 		return percentCorrectQuesionts;
 	}
+	
 	/**
 	 * @param percentCorrectQuesionts the percentCorrectQuesionts to set
 	 */

@@ -4,7 +4,6 @@ import com.testsystem.model.Model;
 
 public class ResultQuestion extends Model {
 	
-	private int numberAnswers;
 	private int numberCorrectAnswers;
 	private int percentCorrectAnswers;
 	private Question question;
@@ -22,26 +21,13 @@ public class ResultQuestion extends Model {
 	 * @param percentCorrectAnswers
 	 * @param question
 	 */
-	public ResultQuestion(int numberAnswers, int numberCorrectAnswers, int percentCorrectAnswers, Question question) {
+	public ResultQuestion(int numberCorrectAnswers, int percentCorrectAnswers, Question question) {
 		super();
-		setNumberAnswers(numberAnswers);
 		setNumberCorrectAnswers(numberCorrectAnswers);
 		setPercentCorrectAnswers(percentCorrectAnswers);
 		setQuestion(question);
 	}
 	
-	/**
-	 * @return the numberAnswers
-	 */
-	public int getNumberAnswers() {
-		return numberAnswers;
-	}
-	/**
-	 * @param numberAnswers the numberAnswers to set
-	 */
-	public void setNumberAnswers(int numberAnswers) {
-		this.numberAnswers = numberAnswers;
-	}
 	
 	/**
 	 * @return the numberCorrectAnswers
