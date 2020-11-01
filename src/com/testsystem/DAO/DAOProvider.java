@@ -185,6 +185,24 @@ public class DAOProvider {
 	}
 	
 	/**
+	 * Gets equals test.
+	 * 
+	 * @param test the Test model.
+	 * @return Test 
+	 */
+	public Test getTest(Test test) {
+		Test testReturns = null;
+		List<Model> models = database.getTable(new Test().getNameModel()).getRecords();
+		for(Model st : models) {
+			Test t = (Test)st;
+			if(t.equals(test)) {
+				testReturns = t;
+			}
+		}
+		return testReturns;
+	}
+	
+	/**
 	 * Gets all student result of test from database
 	 * 
 	 * @param nameTable

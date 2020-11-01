@@ -218,10 +218,26 @@ public class TestController {
 		return resultController.getResultsOfTest(student, test);
 	}
 
-	public static void saveTest(Test test1) {
+	/**
+	 * Saves test in the database.
+	 * 
+	 * @param test
+	 */
+	public static void saveTest(Test test) {
 		List<Model> tests = ServiceLocator.getDaoProvider()
 				.getRecords(new Test().getNameModel());
-		tests.add(test1);
+		tests.add(test);
+	}
+
+	/**
+	 * This method checks student test.
+	 *
+	 *@param test the test
+	 */
+	public void checkTest(Test test) {
+		Test sourceTest = ServiceLocator.getDaoProvider()
+				.getTest(test);
+		
 	}
 	
 }

@@ -114,6 +114,15 @@ public class FrontController {
 	}
 	
 	/**
+	 * This method checks student test.
+	 *
+	 *@param test the test
+	 */
+	public void checkTest(Test test) {
+		new TestController().checkTest(test);
+	}
+	
+	/**
 	 * Gets student test number questions.
 	 * 
 	 * @param student   the student

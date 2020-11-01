@@ -133,7 +133,8 @@ public class StudentController extends UserController {
 	 * @return
 	 */
 	public ResultTest getResultTest(int idTest) {
-		// TODO Auto-generated method stub
+		
+		
 		return null;
 	}
 }

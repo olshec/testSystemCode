@@ -24,14 +24,19 @@ public class ResultTest extends Model {
 	 * @param numberQuestions
 	 * @param numberCorrectQuestions
 	 * @param percentCorrectQuesionts
+	 * @param studentResultOfTest
+	 * @param resultQuestions
 	 */
-	public ResultTest(int numberQuestions, int numberCorrectQuestions, int percentCorrectQuesionts) {
+	public ResultTest(int numberQuestions, int numberCorrectQuestions, int percentCorrectQuesionts,
+			StudentResultOfTest studentResultOfTest, List<ResultQuestion> resultQuestions) {
 		super();
-		setNumberQuestions(numberQuestions);
-		setNumberCorrectQuestions(numberCorrectQuestions);
-		setPercentCorrectQuesionts(percentCorrectQuesionts);
+		this.numberQuestions = numberQuestions;
+		this.numberCorrectQuestions = numberCorrectQuestions;
+		this.percentCorrectQuesionts = percentCorrectQuesionts;
+		this.studentResultOfTest = studentResultOfTest;
+		this.resultQuestions = resultQuestions;
 	}
-	
+
 	/**
 	 * @return the numberQuestions
 	 */
