@@ -102,11 +102,10 @@ public class QuestionController {
 		int countQuestion = sourceQuestion.size();
 		double pointOneQuestion = maxPointTest / countQuestion;
 		for(int i = 0; i < sourceQuestion.size(); i++) {
-			int countAnswer = sourceQuestion.get(i).getAnswers().size();
 			List<Answer> userAnswers = userQuestion.get(i).getAnswers();
 			List<Answer> sourceAnswers = sourceQuestion.get(i).getAnswers();
 			new AnswerController().checkAnswers(userAnswers, sourceAnswers);
 		}
-		
 	}
+	
 }
