@@ -77,7 +77,7 @@ public class QuestionController {
 	}
 	
 	/**
-	 * Checks answers.
+	 * Set checks answers.
 	 * 
 	 * @param answers the answers
 	 */
@@ -91,6 +91,12 @@ public class QuestionController {
 		}
 	}
 
+	/**
+	 * Checks questions.
+	 * 
+	 * @param userQuestion
+	 * @param sourceQuestion
+	 */
 	public void checkQuestions(List<Question> userQuestion, List<Question> sourceQuestion) {
 		double maxPointTest = 100;
 		int countQuestion = sourceQuestion.size();
