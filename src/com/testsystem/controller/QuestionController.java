@@ -1,9 +1,12 @@
 package com.testsystem.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.model.test.Answer;
 import com.testsystem.model.test.Question;
+import com.testsystem.model.test.ResultAnswers;
+import com.testsystem.model.test.ResultQuestion;
 import com.testsystem.model.test.Test;
 import com.testsystem.util.ServiceLocator;
 
@@ -94,18 +97,25 @@ public class QuestionController {
 	/**
 	 * Checks questions.
 	 * 
-	 * @param userQuestion
-	 * @param sourceQuestion
+	 * @param userQuestions
+	 * @param sourceQuestions
 	 */
-	public void checkQuestions(List<Question> userQuestion, List<Question> sourceQuestion) {
-		double maxPointTest = 100;
-		int countQuestion = sourceQuestion.size();
-		double pointOneQuestion = maxPointTest / countQuestion;
-		for(int i = 0; i < sourceQuestion.size(); i++) {
-			List<Answer> userAnswers = userQuestion.get(i).getAnswers();
-			List<Answer> sourceAnswers = sourceQuestion.get(i).getAnswers();
-			new AnswerController().checkAnswers(userAnswers, sourceAnswers);
+	public List<ResultQuestion> checkQuestions(List<Question> userQuestions, List<Question> sourceQuestions) {
+		//double maxPointTest = 100;
+		//int countQuestion = sourceQuestions.size();
+		//double pointOneQuestion = maxPointTest / countQuestion;
+		List<ResultQuestion> resultQuestion = new ArrayList<>();
+		for(int i = 0; i < sourceQuestions.size(); i++) {
+			Question userQuestion = userQuestions.get(i);
+			List<Answer> userAnswers = userQuestion.getAnswers();
+			List<Answer> sourceAnswers = sourceQuestions.get(i).getAnswers();
+			ResultAnswers resultAnswers = new AnswerController().
+					checkAnswers(userAnswers, sourceAnswers);
+			resultQuestion.add(new ResultQuestion(resultAnswers, userQuestion));
 		}
+		return resultQuestion;
 	}
+	
+	
 	
 }

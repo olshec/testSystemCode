@@ -1,11 +1,12 @@
 package com.testsystem.model.test;
 
+import java.util.List;
+
 import com.testsystem.model.Model;
 
 public class ResultQuestion extends Model {
 	
-	private int numberCorrectAnswers;
-	private int percentCorrectAnswers;
+	private ResultAnswers resultAnswers;
 	private Question question;
 	
 	/**
@@ -16,47 +17,29 @@ public class ResultQuestion extends Model {
 	}
 	
 	/**
-	 * @param numberAnswers
-	 * @param numberCorrectAnswers
-	 * @param percentCorrectAnswers
+	 * @param resultAnswers
 	 * @param question
 	 */
-	public ResultQuestion(int numberCorrectAnswers, int percentCorrectAnswers, Question question) {
+	public ResultQuestion(ResultAnswers resultAnswers, Question question) {
 		super();
-		setNumberCorrectAnswers(numberCorrectAnswers);
-		setPercentCorrectAnswers(percentCorrectAnswers);
-		setQuestion(question);
+		this.resultAnswers = resultAnswers;
+		this.question = question;
 	}
-	
-	
+
 	/**
-	 * @return the numberCorrectAnswers
+	 * @return the resultAnswers
 	 */
-	public int getNumberCorrectAnswers() {
-		return numberCorrectAnswers;
+	public ResultAnswers getResultAnswers() {
+		return resultAnswers;
 	}
-	
+
 	/**
-	 * @param numberCorrectAnswers the numberCorrectAnswers to set
+	 * @param resultAnswers the resultAnswers to set
 	 */
-	public void setNumberCorrectAnswers(int numberCorrectAnswers) {
-		this.numberCorrectAnswers = numberCorrectAnswers;
+	public void setResultAnswers(ResultAnswers resultAnswers) {
+		this.resultAnswers = resultAnswers;
 	}
-	
-	/**
-	 * @return the percentCorrectAnswers
-	 */
-	public int getPercentCorrectAnswers() {
-		return percentCorrectAnswers;
-	}
-	
-	/**
-	 * @param percentCorrectAnswers the percentCorrectAnswers to set
-	 */
-	public void setPercentCorrectAnswers(int percentCorrectAnswers) {
-		this.percentCorrectAnswers = percentCorrectAnswers;
-	}
-	
+
 	/**
 	 * @return the question
 	 */
