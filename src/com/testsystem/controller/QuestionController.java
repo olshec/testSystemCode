@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.testsystem.model.test.Answer;
 import com.testsystem.model.test.Question;
+import com.testsystem.model.test.Test;
+import com.testsystem.util.ServiceLocator;
 
 /**
  * Represents a question controller.
@@ -87,5 +89,18 @@ public class QuestionController {
 			answer--; //for index
 			answers.get(answer).setChecked(true);
 		}
+	}
+
+	public void checkQuestions(List<Question> userQuestion, List<Question> sourceQuestion) {
+		double maxPointTest = 100;
+		int countQuestion = sourceQuestion.size();
+		double pointOneQuestion = maxPointTest / countQuestion;
+		for(int i = 0; i < sourceQuestion.size(); i++) {
+			int countAnswer = sourceQuestion.get(i).getAnswers().size();
+			List<Answer> userAnswers = userQuestion.get(i).getAnswers();
+			List<Answer> sourceAnswers = sourceQuestion.get(i).getAnswers();
+			new AnswerController().checkAnswers(userAnswers, sourceAnswers);
+		}
+		
 	}
 }

@@ -237,7 +237,6 @@ public class TestController {
 	public void checkTest(Test test) {
 		Test sourceTest = ServiceLocator.getDaoProvider()
 				.getTest(test);
-		
+		new QuestionController().checkQuestions(test.getQuestions(), sourceTest.getQuestions());
 	}
-	
 }
