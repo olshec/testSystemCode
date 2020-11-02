@@ -1,4 +1,4 @@
-package com.testsystem.model;
+package com.testsystem.model.user;
 
 /**
  * Represents a student.

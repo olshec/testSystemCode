@@ -1,7 +1,7 @@
 package com.testsystem.view;
 
 import com.testsystem.controller.FrontController;
-import com.testsystem.model.User;
+import com.testsystem.model.user.User;
 
 /**
  * Abstract class view.

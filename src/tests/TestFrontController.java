@@ -8,12 +8,12 @@ import com.testsystem.controller.AdministratorController;
 import com.testsystem.controller.FrontController;
 import com.testsystem.controller.TeacherController;
 import com.testsystem.controller.TestController;
-import com.testsystem.model.Administrator;
-import com.testsystem.model.Group;
 import com.testsystem.model.Model;
-import com.testsystem.model.Student;
-import com.testsystem.model.Teacher;
-import com.testsystem.model.User;
+import com.testsystem.model.user.Administrator;
+import com.testsystem.model.user.Group;
+import com.testsystem.model.user.Student;
+import com.testsystem.model.user.Teacher;
+import com.testsystem.model.user.User;
 import com.testsystem.util.ServiceLocator;
 
 

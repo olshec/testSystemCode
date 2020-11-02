@@ -3,10 +3,10 @@ package com.testsystem.view;
 import java.util.List;
 
 import com.testsystem.controller.QuestionController;
-import com.testsystem.model.User;
 import com.testsystem.model.test.Answer;
 import com.testsystem.model.test.Question;
 import com.testsystem.model.test.Test;
+import com.testsystem.model.user.User;
 import com.testsystem.util.ModScanner;
 
 public class TestView {

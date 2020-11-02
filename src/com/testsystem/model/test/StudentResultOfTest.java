@@ -1,7 +1,7 @@
 package com.testsystem.model.test;
 
 import com.testsystem.model.Model;
-import com.testsystem.model.User;
+import com.testsystem.model.user.User;
 
 public class StudentResultOfTest extends Model {
 	

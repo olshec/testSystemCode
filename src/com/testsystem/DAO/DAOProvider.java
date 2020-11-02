@@ -3,12 +3,12 @@ package com.testsystem.DAO;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.model.Group;
 import com.testsystem.model.Model;
-import com.testsystem.model.Student;
-import com.testsystem.model.User;
 import com.testsystem.model.test.StudentResultOfTest;
 import com.testsystem.model.test.Test;
+import com.testsystem.model.user.Group;
+import com.testsystem.model.user.Student;
+import com.testsystem.model.user.User;
 
 /**
  * Represents a provider for database.

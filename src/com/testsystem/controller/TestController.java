@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.model.Model;
-import com.testsystem.model.User;
 import com.testsystem.model.test.Question;
 import com.testsystem.model.test.StudentResultOfTest;
 import com.testsystem.model.test.Test;
+import com.testsystem.model.user.User;
 import com.testsystem.util.ServiceLocator;
 
 /**

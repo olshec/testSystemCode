@@ -1,4 +1,6 @@
-package com.testsystem.model;
+package com.testsystem.model.user;
+
+import com.testsystem.model.Model;
 
 /**
  * Represents a group.

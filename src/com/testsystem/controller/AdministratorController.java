@@ -3,10 +3,10 @@ package com.testsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.model.Administrator;
-import com.testsystem.model.Student;
-import com.testsystem.model.Teacher;
-import com.testsystem.model.User;
+import com.testsystem.model.user.Administrator;
+import com.testsystem.model.user.Student;
+import com.testsystem.model.user.Teacher;
+import com.testsystem.model.user.User;
 import com.testsystem.util.ServiceLocator;
 
 /**

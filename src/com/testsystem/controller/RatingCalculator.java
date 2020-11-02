@@ -5,10 +5,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import com.testsystem.model.Group;
-import com.testsystem.model.User;
 import com.testsystem.model.test.StudentResultOfTest;
 import com.testsystem.model.test.Test;
+import com.testsystem.model.user.Group;
+import com.testsystem.model.user.User;
 
 /**
  * Represents a RatingCalculator.

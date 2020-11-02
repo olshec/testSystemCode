@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.model.Model;
-import com.testsystem.model.User;
+import com.testsystem.model.user.User;
 
 /**
  * Represents a test.
