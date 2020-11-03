@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.testsystem.model.Model;
 import com.testsystem.model.test.Question;
+import com.testsystem.model.test.ResultQuestion;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.User;
@@ -234,9 +235,11 @@ public class TestController {
 	 *
 	 *@param test the test
 	 */
-	public void checkTest(Test test) {
+	public void checkTest(User student, Test test) {
 		Test sourceTest = ServiceLocator.getDaoProvider()
 				.getTest(test);
-		new QuestionController().checkQuestions(test.getQuestions(), sourceTest.getQuestions());
+		List<ResultQuestion> listResultQuesion = new QuestionController().checkQuestions(test.getQuestions(), sourceTest.getQuestions());
+		
+		ResultTest resultTest = new ResultTest(student, test, listResultQuesion);
 	}
 }

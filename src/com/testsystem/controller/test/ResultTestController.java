@@ -55,11 +55,16 @@ public class ResultTestController {
 		for(ResultTest result: records) {
 			if (result.getTest().equals(test) && 
 					result.getStudent().equals(student) && 
-					result.getResult() != -1) {
+					getPoints(result) != -1) {
 				return result;
 			}
 		}
 		return null;
+	}
+
+	public int getPoints(ResultTest result) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

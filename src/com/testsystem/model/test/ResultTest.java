@@ -9,7 +9,6 @@ public class ResultTest extends Model {
 	
 	private User student;
 	private Test test;
-	private Integer result;
 	private List<ResultQuestion> resultQuestions;
 	
 	/**
@@ -25,11 +24,10 @@ public class ResultTest extends Model {
 	 * @param result
 	 * @param resultQuestions
 	 */
-	public ResultTest(User student, Test test, Integer result, List<ResultQuestion> resultQuestions) {
+	public ResultTest(User student, Test test, List<ResultQuestion> resultQuestions) {
 		super();
 		this.student = student;
 		this.test = test;
-		this.result = result;
 		this.resultQuestions = resultQuestions;
 	}
 	
@@ -42,7 +40,6 @@ public class ResultTest extends Model {
 		super();
 		this.student = student;
 		this.test = test;
-		this.result = result;
 	}
 
 	/**
@@ -57,20 +54,6 @@ public class ResultTest extends Model {
 	 */
 	public void setStudent(User student) {
 		this.student = student;
-	}
-
-	/**
-	 * @return the result
-	 */
-	public Integer getResult() {
-		return result;
-	}
-
-	/**
-	 * @param result the result to set
-	 */
-	public void setResult(Integer result) {
-		this.result = result;
 	}
 	
 	/**

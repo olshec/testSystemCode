@@ -10,6 +10,7 @@ import com.testsystem.model.test.Test;
 import com.testsystem.model.user.Group;
 import com.testsystem.model.user.User;
 
+
 /**
  * Represents a RatingCalculator.
  * 
@@ -32,7 +33,8 @@ public class RatingCalculator {
 		int point = 0;
 		for (int i = 0; i < listTest.size(); i++) {
 			Test test = listTest.get(i);
-			point += new TestController(test).getStudentTestResult(student, listTest.get(i)).getResult();
+			ResultTest testResult = new TestController(test).getStudentTestResult(student, listTest.get(i));
+			point += new ResultTestController().getPoints(testResult);
 		}
 		int rating = point * 2 / listTest.size();
 		return rating;
@@ -62,8 +64,16 @@ public class RatingCalculator {
 	private static List<ResultTest> sortByValue(List<ResultTest> listStudentResult) {
 		Collections.sort(listStudentResult, new Comparator<ResultTest>() {
 			@Override
-			public int compare(ResultTest o1, ResultTest o2) {
-				return (o2.getResult().compareTo(o1.getResult()));
+			public int compare(ResultTest result1, ResultTest result2) {
+				int pointsResult1 = new ResultTestController().getPoints(result1);
+				int pointsResult2 = new ResultTestController().getPoints(result2);
+				if(pointsResult2>pointsResult1) {
+					return 1;
+				} else if (pointsResult2==pointsResult1) {
+					return 0;
+				} else {
+					return 1;
+				}
 			}
 		});
 

@@ -126,8 +126,8 @@ public class FrontController {
 	 *
 	 *@param test the test
 	 */
-	public void checkTest(Test test) {
-		new TestController().checkTest(test);
+	public void checkTest(User student, Test test) {
+		new TestController().checkTest(student, test);
 	}
 	
 	/**
