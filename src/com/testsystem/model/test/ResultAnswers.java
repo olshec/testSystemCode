@@ -16,7 +16,6 @@ public class ResultAnswers extends Model {
 	 */
 	public ResultAnswers() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**

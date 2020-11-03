@@ -10,7 +10,6 @@ public class ResultQuestionController {
 	 */
 	public ResultQuestionController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
