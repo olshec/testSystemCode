@@ -1,8 +1,9 @@
-package com.testsystem.controller;
+package com.testsystem.controller.user;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.controller.test.RatingCalculator;
 import com.testsystem.model.Model;
 import com.testsystem.model.test.StudentResultOfTest;
 import com.testsystem.model.user.Group;

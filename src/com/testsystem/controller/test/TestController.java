@@ -1,4 +1,4 @@
-package com.testsystem.controller;
+package com.testsystem.controller.test;
 
 import java.util.ArrayList;
 import java.util.List;

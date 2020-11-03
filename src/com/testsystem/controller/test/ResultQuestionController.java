@@ -1,4 +1,4 @@
-package com.testsystem.controller;
+package com.testsystem.controller.test;
 
 import com.testsystem.model.test.ResultQuestion;
 

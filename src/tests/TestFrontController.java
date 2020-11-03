@@ -4,10 +4,10 @@ import static org.junit.Assert.*;
 import java.util.List;
 import org.junit.Test;
 
-import com.testsystem.controller.AdministratorController;
 import com.testsystem.controller.FrontController;
-import com.testsystem.controller.TeacherController;
-import com.testsystem.controller.TestController;
+import com.testsystem.controller.test.TestController;
+import com.testsystem.controller.user.AdministratorController;
+import com.testsystem.controller.user.TeacherController;
 import com.testsystem.model.Model;
 import com.testsystem.model.user.Administrator;
 import com.testsystem.model.user.Group;

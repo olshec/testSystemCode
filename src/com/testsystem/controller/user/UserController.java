@@ -1,4 +1,4 @@
-package com.testsystem.controller;
+package com.testsystem.controller.user;
 
 import java.util.List;
 
