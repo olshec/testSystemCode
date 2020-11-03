@@ -10,7 +10,6 @@ import com.testsystem.model.test.Test;
 import com.testsystem.model.user.Group;
 import com.testsystem.model.user.User;
 
-
 /**
  * Represents a RatingCalculator.
  * 
@@ -76,7 +75,6 @@ public class RatingCalculator {
 				}
 			}
 		});
-
 		return listStudentResult;
 	}
 }

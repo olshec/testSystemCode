@@ -55,7 +55,7 @@ public class ResultTestController {
 		for(ResultTest result: records) {
 			if (result.getTest().equals(test) && 
 					result.getStudent().equals(student) && 
-					getPoints(result) != -1) {
+					result.isDoneTest()) {
 				return result;
 			}
 		}
