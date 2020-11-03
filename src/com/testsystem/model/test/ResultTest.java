@@ -7,7 +7,6 @@ import com.testsystem.model.user.User;
 
 public class ResultTest extends Model {
 	
-	private boolean doneTest;
 	private User student;
 	private Test test;
 	private List<ResultQuestion> resultQuestions;
@@ -83,20 +82,6 @@ public class ResultTest extends Model {
 	 */
 	public void setResultQuestions(List<ResultQuestion> resultQuestions) {
 		this.resultQuestions = resultQuestions;
-	}
-	
-	/**
-	 * @return the doneTest
-	 */
-	public boolean isDoneTest() {
-		return doneTest;
-	}
-
-	/**
-	 * @param doneTest the doneTest to set
-	 */
-	public void setDoneTest(boolean doneTest) {
-		this.doneTest = doneTest;
 	}
 
 	/**

@@ -54,8 +54,7 @@ public class ResultTestController {
 				getResultTestRecords();
 		for(ResultTest result: records) {
 			if (result.getTest().equals(test) && 
-					result.getStudent().equals(student) && 
-					result.isDoneTest()) {
+					result.getStudent().equals(student)) {
 				return result;
 			}
 		}

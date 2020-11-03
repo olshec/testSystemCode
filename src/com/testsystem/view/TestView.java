@@ -21,7 +21,7 @@ public class TestView {
 	/**
 	 * Runs test.
 	 */
-	public void runTest(User student, Test test) {
+	public Test runTest(User student, Test test) {
 		greeting();
 		List<Question> questions = test.getQuestions();
 		ModScanner.getScanner().nextLine();
@@ -35,6 +35,7 @@ public class TestView {
 			String answer = ModScanner.getScanner().nextLine();
 			setAnswers(answer, q);
 		}
+		return test;
 	}
 
 	/*
@@ -51,8 +52,13 @@ public class TestView {
 	 * Set answers for question.
 	 */
 	private void setAnswers(String answerString, Question question) {
-		QuestionController questionController = new QuestionController(question);
-		questionController.setCheckAnswers(answerString);
+		String []answerOptions = answerString.split(" ");
+		List<Answer> answers = question.getAnswers();
+		for(int i=0; i<answerOptions.length; i++) {
+			Integer answer = Integer.parseInt(answerOptions[i]);
+			answer--; //for index
+			answers.get(answer).setChecked(true);
+		}
 	}
 
 }

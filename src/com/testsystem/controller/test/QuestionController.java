@@ -78,21 +78,6 @@ public class QuestionController {
 	public void setAnswers(List<Answer> answers) {
 		question.setAnswers(answers);
 	}
-	
-	/**
-	 * Set checks answers.
-	 * 
-	 * @param answers the answers
-	 */
-	public void setCheckAnswers(String answerString) {
-		String []answerOptions = answerString.split(" ");
-		List<Answer> answers = question.getAnswers();
-		for(int i=0; i<answerOptions.length; i++) {
-			Integer answer = Integer.parseInt(answerOptions[i]);
-			answer--; //for index
-			answers.get(answer).setChecked(true);
-		}
-	}
 
 	/**
 	 * Checks questions.

@@ -3,6 +3,7 @@ package com.testsystem.view;
 import java.util.List;
 
 import com.testsystem.controller.FrontController;
+import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.User;
 import com.testsystem.util.ModScanner;
@@ -134,7 +135,8 @@ public final class StudentView extends UserView {
 			System.out.println("Теста с таким номером не существует!");
 		} else {
 			TestView testView = new TestView();
-			testView.runTest(this.getUser(), test);
+			Test testSender = testView.runTest(this.getUser(), test);
+			ResultTest resultTest = getFrontController().checkTest(this.getUser(), testSender);
 		}
 	}
 	
