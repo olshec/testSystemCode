@@ -14,7 +14,7 @@ import com.testsystem.controller.user.UserController;
 import com.testsystem.model.test.Answer;
 import com.testsystem.model.test.Question;
 import com.testsystem.model.test.ResultTest;
-import com.testsystem.model.test.StudentResultOfTest;
+import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.Administrator;
 import com.testsystem.model.user.Group;
@@ -45,7 +45,7 @@ public class FrontController {
 		daoProvider.addTable(new Teacher().getNameModel());
 		daoProvider.addTable(new Student().getNameModel());
 		daoProvider.addTable(new Administrator().getNameModel());
-		daoProvider.addTable(new StudentResultOfTest().getNameModel());
+		daoProvider.addTable(new ResultTest().getNameModel());
 		loadTest();
 	}
 
@@ -158,7 +158,7 @@ public class FrontController {
 	 * @param  indexTest the test id
 	 * @return Test 	 the test
 	 */
-	public List<StudentResultOfTest> getTestResultForTeacher(User teacher, int idTest) {
+	public List<ResultTest> getTestResultForTeacher(User teacher, int idTest) {
 		return new TeacherController(teacher).getTestResult(idTest);
 	}
 
@@ -221,8 +221,8 @@ public class FrontController {
 	 * @param  nameGroup 				the name of group 		
 	 * @return List<StudentTestResult>	the students results 
 	 */
-	public List<StudentResultOfTest> getRatingGroup(String nameGroup){
-		List<StudentResultOfTest> ratingGroup = new GroupController().getRatingGroup(nameGroup);
+	public List<ResultTest> getRatingGroup(String nameGroup){
+		List<ResultTest> ratingGroup = new GroupController().getRatingGroup(nameGroup);
 		return ratingGroup;
 	}
 

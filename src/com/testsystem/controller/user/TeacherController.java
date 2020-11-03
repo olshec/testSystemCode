@@ -3,9 +3,9 @@ package com.testsystem.controller.user;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.testsystem.controller.test.StudentResultOfTestController;
+import com.testsystem.controller.test.ResultTestController;
 import com.testsystem.controller.test.TestController;
-import com.testsystem.model.test.StudentResultOfTest;
+import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.Teacher;
 import com.testsystem.model.user.User;
@@ -66,8 +66,8 @@ public class TeacherController extends UserController {
 	 * @param idTest   	the test id
 	 * @return Test 	the model of tests
 	 */
-	public List<StudentResultOfTest> getTestResult(int idTest) {
-		StudentResultOfTestController resultController = new StudentResultOfTestController();
+	public List<ResultTest> getTestResult(int idTest) {
+		ResultTestController resultController = new ResultTestController();
 		return resultController.getResultsOfTest(idTest);
 	}
 }

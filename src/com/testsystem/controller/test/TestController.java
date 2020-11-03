@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.testsystem.model.Model;
 import com.testsystem.model.test.Question;
-import com.testsystem.model.test.StudentResultOfTest;
+import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.User;
 import com.testsystem.util.ServiceLocator;
@@ -116,7 +116,7 @@ public class TestController {
 	 * @param points  the student point
 	 */
 	public void saveResultInDatabase(User student, Test test, int points) {
-		ServiceLocator.getDaoProvider().addRecord(new StudentResultOfTest(student, test, points));
+		ServiceLocator.getDaoProvider().addRecord(new ResultTest(student, test, points));
 	}
 
 	/**
@@ -126,9 +126,9 @@ public class TestController {
 	 * @return the true if test student has this test. Otherwise returns false.
 	 */
 	public boolean hasStudentThisTest(User student, Test test) {
-		List<StudentResultOfTest> ls = ServiceLocator.getDaoProvider()
-				.getStudentResultOfTestRecords();
-		for (StudentResultOfTest studentResult : ls) {
+		List<ResultTest> ls = ServiceLocator.getDaoProvider()
+				.getResultTestRecords();
+		for (ResultTest studentResult : ls) {
 			if (studentResult.getStudent().equals(student)) {
 				return true;
 			}
@@ -143,10 +143,10 @@ public class TestController {
 	 * @return 	the list tests of student.
 	 */
 	public List<Test> getStudentTests(User student) {
-		List<StudentResultOfTest> listStudentResultofTest = ServiceLocator.getDaoProvider()
-				.getStudentResultOfTestRecords();
+		List<ResultTest> listResultTest = ServiceLocator.getDaoProvider()
+				.getResultTestRecords();
 		List<Test> listTestReturn = new ArrayList<Test>();
-		for (StudentResultOfTest result : listStudentResultofTest) {
+		for (ResultTest result : listResultTest) {
 				if(result.getStudent().equals(student)) {
 					listTestReturn.add(result.getTest());
 				}
@@ -213,8 +213,8 @@ public class TestController {
 	 * 
 	 * @return the result of student
 	 */
-	public StudentResultOfTest getStudentTestResult(User student, Test test) {
-		StudentResultOfTestController resultController = new StudentResultOfTestController();
+	public ResultTest getStudentTestResult(User student, Test test) {
+		ResultTestController resultController = new ResultTestController();
 		return resultController.getResultsOfTest(student, test);
 	}
 

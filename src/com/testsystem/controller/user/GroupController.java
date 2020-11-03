@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.testsystem.controller.test.RatingCalculator;
 import com.testsystem.model.Model;
-import com.testsystem.model.test.StudentResultOfTest;
+import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.user.Group;
 import com.testsystem.model.user.Student;
 import com.testsystem.model.user.User;
@@ -126,9 +126,9 @@ public class GroupController {
 	 * @param  nameGroup 				the name of group 		
 	 * @return List<StudentTestResult>	the students results 
 	 */
-	public List<StudentResultOfTest> getRatingGroup(String nameGroup){
+	public List<ResultTest> getRatingGroup(String nameGroup){
 		Group group = this.getGroupByName(nameGroup);
-		List<StudentResultOfTest> ratingGroup = RatingCalculator.getRatingGroup(group, new GroupController()
+		List<ResultTest> ratingGroup = RatingCalculator.getRatingGroup(group, new GroupController()
 				.getStudentsByGroup(group));
 		return ratingGroup;
 	}

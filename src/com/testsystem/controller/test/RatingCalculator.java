@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import com.testsystem.model.test.StudentResultOfTest;
+import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.Group;
 import com.testsystem.model.user.User;
@@ -45,24 +45,24 @@ public class RatingCalculator {
 	 * @param testBase the database of test
 	 * @return HashMap<User, Integer> the rating of student
 	 */
-	public static List<StudentResultOfTest> getRatingGroup(Group group, 
+	public static List<ResultTest> getRatingGroup(Group group, 
 			List<User> listStudent) {
-		List<StudentResultOfTest> groupRating = new ArrayList<StudentResultOfTest>();
+		List<ResultTest> groupRating = new ArrayList<ResultTest>();
 		for (int i = 0; i < listStudent.size(); i++) {
 			User student = listStudent.get(i);
 			List<Test> listStudentTests = new TestController().getStudentTests(student);
 			int ratingStudent = RatingCalculator.getRatingStudent(student, listStudentTests);
-			groupRating.add(new StudentResultOfTest(student, listStudentTests.get(i), ratingStudent));
+			groupRating.add(new ResultTest(student, listStudentTests.get(i), ratingStudent));
 		}
 		groupRating = sortByValue(groupRating);
 		return groupRating;
 	}
 
 	// function to sort arrayList by values
-	private static List<StudentResultOfTest> sortByValue(List<StudentResultOfTest> listStudentResult) {
-		Collections.sort(listStudentResult, new Comparator<StudentResultOfTest>() {
+	private static List<ResultTest> sortByValue(List<ResultTest> listStudentResult) {
+		Collections.sort(listStudentResult, new Comparator<ResultTest>() {
 			@Override
-			public int compare(StudentResultOfTest o1, StudentResultOfTest o2) {
+			public int compare(ResultTest o1, ResultTest o2) {
 				return (o2.getResult().compareTo(o1.getResult()));
 			}
 		});

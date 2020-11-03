@@ -3,7 +3,7 @@ package com.testsystem.view;
 import java.util.List;
 
 import com.testsystem.controller.FrontController;
-import com.testsystem.model.test.StudentResultOfTest;
+import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.User;
 import com.testsystem.util.ModScanner;
@@ -81,7 +81,7 @@ public final class TeacherView extends UserView {
 		int numTest = enterNumberTest();
 		if (numTest != -1) {
 			int indexTest = numTest - 1;// index begin from 0;
-			List<StudentResultOfTest> ls = getFrontController().getTestResultForTeacher(this.getUser(), indexTest);
+			List<ResultTest> ls = getFrontController().getTestResultForTeacher(this.getUser(), indexTest);
 			printTestResult(ls);
 		}
 	}
@@ -104,7 +104,7 @@ public final class TeacherView extends UserView {
 	/**
 	 * Print a result of students test.
 	 */
-	private void printTestResult(List<StudentResultOfTest> resultsTest) {
+	private void printTestResult(List<ResultTest> resultsTest) {
 		if (resultsTest != null) {
 			if (resultsTest.size() > 0) {
 				for (int i = 0; i < resultsTest.size(); i++) {

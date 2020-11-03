@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.testsystem.model.test.StudentResultOfTest;
+import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.user.User;
 
 import tests.stubs.TestFrontController;
@@ -32,7 +32,7 @@ public class TestRaitingCalculator {
 
 	@Test
 	public void testGetRatingGroup() {
-		List<StudentResultOfTest> ratingGroup = frontController.getRatingGroup("Group 1"); 
+		List<ResultTest> ratingGroup = frontController.getRatingGroup("Group 1"); 
 		
 		int rating1 = ratingGroup.get(0).getResult(); //"Романенко", "Егор"
 		int rating2 = ratingGroup.get(1).getResult();//"Шахматов", "Антон"
@@ -49,8 +49,8 @@ public class TestRaitingCalculator {
 	
 	@Test
 	public void testSortRaiting() {
-		List<StudentResultOfTest> ratingGroup1 = frontController.getRatingGroup("Group 1"); 
-		List<StudentResultOfTest> ratingGroup2 = frontController.getRatingGroup("Group 2"); 
+		List<ResultTest> ratingGroup1 = frontController.getRatingGroup("Group 1"); 
+		List<ResultTest> ratingGroup2 = frontController.getRatingGroup("Group 2"); 
 		
 		String lastNameFirstStudentGroup1 =  ratingGroup1.get(0).getStudent().getLastName();
 		String lastNameSecondStudentGroup1 = ratingGroup1.get(1).getStudent().getLastName();

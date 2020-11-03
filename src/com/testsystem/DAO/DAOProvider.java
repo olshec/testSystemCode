@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.model.Model;
-import com.testsystem.model.test.StudentResultOfTest;
+import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.Group;
 import com.testsystem.model.user.Student;
@@ -208,11 +208,11 @@ public class DAOProvider {
 	 * @param nameTable
 	 * @return List<Test> the records of table
 	 */
-	public List<StudentResultOfTest> getStudentResultOfTestRecords() {
-		List<StudentResultOfTest> ls = new ArrayList<StudentResultOfTest>();
-		List<Model> models = database.getTable(new StudentResultOfTest().getNameModel()).getRecords();
+	public List<ResultTest> getResultTestRecords() {
+		List<ResultTest> ls = new ArrayList<ResultTest>();
+		List<Model> models = database.getTable(new ResultTest().getNameModel()).getRecords();
 		for(Model st : models) {
-			ls.add((StudentResultOfTest)st);
+			ls.add((ResultTest)st);
 		}
 		return ls;
 	}
