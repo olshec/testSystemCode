@@ -14,7 +14,6 @@ import com.testsystem.controller.user.UserController;
 import com.testsystem.model.test.Answer;
 import com.testsystem.model.test.Question;
 import com.testsystem.model.test.ResultTest;
-import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.Administrator;
 import com.testsystem.model.user.Group;
