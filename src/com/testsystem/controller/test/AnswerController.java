@@ -22,13 +22,13 @@ public class AnswerController {
 		int countTrueAnswer = 0;
 		int countNotTrueAnswer = 0;
 		ResultAnswers resultAnswers = new ResultAnswers(userAnswers);
-		boolean hasInCorrectAnswer = false;
+		boolean hasIncorrectAnswer = false;
 		for (int i = 0; i < sourceAnswers.size(); i++) {
 			Answer userAnswer = userAnswers.get(i);
 			Answer sourceAnswer = sourceAnswers.get(i);
 			boolean result = checkAnswer(userAnswer, sourceAnswer);
 			if (result == false) {
-				hasInCorrectAnswer = true;
+				hasIncorrectAnswer = true;
 				//percentTrueAnswers -= percentPointOneAnswer;
 				countNotTrueAnswer++;
 			} else {
@@ -36,12 +36,12 @@ public class AnswerController {
 				percentTrueAnswers += percentPointOneAnswer;
 			}
 		}
-		if (hasInCorrectAnswer) {
-			setOptionsCorrectAnswer(resultAnswers, maxPercentTrueAnswer, countTrueAnswer, 0);
+		if (hasIncorrectAnswer) {
+			setOptionsCorrectAnswer(resultAnswers, percentTrueAnswers, countTrueAnswer, countNotTrueAnswer);
 		} else if (countTrueAnswer <= 0) {
 			setOptionsCorrectAnswer(resultAnswers, 0, 0, countNotTrueAnswer);
 		} else {
-			setOptionsCorrectAnswer(resultAnswers, percentTrueAnswers, countTrueAnswer, countNotTrueAnswer);
+			setOptionsCorrectAnswer(resultAnswers, maxPercentTrueAnswer, countTrueAnswer, countNotTrueAnswer);
 		}
 		return resultAnswers;
 	}
