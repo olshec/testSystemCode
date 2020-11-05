@@ -136,6 +136,7 @@ public final class StudentView extends UserView {
 			TestView testView = new TestView();
 			Test testSender = testView.runTest(this.getUser(), test);
 			ResultTest resultTest = getFrontController().checkTest(this.getUser(), testSender);
+			resultTest.toString();
 		}
 	}
 	
