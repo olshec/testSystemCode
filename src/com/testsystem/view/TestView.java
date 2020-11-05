@@ -28,8 +28,9 @@ public class TestView {
 		for (Question q : questions) {
 			System.out.println(q.getText());
 			List<Answer> answers = q.getAnswers();
-			for (Answer a : answers) {
-				System.out.println(a.getText());
+			for (int i = 0; i < answers.size(); i++) {
+				int numTest = i + 1;
+				System.out.println(numTest + ") " + answers.get(i));
 			}
 			System.out.print("Введите ответ: ");
 			String answer = ModScanner.getScanner().nextLine();
@@ -52,11 +53,11 @@ public class TestView {
 	 * Set answers for question.
 	 */
 	private void setAnswers(String answerString, Question question) {
-		String []answerOptions = answerString.split(" ");
+		String[] answerOptions = answerString.split(" ");
 		List<Answer> answers = question.getAnswers();
-		for(int i=0; i<answerOptions.length; i++) {
+		for (int i = 0; i < answerOptions.length; i++) {
 			Integer answer = Integer.parseInt(answerOptions[i]);
-			answer--; //for index
+			answer--; // for index
 			answers.get(answer).setChecked(true);
 		}
 	}

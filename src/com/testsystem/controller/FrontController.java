@@ -284,7 +284,7 @@ public class FrontController {
 		Question q6 = new QuestionController().getNewQuestion("Протокол TCP");
 
 		testController.setTest(test2);
-		testController.addQuestion(q3);
+		//testController.addQuestion(q3);
 		testController.addQuestion(q4);
 		testController.addQuestion(q5);
 		testController.addQuestion(q6);

@@ -128,6 +128,11 @@ public class Answer extends Model {
 		this.checked = checked;
 	}
 
+	@Override
+	public String toString() {
+		return text;
+	}
+
 	/**
 	 * Gets name of model.
 	 * 

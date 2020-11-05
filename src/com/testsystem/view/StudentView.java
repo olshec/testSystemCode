@@ -103,13 +103,12 @@ public final class StudentView extends UserView {
 			return;
 		}
 		// numTest index begin from 0;
-		numTest--;
 		int quantityQuestions = getFrontController().
-				getNumberQuestionsInTest(this.getUser(), numTest);
+				getNumberQuestionsInTest(this.getUser(), --numTest);
 		if (quantityQuestions < 0) {
 			System.out.println("Теста с таким номером не существует!");
 		} else {
-			String s = String.format("Количество вопросов в тесте %d: %d", numTest, quantityQuestions);
+			String s = String.format("Количество вопросов в тесте %d: %d", ++numTest, quantityQuestions);
 			System.out.println(s);
 		}
 	}
