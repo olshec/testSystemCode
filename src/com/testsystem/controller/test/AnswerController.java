@@ -29,7 +29,7 @@ public class AnswerController {
 			boolean result = checkAnswer(userAnswer, sourceAnswer);
 			if (result == false) {
 				hasInCorrectAnswer = true;
-				percentTrueAnswers -= percentPointOneAnswer;
+				//percentTrueAnswers -= percentPointOneAnswer;
 				countNotTrueAnswer++;
 			} else {
 				countTrueAnswer++;
