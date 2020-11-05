@@ -236,12 +236,8 @@ public class TestController {
 	 *@param test the test
 	 */
 	public ResultTest checkTest(User student, Test test) {
-		Test sourceTest = ServiceLocator.getDaoProvider()
-				.getTest(test);
-		List<ResultQuestion> listResultQuesion = new QuestionController().
-				checkQuestions(test.getQuestions(), sourceTest.getQuestions());
-		
-		ResultTest resultTest = new ResultTest(student, test, listResultQuesion);
+		ResultTest resultTest = new QuestionController().
+				checkQuestions(student, test);
 		return resultTest;
 	}
 }

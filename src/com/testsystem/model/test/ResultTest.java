@@ -7,6 +7,9 @@ import com.testsystem.model.user.User;
 
 public class ResultTest extends Model {
 	
+	private int numberCorrectQuestions;
+	private int numberNotCorrectQuestions;
+	private double percentCorrectQuestions;
 	private User student;
 	private Test test;
 	private List<ResultQuestion> resultQuestions;
@@ -31,6 +34,25 @@ public class ResultTest extends Model {
 		this.resultQuestions = resultQuestions;
 	}
 	
+	/**
+	 * @param numberCorrectQuestions
+	 * @param numberNotCorrectQuestions
+	 * @param percentCorrectQuestions
+	 * @param student
+	 * @param test
+	 * @param resultQuestions
+	 */
+	public ResultTest(int numberCorrectQuestions, int numberNotCorrectQuestions, double percentCorrectQuestions,
+			User student, Test test, List<ResultQuestion> resultQuestions) {
+		super();
+		this.numberCorrectQuestions = numberCorrectQuestions;
+		this.numberNotCorrectQuestions = numberNotCorrectQuestions;
+		this.percentCorrectQuestions = percentCorrectQuestions;
+		this.student = student;
+		this.test = test;
+		this.resultQuestions = resultQuestions;
+	}
+
 	/**
 	 * @param student
 	 * @param test
@@ -82,6 +104,49 @@ public class ResultTest extends Model {
 	 */
 	public void setResultQuestions(List<ResultQuestion> resultQuestions) {
 		this.resultQuestions = resultQuestions;
+	}
+
+	
+	/**
+	 * @return the numberCorrectQuestions
+	 */
+	public int getNumberCorrectQuestions() {
+		return numberCorrectQuestions;
+	}
+
+	/**
+	 * @param numberCorrectQuestions the numberCorrectQuestions to set
+	 */
+	public void setNumberCorrectQuestions(int numberCorrectQuestions) {
+		this.numberCorrectQuestions = numberCorrectQuestions;
+	}
+
+	/**
+	 * @return the numberNotCorrectQuestions
+	 */
+	public int getNumberNotCorrectQuestions() {
+		return numberNotCorrectQuestions;
+	}
+
+	/**
+	 * @param numberNotCorrectQuestions the numberNotCorrectQuestions to set
+	 */
+	public void setNumberNotCorrectQuestions(int numberNotCorrectQuestions) {
+		this.numberNotCorrectQuestions = numberNotCorrectQuestions;
+	}
+
+	/**
+	 * @return the percentCorrectQuestions
+	 */
+	public double getPercentCorrectQuestions() {
+		return percentCorrectQuestions;
+	}
+
+	/**
+	 * @param percentCorrectQuestions the percentCorrectQuestions to set
+	 */
+	public void setPercentCorrectQuestions(double percentCorrectQuestions) {
+		this.percentCorrectQuestions = percentCorrectQuestions;
 	}
 
 	/**

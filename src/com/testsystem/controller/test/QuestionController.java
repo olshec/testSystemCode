@@ -7,7 +7,9 @@ import com.testsystem.model.test.Answer;
 import com.testsystem.model.test.Question;
 import com.testsystem.model.test.ResultAnswers;
 import com.testsystem.model.test.ResultQuestion;
+import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
+import com.testsystem.model.user.User;
 import com.testsystem.util.ServiceLocator;
 
 /**
@@ -85,7 +87,12 @@ public class QuestionController {
 	 * @param userQuestions
 	 * @param sourceQuestions
 	 */
-	public List<ResultQuestion> checkQuestions(List<Question> userQuestions, List<Question> sourceQuestions) {
+	public ResultTest checkQuestions(User student, Test test) {
+		
+		List<Question> userQuestions = test.getQuestions();
+		Test sourceTest = ServiceLocator.getDaoProvider()
+				.getTest(test);
+		List<Question> sourceQuestions = sourceTest.getQuestions();
 		//double maxPointTest = 100;
 		//int countQuestion = sourceQuestions.size();
 		//double pointOneQuestion = maxPointTest / countQuestion;
@@ -98,7 +105,38 @@ public class QuestionController {
 					checkAnswers(userAnswers, sourceAnswers);
 			resultQuestion.add(new ResultQuestion(resultAnswers, userQuestion));
 		}
-		return resultQuestion;
+		
+		ResultTest resultTest = null;
+		final double maxPercentTrueQuestion = 100;
+		int countQuestion = sourceQuestions.size();
+		double percentPointOneQuestion = maxPercentTrueQuestion / countQuestion;
+		double percentTrueQuestions = 0;
+		int numberCorrectQuestion = 0;
+		int countNotCorrectQuestion = 0;
+		//ResultQuestion resultQuestions = new ResultAnswers(userQuestions);
+		boolean hasIncorrectQuestion = false;
+		for (int i = 0; i < resultQuestion.size(); i++) {
+			double percentCorrectAnswers = resultQuestion.get(i).getResultAnswers().getPercentCorrectAnswers();
+			if (percentCorrectAnswers!=100) {
+				hasIncorrectQuestion = true;
+				percentTrueQuestions += percentPointOneQuestion * (percentCorrectAnswers/100);
+				countNotCorrectQuestion++;
+			} else {
+				numberCorrectQuestion++;
+				percentTrueQuestions += percentPointOneQuestion;
+			}
+		}
+		if (hasIncorrectQuestion) {
+			resultTest = new ResultTest(numberCorrectQuestion, countNotCorrectQuestion, 
+					percentTrueQuestions, student, test, resultQuestion);
+		} else if (percentTrueQuestions <= 0) {
+			resultTest = new ResultTest(0, countNotCorrectQuestion, 
+					0, student, test, resultQuestion);
+		} else {
+			resultTest = new ResultTest(numberCorrectQuestion, countNotCorrectQuestion, 
+					percentTrueQuestions, student, test, resultQuestion);
+		}
+		return resultTest;
 	}
 	
 	
