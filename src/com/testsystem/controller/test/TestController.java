@@ -236,7 +236,7 @@ public class TestController {
 	 *@param test the test
 	 */
 	public ResultTest checkTest(User student, Test test) {
-		ResultTest resultTest = new QuestionController().
+		ResultTest resultTest = new ResultQuestionController().
 				checkQuestions(student, test);
 		return resultTest;
 	}
