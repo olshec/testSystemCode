@@ -16,8 +16,8 @@ public class AnswerController {
 	 */
 	public ResultAnswers checkAnswers(List<Answer> userAnswers, List<Answer> sourceAnswers) {
 		final double maxPercentTrueAnswer = 100;
-		int countAnswer = sourceAnswers.size();
-		double percentPointOneAnswer = maxPercentTrueAnswer / countAnswer;
+		int countCorrectAnswers = getCountCorrectAnswers(sourceAnswers);
+		double percentPointOneAnswer = maxPercentTrueAnswer / countCorrectAnswers;
 		double percentTrueAnswers = 0;
 		int countTrueAnswer = 0;
 		int countNotTrueAnswer = 0;
@@ -25,15 +25,17 @@ public class AnswerController {
 		boolean hasIncorrectAnswer = false;
 		for (int i = 0; i < sourceAnswers.size(); i++) {
 			Answer userAnswer = userAnswers.get(i);
-			Answer sourceAnswer = sourceAnswers.get(i);
-			boolean result = checkAnswer(userAnswer, sourceAnswer);
-			if (result == false) {
-				hasIncorrectAnswer = true;
-				//percentTrueAnswers -= percentPointOneAnswer;
-				countNotTrueAnswer++;
-			} else {
-				countTrueAnswer++;
-				percentTrueAnswers += percentPointOneAnswer;
+			if(userAnswer.isCorrect() || userAnswer.isChecked()) {
+				Answer sourceAnswer = sourceAnswers.get(i);
+				boolean result = checkAnswer(userAnswer, sourceAnswer);
+				if (result == false) {
+					hasIncorrectAnswer = true;
+					//percentTrueAnswers -= percentPointOneAnswer;
+					countNotTrueAnswer++;
+				} else {
+					countTrueAnswer++;
+					percentTrueAnswers += percentPointOneAnswer;
+				}
 			}
 		}
 		if (hasIncorrectAnswer) {
@@ -53,12 +55,20 @@ public class AnswerController {
 	 * @param source answer
 	 */
 	private boolean checkAnswer(Answer userAnswer, Answer sourceAnswer) {
-		if (sourceAnswer.isCorrect() == true && userAnswer.getChecked() == true) {
+		if (sourceAnswer.isCorrect() == true && userAnswer.isChecked() == true) {
 			return true;
-		} else if (sourceAnswer.isCorrect() == false && userAnswer.getChecked() == false) {
-			return true;
-		}
+		} 
 		return false;
+	}
+	
+	private int getCountCorrectAnswers(List<Answer> sourceAnswers) {
+		int count = 0;
+		for (Answer a : sourceAnswers) {
+			if(a.isCorrect()) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 	/**

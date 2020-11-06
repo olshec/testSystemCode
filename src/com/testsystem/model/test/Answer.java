@@ -115,7 +115,7 @@ public class Answer extends Model {
 	 * 
 	 * @return the checked
 	 */
-	public Boolean getChecked() {
+	public Boolean isChecked() {
 		return checked;
 	}
 
