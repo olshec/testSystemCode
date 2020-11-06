@@ -8,7 +8,7 @@ public class ResultQuestion extends Model {
 	
 	private ResultAnswers resultAnswers;
 	private Question question;
-	
+
 	/**
 	 * 
 	 */

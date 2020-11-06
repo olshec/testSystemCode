@@ -35,8 +35,8 @@ public class ResultAnswers extends Model {
 	 * @param percentCorrectAnswers
 	 * @param answers
 	 */
-	public ResultAnswers(int numberCorrectAnswers, int numberNotCorrectAnswer, double percentCorrectAnswers,
-			List<Answer> answers) {
+	public ResultAnswers(int numberCorrectAnswers, int numberNotCorrectAnswer,
+			double percentCorrectAnswers, List<Answer> answers) {
 		super();
 		this.numberCorrectAnswers = numberCorrectAnswers;
 		this.numberNotCorrectAnswer = numberNotCorrectAnswer;
