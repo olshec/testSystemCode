@@ -34,7 +34,9 @@ public class TestView {
 			}
 			System.out.print("Введите ответ: ");
 			String answer = ModScanner.getScanner().nextLine();
-			setAnswers(answer, q);
+			if(!answer.isEmpty()) {
+				setAnswers(answer, q);
+			}
 		}
 		return test;
 	}

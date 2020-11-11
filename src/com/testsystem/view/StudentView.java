@@ -161,14 +161,15 @@ public final class StudentView extends UserView {
 				System.out.println("Частично");
 			} else if (percentCorrestAnswers == 100) {
 				System.out.println("Верно");
-			} else if (percentCorrestAnswers == 0) {
-				int numberNotCorrectAnswers = rq.getNumberNotCorrectAnswers();
-				if(numberNotCorrectAnswers == 0) {
-					System.out.println("Пропущен");
-				} else {
-					System.out.println("Неверно");
-				}
-			}
+			} 
+//				else if (percentCorrestAnswers <= 0) {
+//				int numberNotCorrectAnswers = rq.getNumberNotCorrectAnswers();
+//				if(numberNotCorrectAnswers == 0) {
+//					System.out.println("Пропущен");
+//				} else {
+//					System.out.println("Неверно");
+//				}
+//			}
 		}
 	}
 
