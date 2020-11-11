@@ -136,8 +136,17 @@ public final class StudentView extends UserView {
 			TestView testView = new TestView();
 			Test testSender = testView.runTest(this.getUser(), test);
 			ResultTest resultTest = getFrontController().checkTest(this.getUser(), testSender);
-			resultTest.toString();
+			printTestResult(resultTest);
 		}
+	}
+	
+	private void printTestResult(ResultTest resultTest) {
+		System.out.println();
+		System.out.println("Результаты теста: ");
+		System.out.println("Количество верных ответов: " + resultTest.getNumberCorrectQuestions());
+		System.out.println("Количество неверных ответов: " + resultTest.getNumberNotCorrectQuestions());
+		System.out.println("Количество частично верных ответов: " + resultTest.getNumberPartlyQuestion());
+		System.out.println("Процент верных ответов: " + resultTest.getPercentCorrectQuestions() + "%");
 	}
 	
 }
