@@ -166,6 +166,29 @@ public class ResultTest extends Model {
 		this.numberPartlyQuestion = numberPartlyQuestion;
 	}
 
+	
+	/**
+	 * Prints result of test.
+	 * 
+	 * @return String return name of model
+	 */
+	@Override
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		result.append("Результаты теста: ");
+		result.append(System.getProperty("line.separator"));
+		result.append("Количество верных вопросов: " + getNumberCorrectQuestions());
+		result.append(System.getProperty("line.separator"));
+		result.append("Количество неверных вопросов: " + getNumberNotCorrectQuestions());
+		result.append(System.getProperty("line.separator"));
+		result.append("Количество частично верных вопросов: " + getNumberPartlyQuestion());
+		result.append(System.getProperty("line.separator"));
+		result.append("Процент верных вопросов: " + getPercentCorrectQuestions() + "%");
+		result.append(System.getProperty("line.separator"));
+		
+		return result.toString();
+	}
+
 	/**
 	 * Gets name of model.
 	 * 

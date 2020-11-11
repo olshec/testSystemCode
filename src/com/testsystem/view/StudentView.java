@@ -144,24 +144,21 @@ public final class StudentView extends UserView {
 	 */
 	private void printTestResult(ResultTest resultTest) {
 		System.out.println();
-		System.out.println("Результаты теста: ");
-		System.out.println("Количество верных вопросов: " + resultTest.getNumberCorrectQuestions());
-		System.out.println("Количество неверных вопросов: " + resultTest.getNumberNotCorrectQuestions());
-		System.out.println("Количество частично верных вопросов: " + resultTest.getNumberPartlyQuestion());
-		System.out.println("Процент верных вопросов: " + resultTest.getPercentCorrectQuestions() + "%");
-
-		System.out.println();
+		System.out.println(resultTest.toString());
+		
 		System.out.println("Результат проверки вопросов: ");
 		List<ResultQuestion> resultQuestion = resultTest.getResultQuestions();
 		for (int i = 0; i < resultQuestion.size(); i++) {
 			ResultQuestion rq = resultQuestion.get(i);
 			double percentCorrestAnswers = rq.getPercentCorrectAnswers();
 			System.out.print("Вопрос " + (i + 1) + ": ");
-			if (percentCorrestAnswers > 0 && percentCorrestAnswers < 100) {
-				System.out.println("Частично");
-			} else if (percentCorrestAnswers == 100) {
-				System.out.println("Верно");
-			} 
+			System.out.println(resultQuestion.get(i).toString());
+//			if (percentCorrestAnswers > 0 && percentCorrestAnswers < 100) {
+//				System.out.println("Частично");
+//			} else if (percentCorrestAnswers == 100) {
+//				System.out.println("Верно");
+//			} 
+			
 //				else if (percentCorrestAnswers <= 0) {
 //				int numberNotCorrectAnswers = rq.getNumberNotCorrectAnswers();
 //				if(numberNotCorrectAnswers == 0) {

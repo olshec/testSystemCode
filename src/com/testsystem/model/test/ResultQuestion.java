@@ -4,11 +4,13 @@ import com.testsystem.model.Model;
 
 public class ResultQuestion extends Model {
 	
+	private enum StateQuestion {Correct, Incorrect, Partly, Skipped}
+	
 	private int numberCorrectAnswers;
 	private int numberNotCorrectAnswer;
 	private double percentCorrectAnswers;
 	private Question question;
-
+	private StateQuestion state;
 	/**
 	 * 
 	 */
@@ -70,6 +72,16 @@ public class ResultQuestion extends Model {
 	 */
 	public void setPercentCorrectAnswers(double percentCorrectAnswers) {
 		this.percentCorrectAnswers = percentCorrectAnswers;
+	}
+	
+	/**
+	 * Prints result of question
+	 */
+	@Override
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		result.append(state);
+		return result.toString();
 	}
 
 	/**
