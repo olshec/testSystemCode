@@ -60,7 +60,7 @@ public class ResultQuestion extends Model {
 	/**
 	 * @return the numberNotCorrectAnswer
 	 */
-	public int getNumberNotCorrectAnswer() {
+	public int getNumberNotCorrectAnswers() {
 		return numberNotCorrectAnswer;
 	}
 

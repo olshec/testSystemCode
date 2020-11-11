@@ -3,6 +3,7 @@ package com.testsystem.view;
 import java.util.List;
 
 import com.testsystem.controller.FrontController;
+import com.testsystem.model.test.ResultQuestion;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.User;
@@ -20,7 +21,7 @@ public final class StudentView extends UserView {
 	/**
 	 * Creates a view for student.
 	 * 
-	 * @param user the student
+	 * @param user            the student
 	 * @param frontController the FrontController
 	 */
 	public StudentView(User user, FrontController frontController) {
@@ -33,14 +34,14 @@ public final class StudentView extends UserView {
 	public void openMenu() {
 		int num = -1;
 		while (num != 0) {
-			
+
 			System.out.println();
 			System.out.println("0 - выход");
 			System.out.println("1 - получить список тестов");
 			System.out.println("2 - получить количество вопросов в тесте");
 			System.out.println("3 - пройти тест");
 			System.out.print("?: ");
-			
+
 			try {
 				num = ModScanner.getScanner().nextInt();
 			} catch (java.util.InputMismatchException exception) {
@@ -79,7 +80,7 @@ public final class StudentView extends UserView {
 			System.out.println(i + 1 + ") " + (mas.get(i)).getName());
 		}
 	}
-	
+
 	/**
 	 * Print a list of student tests from the server and prints.
 	 */
@@ -92,7 +93,7 @@ public final class StudentView extends UserView {
 	 * Print the number of test questions from the server and prints.
 	 */
 	private void printNumberQuestions() {
-		
+
 		System.out.print("Введите номер теста: ");
 
 		int numTest = 0;
@@ -103,8 +104,7 @@ public final class StudentView extends UserView {
 			return;
 		}
 		// numTest index begin from 0;
-		int quantityQuestions = getFrontController().
-				getNumberQuestionsInTest(this.getUser(), --numTest);
+		int quantityQuestions = getFrontController().getNumberQuestionsInTest(this.getUser(), --numTest);
 		if (quantityQuestions < 0) {
 			System.out.println("Теста с таким номером не существует!");
 		} else {
@@ -112,7 +112,6 @@ public final class StudentView extends UserView {
 			System.out.println(s);
 		}
 	}
-	
 
 	/**
 	 * Runs test.
@@ -139,14 +138,35 @@ public final class StudentView extends UserView {
 			printTestResult(resultTest);
 		}
 	}
-	
+
 	private void printTestResult(ResultTest resultTest) {
 		System.out.println();
 		System.out.println("Результаты теста: ");
-		System.out.println("Количество верных ответов: " + resultTest.getNumberCorrectQuestions());
-		System.out.println("Количество неверных ответов: " + resultTest.getNumberNotCorrectQuestions());
-		System.out.println("Количество частично верных ответов: " + resultTest.getNumberPartlyQuestion());
-		System.out.println("Процент верных ответов: " + resultTest.getPercentCorrectQuestions() + "%");
+		System.out.println("Количество верных вопросов: " + resultTest.getNumberCorrectQuestions());
+		System.out.println("Количество неверных вопросов: " + resultTest.getNumberNotCorrectQuestions());
+		System.out.println("Количество частично верных вопросов: " + resultTest.getNumberPartlyQuestion());
+		System.out.println("Процент верных вопросов: " + resultTest.getPercentCorrectQuestions() + "%");
+
+		System.out.println();
+		System.out.println("Результат проверки вопросов: ");
+		List<ResultQuestion> resultQuestion = resultTest.getResultQuestions();
+		for (int i = 0; i < resultQuestion.size(); i++) {
+			ResultQuestion rq = resultQuestion.get(i);
+			double percentCorrestAnswers = rq.getPercentCorrectAnswers();
+			System.out.print("Вопрос " + (i + 1) + ": ");
+			if (percentCorrestAnswers > 0 && percentCorrestAnswers < 100) {
+				System.out.println("Частично");
+			} else if (percentCorrestAnswers == 100) {
+				System.out.println("Верно");
+			} else if (percentCorrestAnswers == 0) {
+				int numberNotCorrectAnswers = rq.getNumberNotCorrectAnswers();
+				if(numberNotCorrectAnswers == 0) {
+					System.out.println("Пропущен");
+				} else {
+					System.out.println("Неверно");
+				}
+			}
+		}
 	}
-	
+
 }
