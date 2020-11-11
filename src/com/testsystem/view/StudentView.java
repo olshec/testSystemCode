@@ -139,6 +139,9 @@ public final class StudentView extends UserView {
 		}
 	}
 
+	/**
+	 * Prints result of test.
+	 */
 	private void printTestResult(ResultTest resultTest) {
 		System.out.println();
 		System.out.println("Результаты теста: ");
