@@ -1,7 +1,5 @@
 package com.testsystem.model.test;
 
-import java.util.List;
-
 import com.testsystem.model.Model;
 
 public class ResultQuestion extends Model {
@@ -9,7 +7,6 @@ public class ResultQuestion extends Model {
 	private int numberCorrectAnswers;
 	private int numberNotCorrectAnswer;
 	private double percentCorrectAnswers;
-	private List<Answer> answers;
 	private Question question;
 
 	/**
@@ -17,16 +14,6 @@ public class ResultQuestion extends Model {
 	 */
 	public ResultQuestion() {
 		super();
-	}
-	
-	/**
-	 * @param resultAnswers
-	 * @param question
-	 */
-	public ResultQuestion(List<Answer> answers, Question question) {
-		super();
-		this.answers = answers;
-		this.question = question;
 	}
 
 	/**
@@ -83,20 +70,6 @@ public class ResultQuestion extends Model {
 	 */
 	public void setPercentCorrectAnswers(double percentCorrectAnswers) {
 		this.percentCorrectAnswers = percentCorrectAnswers;
-	}
-
-	/**
-	 * @return the answers
-	 */
-	public List<Answer> getAnswers() {
-		return answers;
-	}
-
-	/**
-	 * @param answers the answers to set
-	 */
-	public void setAnswers(List<Answer> answers) {
-		this.answers = answers;
 	}
 
 	/**
