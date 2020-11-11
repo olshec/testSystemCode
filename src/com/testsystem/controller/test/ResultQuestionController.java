@@ -129,7 +129,7 @@ public class ResultQuestionController {
 				boolean result = new AnswerController().checkAnswer(userAnswer, sourceAnswer);
 				if (result == false) {
 					hasIncorrectAnswer = true;
-					//percentTrueAnswers -= percentPointOneAnswer;
+					percentTrueAnswers -= percentPointOneAnswer;
 					countNotTrueAnswer++;
 				} else {
 					countTrueAnswer++;
