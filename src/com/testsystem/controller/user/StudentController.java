@@ -93,7 +93,8 @@ public class StudentController extends UserController {
 		Test test = listTest.get(idTest);
 		TestController testController = new TestController(test);
 		if (test != null && testController.hasStudentThisTest(this.getUser(), test)) {
-			return listTest.get(idTest);
+			test.clearChecked();
+			return test;
 		} else
 			return null;
 	}

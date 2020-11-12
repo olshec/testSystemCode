@@ -144,29 +144,14 @@ public final class StudentView extends UserView {
 	 */
 	private void printTestResult(ResultTest resultTest) {
 		System.out.println();
+		System.out.println("Результаты теста: ");
 		System.out.println(resultTest.toString());
 		
 		System.out.println("Результат проверки вопросов: ");
 		List<ResultQuestion> resultQuestion = resultTest.getResultQuestions();
 		for (int i = 0; i < resultQuestion.size(); i++) {
-			ResultQuestion rq = resultQuestion.get(i);
-			double percentCorrestAnswers = rq.getPercentCorrectAnswers();
 			System.out.print("Вопрос " + (i + 1) + ": ");
 			System.out.println(resultQuestion.get(i).toString());
-//			if (percentCorrestAnswers > 0 && percentCorrestAnswers < 100) {
-//				System.out.println("Частично");
-//			} else if (percentCorrestAnswers == 100) {
-//				System.out.println("Верно");
-//			} 
-			
-//				else if (percentCorrestAnswers <= 0) {
-//				int numberNotCorrectAnswers = rq.getNumberNotCorrectAnswers();
-//				if(numberNotCorrectAnswers == 0) {
-//					System.out.println("Пропущен");
-//				} else {
-//					System.out.println("Неверно");
-//				}
-//			}
 		}
 	}
 

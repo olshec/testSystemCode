@@ -175,8 +175,6 @@ public class ResultTest extends Model {
 	@Override
 	public String toString() {
 		StringBuilder result = new StringBuilder();
-		result.append("Результаты теста: ");
-		result.append(System.getProperty("line.separator"));
 		result.append("Количество верных вопросов: " + getNumberCorrectQuestions());
 		result.append(System.getProperty("line.separator"));
 		result.append("Количество неверных вопросов: " + getNumberNotCorrectQuestions());

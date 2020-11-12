@@ -16,18 +16,18 @@ public class AnswerController {
 		return count;
 	}
 	
-	/**
-	 * Checks answer.
-	 * 
-	 * @param user   answer
-	 * @param source answer
-	 */
-	public boolean checkAnswer(Answer userAnswer, Answer sourceAnswer) {
-		if (sourceAnswer.isCorrect() == true && userAnswer.isChecked() == true) {
-			return true;
-		} 
-		return false;
-	}
+//	/**
+//	 * Checks answer.
+//	 * 
+//	 * @param user   answer
+//	 * @param source answer
+//	 */
+//	public boolean checkAnswer(Answer userAnswer, Answer sourceAnswer) {
+//		if (sourceAnswer.isCorrect() == true && userAnswer.isChecked() == true) {
+//			return true;
+//		} 
+//		return false;
+//	}
 	
 
 

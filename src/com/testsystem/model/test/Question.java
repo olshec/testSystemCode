@@ -117,6 +117,15 @@ public class Question extends Model {
 	}
 	
 	/**
+	 * Clears checked answers.
+	 */
+	public void clearAnswers() {
+		for(Answer a : answers) {
+			a.clearChecked();
+		}
+	}
+	
+	/**
 	 * Gets name of model.
 	 * 
 	 * @return String return name of model
@@ -125,4 +134,5 @@ public class Question extends Model {
 	public String getNameModel() {
 		return "Question";
 	}
+
 }

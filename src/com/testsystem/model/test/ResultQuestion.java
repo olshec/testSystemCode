@@ -4,7 +4,7 @@ import com.testsystem.model.Model;
 
 public class ResultQuestion extends Model {
 	
-	private enum StateQuestion {Correct, Incorrect, Partly, Skipped}
+	public enum StateQuestion {Correct, Incorrect, Partly, Skipped}
 	
 	private int numberCorrectAnswers;
 	private int numberNotCorrectAnswer;
@@ -75,13 +75,25 @@ public class ResultQuestion extends Model {
 	}
 	
 	/**
+	 * @return the state
+	 */
+	public StateQuestion getState() {
+		return state;
+	}
+
+	/**
+	 * @param state the state to set
+	 */
+	public void setState(StateQuestion state) {
+		this.state = state;
+	}
+
+	/**
 	 * Prints result of question
 	 */
 	@Override
 	public String toString() {
-		StringBuilder result = new StringBuilder();
-		result.append(state);
-		return result.toString();
+		return state.toString();
 	}
 
 	/**

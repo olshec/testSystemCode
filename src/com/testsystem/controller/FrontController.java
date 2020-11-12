@@ -269,7 +269,7 @@ public class FrontController {
 		answersForQuestion3_2 .add(new Answer("Марс", "", false));
 		answersForQuestion3_2 .add(new Answer("Плутон", "", false));
 		answersForQuestion3_2 .add(new Answer("Меркурий", "", true));
-		answersForQuestion3_2 .add(new Answer("Юпитер", "", true));
+		answersForQuestion3_2 .add(new Answer("Юпитер", "", false));
 		q3_2.setAnswers(answersForQuestion3_2 );
 		
 		TestController testController = new TestController(test1);

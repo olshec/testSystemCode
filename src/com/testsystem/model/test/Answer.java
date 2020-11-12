@@ -14,9 +14,7 @@ public class Answer extends Model {
 	private String text;
 	private String information;
 	private boolean correct;
-	private boolean checked;
-	
-	
+	private boolean isChecked;
 	
 	/**
 	 * Constructor
@@ -116,7 +114,7 @@ public class Answer extends Model {
 	 * @return the checked
 	 */
 	public Boolean isChecked() {
-		return checked;
+		return isChecked;
 	}
 
 	/**
@@ -125,7 +123,7 @@ public class Answer extends Model {
 	 * @param checked the checked to set
 	 */
 	public void setChecked(Boolean checked) {
-		this.checked = checked;
+		this.isChecked = checked;
 	}
 
 	@Override
@@ -142,4 +140,12 @@ public class Answer extends Model {
 	public String getNameModel() {
 		return "Answer";
 	}
+
+	/**
+	 * Clears checked
+	 */
+	public void clearChecked() {
+		isChecked = false;
+	}
+	
 }
