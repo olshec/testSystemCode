@@ -14,14 +14,12 @@ public class TestResultTest {
 
 	TestFrontController frontController;
 	
-	
 	public TestResultTest() {
 		loadData();
 	}
 
 	public void loadData() {
 		frontController = new TestFrontController();
-		
 	}
 	
 	@Test
