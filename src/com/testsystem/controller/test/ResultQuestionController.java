@@ -152,13 +152,14 @@ public class ResultQuestionController {
 		return resultQuestion;
 	}
 	
-	/**
+	/*
 	 * Sets options for answers.
 	 * 
 	 * @param resultQuestion        result of answers
 	 * @param maxPercentTrueAnswer double
 	 * @param countTrueAnswer      int
 	 * @param countNotTrueAnswer   int
+	 * @param state   StateQuestion
 	 */
 	private void setOptionsCorrectAnswer(ResultQuestion resultQuestion, double maxPercentTrueAnswer, int countTrueAnswer,
 			int countNotTrueAnswer, StateQuestion state) {
