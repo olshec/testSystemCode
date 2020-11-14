@@ -125,8 +125,6 @@ public class ResultQuestionController {
 			if (userAnswer.isChecked() && sourceAnswer.isCorrect()) {
 				hasChecked = true;		
 				countTrueAnswer++;
-				//percentTrueAnswers += percentPointOneAnswer;
-				
 			} else if(!userAnswer.isChecked() && sourceAnswer.isCorrect()) {
 				percentTrueAnswers -= percentPointOneAnswer;
 				countNotTrueAnswer++;
