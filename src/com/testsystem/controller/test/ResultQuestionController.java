@@ -55,19 +55,16 @@ public class ResultQuestionController {
 		final double maxPercentTrueQuestion = 100;
 		int countQuestion = resultQuestion.size();
 		double percentPointOneQuestion = maxPercentTrueQuestion / countQuestion;
-		
+
 		double percentTrueQuestions = 0;
 		int numberCorrectQuestion = 0;
 		int numberNotCorrectQuestion = 0;
 		int numberPartlyQuestion = 0;
-		boolean hasIncorrectQuestion = false;
 		for (int i = 0; i < resultQuestion.size(); i++) {
 			double percentCorrectAnswers = resultQuestion.get(i).getPercentCorrectAnswers();
-			if(percentCorrectAnswers<=0) {
+			if(percentCorrectAnswers == 0) {
 				numberNotCorrectQuestion++;
-			}
-			if (percentCorrectAnswers<100) {
-				hasIncorrectQuestion = true;
+			} else if (percentCorrectAnswers < maxPercentTrueQuestion) {
 				percentTrueQuestions += percentPointOneQuestion * (percentCorrectAnswers/100);
 				numberPartlyQuestion++;
 			} else {
@@ -77,15 +74,15 @@ public class ResultQuestionController {
 		}
 		
 		ResultTest resultTest = null;
-		if (hasIncorrectQuestion) {
+		if (numberNotCorrectQuestion > 0 || numberPartlyQuestion > 0) {
 			resultTest = new ResultTest(numberCorrectQuestion, numberNotCorrectQuestion, numberPartlyQuestion,
-					percentTrueQuestions, student, test, resultQuestion);
+					(int)percentTrueQuestions, student, test, resultQuestion);
 		} else if (percentTrueQuestions <= 0) {
 			resultTest = new ResultTest(0, numberNotCorrectQuestion, 0,
 					0, student, test, resultQuestion);
 		} else {
 			resultTest = new ResultTest(numberCorrectQuestion, 0, 0,
-					maxPercentTrueQuestion, student, test, resultQuestion);
+					(int)maxPercentTrueQuestion, student, test, resultQuestion);
 		}
 		return resultTest;
 	}
@@ -114,39 +111,40 @@ public class ResultQuestionController {
 	 * @param sourceQuestion
 	 */
 	public ResultQuestion checkAnswers(List<Answer> userAnswers, List<Answer> sourceAnswers) {
-		final double maxPercentTrueAnswer = 100;
+		final int maxPercentTrueAnswer = 100;
 		int countCorrectAnswers = new AnswerController().getCountCorrectAnswers(sourceAnswers);
 		double percentPointOneAnswer = maxPercentTrueAnswer / countCorrectAnswers;
-		double percentTrueAnswers = 0;
+		double percentTrueAnswers = 100;
 		int countTrueAnswer = 0;
 		int countNotTrueAnswer = 0;
-		boolean hasIncorrectAnswer = false;
+		//boolean hasIncorrectAnswer = false;
 		boolean hasChecked = false;
 		for (int i = 0; i < sourceAnswers.size(); i++) {
 			Answer userAnswer = userAnswers.get(i);
-			if (userAnswer.isChecked()) {
+			Answer sourceAnswer = sourceAnswers.get(i);
+			if (userAnswer.isChecked() && sourceAnswer.isCorrect()) {
+				hasChecked = true;		
+				countTrueAnswer++;
+				//percentTrueAnswers += percentPointOneAnswer;
+				
+			} else if(!userAnswer.isChecked() && sourceAnswer.isCorrect()) {
+				percentTrueAnswers -= percentPointOneAnswer;
+				countNotTrueAnswer++;
+			} else if (userAnswer.isChecked() && !sourceAnswer.isCorrect()) {
 				hasChecked = true;
-				Answer sourceAnswer = sourceAnswers.get(i);
-				if (sourceAnswer.isCorrect()) {
-					countTrueAnswer++;
-					percentTrueAnswers += percentPointOneAnswer;
-
-				} else {
-					hasIncorrectAnswer = true;
-					percentTrueAnswers -= percentPointOneAnswer;
-					countNotTrueAnswer++;
-				}
+				percentTrueAnswers -= percentPointOneAnswer;
+				countNotTrueAnswer++;
 			}
 		}
 		this.resultQuestion = new ResultQuestion();
 		if(!hasChecked) {
-			setOptionsCorrectAnswer(resultQuestion, 0, 					countTrueAnswer, countNotTrueAnswer, StateQuestion.Skipped);
-		} else if (hasIncorrectAnswer) {
+			setOptionsCorrectAnswer(resultQuestion, 0, 0, 0, StateQuestion.Skipped);
+		} else if (countTrueAnswer == 0) {
+			setOptionsCorrectAnswer(resultQuestion, 0, 0, countNotTrueAnswer, StateQuestion.Incorrect);
+		} else if (countNotTrueAnswer > 0 && countTrueAnswer > 0) {
 			percentTrueAnswers = (percentTrueAnswers < 0? 0 : percentTrueAnswers);
-			setOptionsCorrectAnswer(resultQuestion, percentTrueAnswers, countTrueAnswer, countNotTrueAnswer,  StateQuestion.Partly);
-		} else if (countTrueAnswer <= 0) {
-			setOptionsCorrectAnswer(resultQuestion, 0, 					countTrueAnswer, countNotTrueAnswer, StateQuestion.Incorrect);
-		} else {
+			setOptionsCorrectAnswer(resultQuestion, (int)percentTrueAnswers, countTrueAnswer, countNotTrueAnswer,  StateQuestion.Partly);
+		}  else {
 			setOptionsCorrectAnswer(resultQuestion, maxPercentTrueAnswer, countTrueAnswer, countNotTrueAnswer, StateQuestion.Correct);
 		}
 		return resultQuestion;
@@ -161,9 +159,9 @@ public class ResultQuestionController {
 	 * @param countNotTrueAnswer   int
 	 * @param state   StateQuestion
 	 */
-	private void setOptionsCorrectAnswer(ResultQuestion resultQuestion, double maxPercentTrueAnswer, int countTrueAnswer,
+	private void setOptionsCorrectAnswer(ResultQuestion resultQuestion, int percentTrueAnswer, int countTrueAnswer,
 			int countNotTrueAnswer, StateQuestion state) {
-		resultQuestion.setPercentCorrectAnswers(maxPercentTrueAnswer);
+		resultQuestion.setPercentCorrectAnswers(percentTrueAnswer);
 		resultQuestion.setNumberCorrectAnswers(countTrueAnswer);
 		resultQuestion.setNumberNotCorrectAnswer(countNotTrueAnswer);
 		resultQuestion.setState(state);

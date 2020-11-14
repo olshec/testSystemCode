@@ -114,7 +114,8 @@ public class TestResultTest {
 		//get question 1
 		List<Answer> listAnswer = listQuestion.get(0).getAnswers();
 		listAnswer.get(0).setChecked(true);
-		//--listAnswer.get(1).setChecked(true);
+		//set answer to error
+		listAnswer.get(1).setChecked(false);
 		
 		ResultTest resultTest = new TestController().checkTest(student1, test);
 		assertEquals(resultTest.getPercentCorrectQuestions(), 87);// ~87

@@ -73,5 +73,17 @@ public class QuestionController {
 	public void setAnswers(List<Answer> answers) {
 		question.setAnswers(answers);
 	}
+	
+	/**
+	 * Returns count of correct answers in question.
+	 * 
+	 * @param question
+	 * @return
+	 */
+	public int getCountCorrectAnswers(Question question) {
+		int countCountCorrectAnswers = 
+				new AnswerController().getCountCorrectAnswers(question.getAnswers());
+		return countCountCorrectAnswers;
+	}
 
 }

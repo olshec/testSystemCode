@@ -10,7 +10,7 @@ public class ResultTest extends Model {
 	private int numberCorrectQuestions;
 	private int numberNotCorrectQuestions;
 	private int numberPartlyQuestion;
-	private double percentCorrectQuestions;
+	private int percentCorrectQuestions;
 	private User student;
 	private Test test;
 	private List<ResultQuestion> resultQuestions;
@@ -45,7 +45,7 @@ public class ResultTest extends Model {
 	 * @param resultQuestions
 	 */
 	public ResultTest(int numberCorrectQuestions, int numberNotCorrectQuestions, int numberPartlyQuestion,
-			double percentCorrectQuestions, User student, Test test, List<ResultQuestion> resultQuestions) {
+			int percentCorrectQuestions, User student, Test test, List<ResultQuestion> resultQuestions) {
 		super();
 		this.numberCorrectQuestions = numberCorrectQuestions;
 		this.numberNotCorrectQuestions = numberNotCorrectQuestions;
@@ -148,7 +148,7 @@ public class ResultTest extends Model {
 	/**
 	 * @param percentCorrectQuestions the percentCorrectQuestions to set
 	 */
-	public void setPercentCorrectQuestions(double percentCorrectQuestions) {
+	public void setPercentCorrectQuestions(int percentCorrectQuestions) {
 		this.percentCorrectQuestions = percentCorrectQuestions;
 	}
 

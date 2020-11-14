@@ -16,4 +16,13 @@ public class AnswerController {
 		return count;
 	}
 	
+	public boolean checked(Answer answer) {
+		if(answer.isCorrect() == true && answer.isChecked()==true) {
+			return true;
+		} else if(answer.isCorrect() == false && answer.isChecked() == false) {
+			return true;
+		}
+			return false;
+	}
+	
 }

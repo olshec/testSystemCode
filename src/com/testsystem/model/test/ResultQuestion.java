@@ -8,7 +8,7 @@ public class ResultQuestion extends Model {
 	
 	private int numberCorrectAnswers;
 	private int numberNotCorrectAnswer;
-	private double percentCorrectAnswers;
+	private int percentCorrectAnswers;
 	private Question question;
 	private StateQuestion state;
 	/**
@@ -63,14 +63,14 @@ public class ResultQuestion extends Model {
 	/**
 	 * @return the percentCorrectAnswers
 	 */
-	public double getPercentCorrectAnswers() {
+	public int getPercentCorrectAnswers() {
 		return percentCorrectAnswers;
 	}
 
 	/**
 	 * @param percentCorrectAnswers the percentCorrectAnswers to set
 	 */
-	public void setPercentCorrectAnswers(double percentCorrectAnswers) {
+	public void setPercentCorrectAnswers(int percentCorrectAnswers) {
 		this.percentCorrectAnswers = percentCorrectAnswers;
 	}
 	
