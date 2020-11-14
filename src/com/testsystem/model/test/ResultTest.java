@@ -141,8 +141,8 @@ public class ResultTest extends Model {
 	/**
 	 * @return the percentCorrectQuestions
 	 */
-	public double getPercentCorrectQuestions() {
-		return percentCorrectQuestions;
+	public int getPercentCorrectQuestions() {
+		return (int)percentCorrectQuestions;
 	}
 
 	/**
