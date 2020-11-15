@@ -115,9 +115,4 @@ public class ResultTestController {
 		return resultTest;
 	}
 
-	public int getPoints(ResultTest result) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }
