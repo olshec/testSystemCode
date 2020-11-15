@@ -128,8 +128,7 @@ public class GroupController {
 	 */
 	public List<ResultTest> getRatingGroup(String nameGroup){
 		Group group = this.getGroupByName(nameGroup);
-		List<ResultTest> ratingGroup = RatingCalculator.getRatingGroup(group, new GroupController()
-				.getStudentsByGroup(group));
+		List<ResultTest> ratingGroup = RatingCalculator.getRatingGroup(group);
 		return ratingGroup;
 	}
 }

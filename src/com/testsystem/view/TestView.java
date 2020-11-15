@@ -55,6 +55,7 @@ public class TestView {
 	 * Set answers for question.
 	 */
 	private void setAnswers(String answerString, Question question) {
+		answerString = answerString.trim();
 		String[] answerOptions = answerString.split(" ");
 		List<Answer> answers = question.getAnswers();
 		for (int i = 0; i < answerOptions.length; i++) {

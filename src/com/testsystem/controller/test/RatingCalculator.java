@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import com.testsystem.controller.user.GroupController;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.Group;
@@ -46,8 +47,9 @@ public class RatingCalculator {
 	 * @param testBase the database of test
 	 * @return HashMap<User, Integer> the rating of student
 	 */
-	public static List<ResultTest> getRatingGroup(Group group, 
-			List<User> listStudent) {
+	public static List<ResultTest> getRatingGroup(Group group) {
+		List<User> listStudent = new GroupController()
+		.getStudentsByGroup(group);
 		List<ResultTest> groupRating = new ArrayList<ResultTest>();
 		for (int i = 0; i < listStudent.size(); i++) {
 			User student = listStudent.get(i);
