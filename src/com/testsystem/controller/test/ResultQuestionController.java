@@ -44,51 +44,15 @@ public class ResultQuestionController {
 		this.resultQuestion = resultQuestion;
 	}
 	
+	
+
 	/**
-	 * Checks questions.
+	 * Checks questions
 	 * 
-	 * @param student
 	 * @param test
+	 * @return List<ResultQuestion>
 	 */
-	public ResultTest checkQuestions(User student, Test test) {
-		List<ResultQuestion> resultQuestion = checkAnswers(test);
-		final double maxPercentTrueQuestion = 100;
-		int countQuestion = resultQuestion.size();
-		double percentPointOneQuestion = maxPercentTrueQuestion / countQuestion;
-
-		double percentTrueQuestions = 0;
-		int numberCorrectQuestion = 0;
-		int numberNotCorrectQuestion = 0;
-		int numberPartlyQuestion = 0;
-		for (int i = 0; i < resultQuestion.size(); i++) {
-			double percentCorrectAnswers = resultQuestion.get(i).getPercentCorrectAnswers();
-			if(percentCorrectAnswers == 0) {
-				numberNotCorrectQuestion++;
-			} else if (percentCorrectAnswers < maxPercentTrueQuestion) {
-				percentTrueQuestions += percentPointOneQuestion * (percentCorrectAnswers/100);
-				numberPartlyQuestion++;
-			} else {
-				numberCorrectQuestion++;
-				percentTrueQuestions += percentPointOneQuestion;
-			}
-		}
-		
-		ResultTest resultTest = null;
-		if (numberNotCorrectQuestion > 0 || numberPartlyQuestion > 0) {
-			resultTest = new ResultTest(numberCorrectQuestion, numberNotCorrectQuestion, numberPartlyQuestion,
-					(int)percentTrueQuestions, student, test, resultQuestion);
-		} else if (percentTrueQuestions <= 0) {
-			resultTest = new ResultTest(0, numberNotCorrectQuestion, 0,
-					0, student, test, resultQuestion);
-		} else {
-			resultTest = new ResultTest(numberCorrectQuestion, 0, 0,
-					(int)maxPercentTrueQuestion, student, test, resultQuestion);
-		}
-		return resultTest;
-	}
-
-	//Checks answers
-	private List<ResultQuestion> checkAnswers(Test test) {
+	public List<ResultQuestion> checkQuestions(Test test) {
 		List<ResultQuestion> resultQuestions = new ArrayList<>();
 		List<Question> userQuestions = test.getQuestions();
 		Test sourceTest = ServiceLocator.getDaoProvider()
@@ -109,6 +73,7 @@ public class ResultQuestionController {
 	 * 
 	 * @param userQuestion
 	 * @param sourceQuestion
+	 * @return ResultQuestion
 	 */
 	public ResultQuestion checkAnswers(List<Answer> userAnswers, List<Answer> sourceAnswers) {
 		final int maxPercentTrueAnswer = 100;

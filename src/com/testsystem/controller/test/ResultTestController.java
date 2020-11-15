@@ -3,6 +3,8 @@ package com.testsystem.controller.test;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.model.test.ResultQuestion;
+import com.testsystem.model.test.ResultQuestion.StateQuestion;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.User;
@@ -59,6 +61,58 @@ public class ResultTestController {
 			}
 		}
 		return null;
+	}
+	
+	/**
+	 * Checks test.
+	 * 
+	 * @param student
+	 * @param test
+	 */
+	public ResultTest checkTest(User student, Test test) {
+		List<ResultQuestion> resultQuestion = new ResultQuestionController().checkQuestions(test);
+		final double maxPercentTrueQuestion = 100;
+		int countQuestion = resultQuestion.size();
+		double percentPointOneQuestion = maxPercentTrueQuestion / countQuestion;
+
+		double percentTrueQuestions = 0;
+		int numberCorrectQuestion = 0;
+		int numberNotCorrectQuestion = 0;
+		int numberPartlyQuestion = 0;
+		int numberSkippedQuestion = 0;
+		for (int i = 0; i < resultQuestion.size(); i++) {
+			if(resultQuestion.get(i).getState() == StateQuestion.Skipped) {
+				numberSkippedQuestion++;
+			} else {
+				double percentCorrectAnswers = resultQuestion.get(i).getPercentCorrectAnswers();
+				if(percentCorrectAnswers == 0) {
+					numberNotCorrectQuestion++;
+				} else if (percentCorrectAnswers < maxPercentTrueQuestion) {
+					percentTrueQuestions += percentPointOneQuestion * (percentCorrectAnswers/100);
+					numberPartlyQuestion++;
+				} else {
+					numberCorrectQuestion++;
+					percentTrueQuestions += percentPointOneQuestion;
+				}
+			}
+		}
+		
+		ResultTest resultTest = null;
+		if (numberNotCorrectQuestion > 0 || numberPartlyQuestion > 0) { //has error in question
+			resultTest = new ResultTest(numberCorrectQuestion, numberNotCorrectQuestion, numberPartlyQuestion,
+					numberSkippedQuestion, (int)percentTrueQuestions, student, test, resultQuestion);
+		} else if (percentTrueQuestions <= 0) { //the test failed
+			resultTest = new ResultTest(0, numberNotCorrectQuestion, 0,
+					numberSkippedQuestion, 0, student, test, resultQuestion);
+		} else if (numberNotCorrectQuestion == 0 && 
+				numberPartlyQuestion == 0 && numberSkippedQuestion == 0) {// the test is 100% complete
+			resultTest = new ResultTest(numberCorrectQuestion, 0, 0,
+					numberSkippedQuestion, (int)maxPercentTrueQuestion, student, test, resultQuestion);
+		} else {//has skipped question
+			resultTest = new ResultTest(numberCorrectQuestion, numberNotCorrectQuestion, numberPartlyQuestion,
+					numberSkippedQuestion, (int)percentTrueQuestions, student, test, resultQuestion);
+		}
+		return resultTest;
 	}
 
 	public int getPoints(ResultTest result) {

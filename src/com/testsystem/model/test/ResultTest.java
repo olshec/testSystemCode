@@ -10,6 +10,7 @@ public class ResultTest extends Model {
 	private int numberCorrectQuestions;
 	private int numberNotCorrectQuestions;
 	private int numberPartlyQuestion;
+	private int numberSkippedQuestion;
 	private int percentCorrectQuestions;
 	private User student;
 	private Test test;
@@ -21,40 +22,6 @@ public class ResultTest extends Model {
 	public ResultTest() {
 		super();
 	}
-	
-	/**
-	 * @param student
-	 * @param test
-	 * @param result
-	 * @param resultQuestions
-	 */
-	public ResultTest(User student, Test test, List<ResultQuestion> resultQuestions) {
-		super();
-		this.student = student;
-		this.test = test;
-		this.resultQuestions = resultQuestions;
-	}
-
-	/**
-	 * @param numberCorrectQuestions
-	 * @param numberNotCorrectQuestions
-	 * @param numberPartlyQuestion
-	 * @param percentCorrectQuestions
-	 * @param student
-	 * @param test
-	 * @param resultQuestions
-	 */
-	public ResultTest(int numberCorrectQuestions, int numberNotCorrectQuestions, int numberPartlyQuestion,
-			int percentCorrectQuestions, User student, Test test, List<ResultQuestion> resultQuestions) {
-		super();
-		this.numberCorrectQuestions = numberCorrectQuestions;
-		this.numberNotCorrectQuestions = numberNotCorrectQuestions;
-		this.numberPartlyQuestion = numberPartlyQuestion;
-		this.percentCorrectQuestions = percentCorrectQuestions;
-		this.student = student;
-		this.test = test;
-		this.resultQuestions = resultQuestions;
-	}
 
 	/**
 	 * @param student
@@ -65,6 +32,30 @@ public class ResultTest extends Model {
 		super();
 		this.student = student;
 		this.test = test;
+	}
+
+	/**
+	 * @param numberCorrectQuestions
+	 * @param numberNotCorrectQuestions
+	 * @param numberPartlyQuestion
+	 * @param numberSkippedQuestion
+	 * @param percentCorrectQuestions
+	 * @param student
+	 * @param test
+	 * @param resultQuestions
+	 */
+	public ResultTest(int numberCorrectQuestions, int numberNotCorrectQuestions, int numberPartlyQuestion,
+			int numberSkippedQuestion, int percentCorrectQuestions, User student, Test test,
+			List<ResultQuestion> resultQuestions) {
+		super();
+		this.numberCorrectQuestions = numberCorrectQuestions;
+		this.numberNotCorrectQuestions = numberNotCorrectQuestions;
+		this.numberPartlyQuestion = numberPartlyQuestion;
+		this.numberSkippedQuestion = numberSkippedQuestion;
+		this.percentCorrectQuestions = percentCorrectQuestions;
+		this.student = student;
+		this.test = test;
+		this.resultQuestions = resultQuestions;
 	}
 
 	/**
@@ -165,8 +156,21 @@ public class ResultTest extends Model {
 	public void setNumberPartlyQuestion(int numberPartlyQuestion) {
 		this.numberPartlyQuestion = numberPartlyQuestion;
 	}
-
 	
+	/**
+	 * @return the numberSkippedQuestion
+	 */
+	public int getNumberSkippedQuestion() {
+		return numberSkippedQuestion;
+	}
+
+	/**
+	 * @param numberSkippedQuestion the numberSkippedQuestion to set
+	 */
+	public void setNumberSkippedQuestion(int numberSkippedQuestion) {
+		this.numberSkippedQuestion = numberSkippedQuestion;
+	}
+
 	/**
 	 * Prints result of test.
 	 * 
@@ -180,6 +184,8 @@ public class ResultTest extends Model {
 		result.append("Количество неверных вопросов: " + getNumberNotCorrectQuestions());
 		result.append(System.getProperty("line.separator"));
 		result.append("Количество частично верных вопросов: " + getNumberPartlyQuestion());
+		result.append(System.getProperty("line.separator"));
+		result.append("Количество пропущенных вопросов: " + getNumberSkippedQuestion());
 		result.append(System.getProperty("line.separator"));
 		result.append("Процент верных вопросов: " + getPercentCorrectQuestions() + "%");
 		result.append(System.getProperty("line.separator"));

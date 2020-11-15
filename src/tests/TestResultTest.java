@@ -175,31 +175,6 @@ public class TestResultTest {
 		assertEquals(resultTest.getNumberPartlyQuestion(), 1);
 	}
 	
-	//Question 1 and question 4 are not correct.
-	@Test
-	public void testResultTest7() {
-		loadTestData();
-
-		List<Question> listQuestion = test.getQuestions();
-		//get question 1
-		List<Answer> listAnswer = listQuestion.get(0).getAnswers();
-		listAnswer.get(0).setChecked(true);
-		//set answer to error
-		listAnswer.get(0).setChecked(false);
-		listAnswer.get(1).setChecked(false);
-		
-		//get question 4
-		listAnswer = listQuestion.get(3).getAnswers();
-		//set answer to error
-		listAnswer.get(0).setChecked(true);
-		
-		ResultTest resultTest = new TestController().checkTest(student1, test);
-		assertEquals(resultTest.getPercentCorrectQuestions(), 50);
-		assertEquals(resultTest.getNumberCorrectQuestions(), 2);
-		assertEquals(resultTest.getNumberNotCorrectQuestions(), 2);
-		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
-	}
-	
 	//Question 1 skipped.
 	@Test
 	public void testResultTestSkipped1() {
@@ -214,7 +189,35 @@ public class TestResultTest {
 		ResultTest resultTest = new TestController().checkTest(student1, test);
 		assertEquals(resultTest.getPercentCorrectQuestions(), 75);
 		assertEquals(resultTest.getNumberCorrectQuestions(), 3);
-		assertEquals(resultTest.getNumberNotCorrectQuestions(), 1);
+		assertEquals(resultTest.getNumberNotCorrectQuestions(), 0);
+		assertEquals(resultTest.getNumberSkippedQuestion(), 1);
 		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
 	}
+	
+	//Question 1 skipped and question 4 is not correct.
+	@Test
+	public void testResultTestSkipped2() {
+		loadTestData();
+
+		List<Question> listQuestion = test.getQuestions();
+		//get question 1
+		List<Answer> listAnswer = listQuestion.get(0).getAnswers();
+		//set answer to error
+		listAnswer.get(0).setChecked(false);
+		listAnswer.get(1).setChecked(false);
+		
+		//get question 4
+		listAnswer = listQuestion.get(3).getAnswers();
+		//set answer to error
+		listAnswer.get(0).setChecked(true);
+		
+		ResultTest resultTest = new TestController().checkTest(student1, test);
+		assertEquals(resultTest.getPercentCorrectQuestions(), 50);
+		assertEquals(resultTest.getNumberCorrectQuestions(), 2);
+		assertEquals(resultTest.getNumberNotCorrectQuestions(), 1);
+		assertEquals(resultTest.getNumberSkippedQuestion(), 1);
+		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
+	}
+	
+
 }
