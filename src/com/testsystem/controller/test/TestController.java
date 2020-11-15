@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.testsystem.model.Model;
 import com.testsystem.model.test.Question;
-import com.testsystem.model.test.ResultQuestion;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.User;

@@ -1,12 +1,12 @@
 package tests;
 
-import static org.junit.Assert.*;
-import java.util.List;
+//import static org.junit.Assert.*;
+//import java.util.List;
 
-import org.junit.Test;
-
-import com.testsystem.model.test.ResultTest;
-import com.testsystem.model.user.User;
+//import org.junit.Test;
+//
+//import com.testsystem.model.test.ResultTest;
+//import com.testsystem.model.user.User;
 
 import tests.stubs.TestFrontController;
 

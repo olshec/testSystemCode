@@ -7,9 +7,7 @@ import com.testsystem.model.test.Answer;
 import com.testsystem.model.test.Question;
 import com.testsystem.model.test.ResultQuestion;
 import com.testsystem.model.test.ResultQuestion.StateQuestion;
-import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
-import com.testsystem.model.user.User;
 import com.testsystem.util.ServiceLocator;
 
 public class ResultQuestionController {
