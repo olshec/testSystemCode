@@ -43,9 +43,8 @@ public class RatingCalculator {
 	/**
 	 * Gets rating for group.
 	 * 
-	 * @param student  the student
-	 * @param testBase the database of test
-	 * @return HashMap<User, Integer> the rating of student
+	 * @param group  the Group
+	 * @return List<ResultTest> the rating of student
 	 */
 	public static List<ResultTest> getRatingGroup(Group group) {
 		List<User> listStudent = new GroupController()
