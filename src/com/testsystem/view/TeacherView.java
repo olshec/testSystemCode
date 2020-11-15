@@ -108,14 +108,11 @@ public final class TeacherView extends UserView {
 		if (resultsTest != null) {
 			if (resultsTest.size() > 0) {
 				for (int i = 0; i < resultsTest.size(); i++) {
-//					if(resultsTest.get(i).getResult() >= 0) {
-//						String s = String.format("%d) %s %s: %d", i + 1, 
-//								resultsTest.get(i).getStudent().getLastName(),
-//								resultsTest.get(i).getStudent().getFirstName(), 
-//								resultsTest.get(i).getResult());
-//						System.out.println(s);
-//					}
-					System.out.println("this function not maked");
+					ResultTest resTest = resultsTest.get(i);
+					User student = resTest.getStudent();
+					System.out.println("Студент: " + student.getLastName() + " " + student.getFirstName());	
+					System.out.println(resTest.toString());
+					System.out.println();
 				}
 			} else {
 				System.out.println("Результаты теста отсутствуют");
