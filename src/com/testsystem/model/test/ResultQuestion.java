@@ -2,13 +2,17 @@ package com.testsystem.model.test;
 
 import com.testsystem.model.Model;
 
+/**
+ * @author user1
+ *
+ */
 public class ResultQuestion extends Model {
 	
 	public enum StateQuestion {Correct, Incorrect, Partly, Skipped}
 	
+	private int percentCorrectAnswers;
 	private int numberCorrectAnswers;
 	private int numberNotCorrectAnswer;
-	private int percentCorrectAnswers;
 	private Question question;
 	private StateQuestion state;
 	/**
@@ -16,6 +20,23 @@ public class ResultQuestion extends Model {
 	 */
 	public ResultQuestion() {
 		super();
+	}
+
+	/**
+	 * @param percentCorrectAnswers
+	 * @param numberCorrectAnswers
+	 * @param numberNotCorrectAnswer
+	 * @param question
+	 * @param state
+	 */
+	public ResultQuestion(int percentCorrectAnswers, int numberCorrectAnswers, int numberNotCorrectAnswer,
+			Question question, StateQuestion state) {
+		super();
+		this.percentCorrectAnswers = percentCorrectAnswers;
+		this.numberCorrectAnswers = numberCorrectAnswers;
+		this.numberNotCorrectAnswer = numberNotCorrectAnswer;
+		this.question = question;
+		this.state = state;
 	}
 
 	/**

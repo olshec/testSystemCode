@@ -14,38 +14,13 @@ import com.testsystem.util.ServiceLocator;
 
 public class ResultQuestionController {
 
-	private ResultQuestion resultQuestion;
 	/**
 	 * 
 	 */
 	public ResultQuestionController() {
 		super();
 	}
-
-	/**
-	 * @param resultQuestion
-	 */
-	public ResultQuestionController(ResultQuestion resultQuestion) {
-		super();
-		this.resultQuestion = resultQuestion;
-	}
-
-	/**
-	 * @return the resultQuestion
-	 */
-	public ResultQuestion getResultQuestion() {
-		return resultQuestion;
-	}
-
-	/**
-	 * @param resultQuestion the resultQuestion to set
-	 */
-	public void setResultQuestion(ResultQuestion resultQuestion) {
-		this.resultQuestion = resultQuestion;
-	}
 	
-	
-
 	/**
 	 * Checks questions
 	 * 
@@ -59,24 +34,23 @@ public class ResultQuestionController {
 				.getTest(test);
 		List<Question> sourceQuestions = sourceTest.getQuestions();
 		for(int i = 0; i < sourceQuestions.size(); i++) {
-			Question userQuestion = userQuestions.get(i);
-			List<Answer> userAnswers = userQuestion.getAnswers();
-			List<Answer> sourceAnswers = sourceQuestions.get(i).getAnswers();
-			ResultQuestion resultQuestion = checkAnswers(userAnswers, sourceAnswers);
+			ResultQuestion resultQuestion = checkAnswers(userQuestions.get(i), sourceQuestions.get(i));
 			resultQuestions.add(resultQuestion);
 		}
 		return resultQuestions;
 	}
 	
-	/**
+	/*
 	 * Checks answers.
 	 * 
 	 * @param userQuestion
 	 * @param sourceQuestion
 	 * @return ResultQuestion
 	 */
-	public ResultQuestion checkAnswers(List<Answer> userAnswers, List<Answer> sourceAnswers) {
+	private ResultQuestion checkAnswers(Question questionUser, Question questionSource) {
 		final int maxPercentTrueAnswer = 100;
+		List<Answer> userAnswers = questionUser.getAnswers();
+		List<Answer> sourceAnswers = questionSource.getAnswers();
 		int countCorrectAnswers = new AnswerController().getCountCorrectAnswers(sourceAnswers);
 		double percentPointOneAnswer = maxPercentTrueAnswer / countCorrectAnswers;
 		double percentTrueAnswers = 100;
@@ -99,35 +73,19 @@ public class ResultQuestionController {
 				countNotTrueAnswer++;
 			}
 		}
-		this.resultQuestion = new ResultQuestion();
+		
+		ResultQuestion resultQuestion = null;
 		if(!hasChecked) {
-			setOptionsCorrectAnswer(resultQuestion, 0, 0, 0, StateQuestion.Skipped);
+			resultQuestion = new ResultQuestion(0, 0, 0, questionUser, StateQuestion.Skipped);
 		} else if (countTrueAnswer == 0) {
-			setOptionsCorrectAnswer(resultQuestion, 0, 0, countNotTrueAnswer, StateQuestion.Incorrect);
+			resultQuestion = new ResultQuestion(0, 0, countNotTrueAnswer, questionUser,StateQuestion.Incorrect);
 		} else if (countNotTrueAnswer > 0 && countTrueAnswer > 0) {
 			percentTrueAnswers = (percentTrueAnswers < 0? 0 : percentTrueAnswers);
-			setOptionsCorrectAnswer(resultQuestion, (int)percentTrueAnswers, countTrueAnswer, countNotTrueAnswer,  StateQuestion.Partly);
+			resultQuestion = new ResultQuestion((int)percentTrueAnswers, countTrueAnswer, countNotTrueAnswer, questionUser, StateQuestion.Partly);
 		}  else {
-			setOptionsCorrectAnswer(resultQuestion, maxPercentTrueAnswer, countTrueAnswer, countNotTrueAnswer, StateQuestion.Correct);
+			resultQuestion = new ResultQuestion((int)maxPercentTrueAnswer, countTrueAnswer, countNotTrueAnswer, questionUser, StateQuestion.Correct);
 		}
 		return resultQuestion;
-	}
-	
-	/*
-	 * Sets options for answers.
-	 * 
-	 * @param resultQuestion        result of answers
-	 * @param maxPercentTrueAnswer double
-	 * @param countTrueAnswer      int
-	 * @param countNotTrueAnswer   int
-	 * @param state   StateQuestion
-	 */
-	private void setOptionsCorrectAnswer(ResultQuestion resultQuestion, int percentTrueAnswer, int countTrueAnswer,
-			int countNotTrueAnswer, StateQuestion state) {
-		resultQuestion.setPercentCorrectAnswers(percentTrueAnswer);
-		resultQuestion.setNumberCorrectAnswers(countTrueAnswer);
-		resultQuestion.setNumberNotCorrectAnswer(countNotTrueAnswer);
-		resultQuestion.setState(state);
 	}
 	
 }
