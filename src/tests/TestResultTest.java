@@ -202,7 +202,7 @@ public class TestResultTest {
 		List<Question> listQuestion = test.getQuestions();
 		//get question 1
 		List<Answer> listAnswer = listQuestion.get(0).getAnswers();
-		//set answer to error
+		//set answers to error
 		listAnswer.get(0).setChecked(false);
 		listAnswer.get(1).setChecked(false);
 		
@@ -219,5 +219,61 @@ public class TestResultTest {
 		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
 	}
 	
+	//question 1 is not correct, questions 2 and 4 are skipped.
+	@Test
+	public void testResultTestSkipped3() {
+		loadTestData();
+
+		List<Question> listQuestion = test.getQuestions();
+		//get question 1
+		List<Answer> listAnswer = listQuestion.get(0).getAnswers();
+		//set answer to error
+		listAnswer.get(0).setChecked(false);
+		
+		//get question 2
+		listAnswer = listQuestion.get(1).getAnswers();
+		//set answer to skipped
+		listAnswer.get(1).setChecked(false);		
+		
+		//get question 4
+		listAnswer = listQuestion.get(3).getAnswers();
+		//set answer to skipped
+		listAnswer.get(2).setChecked(false);
+		
+		ResultTest resultTest = new TestController().checkTest(student1, test);
+		assertEquals(resultTest.getPercentCorrectQuestions(), 37);
+		assertEquals(resultTest.getNumberCorrectQuestions(), 1);
+		assertEquals(resultTest.getNumberNotCorrectQuestions(), 0);
+		assertEquals(resultTest.getNumberSkippedQuestion(), 2);
+		assertEquals(resultTest.getNumberPartlyQuestion(), 1);
+	}
+	
+	//All Question are skipped.
+	@Test
+	public void testResultTestSkipped4() {
+		loadTestData();
+
+		List<Question> listQuestion = test.getQuestions();
+		//get question 1
+		List<Answer> listAnswer = listQuestion.get(0).getAnswers();
+		listAnswer.get(0).setChecked(false);
+		listAnswer.get(1).setChecked(false);
+		//get question 2
+		listAnswer = listQuestion.get(1).getAnswers();
+		listAnswer.get(1).setChecked(false);
+		//get question 3
+		listAnswer = listQuestion.get(2).getAnswers();
+		listAnswer.get(3).setChecked(false);
+		//get question 4
+		listAnswer = listQuestion.get(3).getAnswers();
+		listAnswer.get(2).setChecked(false);
+		
+		ResultTest resultTest = new TestController().checkTest(student1, test);
+		assertEquals(resultTest.getPercentCorrectQuestions(), 0);
+		assertEquals(resultTest.getNumberCorrectQuestions(), 0);
+		assertEquals(resultTest.getNumberNotCorrectQuestions(), 0);
+		assertEquals(resultTest.getNumberSkippedQuestion(), 4);
+		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
+	}
 
 }
