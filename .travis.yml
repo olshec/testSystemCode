@@ -1,0 +1,30 @@
+language: java
+
+jdk:
+- openjdk11
+
+#services:
+#- postgresql
+
+#before_install:
+#- psql -c 'create database tracker;' -U postgres
+
+#cache:
+#  directories:
+#  - $HOME/.m2
+
+## using https://codecov.io/
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+## send to olshec@gmail.com
+notifications:
+  email:
+    recipients:
+      - olshec@gmail.com
+    on_success: never # default: change
+    on_failure: always # default: always
+
+env:
+  global:
+  - CODECOV_TOKEN="8c384afe-7de4-4a47-9818-23f905e419ef"
