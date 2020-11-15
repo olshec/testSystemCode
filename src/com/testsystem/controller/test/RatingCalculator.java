@@ -34,7 +34,7 @@ public class RatingCalculator {
 		for (int i = 0; i < listTest.size(); i++) {
 			Test test = listTest.get(i);
 			ResultTest testResult = new TestController(test).getStudentTestResult(student, listTest.get(i));
-			point += new ResultTestController().getPoints(testResult);
+			point += testResult.getPercentCorrectQuestions();
 		}
 		int rating = point * 2 / listTest.size();
 		return rating;
@@ -65,8 +65,8 @@ public class RatingCalculator {
 		Collections.sort(listStudentResult, new Comparator<ResultTest>() {
 			@Override
 			public int compare(ResultTest result1, ResultTest result2) {
-				int pointsResult1 = new ResultTestController().getPoints(result1);
-				int pointsResult2 = new ResultTestController().getPoints(result2);
+				int pointsResult1 = result1.getPercentCorrectQuestions();
+				int pointsResult2 = result2.getPercentCorrectQuestions();
 				if(pointsResult2>pointsResult1) {
 					return 1;
 				} else if (pointsResult2==pointsResult1) {

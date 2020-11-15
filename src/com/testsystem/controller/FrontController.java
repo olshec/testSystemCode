@@ -1,9 +1,7 @@
 package com.testsystem.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import com.testsystem.DAO.DAOProvider;
-import com.testsystem.controller.test.QuestionController;
 import com.testsystem.controller.test.RatingCalculator;
 import com.testsystem.controller.test.TestController;
 import com.testsystem.controller.user.AdministratorController;
@@ -11,8 +9,6 @@ import com.testsystem.controller.user.GroupController;
 import com.testsystem.controller.user.StudentController;
 import com.testsystem.controller.user.TeacherController;
 import com.testsystem.controller.user.UserController;
-import com.testsystem.model.test.Answer;
-import com.testsystem.model.test.Question;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.Administrator;
