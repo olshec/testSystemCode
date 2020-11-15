@@ -43,8 +43,8 @@ public class ResultQuestionController {
 	/*
 	 * Checks answers.
 	 * 
-	 * @param userQuestion
-	 * @param sourceQuestion
+	 * @param questionUser
+	 * @param questionSource
 	 * @return ResultQuestion
 	 */
 	private ResultQuestion checkAnswers(Question questionUser, Question questionSource) {

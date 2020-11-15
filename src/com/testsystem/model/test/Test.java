@@ -19,7 +19,6 @@ public class Test extends Model {
 	private User teacher;
 	private List<Question> questions;
 	private List<User> students;
-	//private List<StudentTestResult> studentsResult;
 	private Integer id;
 	private static Integer idIncrement;
 	
