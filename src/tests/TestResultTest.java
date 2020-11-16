@@ -490,6 +490,27 @@ public class TestResultTest {
 		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
 	}
 	
+	//All Answers are checked.
+	@Test
+	public void testResultTestAllAnswerChecked() {
+		
+		//set all answers to checked
+		List<Question> listQuestion = test.getQuestions();
+		for(Question q: listQuestion) {
+			List<Answer> listAnswer = q.getAnswers();
+			for(Answer a: listAnswer) {
+				a.setChecked(true);
+			}
+		}
+		
+		ResultTest resultTest = new TestController().checkTest(student1, test);
+		assertEquals(resultTest.getPercentCorrectQuestions(), 0);
+		assertEquals(resultTest.getNumberCorrectQuestions(), 0);
+		assertEquals(resultTest.getNumberNotCorrectQuestions(), 12);
+		assertEquals(resultTest.getNumberSkippedQuestion(), 0);
+		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
+	}
+	
 	//All Question are skipped.
 	@Test
 	public void testResultTestAllSkipped() {
