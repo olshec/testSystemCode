@@ -1,5 +1,6 @@
 package com.testsystem.model.test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.model.Model;
@@ -28,6 +29,7 @@ public class Question extends Model {
 	 * @param text the text of question
 	 */
 	public Question(String text) {
+		answers = new ArrayList<Answer>();
 		this.id = Question.idIncrement;
 		Question.idIncrement++;
 		setText(text);

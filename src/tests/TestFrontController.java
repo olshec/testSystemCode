@@ -94,7 +94,7 @@ public class TestFrontController {
 		String lastNameTeacher = testController.getTest().getTeacher().getLastName();
 
 		assertEquals(testController.getNameTest(), "Космология");
-		assertEquals(testController.getNumberQuestions(), 4);
+		assertEquals(testController.getNumberQuestions(), 12);
 		assertEquals(testController2.getNameTest(), "Сетевые технологии");
 		assertEquals(testController2.getNumberQuestions(), 3);
 		assertEquals(lastNameTeacher, "Киров");
@@ -105,7 +105,7 @@ public class TestFrontController {
 		int countQuestion = frontController.getNumberQuestionsInTest(student1, 0);
 		int countQuestion2 = frontController.getNumberQuestionsInTest(student1, 1);
 
-		assertEquals(countQuestion, 4);
+		assertEquals(countQuestion, 12);
 		assertEquals(countQuestion2, 3);
 	}
 

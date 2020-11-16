@@ -73,5 +73,12 @@ public class QuestionController {
 	public void setAnswers(List<Answer> answers) {
 		question.setAnswers(answers);
 	}
+	
+	/**
+	 * Adds answer
+	 */
+	public void addAnswer(Answer answer) {
+		this.question.getAnswers().add(answer);
+	}
 
 }
