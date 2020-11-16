@@ -55,30 +55,29 @@ public class LoaderDataToApplication {
 		answersForQuestion3.add(new Answer("Нил Армстронг", "", true));
 		q3.setAnswers(answersForQuestion3);
 		
-		Question q3_2 = new QuestionController().getNewQuestion("Как называется ближайшая к Солнцу планета?");
-		List<Answer> answersForQuestion3_2  = new ArrayList<Answer>();
-		answersForQuestion3_2 .add(new Answer("Марс", "", false));
-		answersForQuestion3_2 .add(new Answer("Плутон", "", false));
-		answersForQuestion3_2 .add(new Answer("Меркурий", "", true));
-		answersForQuestion3_2 .add(new Answer("Юпитер", "", false));
-		q3_2.setAnswers(answersForQuestion3_2 );
+		Question q4 = new QuestionController().getNewQuestion("Как называется ближайшая к Солнцу планета?");
+		List<Answer> answersForQuestion4  = new ArrayList<Answer>();
+		answersForQuestion4 .add(new Answer("Марс", "", false));
+		answersForQuestion4 .add(new Answer("Плутон", "", false));
+		answersForQuestion4 .add(new Answer("Меркурий", "", true));
+		answersForQuestion4 .add(new Answer("Юпитер", "", false));
+		q4.setAnswers(answersForQuestion4 );
 		
 		TestController testController = new TestController(test1);
 		
 		testController.addQuestion(q1);
 		testController.addQuestion(q2);
 		testController.addQuestion(q3);
-		testController.addQuestion(q3_2);
+		testController.addQuestion(q4);
 
-		Question q4 = new QuestionController().getNewQuestion("Протокол HTTP");
-		Question q5 = new QuestionController().getNewQuestion("Характеристика OSI");
-		Question q6 = new QuestionController().getNewQuestion("Протокол TCP");
+		Question q5 = new QuestionController().getNewQuestion("Протокол HTTP");
+		Question q6 = new QuestionController().getNewQuestion("Характеристика OSI");
+		Question q7 = new QuestionController().getNewQuestion("Протокол TCP");
 
 		testController.setTest(test2);
-		//testController.addQuestion(q3);
-		testController.addQuestion(q4);
 		testController.addQuestion(q5);
 		testController.addQuestion(q6);
+		testController.addQuestion(q7);
 		
 		TestController.saveTest(test1);
 		TestController.saveTest(test2);
