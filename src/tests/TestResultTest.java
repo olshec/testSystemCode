@@ -52,31 +52,31 @@ public class TestResultTest {
 		listAnswer = listQuestion.get(3).getAnswers();
 		listAnswer.get(2).setChecked(true);
 		
-		//get question 1
+		//get question 5
 		listAnswer = listQuestion.get(4).getAnswers();
 		listAnswer.get(0).setChecked(true);
 		listAnswer.get(1).setChecked(true);
-		//get question 2
+		//get question 6
 		listAnswer = listQuestion.get(5).getAnswers();
 		listAnswer.get(1).setChecked(true);
-		//get question 3
+		//get question 7
 		listAnswer = listQuestion.get(6).getAnswers();
 		listAnswer.get(3).setChecked(true);
-		//get question 4
+		//get question 8
 		listAnswer = listQuestion.get(7).getAnswers();
 		listAnswer.get(2).setChecked(true);
 		
-		//get question 1
+		//get question 9
 		listAnswer = listQuestion.get(8).getAnswers();
 		listAnswer.get(0).setChecked(true);
 		listAnswer.get(1).setChecked(true);
-		//get question 2
+		//get question 10
 		listAnswer = listQuestion.get(9).getAnswers();
 		listAnswer.get(1).setChecked(true);
-		//get question 3
+		//get question 11
 		listAnswer = listQuestion.get(10).getAnswers();
 		listAnswer.get(3).setChecked(true);
-		//get question 4
+		//get question 12
 		listAnswer = listQuestion.get(11).getAnswers();
 		listAnswer.get(2).setChecked(true);
 	}
