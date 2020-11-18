@@ -12,6 +12,7 @@ public class ResultTest extends Model {
 	private int numberPartlyQuestion;
 	private int numberSkippedQuestion;
 	private int percentCorrectQuestions;
+	private int points;
 	private User student;
 	private Test test;
 	private List<ResultQuestion> resultQuestions;
@@ -45,6 +46,18 @@ public class ResultTest extends Model {
 		this.student = student;
 		this.test = test;
 		this.resultQuestions = resultQuestions;
+	}
+
+	/**
+	 * @param points
+	 * @param student
+	 * @param test
+	 */
+	public ResultTest(User student, Test test, int points) {
+		super();
+		this.points = points;
+		this.student = student;
+		this.test = test;
 	}
 
 	/**
@@ -158,6 +171,20 @@ public class ResultTest extends Model {
 	 */
 	public void setNumberSkippedQuestion(int numberSkippedQuestion) {
 		this.numberSkippedQuestion = numberSkippedQuestion;
+	}
+	
+	/**
+	 * @return the points
+	 */
+	public int getPoints() {
+		return points;
+	}
+
+	/**
+	 * @param points the points to set
+	 */
+	public void setPoints(int points) {
+		this.points = points;
 	}
 
 	/**
