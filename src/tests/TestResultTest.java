@@ -111,7 +111,7 @@ public class TestResultTest {
 		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
 	}
 	
-	//Question 4 is not correct. It's check all answer in question 4.
+	//Question 4 is not correct. All answers in question 4 are checked.
 	@Test
 	public void testResultTest3() {
 		loadTestData();
@@ -176,7 +176,8 @@ public class TestResultTest {
 		assertEquals(resultTest.getNumberPartlyQuestion(), 1);
 	}
 	
-	//Question 5 is partly correct and question 4 is not correct. It's check all answer in question 4.
+	//Question 5 is partly correct and question 4 is not correct. 
+	//All answers in question 4 are checked.
 	@Test
 	public void testResultTest6() {
 		loadTestData();
