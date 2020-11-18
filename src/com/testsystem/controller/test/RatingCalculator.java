@@ -32,8 +32,9 @@ public class RatingCalculator {
 	public static int getRatingStudent(User student, List<Test> listTest) {
 		int point = 0;
 		int count_question = 0;
+		TestController testController = new TestController();
 		for (int i = 0; i < listTest.size(); i++) {
-			ResultTest testResult = new TestController().getStudentTestResult(student, listTest.get(i));
+			ResultTest testResult = testController.getStudentTestResult(student, listTest.get(i));
 			if(testResult!=null) {
 				point += testResult.getPoints();
 				count_question++;

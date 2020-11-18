@@ -115,8 +115,8 @@ public class TestController {
 	 * @param student the student for grading
 	 * @param points  the student point
 	 */
-	public void saveResultInDatabase(User student, Test test, int points) {
-		ServiceLocator.getDaoProvider().addRecord(new ResultTest(student, test, points));
+	public void saveResultInDatabase(ResultTest resultTest) {
+		ServiceLocator.getDaoProvider().addRecord(resultTest);
 	}
 
 	/**
@@ -237,7 +237,7 @@ public class TestController {
 	public ResultTest checkTest(User student, Test test) {
 		ResultTest resultTest = new ResultTestController().
 				checkTest(student, test);
-		saveResultInDatabase(student, resultTest.getTest(), resultTest.getPoints());
+		saveResultInDatabase(resultTest);
 		return resultTest;
 	}
 }
