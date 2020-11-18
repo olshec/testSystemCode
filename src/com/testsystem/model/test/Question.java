@@ -112,7 +112,7 @@ public class Question extends Model {
 		if (getClass() != obj.getClass())
 			return false;
 		Question other = (Question) obj;
-		if (this.id != other.id) {
+		if (this.id != other.getID()) {
 			return false;
 		}
 		return true;

@@ -170,7 +170,7 @@ public class Test extends Model {
 		if (getClass() != obj.getClass())
 			return false;
 		Test other = (Test) obj;
-		if (id != other.id)
+		if (id != other.getId())
 			return false;
 		return true;
 	}
