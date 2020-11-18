@@ -100,19 +100,35 @@ public class ResultTestController {
 		ResultTest resultTest = null;
 		if (numberNotCorrectQuestion > 0 || numberPartlyQuestion > 0) { //has error in question
 			resultTest = new ResultTest(numberCorrectQuestion, numberNotCorrectQuestion, numberPartlyQuestion,
-					numberSkippedQuestion, (int)percentTrueQuestions, student, test, resultQuestion);
+					numberSkippedQuestion, (int)percentTrueQuestions, 
+					calculatePoints((int)percentTrueQuestions), student, test, resultQuestion);
 		} else if (percentTrueQuestions <= 0) { //the test failed
 			resultTest = new ResultTest(0, numberNotCorrectQuestion, 0,
-					numberSkippedQuestion, 0, student, test, resultQuestion);
+					numberSkippedQuestion, 0, calculatePoints(0), student, test, resultQuestion);
 		} else if (numberNotCorrectQuestion == 0 && 
 				numberPartlyQuestion == 0 && numberSkippedQuestion == 0) {// the test is 100% complete
 			resultTest = new ResultTest(numberCorrectQuestion, 0, 0,
-					numberSkippedQuestion, (int)maxPercentTrueQuestion, student, test, resultQuestion);
+					numberSkippedQuestion, (int)maxPercentTrueQuestion, 
+					calculatePoints((int)maxPercentTrueQuestion), student, test, resultQuestion);
 		} else {//has skipped question
 			resultTest = new ResultTest(numberCorrectQuestion, numberNotCorrectQuestion, numberPartlyQuestion,
-					numberSkippedQuestion, (int)percentTrueQuestions, student, test, resultQuestion);
+					numberSkippedQuestion, (int)percentTrueQuestions, 
+					calculatePoints((int)percentTrueQuestions), student, test, resultQuestion);
 		}
 		return resultTest;
 	}
 
+	private int calculatePoints(int percentTrueQuestions) {
+		int points = 0;
+		if (percentTrueQuestions < 40) {
+			points = 2;
+		} else if (percentTrueQuestions < 64) {
+			points = 3;
+		} else if (percentTrueQuestions < 81) {
+			points = 4;
+		} else if (percentTrueQuestions >= 81 && percentTrueQuestions <= 100){
+			points = 5;
+		}
+		return points;	
+	}
 }

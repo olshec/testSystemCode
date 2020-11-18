@@ -35,7 +35,7 @@ public class ResultTest extends Model {
 	 * @return resultQuestions
 	 */
 	public ResultTest(int numberCorrectQuestions, int numberNotCorrectQuestions, int numberPartlyQuestion,
-			int numberSkippedQuestion, int percentCorrectQuestions, User student, Test test,
+			int numberSkippedQuestion, int percentCorrectQuestions, int points, User student, Test test,
 			List<ResultQuestion> resultQuestions) {
 		super();
 		this.numberCorrectQuestions = numberCorrectQuestions;
@@ -43,6 +43,7 @@ public class ResultTest extends Model {
 		this.numberPartlyQuestion = numberPartlyQuestion;
 		this.numberSkippedQuestion = numberSkippedQuestion;
 		this.percentCorrectQuestions = percentCorrectQuestions;
+		this.points = points;
 		this.student = student;
 		this.test = test;
 		this.resultQuestions = resultQuestions;
