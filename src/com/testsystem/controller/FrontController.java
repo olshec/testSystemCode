@@ -44,7 +44,7 @@ public class FrontController {
 		daoProvider.addTable(new ResultTest().getNameModel());
 		
 		LoaderDataToApplication loader = new LoaderDataToApplication();
-		loader.loadData();
+		loader.loadData(this);
 	}
 
 	/**

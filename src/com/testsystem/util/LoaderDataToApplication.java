@@ -2,6 +2,8 @@ package com.testsystem.util;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.testsystem.controller.FrontController;
 import com.testsystem.controller.test.QuestionController;
 import com.testsystem.controller.test.TestController;
 import com.testsystem.controller.user.AdministratorController;
@@ -11,13 +13,14 @@ import com.testsystem.controller.user.TeacherController;
 import com.testsystem.controller.user.UserController;
 import com.testsystem.model.test.Answer;
 import com.testsystem.model.test.Question;
+import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.Group;
 import com.testsystem.model.user.User;
 
 public class LoaderDataToApplication {
 	
-	public void loadData() {
+	public void loadData(FrontController frontController) {
 		UserController userController = new UserController();
 		User admin1 = new AdministratorController().getNewAdministrator("Примарев", 
 				"Игорь", "Admin1", "0000");
@@ -99,10 +102,10 @@ public class LoaderDataToApplication {
 		testController.saveResultInDatabase(student4, test3, 5);
 		testController.saveResultInDatabase(student5, test3, 2);
 		
-		loadTestData();
+		loadTestData(frontController);
 	}
 	
-	private void loadTestData() {
+	private void loadTestData(FrontController frontController) {
 		Test test = new TestController().getTest(0);
 		List<Question> listQuestion = test.getQuestions();
 		//get question 1
@@ -119,10 +122,39 @@ public class LoaderDataToApplication {
 		listAnswer = listQuestion.get(3).getAnswers();
 		listAnswer.get(2).setChecked(true);
 		
-//		Group g1 = new GroupController().getNewGroup("Group 1");
-//		User student1 	= 	new StudentController().getNewStudent("Шахматов", "Антон", "ShAnton", "1111", g1);
-//		ResultTest resultTest = new TestController().checkTest(student1, test);
-//		System.out.println(resultTest.toString());
+
+		//get question 5
+		listAnswer = listQuestion.get(4).getAnswers();
+		listAnswer.get(0).setChecked(true);
+		listAnswer.get(1).setChecked(true);
+		//get question 6
+		listAnswer = listQuestion.get(5).getAnswers();
+		listAnswer.get(1).setChecked(true);
+		//get question 7
+		listAnswer = listQuestion.get(6).getAnswers();
+		listAnswer.get(3).setChecked(true);
+		//get question 8
+		listAnswer = listQuestion.get(7).getAnswers();
+		listAnswer.get(2).setChecked(true);
+		
+
+		//get question 9
+		listAnswer = listQuestion.get(8).getAnswers();
+		listAnswer.get(0).setChecked(true);
+		listAnswer.get(1).setChecked(true);
+		//get question 10
+		listAnswer = listQuestion.get(9).getAnswers();
+		listAnswer.get(1).setChecked(true);
+		//get question 11
+		listAnswer = listQuestion.get(10).getAnswers();
+		listAnswer.get(3).setChecked(true);
+		//get question 12
+		listAnswer = listQuestion.get(11).getAnswers();
+		listAnswer.get(2).setChecked(true);
+		
+		User student1 = frontController.login("ShAnton", "1111");
+		ResultTest resultTest = new TestController().checkTest(student1, test);
+		System.out.println(resultTest.toString());
 	}
 	
 	private void addTest1(User teacher, Test test) {
