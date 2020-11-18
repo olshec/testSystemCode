@@ -60,6 +60,17 @@ public class ResultTest extends Model {
 		this.student = student;
 		this.test = test;
 	}
+	
+	/**
+	 * @param points
+	 * @param student
+	 * @param test
+	 */
+	public ResultTest(User student, int points) {
+		super();
+		this.points = points;
+		this.student = student;
+	}
 
 	/**
 	 * @return the student
