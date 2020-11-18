@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import com.testsystem.controller.user.GroupController;
+import com.testsystem.model.test.RatingGroup;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.Group;
@@ -50,25 +51,25 @@ public class RatingCalculator {
 	 * @param group  the Group
 	 * @return List<ResultTest> the rating of student
 	 */
-	public static List<ResultTest> getRatingGroup(Group group) {
+	public static List<RatingGroup> getRatingGroup(Group group) {
 		List<User> listStudent = new GroupController()
 		.getStudentsByGroup(group);
-		List<ResultTest> groupRating = new ArrayList<ResultTest>();
+		List<RatingGroup> groupRating = new ArrayList<RatingGroup>();
 		for (int i = 0; i < listStudent.size(); i++) {
 			User student = listStudent.get(i);
 			List<Test> listStudentTests = new TestController().getStudentTests(student);
 			int ratingStudent = RatingCalculator.getRatingStudent(student, listStudentTests);
-			groupRating.add(new ResultTest(student, listStudentTests.get(i), ratingStudent));
+			groupRating.add(new RatingGroup(group, student, ratingStudent));
 		}
 		groupRating = sortByValue(groupRating);
 		return groupRating;
 	}
 
 	// function to sort arrayList by values
-	private static List<ResultTest> sortByValue(List<ResultTest> listStudentResult) {
-		Collections.sort(listStudentResult, new Comparator<ResultTest>() {
+	private static List<RatingGroup> sortByValue(List<RatingGroup> listStudentResult) {
+		Collections.sort(listStudentResult, new Comparator<RatingGroup>() {
 			@Override
-			public int compare(ResultTest result1, ResultTest result2) {
+			public int compare(RatingGroup result1, RatingGroup result2) {
 				int pointsResult1 = result1.getPoints();
 				int pointsResult2 = result2.getPoints();
 				if(pointsResult2>pointsResult1) {

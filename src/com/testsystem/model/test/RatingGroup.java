@@ -2,9 +2,11 @@ package com.testsystem.model.test;
 
 import com.testsystem.model.Model;
 import com.testsystem.model.user.Group;
+import com.testsystem.model.user.User;
 
 public class RatingGroup extends Model {
 	private Group group;
+	private User student;
 	private int points;
 	private Integer id;
 	private static Integer idIncrement;
@@ -19,10 +21,11 @@ public class RatingGroup extends Model {
 	 * @param group
 	 * @param points
 	 */
-	public RatingGroup(Group group, int points) {
+	public RatingGroup(Group group, User student, int points) {
 		super();
 		this.group = group;
 		this.points = points;
+		this.student = student;
 		this.id = RatingGroup.idIncrement;
 		RatingGroup.idIncrement++;
 	}
@@ -67,6 +70,20 @@ public class RatingGroup extends Model {
 	 */
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the student
+	 */
+	public User getStudent() {
+		return student;
+	}
+
+	/**
+	 * @param student the student to set
+	 */
+	public void setStudent(User student) {
+		this.student = student;
 	}
 
 	/**
