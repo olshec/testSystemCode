@@ -49,18 +49,19 @@ public class ResultTestController {
 	 * 
 	 * @param student
 	 * @param test
-	 * @return ResultTest the result of test
+	 * @return List<ResultTest> the result of test
 	 */
-	public ResultTest getResultsOfTest(User student, Test test) {
+	public List<ResultTest> getResultsOfTest(User student, Test test) {
 		List<ResultTest> records = ServiceLocator.getDaoProvider().
 				getResultTestRecords();
+		List<ResultTest> listResult = new ArrayList<ResultTest>();
 		for(ResultTest result: records) {
 			if (result.getTest().equals(test) && 
 					result.getStudent().equals(student)) {
-				return result;
+				listResult.add(result);
 			}
 		}
-		return null;
+		return listResult;
 	}
 	
 	/**

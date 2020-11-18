@@ -48,8 +48,7 @@ public class LoaderDataToApplication {
 		testController.addQuestion(q7);
 		
 		
-		TestController.saveTest(test2);
-		TestController.saveTest(test3);
+		
 
 		Group g1 = new GroupController().getNewGroup("Group 1");
 		new GroupController().saveGroupInDatabase(g1);
@@ -101,6 +100,10 @@ public class LoaderDataToApplication {
 		testController.saveResultInDatabase(new ResultTest(student3, test3, 5));
 		testController.saveResultInDatabase(new ResultTest(student4, test3, 5));
 		testController.saveResultInDatabase(new ResultTest(student5, test3, 2));
+		
+		//TestController.saveTest(test1);
+		TestController.saveTest(test2);
+		TestController.saveTest(test3);
 		
 		loadTestData(frontController);
 	}

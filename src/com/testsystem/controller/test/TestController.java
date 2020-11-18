@@ -139,18 +139,19 @@ public class TestController {
 	/**
 	 * Gets tests for student.
 	 * 
-	 * @param 	the student.
-	 * @return 	the list tests of student.
+	 * @param the student.
+	 * @return the list tests of student.
 	 */
 	public List<Test> getStudentTests(User student) {
-		List<ResultTest> listResultTest = ServiceLocator.getDaoProvider()
-				.getResultTestRecords();
+		List<Test> listTest = ServiceLocator.getDaoProvider().getTestsRecords();
 		List<Test> listTestReturn = new ArrayList<Test>();
-		for (ResultTest result : listResultTest) {
-				if(result.getStudent().equals(student)) {
-					listTestReturn.add(result.getTest());
+		for (Test test : listTest) {
+			for (User st : test.getStudents()) {
+				if (st.equals(student)) {
+					listTestReturn.add(test);
 				}
 			}
+		}
 		return listTestReturn;
 	}
 
@@ -213,7 +214,7 @@ public class TestController {
 	 * 
 	 * @return the result of student
 	 */
-	public ResultTest getStudentTestResult(User student, Test test) {
+	public List<ResultTest> getStudentTestResult(User student, Test test) {
 		ResultTestController resultController = new ResultTestController();
 		return resultController.getResultsOfTest(student, test);
 	}
