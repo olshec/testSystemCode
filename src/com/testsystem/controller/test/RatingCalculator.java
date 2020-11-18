@@ -31,11 +31,15 @@ public class RatingCalculator {
 	 */
 	public static int getRatingStudent(User student, List<Test> listTest) {
 		int point = 0;
+		int count_question = 0;
 		for (int i = 0; i < listTest.size(); i++) {
 			ResultTest testResult = new TestController().getStudentTestResult(student, listTest.get(i));
-			point += testResult.getPercentCorrectQuestions();
+			if(testResult!=null) {
+				point += testResult.getPoints();
+				count_question++;
+			}
 		}
-		int rating = point * 2 / listTest.size();
+		int rating = point * 2 / count_question;
 		return rating;
 	}
 
@@ -64,14 +68,14 @@ public class RatingCalculator {
 		Collections.sort(listStudentResult, new Comparator<ResultTest>() {
 			@Override
 			public int compare(ResultTest result1, ResultTest result2) {
-				int pointsResult1 = result1.getPercentCorrectQuestions();
-				int pointsResult2 = result2.getPercentCorrectQuestions();
+				int pointsResult1 = result1.getPoints();
+				int pointsResult2 = result2.getPoints();
 				if(pointsResult2>pointsResult1) {
 					return 1;
 				} else if (pointsResult2==pointsResult1) {
 					return 0;
 				} else {
-					return 1;
+					return -1;
 				}
 			}
 		});

@@ -75,29 +75,29 @@ public class LoaderDataToApplication {
 		testController.saveResultInDatabase(student2, test1, 5);
 		testController.saveResultInDatabase(student5, test1, 3);
 
-//		//add test2 and result to students
-//		testController.setTest(test2);
-//		testController.addStudent(student1);
-//		testController.addStudent(student2);
-//		testController.addStudent(student3);
-//		testController.addStudent(student4);
-//		testController.saveResultInDatabase(student1, test2, 3);
-//		testController.saveResultInDatabase(student2, test2, 4);
-//		testController.saveResultInDatabase(student3, test2, 4);
-//		testController.saveResultInDatabase(student4, test2, 5);
-//		testController.saveResultInDatabase(student5, test2, 3);
+		//add test2 and result to students
+		testController.setTest(test2);
+		testController.addStudent(student1);
+		testController.addStudent(student2);
+		testController.addStudent(student3);
+		testController.addStudent(student4);
+		testController.saveResultInDatabase(student1, test2, 3);
+		testController.saveResultInDatabase(student2, test2, 4);
+		testController.saveResultInDatabase(student3, test2, 4);
+		testController.saveResultInDatabase(student4, test2, 5);
+		testController.saveResultInDatabase(student5, test2, 3);
 //		
-//		//add test3 and result to students
-//		testController.setTest(test3);
-//		testController.addStudent(student1);
-//		testController.addStudent(student2);
-//		testController.addStudent(student3);
-//		testController.addStudent(student4);
-//		testController.saveResultInDatabase(student1, test3, 3);
-//		testController.saveResultInDatabase(student2, test3, 4);
-//		testController.saveResultInDatabase(student3, test3, 5);
-//		testController.saveResultInDatabase(student4, test3, 3);
-//		testController.saveResultInDatabase(student5, test3, 2);
+		//add test3 and result to students
+		testController.setTest(test3);
+		testController.addStudent(student1);
+		testController.addStudent(student2);
+		testController.addStudent(student3);
+		testController.addStudent(student4);
+		testController.saveResultInDatabase(student1, test3, 3);
+		testController.saveResultInDatabase(student2, test3, 4);
+		testController.saveResultInDatabase(student3, test3, 5);
+		testController.saveResultInDatabase(student4, test3, 3);
+		testController.saveResultInDatabase(student5, test3, 2);
 		
 		loadTestData();
 	}
