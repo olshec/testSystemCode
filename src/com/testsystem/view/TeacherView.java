@@ -17,6 +17,8 @@ import com.testsystem.util.ModScanner;
  */
 public final class TeacherView extends UserView {
 
+	private List<Test> listTest;
+	
 	/**
 	 * Creates a teacher view.
 	 * 
@@ -67,10 +69,10 @@ public final class TeacherView extends UserView {
 	 * Print a list of tests from the server and prints.
 	 */
 	private void printTests() {
-		List<Test> mas = getFrontController().getTestsForTeacher(this.getUser());
+		listTest = getFrontController().getTestsForTeacher(this.getUser());
 		System.out.println("Cписок тестов: ");
-		for (int i = 0; i < mas.size(); i++) {
-			System.out.println(i + 1 + ") " + mas.get(i).getName());
+		for (int i = 0; i < listTest.size(); i++) {
+			System.out.println(i + 1 + ") " + listTest.get(i).getName());
 		}
 	}
 
@@ -81,7 +83,12 @@ public final class TeacherView extends UserView {
 		int numTest = enterNumberTest();
 		if (numTest != -1) {
 			int indexTest = numTest - 1;// index begin from 0;
-			List<ResultTest> ls = getFrontController().getTestResultForTeacher(this.getUser(), indexTest);
+			//If listTest empty, load data from server
+			if(listTest == null) {
+				listTest = getFrontController().getTestsForTeacher(this.getUser());
+			}
+			int idTest = listTest.get(indexTest).getId();
+			List<ResultTest> ls = getFrontController().getTestResultForTeacher(this.getUser(), idTest);
 			printTestResult(ls);
 		}
 	}
