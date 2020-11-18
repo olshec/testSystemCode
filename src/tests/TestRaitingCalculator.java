@@ -60,7 +60,8 @@ public class TestRaitingCalculator {
 		assertEquals(lastNameFirstStudentGroup1, "Романенко");
 		assertEquals(lastNameSecondStudentGroup1, "Шахматов");
 		assertEquals(lastNameThirdStudentGroup1, "Федоренко");
-		assertEquals(lastNameFirstStudentGroup2, "Сазонова");
-		assertEquals(lastNameSecondStudentGroup2, "Фролова");
+		assertEquals(lastNameFirstStudentGroup2, "Фролова");
+		assertEquals(lastNameSecondStudentGroup2, "Сазонова");
+		
 	}
 }

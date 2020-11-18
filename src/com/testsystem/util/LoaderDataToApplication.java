@@ -96,7 +96,7 @@ public class LoaderDataToApplication {
 		testController.saveResultInDatabase(student1, test3, 3);
 		testController.saveResultInDatabase(student2, test3, 4);
 		testController.saveResultInDatabase(student3, test3, 5);
-		testController.saveResultInDatabase(student4, test3, 3);
+		testController.saveResultInDatabase(student4, test3, 5);
 		testController.saveResultInDatabase(student5, test3, 2);
 		
 		loadTestData();
