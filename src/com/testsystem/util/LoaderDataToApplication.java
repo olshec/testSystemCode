@@ -126,8 +126,7 @@ public class LoaderDataToApplication {
 	}
 	
 	private void addTest1(User teacher, Test test) {
-		
-		
+				
 		Question q1 = new QuestionController().getNewQuestion("Какие планеты солнечной системы вращаются в направлении, противоположном Земле?");
 		QuestionController questionController = new QuestionController(q1);
 		questionController.addAnswer(new Answer("Венера", "", true));

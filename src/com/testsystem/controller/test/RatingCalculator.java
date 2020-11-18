@@ -32,8 +32,7 @@ public class RatingCalculator {
 	public static int getRatingStudent(User student, List<Test> listTest) {
 		int point = 0;
 		for (int i = 0; i < listTest.size(); i++) {
-			Test test = listTest.get(i);
-			ResultTest testResult = new TestController(test).getStudentTestResult(student, listTest.get(i));
+			ResultTest testResult = new TestController().getStudentTestResult(student, listTest.get(i));
 			point += testResult.getPercentCorrectQuestions();
 		}
 		int rating = point * 2 / listTest.size();

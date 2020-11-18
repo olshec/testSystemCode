@@ -24,17 +24,6 @@ public class ResultTest extends Model {
 	}
 
 	/**
-	 * @param student
-	 * @param test
-	 * @param result
-	 */
-	public ResultTest(User student, Test test, Integer result) {
-		super();
-		this.student = student;
-		this.test = test;
-	}
-
-	/**
 	 * @param numberCorrectQuestions
 	 * @param numberNotCorrectQuestions
 	 * @param numberPartlyQuestion
@@ -42,7 +31,7 @@ public class ResultTest extends Model {
 	 * @param percentCorrectQuestions
 	 * @param student
 	 * @param test
-	 * @param resultQuestions
+	 * @return resultQuestions
 	 */
 	public ResultTest(int numberCorrectQuestions, int numberNotCorrectQuestions, int numberPartlyQuestion,
 			int numberSkippedQuestion, int percentCorrectQuestions, User student, Test test,
