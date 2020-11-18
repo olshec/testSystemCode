@@ -26,7 +26,7 @@ public class TestRaitingCalculator {
 		User student1 = frontController.login("ShAnton", "1111");
 		int rating1 = frontController.getRatingUser(student1);
 
-		assertEquals(rating1, 6);
+		assertEquals(rating1, 7);
 	}
 
 	@Test
@@ -39,7 +39,7 @@ public class TestRaitingCalculator {
 		
 		assertEquals(ratingGroup.size(), 3);
 		assertEquals(rating1, 8);
-		assertEquals(rating2, 6);
+		assertEquals(rating2, 7);
 		assertEquals(rating3, 5);
 		assertEquals(ratingGroup.get(0).getStudent().getLastName(), "Романенко");
 		assertEquals(ratingGroup.get(1).getStudent().getLastName(), "Шахматов");

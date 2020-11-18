@@ -58,7 +58,7 @@ public class RatingCalculator {
 			User student = listStudent.get(i);
 			List<Test> listStudentTests = new TestController().getStudentTests(student);
 			int ratingStudent = RatingCalculator.getRatingStudent(student, listStudentTests);
-			groupRating.add(new ResultTest(student, listStudentTests.get(i), ratingStudent));
+			groupRating.add(new ResultTest(student, ratingStudent));
 		}
 		groupRating = sortByValue(groupRating);
 		return groupRating;

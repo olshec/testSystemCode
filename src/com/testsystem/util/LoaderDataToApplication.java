@@ -83,6 +83,7 @@ public class LoaderDataToApplication {
 		testController.addStudent(student2);
 		testController.addStudent(student3);
 		testController.addStudent(student4);
+		testController.addStudent(student5);
 		testController.saveResultInDatabase(new ResultTest(student1, test2, 3));
 		testController.saveResultInDatabase(new ResultTest(student2, test2, 4));
 		testController.saveResultInDatabase(new ResultTest(student3, test2, 4));
@@ -95,6 +96,7 @@ public class LoaderDataToApplication {
 		testController.addStudent(student2);
 		testController.addStudent(student3);
 		testController.addStudent(student4);
+		testController.addStudent(student5);
 		testController.saveResultInDatabase(new ResultTest(student1, test3, 3));
 		testController.saveResultInDatabase(new ResultTest(student2, test3, 4));
 		testController.saveResultInDatabase(new ResultTest(student3, test3, 5));
