@@ -37,12 +37,14 @@ public class FrontController {
 	public FrontController() {
 		daoProvider = new DAOProvider();
 		ServiceLocator.setDaoProvider(daoProvider);
+		
 		daoProvider.addTable(new Group().getNameModel());
 		daoProvider.addTable(new Test().getNameModel());
 		daoProvider.addTable(new Teacher().getNameModel());
 		daoProvider.addTable(new Student().getNameModel());
 		daoProvider.addTable(new Administrator().getNameModel());
 		daoProvider.addTable(new ResultTest().getNameModel());
+		daoProvider.addTable(new RatingStudent().getNameModel());
 		
 		LoaderDataToApplication loader = new LoaderDataToApplication();
 		loader.loadData(this);
@@ -138,7 +140,7 @@ public class FrontController {
 	 * @return 			the test
 	 */
 	public int getNumberQuestionsInTest(User student, int idTest) {
-		return new StudentController(student).getNumberQuestionsInTest(idTest);
+		return new StudentController().getNumberQuestionsInTest(idTest);
 	}
 	
 	/**
@@ -147,9 +149,8 @@ public class FrontController {
 	 * @param user   the student
 	 * @return 		 RatingStudent
 	 */
-	public RatingStudent getRatingForStudent(User user) {
-		// TODO Auto-generated method stub
-		return null;
+	public RatingStudent getRatingForStudent(User student) {
+		return new RatingStudent().getRatingTest(student);
 	}
 
 	/**

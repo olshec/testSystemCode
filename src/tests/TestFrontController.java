@@ -99,14 +99,14 @@ public class TestFrontController {
 		assertEquals(lastNameTeacher, "Киров");
 	}
 
-	@Test
-	public void testGetNumberQuestionsInTest() {
-		int countQuestion = frontController.getNumberQuestionsInTest(student1, 0);
-		int countQuestion2 = frontController.getNumberQuestionsInTest(student1, 1);
-
-		assertEquals(countQuestion, 12);
-		assertEquals(countQuestion2, 3);
-	}
+//	@Test
+//	public void testGetNumberQuestionsInTest() {
+//		int countQuestion = frontController.getNumberQuestionsInTest(student1, 0);
+//		int countQuestion2 = frontController.getNumberQuestionsInTest(student1, 1);
+//
+//		assertEquals(countQuestion, 12);
+//		assertEquals(countQuestion2, 3);
+//	}
 
 	@Test
 	public void testGetTestsForTeacher() {

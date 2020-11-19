@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.testsystem.model.Model;
+import com.testsystem.model.test.RatingStudent;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.Group;
@@ -215,6 +216,30 @@ public class DAOProvider {
 			ls.add((ResultTest)st);
 		}
 		return ls;
+	}
+	
+	/**
+	 * Gets rating for all students from database
+	 * 
+	 * @return List<RatingStudent> the records of table
+	 * @throws Exception 
+	 */
+	public RatingStudent getRatingStudent(User student) throws Exception {
+		List<RatingStudent> ls = new ArrayList<RatingStudent>();
+		List<Model> models = database.getTable(new RatingStudent().getNameModel()).getRecords();
+		for(Model st : models) {
+			ls.add((RatingStudent)st);
+		}
+		RatingStudent ratingStudent = null;
+		for(RatingStudent rating: ls) {
+			if(rating.getStudent().equals(student)) {
+				ratingStudent = rating;
+			}
+		}
+		if(ratingStudent == null) {
+			throw new Exception("Rating for student don't found!");
+		}
+		return ratingStudent;
 	}
 	
 }

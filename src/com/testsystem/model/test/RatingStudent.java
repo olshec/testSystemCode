@@ -2,6 +2,7 @@ package com.testsystem.model.test;
 
 import com.testsystem.model.Model;
 import com.testsystem.model.user.User;
+import com.testsystem.util.ServiceLocator;
 
 public class RatingStudent extends Model {
 
@@ -14,6 +15,13 @@ public class RatingStudent extends Model {
 		idIncrement = 0;
 	}
 	
+	/**
+	 * Creates a RatingStudent
+	 */
+	public RatingStudent() {
+		super();
+	}
+
 	/**
 	 * Creates a RatingStudent
 	 * 
@@ -68,6 +76,31 @@ public class RatingStudent extends Model {
 	 */
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	/**
+	 * Gets rating for student
+	 * 
+	 * @param student
+	 * @return RatingStudent
+	 */
+	public RatingStudent getRatingTest(User student) {
+		RatingStudent ratingStudent = null;
+		try {
+			ratingStudent = ServiceLocator.getDaoProvider().getRatingStudent(student);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ratingStudent;
+	}
+	
+	/**
+	 * Adds rating of test.
+	 * 
+	 * @param ratingTest the rating of student
+	 */
+	public void saveRating(RatingStudent ratingTest) {
+		ServiceLocator.getDaoProvider().addRecord(ratingTest);
 	}
 
 	/**
