@@ -3,6 +3,7 @@ package com.testsystem.view;
 import java.util.List;
 
 import com.testsystem.controller.FrontController;
+import com.testsystem.model.test.RatingStudent;
 import com.testsystem.model.test.ResultQuestion;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
@@ -40,6 +41,7 @@ public final class StudentView extends UserView {
 			System.out.println("1 - получить список тестов");
 			System.out.println("2 - получить количество вопросов в тесте");
 			System.out.println("3 - пройти тест");
+			System.out.println("4 - посмотреть рейтинг");
 			System.out.print("?: ");
 
 			try {
@@ -59,6 +61,9 @@ public final class StudentView extends UserView {
 				break;
 			case 3:
 				runTest();
+				break;
+			case 4:
+				printRating();
 				break;
 			default:
 				System.out.println("Неверный ввод! Попытайтесь еще раз.");
@@ -153,6 +158,14 @@ public final class StudentView extends UserView {
 			System.out.print("Вопрос " + (i + 1) + ": ");
 			System.out.println(resultQuestion.get(i).toString());
 		}
+	}
+	
+	/*
+	 * Gets rating of student.
+	 */
+	private void printRating() {
+		//List<User> masUser = getFrontController().getStudentsForAdmin(this.getUser());
+		RatingStudent ratingStudent = getFrontController().getRatingForStudent(this.getUser());
 	}
 
 }

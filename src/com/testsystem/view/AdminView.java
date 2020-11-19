@@ -115,4 +115,5 @@ public class AdminView extends UserView {
 		List<User> masUser = getFrontController().getAdminsForAdmin(this.getUser());
 		printListUsers(masUser, "Cписок администраторов");
 	}
+
 }

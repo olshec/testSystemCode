@@ -9,6 +9,7 @@ import com.testsystem.controller.user.GroupController;
 import com.testsystem.controller.user.StudentController;
 import com.testsystem.controller.user.TeacherController;
 import com.testsystem.controller.user.UserController;
+import com.testsystem.model.test.RatingStudent;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.Administrator;
@@ -139,6 +140,17 @@ public class FrontController {
 	public int getNumberQuestionsInTest(User student, int idTest) {
 		return new StudentController(student).getNumberQuestionsInTest(idTest);
 	}
+	
+	/**
+	 * Gets rating of student.
+	 * 
+	 * @param user   the student
+	 * @return 		 RatingStudent
+	 */
+	public RatingStudent getRatingForStudent(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	/**
 	 * Gets tests for teacher.
@@ -160,6 +172,16 @@ public class FrontController {
 	public List<ResultTest> getTestResultForTeacher(User teacher, int idTest) {
 		return new TeacherController(teacher).getTestResult(idTest);
 	}
+	
+//	/**
+//	 * Gets students.
+//	 * 
+//	 * @param student		the student
+//	 * @return List<User> 	the list students
+//	 */
+//	public List<Student> getStudentsForTeacher(Teacher teacher) {
+//		return new TeacherController().getStudents(teacher);
+//	}
 
 	/**
 	 * Gets all users.
@@ -224,5 +246,7 @@ public class FrontController {
 		List<ResultTest> ratingGroup = new GroupController().getRatingGroup(nameGroup);
 		return ratingGroup;
 	}
+
+
 
 }

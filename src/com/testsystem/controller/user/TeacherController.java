@@ -7,6 +7,7 @@ import com.testsystem.controller.test.ResultTestController;
 import com.testsystem.controller.test.TestController;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
+import com.testsystem.model.user.Student;
 import com.testsystem.model.user.Teacher;
 import com.testsystem.model.user.User;
 import com.testsystem.util.ServiceLocator;
@@ -70,4 +71,18 @@ public class TeacherController extends UserController {
 		ResultTestController resultController = new ResultTestController();
 		return resultController.getResultsOfTest(idTest);
 	}
+	
+//	/**
+//	 * Gets student by type.
+//	 * 
+//	 * @param typeUser the type of user
+//	 * @return List<User> the list of users
+//	 */
+//	public List<Student> getStudents(Teacher teacher) {
+//		List<Student> listStudents = 
+//				ServiceLocator.getDaoProvider().getStudentsRecords(new Student().getNameModel());
+//		List<Student> listStudentsForTeacher = new ArrayList<Student>();
+//		
+//		return listStudentsForTeacher;
+//	}
 }
