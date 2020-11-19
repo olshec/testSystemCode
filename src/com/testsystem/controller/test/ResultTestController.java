@@ -35,7 +35,7 @@ public class ResultTestController {
 	 */
 	public List<ResultTest> getResultsOfTest(int idTest) {
 		List<ResultTest> records = ServiceLocator.getDaoProvider().getResultTestRecords();
-		List<ResultTest> ls =new ArrayList<ResultTest>();
+		List<ResultTest> ls = new ArrayList<ResultTest>();
 		for(ResultTest result: records) {
 			if (result.getTest().getId() == idTest) {
 				ls.add(result);
