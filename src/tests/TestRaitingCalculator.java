@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 import java.util.List;
 
 import org.junit.Test;
+
+import com.testsystem.model.test.RatingStudent;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.user.User;
 
@@ -24,9 +26,9 @@ public class TestRaitingCalculator {
 	@Test
 	public void testGetRatingUser() {
 		User student1 = frontController.login("ShAnton", "1111");
-		double rating1 = frontController.getRatingUser(student1);
-
-		assertEquals(rating1, 7);
+		RatingStudent ratingStudent = frontController.getRatingUser(student1);
+		double rating1 = ratingStudent.getPoints();
+		assertEquals( (int)rating1, 7);
 	}
 
 	@Test
@@ -38,9 +40,9 @@ public class TestRaitingCalculator {
 		double rating3 = ratingGroup.get(2).getPoints();//"Федоренко"
 		
 		assertEquals(ratingGroup.size(), 3);
-		assertEquals(rating1, 8);
-		assertEquals(rating2, 7);
-		assertEquals(rating3, 5);
+		assertEquals((int)rating1, 8);
+		assertEquals((int)rating2, 7);
+		assertEquals((int)rating3, 5);
 		assertEquals(ratingGroup.get(0).getStudent().getLastName(), "Романенко");
 		assertEquals(ratingGroup.get(1).getStudent().getLastName(), "Шахматов");
 		assertEquals(ratingGroup.get(2).getStudent().getLastName(), "Федоренко");

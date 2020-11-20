@@ -3,6 +3,7 @@ package com.testsystem.util;
 import java.util.List;
 import com.testsystem.controller.FrontController;
 import com.testsystem.controller.test.QuestionController;
+import com.testsystem.controller.test.RatingCalculator;
 import com.testsystem.controller.test.TestController;
 import com.testsystem.controller.user.AdministratorController;
 import com.testsystem.controller.user.GroupController;
@@ -44,9 +45,6 @@ public class LoaderDataToApplication {
 		testController.addQuestion(q5);
 		testController.addQuestion(q6);
 		testController.addQuestion(q7);
-		
-		
-		
 
 		Group g1 = new GroupController().getNewGroup("Group 1");
 		new GroupController().saveGroupInDatabase(g1);
@@ -75,6 +73,10 @@ public class LoaderDataToApplication {
 		testController.saveResultInDatabase(new ResultTest(student2, test1, 5));
 		testController.saveResultInDatabase(new ResultTest(student5, test1, 3));
 
+		new RatingCalculator().updateRatingStudent(student1, new ResultTest(student1, test1, 4));
+		new RatingCalculator().updateRatingStudent(student2, new ResultTest(student2, test1, 5));
+		new RatingCalculator().updateRatingStudent(student3, new ResultTest(student3, test1, 3));
+		
 		//add test2 and result to students
 		testController.setTest(test2);
 		testController.addStudent(student1);
@@ -87,7 +89,13 @@ public class LoaderDataToApplication {
 		testController.saveResultInDatabase(new ResultTest(student3, test2, 4));
 		testController.saveResultInDatabase(new ResultTest(student4, test2, 5));
 		testController.saveResultInDatabase(new ResultTest(student5, test2, 3));
-//		
+
+		new RatingCalculator().updateRatingStudent(student1, new ResultTest(student1, test2, 3));
+		new RatingCalculator().updateRatingStudent(student2, new ResultTest(student2, test2, 4));
+		new RatingCalculator().updateRatingStudent(student3, new ResultTest(student3, test2, 4));
+		new RatingCalculator().updateRatingStudent(student4, new ResultTest(student4, test2, 5));
+		new RatingCalculator().updateRatingStudent(student5, new ResultTest(student5, test2, 3));
+		
 		//add test3 and result to students
 		testController.setTest(test3);
 		testController.addStudent(student1);
@@ -100,6 +108,12 @@ public class LoaderDataToApplication {
 		testController.saveResultInDatabase(new ResultTest(student3, test3, 5));
 		testController.saveResultInDatabase(new ResultTest(student4, test3, 5));
 		testController.saveResultInDatabase(new ResultTest(student5, test3, 2));
+		
+		new RatingCalculator().updateRatingStudent(student1, new ResultTest(student1, test3, 3));
+		new RatingCalculator().updateRatingStudent(student2, new ResultTest(student2, test3, 4));
+		new RatingCalculator().updateRatingStudent(student3, new ResultTest(student3, test3, 5));
+		new RatingCalculator().updateRatingStudent(student4, new ResultTest(student4, test3, 5));
+		new RatingCalculator().updateRatingStudent(student5, new ResultTest(student5, test3, 2));
 		
 		//TestController.saveTest(test1);
 		TestController.saveTest(test2);

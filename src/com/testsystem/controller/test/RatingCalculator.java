@@ -44,7 +44,11 @@ public class RatingCalculator {
 				countTest++;
 			}
 		}
-		int rating = point * 2 / countTest;
+		int rating = 0;
+		if(countTest>0) {
+			rating = point * 2 / countTest;
+		}
+		
 		return new RatingStudent(student, rating, countTest);
 	}
 
@@ -85,5 +89,26 @@ public class RatingCalculator {
 			}
 		});
 		return listStudentResult;
+	}
+	
+	/**
+	 * Updates rating student.
+	 * 
+	 * @param student
+	 * @param resultTest
+	 */
+	public void updateRatingStudent(User student, ResultTest resultTest) {
+		List<RatingStudent> listRatingStudents = ServiceLocator.getDaoProvider().getRatingStudent(student);
+		if (listRatingStudents.size() == 0) {
+			RatingStudent ratingStudent = new RatingStudent(student, resultTest.getPoints(), 1);
+			ServiceLocator.getDaoProvider().addRecord(ratingStudent);
+		} else {
+			RatingStudent ratingStudent = RatingCalculator.getRatingStudent(student);
+			double points = ratingStudent.getPoints();
+			int countTestDone = ratingStudent.getCountTestDone();
+			double testPoints = resultTest.getPoints();
+			double ResultTestPoints = points + (testPoints / countTestDone);
+			ratingStudent.setPoints(ResultTestPoints);
+		}
 	}
 }

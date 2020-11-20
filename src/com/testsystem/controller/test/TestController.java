@@ -240,28 +240,8 @@ public class TestController {
 		ResultTest resultTest = new ResultTestController().
 				checkTest(student, test);
 		saveResultInDatabase(resultTest);
-		updateRatingStudent(student, resultTest);
+		new RatingCalculator().updateRatingStudent(student, resultTest);
 		return resultTest;
 	}
-	
-	/**
-	 * Updates rating student.
-	 * 
-	 * @param student
-	 * @param resultTest
-	 */
-	private void updateRatingStudent(User student, ResultTest resultTest) {
-		List<RatingStudent> listRatingStudents = ServiceLocator.getDaoProvider().getRatingStudent(student);
-		if (listRatingStudents.size() == 0) {
-			RatingStudent ratingStudent = new RatingStudent(student, resultTest.getPoints(), 1);
-			ServiceLocator.getDaoProvider().addRecord(ratingStudent);
-		} else {
-			RatingStudent ratingStudent = RatingCalculator.getRatingStudent(student);
-			double points = ratingStudent.getPoints();
-			int countTestDone = ratingStudent.getCountTestDone();
-			double testPoints = resultTest.getPoints();
-			double ResultTestPoints = points + (testPoints / countTestDone);
-			ratingStudent.setPoints(ResultTestPoints);
-		}
-	}
+
 }
