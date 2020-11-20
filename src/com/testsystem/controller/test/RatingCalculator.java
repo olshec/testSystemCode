@@ -31,7 +31,7 @@ public class RatingCalculator {
 	 * @param listTest the list of test
 	 * @return int the rating of student
 	 */
-	public static RatingStudent getRatingStudent(User student) {
+	public RatingStudent getRatingStudent(User student) {
 		List<Test> listTest = ServiceLocator.getDaoProvider()
 				.getTestsRecords(new Test().getNameModel());
 		int point = 0;
@@ -58,13 +58,13 @@ public class RatingCalculator {
 	 * @param group  the Group
 	 * @return List<ResultTest> the rating of student
 	 */
-	public static List<ResultTest> getRatingGroup(Group group) {
+	public List<ResultTest> getRatingGroup(Group group) {
 		List<User> listStudent = new GroupController()
 		.getStudentsByGroup(group);
 		List<ResultTest> groupRating = new ArrayList<ResultTest>();
 		for (int i = 0; i < listStudent.size(); i++) {
 			User student = listStudent.get(i);
-			RatingStudent ratingStudent = RatingCalculator.getRatingStudent(student);
+			RatingStudent ratingStudent = this.getRatingStudent(student);
 			//int ratingStudent 
 			groupRating.add(new ResultTest(student, ratingStudent.getPoints()));
 		}
@@ -103,7 +103,7 @@ public class RatingCalculator {
 			RatingStudent ratingStudent = new RatingStudent(student, resultTest.getPoints(), 1);
 			ServiceLocator.getDaoProvider().addRecord(ratingStudent);
 		} else {
-			RatingStudent ratingStudent = RatingCalculator.getRatingStudent(student);
+			RatingStudent ratingStudent = this.getRatingStudent(student);
 			double points = ratingStudent.getPoints();
 			int countTestDone = ratingStudent.getCountTestDone();
 			double testPoints = resultTest.getPoints();

@@ -231,9 +231,8 @@ public class FrontController {
 	 * @return RatingStudent 	the rating
 	 */
 	public RatingStudent getRatingUser(User student) {
-		return RatingCalculator.getRatingStudent(student);
+		return new RatingCalculator().getRatingStudent(student);
 	}
-	
 	
 	/**
 	 * Gets rating for group.

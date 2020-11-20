@@ -128,7 +128,7 @@ public class GroupController {
 	 */
 	public List<ResultTest> getRatingGroup(String nameGroup){
 		Group group = this.getGroupByName(nameGroup);
-		List<ResultTest> ratingGroup = RatingCalculator.getRatingGroup(group);
+		List<ResultTest> ratingGroup = new RatingCalculator().getRatingGroup(group);
 		return ratingGroup;
 	}
 }
