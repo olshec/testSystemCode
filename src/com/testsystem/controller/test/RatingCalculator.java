@@ -6,10 +6,12 @@ import java.util.Comparator;
 import java.util.List;
 
 import com.testsystem.controller.user.GroupController;
+import com.testsystem.model.test.RatingStudent;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.Group;
 import com.testsystem.model.user.User;
+import com.testsystem.util.ServiceLocator;
 
 /**
  * Represents a RatingCalculator.
@@ -29,19 +31,21 @@ public class RatingCalculator {
 	 * @param listTest the list of test
 	 * @return int the rating of student
 	 */
-	public static int getRatingStudent(User student, List<Test> listTest) {
+	public static RatingStudent getRatingStudent(User student) {
+		List<Test> listTest = ServiceLocator.getDaoProvider()
+				.getTestsRecords(new Test().getNameModel());
 		int point = 0;
-		int count_question = 0;
+		int countTest = 0;
 		TestController testController = new TestController();
 		for (int i = 0; i < listTest.size(); i++) {
 			List<ResultTest> listResultTest = testController.getStudentTestResult(student, listTest.get(i));
 			for (ResultTest resultTest : listResultTest) {
 				point += resultTest.getPoints();
-				count_question++;
+				countTest++;
 			}
 		}
-		int rating = point * 2 / count_question;
-		return rating;
+		int rating = point * 2 / countTest;
+		return new RatingStudent(student, rating, countTest);
 	}
 
 	/**
@@ -56,9 +60,9 @@ public class RatingCalculator {
 		List<ResultTest> groupRating = new ArrayList<ResultTest>();
 		for (int i = 0; i < listStudent.size(); i++) {
 			User student = listStudent.get(i);
-			List<Test> listStudentTests = new TestController().getStudentTests(student);
-			int ratingStudent = RatingCalculator.getRatingStudent(student, listStudentTests);
-			groupRating.add(new ResultTest(student, ratingStudent));
+			RatingStudent ratingStudent = RatingCalculator.getRatingStudent(student);
+			//int ratingStudent 
+			groupRating.add(new ResultTest(student, ratingStudent.getPoints()));
 		}
 		groupRating = sortByValue(groupRating);
 		return groupRating;
@@ -69,8 +73,8 @@ public class RatingCalculator {
 		Collections.sort(listStudentResult, new Comparator<ResultTest>() {
 			@Override
 			public int compare(ResultTest result1, ResultTest result2) {
-				int pointsResult1 = result1.getPoints();
-				int pointsResult2 = result2.getPoints();
+				double pointsResult1 = result1.getPoints();
+				double pointsResult2 = result2.getPoints();
 				if(pointsResult2>pointsResult1) {
 					return 1;
 				} else if (pointsResult2==pointsResult1) {

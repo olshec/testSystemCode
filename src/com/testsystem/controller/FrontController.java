@@ -149,7 +149,7 @@ public class FrontController {
 	 * @param user   the student
 	 * @return 		 RatingStudent
 	 */
-	public RatingStudent getRatingForStudent(User student) {
+	public List<RatingStudent> getRatingForStudent(User student) {
 		return new RatingStudent().getRatingTest(student);
 	}
 
@@ -227,13 +227,11 @@ public class FrontController {
 	/**
 	 * Gets rating for student.
 	 * 
-	 * @param  student the student
-	 * @return int 	   the rating
+	 * @param  student 			the student
+	 * @return RatingStudent 	the rating
 	 */
-	public int getRatingUser(User student) {
-		List<Test> listTest = ServiceLocator.getDaoProvider()
-				.getTestsRecords(new Test().getNameModel());
-		return RatingCalculator.getRatingStudent(student, listTest);
+	public RatingStudent getRatingUser(User student) {
+		return RatingCalculator.getRatingStudent(student);
 	}
 	
 	

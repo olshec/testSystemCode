@@ -222,24 +222,20 @@ public class DAOProvider {
 	 * Gets rating for all students from database
 	 * 
 	 * @return List<RatingStudent> the records of table
-	 * @throws Exception 
 	 */
-	public RatingStudent getRatingStudent(User student) throws Exception {
+	public List<RatingStudent> getRatingStudent(User student) {
 		List<RatingStudent> ls = new ArrayList<RatingStudent>();
+		List<RatingStudent> listRatingStudents = new ArrayList<RatingStudent>();
 		List<Model> models = database.getTable(new RatingStudent().getNameModel()).getRecords();
 		for(Model st : models) {
 			ls.add((RatingStudent)st);
 		}
-		RatingStudent ratingStudent = null;
 		for(RatingStudent rating: ls) {
 			if(rating.getStudent().equals(student)) {
-				ratingStudent = rating;
+				listRatingStudents.add(rating);
 			}
 		}
-		if(ratingStudent == null) {
-			throw new Exception("Rating for student don't found!");
-		}
-		return ratingStudent;
+		return listRatingStudents;
 	}
 	
 }

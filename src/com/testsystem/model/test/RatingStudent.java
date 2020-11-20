@@ -1,5 +1,7 @@
 package com.testsystem.model.test;
 
+import java.util.List;
+
 import com.testsystem.model.Model;
 import com.testsystem.model.user.User;
 import com.testsystem.util.ServiceLocator;
@@ -7,7 +9,8 @@ import com.testsystem.util.ServiceLocator;
 public class RatingStudent extends Model {
 
 	private User student;
-	private int points;
+	private double points;
+	private int countTestDone;
 	private Integer id;
 	private static Integer idIncrement;
 	
@@ -27,11 +30,13 @@ public class RatingStudent extends Model {
 	 * 
 	 * @param student
 	 * @param points
+	 * @param countTestDone
 	 */
-	public RatingStudent(User student, int points) {
+	public RatingStudent(User student, double points, int countTestDone) {
 		super();
 		this.student = student;
 		this.points = points;
+		this.countTestDone = countTestDone;
 		this.id = RatingStudent.idIncrement;
 		RatingStudent.idIncrement++;
 	}
@@ -53,14 +58,14 @@ public class RatingStudent extends Model {
 	/**
 	 * @return the points
 	 */
-	public int getPoints() {
+	public double getPoints() {
 		return points;
 	}
 
 	/**
 	 * @param points the points to set
 	 */
-	public void setPoints(int points) {
+	public void setPoints(double points) {
 		this.points = points;
 	}
 
@@ -84,8 +89,8 @@ public class RatingStudent extends Model {
 	 * @param student
 	 * @return RatingStudent
 	 */
-	public RatingStudent getRatingTest(User student) {
-		RatingStudent ratingStudent = null;
+	public List<RatingStudent> getRatingTest(User student) {
+		List<RatingStudent> ratingStudent = null;
 		try {
 			ratingStudent = ServiceLocator.getDaoProvider().getRatingStudent(student);
 		} catch (Exception e) {
@@ -101,6 +106,20 @@ public class RatingStudent extends Model {
 	 */
 	public void saveRating(RatingStudent ratingTest) {
 		ServiceLocator.getDaoProvider().addRecord(ratingTest);
+	}
+
+	/**
+	 * @return the countTest
+	 */
+	public int getCountTestDone() {
+		return countTestDone;
+	}
+
+	/**
+	 * @param countTestDone the countTest to set
+	 */
+	public void setCountTestDone(int countTestDone) {
+		this.countTestDone = countTestDone;
 	}
 
 	/**

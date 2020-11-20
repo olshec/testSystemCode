@@ -164,8 +164,10 @@ public final class StudentView extends UserView {
 	 * Gets rating of student.
 	 */
 	private void printRating() {
-		//List<User> masUser = getFrontController().getStudentsForAdmin(this.getUser());
-		RatingStudent ratingStudent = getFrontController().getRatingForStudent(this.getUser());
+		List<RatingStudent> ratingStudent = getFrontController().getRatingForStudent(this.getUser());
+		System.out.println();
+		System.out.print("Rating: ");
+		System.out.println(ratingStudent.get(0).getPoints());
 	}
 
 }

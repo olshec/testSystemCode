@@ -24,7 +24,7 @@ public class TestRaitingCalculator {
 	@Test
 	public void testGetRatingUser() {
 		User student1 = frontController.login("ShAnton", "1111");
-		int rating1 = frontController.getRatingUser(student1);
+		double rating1 = frontController.getRatingUser(student1);
 
 		assertEquals(rating1, 7);
 	}
@@ -33,9 +33,9 @@ public class TestRaitingCalculator {
 	public void testGetRatingGroup() {
 		List<ResultTest> ratingGroup = frontController.getRatingGroup("Group 1"); 
 		
-		int rating1 = ratingGroup.get(0).getPoints(); //"Романенко", "Егор"
-		int rating2 = ratingGroup.get(1).getPoints();//"Шахматов", "Антон"
-		int rating3 = ratingGroup.get(2).getPoints();//"Федоренко"
+		double rating1 = ratingGroup.get(0).getPoints(); //"Романенко", "Егор"
+		double rating2 = ratingGroup.get(1).getPoints();//"Шахматов", "Антон"
+		double rating3 = ratingGroup.get(2).getPoints();//"Федоренко"
 		
 		assertEquals(ratingGroup.size(), 3);
 		assertEquals(rating1, 8);
