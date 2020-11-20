@@ -119,6 +119,7 @@ public class ResultTestController {
 		return resultTest;
 	}
 
+	//Calculates points
 	private int calculatePoints(int percentTrueQuestions) {
 		int points = 0;
 		if (percentTrueQuestions < 40) {
