@@ -33,9 +33,9 @@ public class Database {
 	}
 
 	/**
-	 * Gets database.
+	 * Returns the database.
 	 * 
-	 * @return the database
+	 * @return HashMap<String, Table> the database
 	 */
 	public HashMap<String, Table> getTables() {
 		return tables;
@@ -51,7 +51,7 @@ public class Database {
 	}
 
 	/**
-	 * Gets table.
+	 * Returns table.
 	 * 
 	 * @param name the name of table
 	 * @return Table
