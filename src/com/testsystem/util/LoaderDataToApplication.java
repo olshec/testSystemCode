@@ -157,7 +157,7 @@ public class LoaderDataToApplication {
 		
 		User student1 = frontController.login("ShAnton", "1111");
 		ResultTest resultTest = new TestController().checkTest(student1, test);
-		System.out.println(resultTest.toString());
+		//System.out.println(resultTest.toString());
 	}
 	
 	//Adds test
