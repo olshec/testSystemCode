@@ -13,51 +13,51 @@ public class Answer extends Model {
 	
 	private String text;
 	private String information;
-	private boolean correct;
+	private boolean isCorrect;
 	private boolean isChecked;
 	
 	/**
-	 * Constructor
+	 * Creates Answer.
 	 */
 	public Answer() {
 		super();
 	}
 
 	/**
-	 * Constructor with parameters
+	 * Creates Answer.
 	 * 
-	 * @param text
-	 * @param information
-	 * @param correct
-	 * @param checked
+	 * @param String the text of answer
+	 * @param String the information of answer
+	 * @param boolean the isCorrect checkbox
+	 * @param boolean the isChecked checkbox
 	 */
-	public Answer(String text, String information, boolean correct, boolean checked) {
+	public Answer(String text, String information, boolean isCorrect, boolean isChecked) {
 		super();
 		setText(text);
 		setInformation(information);
-		setCorrect(correct);
-		setChecked(checked);
+		setCorrect(isCorrect);
+		setChecked(isChecked);
 	}
 	
 	/**
 	 * Constructor with parameters
 	 * 
-	 * @param text
-	 * @param information
-	 * @param correct
+	 * @param String the text of answer
+	 * @param String the information of answer
+	 * @param boolean the isCorrect checkbox
 	 */
-	public Answer(String text, String information, boolean correct) {
+	public Answer(String text, String information, boolean isCorrect) {
 		super();
 		setText(text);
 		setInformation(information);
-		setCorrect(correct);
+		setCorrect(isCorrect);
 		setChecked(false);
 	}
 
 	/**
-	 * Get text of answer.
+	 * Returns the text of answer.
 	 * 
-	 * @return the text
+	 * @return String the text of answer
 	 */
 	public String getText() {
 		return text;
@@ -66,7 +66,7 @@ public class Answer extends Model {
 	/**
 	 * Sets text of answer.
 	 * 
-	 * @param text the text to set
+	 * @param String the text to set answer.
 	 */
 	public void setText(String text) {
 		this.text = text;
@@ -75,25 +75,25 @@ public class Answer extends Model {
 	/**
 	 * Returns true if the answer is correct, false otherwise.
 	 * 
-	 * @return the correct
+	 * @return boolean the checkbox of isCorrect to set in answer
 	 */
 	public boolean isCorrect() {
-		return correct;
+		return isCorrect;
 	}
 
 	/**
 	 * Sets correct of answer.
 	 * 
-	 * @param correct the correct to set
+	 * @param boolean the checkbox of isCorrect to set in answer
 	 */
-	public void setCorrect(boolean correct) {
-		this.correct = correct;
+	public void setCorrect(boolean isCorrect) {
+		this.isCorrect = isCorrect;
 	}
 
 	/**
 	 * Returns additional information.
 	 * 
-	 * @return the information
+	 * @return String the information of answer
 	 */
 	public String getInformation() {
 		return information;
@@ -102,7 +102,7 @@ public class Answer extends Model {
 	/**
 	 * Sets additional information.
 	 * 
-	 * @param information the information to set
+	 * @param String the information to set in answer
 	 */
 	public void setInformation(String information) {
 		this.information = information;
@@ -111,28 +111,31 @@ public class Answer extends Model {
 	/**
 	 * Returns true if answer is checked, false otherwise.
 	 * 
-	 * @return the checked
+	 * @return boolean the checkbox of isChecked
 	 */
-	public Boolean isChecked() {
+	public boolean isChecked() {
 		return isChecked;
 	}
 
 	/**
 	 * Sets answer to checked.
 	 * 
-	 * @param checked the checked to set
+	 * @param boolean the checked to set checkbox of isChecked
 	 */
-	public void setChecked(Boolean checked) {
+	public void setChecked(boolean checked) {
 		this.isChecked = checked;
 	}
 
+	/**
+	 * Overrides toString method.
+	 */
 	@Override
 	public String toString() {
 		return text;
 	}
 
 	/**
-	 * Gets name of model.
+	 * Returns name of model.
 	 * 
 	 * @return String return name of model
 	 */
@@ -142,7 +145,7 @@ public class Answer extends Model {
 	}
 
 	/**
-	 * Clears checked
+	 * Clears checked.
 	 */
 	public void clearChecked() {
 		isChecked = false;
