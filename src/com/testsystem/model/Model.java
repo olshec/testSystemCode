@@ -22,6 +22,11 @@ public abstract class Model {
 	 */
 	public abstract String getNameModel();
 
+	/**
+	 * Returns idIncrement for set id in model.
+	 * 
+	 * @return int the id of model
+	 */
 	protected int getIdIncrement() {
 		Model.idIncrement++;
 		return Model.idIncrement;
