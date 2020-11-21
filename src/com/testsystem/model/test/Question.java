@@ -17,11 +17,6 @@ public class Question extends Model {
 	private String text;
 	private List<Answer> answers;
 	private Integer id;
-	private static Integer idIncrement;
-
-	static {
-		idIncrement = 0;
-	}
 
 	/**
 	 * Creates a Question.
@@ -30,8 +25,7 @@ public class Question extends Model {
 	 */
 	public Question(String text) {
 		answers = new ArrayList<Answer>();
-		this.id = Question.idIncrement;
-		Question.idIncrement++;
+		this.id = this.getIdIncrement();
 		setText(text);
 	}
 

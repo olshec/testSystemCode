@@ -20,11 +20,6 @@ public class Test extends Model {
 	private List<Question> questions;
 	private List<User> students;
 	private Integer id;
-	private static Integer idIncrement;
-	
-	static {
-		idIncrement = 0;
-	}
 	
 	/**
 	 * Creates a TestModel.
@@ -46,8 +41,7 @@ public class Test extends Model {
 	}
 	
 	private void init() {
-		this.id = Test.idIncrement;
-		Test.idIncrement++;
+		this.id = this.getIdIncrement();
 		setQuestions(new ArrayList<Question>());
 		setStudents(new ArrayList<User>());
 	}

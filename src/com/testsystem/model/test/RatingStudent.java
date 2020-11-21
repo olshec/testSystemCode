@@ -11,17 +11,13 @@ public class RatingStudent extends Model {
 	private User student;
 	private double points;
 	private Integer id;
-	private static Integer idIncrement;
-	
-	static {
-		idIncrement = 0;
-	}
 	
 	/**
 	 * Creates a RatingStudent
 	 */
 	public RatingStudent() {
 		super();
+		this.id = this.getIdIncrement();
 	}
 
 	/**
@@ -35,8 +31,7 @@ public class RatingStudent extends Model {
 		super();
 		this.student = student;
 		this.points = points;
-		this.id = RatingStudent.idIncrement;
-		RatingStudent.idIncrement++;
+		this.id = this.getIdIncrement();
 	}
 
 	/**
