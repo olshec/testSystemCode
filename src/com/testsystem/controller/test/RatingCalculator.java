@@ -98,15 +98,15 @@ public class RatingCalculator {
 	 * @param resultTest
 	 */
 	public void updateRatingStudent(User student, ResultTest resultTest) {
-		List<RatingStudent> listRatingStudents = ServiceLocator.getDaoProvider().getRatingStudent(student);
-		if (listRatingStudents.size() == 0) {
-			//save first record about rating of student
-			RatingStudent ratingStudent = new RatingStudent(student, resultTest.getPoints(), 1);
-			ServiceLocator.getDaoProvider().addRecord(ratingStudent);
-		} else {
-			ServiceLocator.getDaoProvider().addRecord(resultTest);
+		ServiceLocator.getDaoProvider().addRecord(resultTest);
+		
+//		if (listRatingStudents.size() == 0) {
+//			//save first record about rating of student
+//			RatingStudent ratingStudent = new RatingStudent(student, resultTest.getPoints(), 1);
+//			ServiceLocator.getDaoProvider().addRecord(ratingStudent);
+//		} else {
 			RatingStudent ratingStudent = this.getRatingStudent(student);
-			listRatingStudents = ServiceLocator.getDaoProvider().getRatingStudent(student);
+			List<RatingStudent> listRatingStudents = ServiceLocator.getDaoProvider().getRatingStudent(student);
 			listRatingStudents.get(0).clone(ratingStudent);
 //			RatingStudent ratingStudent = this.getRatingStudent(student);
 //			double points = ratingStudent.getPoints();
@@ -114,7 +114,7 @@ public class RatingCalculator {
 //			double testPoints = resultTest.getPoints();
 //			double ResultTestPoints = points + (testPoints / (countTestDone+1));
 //			ratingStudent.setPoints(ResultTestPoints);
-			
-		}
+//			
+//		}
 	}
 }
