@@ -105,12 +105,11 @@ public class DAOProvider {
 	/**
 	 * Returns all groups from database
 	 * 
-	 * @param String the name of table
 	 * @return List<Group> the all records of group from the database
 	 */
-	public List<Group> getGroupsRecords(String nameTable) {
+	public List<Group> getGroupsRecords() {
 		List<Group> ls = new ArrayList<Group>();
-		List<Model> models = database.getTable(nameTable).getRecords();
+		List<Model> models = database.getTable(new Group().getNameModel()).getRecords();
 		for(Model st : models) {
 			ls.add((Group)st);
 		}
@@ -120,12 +119,11 @@ public class DAOProvider {
 	/**
 	 * Returns all tests from database
 	 * 
-	 * @param String the name of table
 	 * @return List<Test> the all records of tests from the database
 	 */
 	public List<Test> getTestsRecords(String nameTable) {
 		List<Test> ls = new ArrayList<Test>();
-		List<Model> models = database.getTable(nameTable).getRecords();
+		List<Model> models = database.getTable(new Test().getNameModel()).getRecords();
 		for(Model st : models) {
 			ls.add((Test)st);
 		}
@@ -150,12 +148,11 @@ public class DAOProvider {
 	/**
 	 * Returns all students from database
 	 * 
-	 * @param String the name of table
 	 * @return List<Student> the all records about students from the database
 	 */
-	public List<Student> getStudentsRecords(String nameTable) {
+	public List<Student> getStudentsRecords() {
 		List<Student> ls = new ArrayList<Student>();
-		List<Model> models = database.getTable(nameTable).getRecords();
+		List<Model> models = database.getTable(new Student().getNameModel()).getRecords();
 		for(Model st : models) {
 			ls.add((Student)st);
 		}
