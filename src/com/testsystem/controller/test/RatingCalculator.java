@@ -104,12 +104,17 @@ public class RatingCalculator {
 			RatingStudent ratingStudent = new RatingStudent(student, resultTest.getPoints(), 1);
 			ServiceLocator.getDaoProvider().addRecord(ratingStudent);
 		} else {
+			ServiceLocator.getDaoProvider().addRecord(resultTest);
 			RatingStudent ratingStudent = this.getRatingStudent(student);
-			double points = ratingStudent.getPoints();
-			int countTestDone = ratingStudent.getCountTestDone();
-			double testPoints = resultTest.getPoints();
-			double ResultTestPoints = points + (testPoints / countTestDone);
-			ratingStudent.setPoints(ResultTestPoints);
+			listRatingStudents = ServiceLocator.getDaoProvider().getRatingStudent(student);
+			listRatingStudents.get(0).clone(ratingStudent);
+//			RatingStudent ratingStudent = this.getRatingStudent(student);
+//			double points = ratingStudent.getPoints();
+//			int countTestDone = ratingStudent.getCountTestDone();
+//			double testPoints = resultTest.getPoints();
+//			double ResultTestPoints = points + (testPoints / (countTestDone+1));
+//			ratingStudent.setPoints(ResultTestPoints);
+			
 		}
 	}
 }

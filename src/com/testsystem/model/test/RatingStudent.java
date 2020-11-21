@@ -155,4 +155,9 @@ public class RatingStudent extends Model {
 	public String getNameModel() {
 		return "RatingStudent";
 	}
+
+	public void clone(RatingStudent ratingStudent) {
+		setPoints(ratingStudent.getPoints());
+		setCountTestDone(ratingStudent.getCountTestDone());
+	}
 }
