@@ -14,6 +14,9 @@ import com.testsystem.model.Model;
  */
 public class Database {
 
+	/**
+	 * Represents a tables in database.
+	 */
 	private HashMap<String, Table> tables;
 	
 	/**
