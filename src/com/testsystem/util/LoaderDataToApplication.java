@@ -19,6 +19,7 @@ import com.testsystem.model.user.User;
 
 public class LoaderDataToApplication {
 	
+	//Loads data to FrontController
 	public void loadData(FrontController frontController) {
 		UserController userController = new UserController();
 		User admin1 = new AdministratorController().getNewAdministrator("Примарев", 
@@ -32,7 +33,6 @@ public class LoaderDataToApplication {
 		Test test1 = new TestController().getNewTest("Космология", teacher1);
 		Test test2 = new TestController().getNewTest("Сетевые технологии", teacher1);
 		Test test3 = new TestController().getNewTest("Информатика", teacher1);
-
 		
 		TestController testController = new TestController(test1);
 		addTest1(teacher1, test1);
@@ -160,8 +160,9 @@ public class LoaderDataToApplication {
 		System.out.println(resultTest.toString());
 	}
 	
+	//Adds test
 	private void addTest1(User teacher, Test test) {
-				
+		
 		Question q1 = new QuestionController().getNewQuestion("Какие планеты солнечной системы вращаются в направлении, противоположном Земле?");
 		QuestionController questionController = new QuestionController(q1);
 		questionController.addAnswer(new Answer("Венера", "", true));
