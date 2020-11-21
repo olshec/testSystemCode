@@ -10,7 +10,6 @@ public class RatingStudent extends Model {
 
 	private User student;
 	private double points;
-	private int countTestDone;
 	private Integer id;
 	private static Integer idIncrement;
 	
@@ -32,11 +31,10 @@ public class RatingStudent extends Model {
 	 * @param points
 	 * @param countTestDone
 	 */
-	public RatingStudent(User student, double points, int countTestDone) {
+	public RatingStudent(User student, double points) {
 		super();
 		this.student = student;
 		this.points = points;
-		this.countTestDone = countTestDone;
 		this.id = RatingStudent.idIncrement;
 		RatingStudent.idIncrement++;
 	}
@@ -109,20 +107,6 @@ public class RatingStudent extends Model {
 	}
 
 	/**
-	 * @return the countTest
-	 */
-	public int getCountTestDone() {
-		return countTestDone;
-	}
-
-	/**
-	 * @param countTestDone the countTest to set
-	 */
-	public void setCountTestDone(int countTestDone) {
-		this.countTestDone = countTestDone;
-	}
-
-	/**
 	 * Returns the hash code.
 	 */
 	@Override
@@ -158,6 +142,5 @@ public class RatingStudent extends Model {
 
 	public void clone(RatingStudent ratingStudent) {
 		setPoints(ratingStudent.getPoints());
-		setCountTestDone(ratingStudent.getCountTestDone());
 	}
 }

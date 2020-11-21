@@ -49,7 +49,7 @@ public class RatingCalculator {
 			rating = point * 2 / countTest;
 		}
 		
-		return new RatingStudent(student, rating, countTest);
+		return new RatingStudent(student, rating);
 	}
 
 	/**
