@@ -100,12 +100,6 @@ public class RatingCalculator {
 	public void updateRatingStudent(User student, ResultTest resultTest) {
 		ServiceLocator.getDaoProvider().addRecord(resultTest);
 		RatingStudent ratingStudent = this.getRatingStudent(student);
-		List<RatingStudent> listRatingStudents = ServiceLocator.getDaoProvider().getRatingStudent(student);
-		if (listRatingStudents.size() == 0) {
-			//save first record about rating of student
-			ServiceLocator.getDaoProvider().addRecord(ratingStudent);
-		} else {
-			listRatingStudents.get(0).clone(ratingStudent);
-		}
+		ServiceLocator.getDaoProvider().updateRatingStudent(ratingStudent);
 	}
 }

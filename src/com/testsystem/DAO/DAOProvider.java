@@ -10,6 +10,7 @@ import com.testsystem.model.test.Test;
 import com.testsystem.model.user.Group;
 import com.testsystem.model.user.Student;
 import com.testsystem.model.user.User;
+import com.testsystem.util.ServiceLocator;
 
 /**
  * Represents a provider for database.
@@ -236,6 +237,19 @@ public class DAOProvider {
 			}
 		}
 		return listRatingStudents;
+	}
+
+	/**
+	 * Updates rating for student
+	 */
+	public void updateRatingStudent(RatingStudent ratingStudent) {
+		List<RatingStudent> listRatingStudents = this.getRatingStudent(ratingStudent.getStudent());
+		if (listRatingStudents.size() == 0) {
+			//save first record about rating of student
+			this.addRecord(ratingStudent);
+		} else {
+			listRatingStudents.get(0).clone(ratingStudent);
+		}
 	}
 	
 }
