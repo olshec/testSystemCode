@@ -9,12 +9,10 @@ package com.testsystem.model;
  */
 public abstract class Model {
 
-	//public Model() {}
-	
 	/**
-	 * Gets name of model.
+	 * Returns the name of model.
 	 * 
-	 * @return String return name of model
+	 * @return String the name of model
 	 */
 	public abstract String getNameModel();
 }
