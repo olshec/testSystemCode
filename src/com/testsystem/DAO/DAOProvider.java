@@ -33,14 +33,14 @@ public class DAOProvider {
 	/**
 	 * Creates a provider.
 	 * 
-	 * @param tables
+	 * @param Database the database
 	 */
 	public DAOProvider(Database database) {
 		setDatabase(database);
 	}
 
 	/**
-	 * Gets database.
+	 * Returns the database.
 	 * 
 	 * @return Database the database
 	 */
@@ -51,7 +51,7 @@ public class DAOProvider {
 	/**
 	 * Sets database.
 	 * 
-	 * @param database the database to set
+	 * @param Database the database to set
 	 */
 	public void setDatabase(Database database) {
 		this.database = database;
@@ -60,24 +60,24 @@ public class DAOProvider {
 	/**
 	 * Sets table.
 	 * 
-	 * @param name the name of table
-	 * @param table the table to set
+	 * @param String 		the name of table
+	 * @param List<Model> 	the list of record for install table
 	 */
 	public void setTable(String name, List<Model> listRecord) {
 		database.setTable(name, listRecord);
 	}
 	
 	/**
-	 * Clears tables in database.
+	 * Clears all tables in database.
 	 */
-	public void clear() {
+	public void clearDatabase() {
 		database.clear();
 	}
 	
 	/**
 	 * Adds a new table
 	 * 
-	 * @param name the name of table
+	 * @param String the name of table
 	 */
 	public void addTable(String name) {
 		database.addTable(name);
@@ -93,20 +93,20 @@ public class DAOProvider {
 	}
 	
 	/**
-	 * Gets all records from table
+	 * Returns all records from table
 	 * 
-	 * @param nameTable
-	 * @return List<Model> the records of table
+	 * @param String the name of table
+	 * @return List<Model> the all records of table from the database
 	 */
 	public List<Model> getRecords(String nameTable) {
 		return database.getTable(nameTable).getRecords();
 	}
 	
 	/**
-	 * Gets all groups from database
+	 * Returns all groups from database
 	 * 
-	 * @param nameTable
-	 * @return List<Group> the records of table
+	 * @param String the name of table
+	 * @return List<Group> the all records of group from the database
 	 */
 	public List<Group> getGroupsRecords(String nameTable) {
 		List<Group> ls = new ArrayList<Group>();
@@ -118,10 +118,10 @@ public class DAOProvider {
 	}
 
 	/**
-	 * Gets all tests from database
+	 * Returns all tests from database
 	 * 
-	 * @param nameTable
-	 * @return List<Test> the records of table
+	 * @param String the name of table
+	 * @return List<Test> the all records of tests from the database
 	 */
 	public List<Test> getTestsRecords(String nameTable) {
 		List<Test> ls = new ArrayList<Test>();
@@ -133,10 +133,10 @@ public class DAOProvider {
 	}
 
 	/**
-	 * Gets all users from database
+	 * Returns all users from database
 	 * 
-	 * @param nameTable
-	 * @return List<User> the records of table
+	 * @param String the name of table
+	 * @return List<User> the all records of users from the database
 	 */
 	public List<User> getUsersRecords(String nameTable) {
 		List<User> ls = new ArrayList<User>();
@@ -148,10 +148,10 @@ public class DAOProvider {
 	}
 
 	/**
-	 * Gets all students from database
+	 * Returns all students from database
 	 * 
-	 * @param nameTable
-	 * @return List<Student> the records of table
+	 * @param String the name of table
+	 * @return List<Student> the all records about students from the database
 	 */
 	public List<Student> getStudentsRecords(String nameTable) {
 		List<Student> ls = new ArrayList<Student>();
@@ -162,20 +162,10 @@ public class DAOProvider {
 		return ls;
 	}
 	
-//	public List<User> getAdministrators(String nameTable) {
-//		List<User> ls = new ArrayList<User>();
-//		List<Model> models = database.getTable(nameTable).getRecords();
-//		for(Model st : models) {
-//			ls.add((User)st);
-//		}
-//		return ls;
-//	}
-	
 	/**
-	 * Gets all tests from database
+	 * Returns all tests from database
 	 * 
-	 * @param nameTable
-	 * @return List<Test> the records of table
+	 * @return List<Test> the all records about tests from the database
 	 */
 	public List<Test> getTestsRecords() {
 		List<Test> ls = new ArrayList<Test>();
@@ -187,10 +177,11 @@ public class DAOProvider {
 	}
 	
 	/**
-	 * Gets equals test.
+	 * Returns equals test. 
+	 * This method use for get source test by test came from student.
 	 * 
-	 * @param test the Test model.
-	 * @return Test 
+	 * @param Test the test.
+	 * @return Test the test
 	 */
 	public Test getTest(Test test) {
 		Test testReturns = null;
@@ -205,10 +196,10 @@ public class DAOProvider {
 	}
 	
 	/**
-	 * Gets all student result of test from database
+	 * Returns all student result of test from database
 	 * 
-	 * @param nameTable
-	 * @return List<Test> the records of table
+	 * @param String the name of table
+	 * @return List<ResultTest> the all records about results of tests
 	 */
 	public List<ResultTest> getResultTestRecords() {
 		List<ResultTest> ls = new ArrayList<ResultTest>();
@@ -220,9 +211,10 @@ public class DAOProvider {
 	}
 	
 	/**
-	 * Gets rating for all students from database
+	 * Returns rating for student from database
 	 * 
-	 * @return List<RatingStudent> the records of table
+	 * @param User the student
+	 * @return List<RatingStudent> the records of student rating 
 	 */
 	public List<RatingStudent> getRatingStudent(User student) {
 		List<RatingStudent> ls = new ArrayList<RatingStudent>();
@@ -241,6 +233,8 @@ public class DAOProvider {
 
 	/**
 	 * Updates rating for student
+	 * 
+	 * @param RatingStudent the rating of student
 	 */
 	public void updateRatingStudent(RatingStudent ratingStudent) {
 		List<RatingStudent> listRatingStudents = this.getRatingStudent(ratingStudent.getStudent());
