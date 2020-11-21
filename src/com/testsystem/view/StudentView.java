@@ -1,5 +1,6 @@
 package com.testsystem.view;
 
+import java.text.NumberFormat;
 import java.util.List;
 
 import com.testsystem.controller.FrontController;
@@ -161,13 +162,16 @@ public final class StudentView extends UserView {
 	}
 	
 	/*
-	 * Gets rating of student.
+	 * Prints rating of student.
 	 */
 	private void printRating() {
 		List<RatingStudent> ratingStudent = getFrontController().getRatingForStudent(this.getUser());
+		double ratingpoint = ratingStudent.get(0).getPoints();
+		NumberFormat nf = NumberFormat.getInstance(); 
+		nf.setMaximumFractionDigits(3); 
 		System.out.println();
 		System.out.print("Rating: ");
-		System.out.println(ratingStudent.get(0).getPoints());
+		System.out.println(nf.format(ratingpoint));
 	}
 
 }
