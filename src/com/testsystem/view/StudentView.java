@@ -168,7 +168,7 @@ public final class StudentView extends UserView {
 		List<RatingStudent> ratingStudent = getFrontController().getRatingForStudent(this.getUser());
 		double ratingpoint = ratingStudent.get(0).getPoints();
 		NumberFormat nf = NumberFormat.getInstance(); 
-		nf.setMaximumFractionDigits(3); 
+		nf.setMaximumFractionDigits(2); 
 		System.out.println();
 		System.out.print("Rating: ");
 		System.out.println(nf.format(ratingpoint));

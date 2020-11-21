@@ -32,7 +32,7 @@ public class TestRaitingCalculator {
 	}
 
 	@Test
-	public void testGetRatingGroup() {
+	public void testGetRatingGroup1() {
 		List<ResultTest> ratingGroup = frontController.getRatingGroup("Group 1"); 
 		
 		double rating1 = ratingGroup.get(0).getPoints(); //"Романенко", "Егор"
@@ -40,12 +40,26 @@ public class TestRaitingCalculator {
 		double rating3 = ratingGroup.get(2).getPoints();//"Федоренко"
 		
 		assertEquals(ratingGroup.size(), 3);
-		assertEquals((int)rating1, 8);
-		assertEquals((int)rating2, 7);
-		assertEquals((int)rating3, 5);
+		assertEquals((int)(rating1*100), 866);
+		assertEquals((int)(rating2*100), 750);
+		assertEquals((int)(rating3*100), 533);
 		assertEquals(ratingGroup.get(0).getStudent().getLastName(), "Романенко");
 		assertEquals(ratingGroup.get(1).getStudent().getLastName(), "Шахматов");
 		assertEquals(ratingGroup.get(2).getStudent().getLastName(), "Федоренко");
+	}
+	
+	@Test
+	public void testGetRatingGroup2() {
+		List<ResultTest> ratingGroup = frontController.getRatingGroup("Group 2"); 
+		
+		double rating1 = ratingGroup.get(0).getPoints(); //"Фролова", "Анна"
+		double rating2 = ratingGroup.get(1).getPoints();//"Сазонова", "Екатерина"
+		
+		assertEquals(ratingGroup.size(), 2);
+		assertEquals((int)(rating1*100), 1000);
+		assertEquals((int)(rating2*100), 900);
+		assertEquals(ratingGroup.get(0).getStudent().getLastName(), "Фролова");
+		assertEquals(ratingGroup.get(1).getStudent().getLastName(), "Сазонова");
 	}
 	
 	@Test
@@ -64,6 +78,6 @@ public class TestRaitingCalculator {
 		assertEquals(lastNameThirdStudentGroup1, "Федоренко");
 		assertEquals(lastNameFirstStudentGroup2, "Фролова");
 		assertEquals(lastNameSecondStudentGroup2, "Сазонова");
-		
 	}
+	
 }
