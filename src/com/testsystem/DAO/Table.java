@@ -45,7 +45,7 @@ public class Table {
 	}
 	
 	/**
-	 * Gets name.
+	 * Returns name.
 	 * 
 	 * @return the name
 	 */
@@ -56,16 +56,16 @@ public class Table {
 	/**
 	 * Sets name.
 	 * 
-	 * @param name the name to set
+	 * @param String the name of table
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	/**
-	 * Gets records.
+	 * Returns records.
 	 * 
-	 * @return List<Model> the list of model from table
+	 * @return List<Model> the list of records from table
 	 */
 	public List<Model> getRecords() {
 		return listRecords;
@@ -74,7 +74,7 @@ public class Table {
 	/**
 	 * Sets records.
 	 * 
-	 * @param listModel the list of model to set
+	 * @param List<Model> the list of record to install a table
 	 */
 	public void setRecords(List<Model> listRecord) {
 		this.listRecords = listRecord;
@@ -83,14 +83,14 @@ public class Table {
 	/**
 	 * Adds records.
 	 * 
-	 * @param model the model to insert to table
+	 * @param Model the model to insert in a table
 	 */
 	public void addRecord(Model model) {
 		listRecords.add(model);
 	}
 	
 	/**
-	 * Clears DAOProvider tables.
+	 * Clears all tables.
 	 */
 	public void clear() {
 		listRecords.clear();
