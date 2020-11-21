@@ -99,22 +99,13 @@ public class RatingCalculator {
 	 */
 	public void updateRatingStudent(User student, ResultTest resultTest) {
 		ServiceLocator.getDaoProvider().addRecord(resultTest);
-		
-//		if (listRatingStudents.size() == 0) {
-//			//save first record about rating of student
-//			RatingStudent ratingStudent = new RatingStudent(student, resultTest.getPoints(), 1);
-//			ServiceLocator.getDaoProvider().addRecord(ratingStudent);
-//		} else {
-			RatingStudent ratingStudent = this.getRatingStudent(student);
-			List<RatingStudent> listRatingStudents = ServiceLocator.getDaoProvider().getRatingStudent(student);
+		RatingStudent ratingStudent = this.getRatingStudent(student);
+		List<RatingStudent> listRatingStudents = ServiceLocator.getDaoProvider().getRatingStudent(student);
+		if (listRatingStudents.size() == 0) {
+			//save first record about rating of student
+			ServiceLocator.getDaoProvider().addRecord(ratingStudent);
+		} else {
 			listRatingStudents.get(0).clone(ratingStudent);
-//			RatingStudent ratingStudent = this.getRatingStudent(student);
-//			double points = ratingStudent.getPoints();
-//			int countTestDone = ratingStudent.getCountTestDone();
-//			double testPoints = resultTest.getPoints();
-//			double ResultTestPoints = points + (testPoints / (countTestDone+1));
-//			ratingStudent.setPoints(ResultTestPoints);
-//			
-//		}
+		}
 	}
 }

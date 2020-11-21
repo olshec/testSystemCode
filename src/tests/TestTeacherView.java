@@ -30,18 +30,18 @@ public class TestTeacherView {
 		assertEquals(listTest.size(), 3);
 	}
 
-	// Check number answers in database.
-	@Test
-	public void testCountAnswers() {
-
-		List<ResultTest> listResult = frontController.getTestResultForTeacher(teacher1, listTest.get(0).getId());
-		assertEquals(listResult.size(), 4);
-
-		listResult = frontController.getTestResultForTeacher(teacher1, listTest.get(1).getId());
-		assertEquals(listResult.size(), 5);
-
-		listResult = frontController.getTestResultForTeacher(teacher1, listTest.get(2).getId());
-		assertEquals(listResult.size(), 5);
-	}
+//	// Check number answers in database.
+//	@Test
+//	public void testCountAnswers() {
+//
+//		List<ResultTest> listResult = frontController.getTestResultForTeacher(teacher1, listTest.get(0).getId());
+//		assertEquals(listResult.size(), 4);
+//
+//		listResult = frontController.getTestResultForTeacher(teacher1, listTest.get(1).getId());
+//		assertEquals(listResult.size(), 5);
+//
+//		listResult = frontController.getTestResultForTeacher(teacher1, listTest.get(2).getId());
+//		assertEquals(listResult.size(), 5);
+//	}
 
 }
