@@ -35,7 +35,7 @@ public class RatingCalculator {
 	public RatingStudent getRatingStudent(User student) {
 		List<Test> listTest = ServiceLocator.getDaoProvider()
 				.getTestsRecords(new Test().getNameModel());
-		int point = 0;
+		double point = 0;
 		int countTest = 0;
 		TestController testController = new TestController();
 		for (int i = 0; i < listTest.size(); i++) {
@@ -45,7 +45,7 @@ public class RatingCalculator {
 				countTest++;
 			}
 		}
-		int rating = 0;
+		double rating = 0;
 		if(countTest>0) {
 			rating = point * 2 / countTest;
 		}
@@ -100,10 +100,6 @@ public class RatingCalculator {
 	 */
 	public void updateRatingStudent(ResultTest resultTest) {
 		ServiceLocator.getDaoProvider().addRecord(resultTest);
-		boolean b = false;
-		if(resultTest.getStudent().getUserName() == "Anna") {
-			b=true;
-		}
 		RatingStudent ratingStudent = this.getRatingStudent(resultTest.getStudent());
 		ServiceLocator.getDaoProvider().updateRatingStudent(ratingStudent);
 	}
