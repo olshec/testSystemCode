@@ -34,6 +34,12 @@ public class AdministratorController extends UserController {
 
 	/**
 	 * Gets new Administrator.
+	 * 
+	 * @param String the last name
+	 * @param String the first name
+	 * @param String the username
+	 * @param String the password
+	 * @return List<UserModel> the list users 
 	 */
 	public Administrator getNewAdministrator(String lastName, 
 			String firstName, String username, String password) {
@@ -43,8 +49,7 @@ public class AdministratorController extends UserController {
 	/**
 	 * Gets all users.
 	 * 
-	 * @param userBase the database of users
-	 * @return List<UserModel> the list users
+	 * @return List<User> the list users
 	 */
 	public List<User> getAllUsers() {
 		//return new UserController().getAllUsers();
@@ -64,7 +69,7 @@ public class AdministratorController extends UserController {
 	/**
 	 * Gets users by type.
 	 * 
-	 * @param typeUser the type of user
+	 * @param String the type of user
 	 * @return List<User> the list of users
 	 */
 	public List<User> getUsers(String typeUser) {

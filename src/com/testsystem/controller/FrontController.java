@@ -97,7 +97,7 @@ public class FrontController {
 	 * @return 			the model of test
 	 */
 	public Test getTestInfoForStudent(User student, int idTest) {
-		return new StudentController(student).getTestInfo(idTest);
+		return new StudentController(student).getTest(idTest);
 	}
 	
 	/**
@@ -109,17 +109,6 @@ public class FrontController {
 	 */
 	public Test getTestForStudent(User student, int idTest) {
 		return new StudentController(student).getTest(idTest);
-	}
-
-	/**
-	 * Gets result of test for student.
-	 * 
-	 * @param student   the student
-	 * @param idTest 	the test index
-	 * @return 			the model of test
-	 */
-	public ResultTest getResultTestForStudent(User student, int idTest) {
-		return new StudentController(student).getResultTest(idTest);
 	}
 	
 	/**
@@ -173,16 +162,6 @@ public class FrontController {
 	public List<ResultTest> getTestResultForTeacher(User teacher, int idTest) {
 		return new TeacherController(teacher).getTestResult(idTest);
 	}
-	
-//	/**
-//	 * Gets students.
-//	 * 
-//	 * @param student		the student
-//	 * @return List<User> 	the list students
-//	 */
-//	public List<Student> getStudentsForTeacher(Teacher teacher) {
-//		return new TeacherController().getStudents(teacher);
-//	}
 
 	/**
 	 * Gets all users.
@@ -244,7 +223,5 @@ public class FrontController {
 		List<ResultTest> ratingGroup = new GroupController().getRatingGroup(nameGroup);
 		return ratingGroup;
 	}
-
-
 
 }

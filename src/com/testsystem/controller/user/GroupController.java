@@ -58,6 +58,7 @@ public class GroupController {
 	 * Gets new Group.
 	 * 
 	 * @param name the name of group
+	 * @return the group
 	 */
 	public Group getNewGroup(String name) {
 		return new Group(name);
@@ -67,6 +68,7 @@ public class GroupController {
 	 * Gets student by group.
 	 * 
 	 * @param group the group of user
+	 * @return List<User> the list of user
 	 */
 	public List<User> getStudentsByGroup(Group group) {
 		List<Student> listStudentInBase = ServiceLocator.getDaoProvider()
@@ -107,6 +109,7 @@ public class GroupController {
 	 * Gets group by name.
 	 * 
 	 * @param name the name of group
+	 * @return Group the group
 	 */
 	public Group getGroupByName(String name) {
 		List<Group> listGroup = ServiceLocator.getDaoProvider()

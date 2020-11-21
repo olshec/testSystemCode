@@ -30,9 +30,9 @@ public class UserController {
 	}
 	
 	/**
-	 * Gets user.
+	 * Returns user.
 	 * 
-	 * @return the user
+	 * @return User the user
 	 */
 	public User getUser() {
 		return user;
@@ -41,14 +41,14 @@ public class UserController {
 	/**
 	 * Sets user.
 	 * 
-	 * @param user the user
+	 * @param User the user
 	 */
 	public void setUser(User user) {
 		this.user = user;
 	}
 	
 	/**
-	 * Gets user by login and password.
+	 * Returns user by login and password.
 	 * 
 	 * @param username 		the name of user
 	 * @param password 		the password of user
@@ -92,9 +92,9 @@ public class UserController {
 	}
 
 	/**
-	 * Adds user.
+	 * Saves user in database.
 	 * 
-	 * @param user the user.
+	 * @param User the user.
 	 */
 	public void saveUserInDatabase(User user) {
 		ServiceLocator.getDaoProvider().addRecord(user);

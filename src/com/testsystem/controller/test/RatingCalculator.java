@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import com.testsystem.controller.user.GroupController;
+import com.testsystem.controller.user.StudentController;
 import com.testsystem.model.test.RatingStudent;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
@@ -28,13 +29,11 @@ public class RatingCalculator {
 	 * of student = (point*100/(count_question*Max_point))/Max_range =
 	 * (point*2/(count_question)).
 	 * 
-	 * @param student  the student
-	 * @param listTest the list of test
-	 * @return int the rating of student
+	 * @param User the student of test
+	 * @return RatingStudent the rating of student
 	 */
 	public RatingStudent getRatingStudent(User student) {
-		List<Test> listTest = ServiceLocator.getDaoProvider()
-				.getTestsRecords(new Test().getNameModel());
+		List<Test> listTest = new StudentController(student).getTests();
 		double point = 0;
 		int countTest = 0;
 		TestController testController = new TestController();
@@ -57,7 +56,7 @@ public class RatingCalculator {
 	 * Gets rating for group.
 	 * 
 	 * @param group  the Group
-	 * @return List<ResultTest> the rating of student
+	 * @return List<ResultTest> the rating of students in the group
 	 */
 	public List<ResultTest> getRatingGroup(Group group) {
 		List<User> listStudent = new GroupController()
@@ -73,7 +72,12 @@ public class RatingCalculator {
 		return groupRating;
 	}
 
-	// function to sort arrayList by values
+	/**
+	 * Function for sort list with ResultTest by values
+	 * 
+	 * @param List<ResultTest> the list with student result 
+	 * @return
+	 */
 	private static List<ResultTest> sortByValue(List<ResultTest> listStudentResult) {
 		Collections.sort(listStudentResult, new Comparator<ResultTest>() {
 			@Override
@@ -95,8 +99,7 @@ public class RatingCalculator {
 	/**
 	 * Updates rating student.
 	 * 
-	 * @param student
-	 * @param resultTest
+	 * @param resultTest the result of test
 	 */
 	public void updateRatingStudent(ResultTest resultTest) {
 		ServiceLocator.getDaoProvider().addRecord(resultTest);

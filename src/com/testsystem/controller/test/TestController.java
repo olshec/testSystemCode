@@ -30,7 +30,7 @@ public class TestController {
 	/**
 	 * Creates a TestController.
 	 * 
-	 * @param the test
+	 * @param Test the test
 	 */
 	public TestController(Test test) {
 		setTest(test);
@@ -111,13 +111,12 @@ public class TestController {
 	}
 
 	/**
-	 * Adds result of test.
+	 * Saves result of test in database.
 	 * 
 	 * @param student the student for grading
 	 * @param points  the student point
 	 */
 	public void saveResultInDatabase(ResultTest resultTest) {
-		//ServiceLocator.getDaoProvider().addRecord(resultTest);
 		new RatingCalculator().updateRatingStudent(resultTest);
 	}
 
@@ -141,8 +140,8 @@ public class TestController {
 	/**
 	 * Gets tests for student.
 	 * 
-	 * @param the student.
-	 * @return the list tests of student.
+	 * @param User the student.
+	 * @return List<Test> the list tests of student.
 	 */
 	public List<Test> getStudentTests(User student) {
 		List<Test> listTest = ServiceLocator.getDaoProvider().getTestsRecords();
@@ -160,7 +159,7 @@ public class TestController {
 	/**
 	 * Gets number of question.
 	 * 
-	 * @return the number of questions
+	 * @return int the number of questions
 	 */
 	public int getNumberQuestions() {
 		return test.getQuestions().size();
@@ -187,21 +186,7 @@ public class TestController {
 		}
 		return false;
 	}
-
-//	/**
-//	 * Gets students.
-//	 * 
-//	 * @return students the list of students
-//	 */
-//	public List<User> getStudents() {
-//		List<User> listStudent = new ArrayList<User>();
-//		List<StudentTestResult> listStudentTestResult = test.getStudentTestResult();
-//		for (StudentTestResult studentTestResult : listStudentTestResult) {
-//			listStudent.add(studentTestResult.getStudent());
-//		}
-//		return listStudent;
-//	}
-
+	
 	/**
 	 * Adds new question.
 	 * 
@@ -224,7 +209,7 @@ public class TestController {
 	/**
 	 * Saves test in the database.
 	 * 
-	 * @param test
+	 * @param Test
 	 */
 	public static void saveTest(Test test) {
 		List<Model> tests = ServiceLocator.getDaoProvider()
@@ -235,7 +220,8 @@ public class TestController {
 	/**
 	 * This method checks student test.
 	 *
-	 *@param test the test
+	 * @param User the student
+	 * @param Test the test
 	 */
 	public ResultTest checkTest(User student, Test test) {
 		ResultTest resultTest = new ResultTestController().

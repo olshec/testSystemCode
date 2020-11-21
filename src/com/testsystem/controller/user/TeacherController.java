@@ -28,14 +28,20 @@ public class TeacherController extends UserController {
 	/**
 	 * Creates a TeacherController.
 	 * 
-	 * @param user
+	 * @param User the teacher
 	 */
 	public TeacherController(User teacher) {
 		super(teacher);
 	}
 
 	/**
-	 * Gets new teacher.
+	 * Returns new teacher.
+	 * 
+	 * @param String the lastName
+	 * @param String the firstName
+	 * @param String the username
+	 * @param String the password
+	 * @return Teacher the teacher
 	 */
 	public Teacher getNewTeacher(String lastName, String firstName, 
 			String username, String password) {
@@ -43,9 +49,9 @@ public class TeacherController extends UserController {
 	}
 	
 	/**
-	 * Gets tests
+	 * Returns the list of tests for teacher.
 	 * 
-	 * @return the all tests of teacher
+	 * @return List<Test> the list of tests
 	 */
 	public List<Test> getTests() {
 		List<Test> listTest = ServiceLocator.getDaoProvider()
@@ -64,24 +70,10 @@ public class TeacherController extends UserController {
 	 * Gets students test result.
 	 * 
 	 * @param idTest   	the test id
-	 * @return Test 	the model of tests
+	 * @return List<ResultTest> 	the list of result test by id
 	 */
 	public List<ResultTest> getTestResult(int idTest) {
 		ResultTestController resultController = new ResultTestController();
 		return resultController.getResultsOfTest(idTest);
 	}
-	
-//	/**
-//	 * Gets student by type.
-//	 * 
-//	 * @param typeUser the type of user
-//	 * @return List<User> the list of users
-//	 */
-//	public List<Student> getStudents(Teacher teacher) {
-//		List<Student> listStudents = 
-//				ServiceLocator.getDaoProvider().getStudentsRecords(new Student().getNameModel());
-//		List<Student> listStudentsForTeacher = new ArrayList<Student>();
-//		
-//		return listStudentsForTeacher;
-//	}
 }

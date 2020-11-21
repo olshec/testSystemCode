@@ -32,14 +32,20 @@ public class StudentController extends UserController {
 	 * Creates a StudentController.
 	 * 
 	 * @param user 
-	 * @param daoProvider
 	 */
 	public StudentController(User user) {
 		super(user);
 	}
 
 	/**
-	 * Gets new student.
+	 * Returns new student.
+	 * 
+	 * @param String the lastName
+	 * @param String the firstName
+	 * @param String the username
+	 * @param String the password
+	 * @param Group the group
+	 * @return Student the student
 	 */
 	public Student getNewStudent(String lastName, String firstName, 
 			 String username, String password, Group group) {
@@ -47,9 +53,9 @@ public class StudentController extends UserController {
 	}
 
 	/**
-	 * Gets test
+	 * Returns test
 	 * 
-	 * @return 			the all tests of student
+	 * @return the all tests of student
 	 */
 	public List<Test> getTests() {
 		List<Test> listTest = ServiceLocator.getDaoProvider()
@@ -63,29 +69,12 @@ public class StudentController extends UserController {
 		}
 		return testsStudent;
 	}
-
-	/**
-	 * Gets student test information.
-	 * 
-	 * @param idTest   	the model of student
-	 * @return 			the model of test
-	 */
-	public Test getTestInfo(int idTest) {
-		List<Test> listTest = ServiceLocator.getDaoProvider()
-				.getTestsRecords(new Test().getNameModel());
-		Test test = listTest.get(idTest);
-		TestController testController = new TestController(test);
-		if (test != null && testController.hasStudentThisTest(this.getUser(), test)) {
-			return listTest.get(idTest);
-		} else
-			return null;
-	}
 	
 	/**
-	 * Gets test for student.
+	 * Returns test for student.
 	 * 
 	 * @param idTest   	the model of student
-	 * @return 			the model of test
+	 * @return 			the test
 	 */
 	public Test getTest(int idTest) {
 		List<Test> listTest = ServiceLocator.getDaoProvider()
@@ -100,10 +89,9 @@ public class StudentController extends UserController {
 	}
 
 	/**
-	 * Gets student test number questions.
+	 * Returns number questions in the test.
 	 * 
 	 * @param idTest   	the test id.
-	 * @param testTable the table of test.
 	 * @return 			the number of tests.
 	 */
 	public int getNumberQuestionsInTest(int idTest) {
@@ -122,21 +110,9 @@ public class StudentController extends UserController {
 	}
 	
 	/**
-	 * Gets group of student.
+	 * Returns group of student.
 	 */
 	public Group getGroup() {
-		return ((Student)getUser()).getGroup();
-	}
-
-	/**
-	 * Returns result test.
-	 * 
-	 * @param idTest
-	 * @return
-	 */
-	public ResultTest getResultTest(int idTest) {
-		
-		
-		return null;
+		return ((Student)this.getUser()).getGroup();
 	}
 }

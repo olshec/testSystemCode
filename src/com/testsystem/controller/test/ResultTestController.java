@@ -13,7 +13,7 @@ import com.testsystem.util.ServiceLocator;
 public class ResultTestController {
 
 	/**
-	 * 
+	 * Creates ResultTestController
 	 */
 	public ResultTestController() {
 		super();
