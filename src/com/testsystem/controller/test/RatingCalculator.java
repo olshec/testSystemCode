@@ -10,6 +10,7 @@ import com.testsystem.model.test.RatingStudent;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
 import com.testsystem.model.user.Group;
+import com.testsystem.model.user.Student;
 import com.testsystem.model.user.User;
 import com.testsystem.util.ServiceLocator;
 
@@ -99,6 +100,10 @@ public class RatingCalculator {
 	 */
 	public void updateRatingStudent(User student, ResultTest resultTest) {
 		ServiceLocator.getDaoProvider().addRecord(resultTest);
+		boolean b = false;
+		if(student.getUserName() == "Anna") {
+			b=true;
+		}
 		RatingStudent ratingStudent = this.getRatingStudent(student);
 		ServiceLocator.getDaoProvider().updateRatingStudent(ratingStudent);
 	}

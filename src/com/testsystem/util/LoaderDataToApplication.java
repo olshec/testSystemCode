@@ -46,6 +46,11 @@ public class LoaderDataToApplication {
 		testController.addQuestion(q6);
 		testController.addQuestion(q7);
 
+		//TestController.saveTest(test1);
+		TestController.saveTest(test2);
+		TestController.saveTest(test3);
+		
+		//Add groups
 		Group g1 = new GroupController().getNewGroup("Group 1");
 		new GroupController().saveGroupInDatabase(g1);
 		User student1 	= 	new StudentController().getNewStudent("Шахматов", "Антон", "ShAnton", "1111", g1);
@@ -114,10 +119,6 @@ public class LoaderDataToApplication {
 		new RatingCalculator().updateRatingStudent(student3, new ResultTest(student3, test3, 5));
 		new RatingCalculator().updateRatingStudent(student4, new ResultTest(student4, test3, 5));
 		new RatingCalculator().updateRatingStudent(student5, new ResultTest(student5, test3, 2));
-		
-		//TestController.saveTest(test1);
-		TestController.saveTest(test2);
-		TestController.saveTest(test3);
 		
 		loadTestData(frontController);
 	}
