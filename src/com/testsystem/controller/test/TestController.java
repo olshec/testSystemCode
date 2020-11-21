@@ -117,7 +117,8 @@ public class TestController {
 	 * @param points  the student point
 	 */
 	public void saveResultInDatabase(ResultTest resultTest) {
-		ServiceLocator.getDaoProvider().addRecord(resultTest);
+		//ServiceLocator.getDaoProvider().addRecord(resultTest);
+		new RatingCalculator().updateRatingStudent(resultTest);
 	}
 
 	/**
@@ -240,7 +241,6 @@ public class TestController {
 		ResultTest resultTest = new ResultTestController().
 				checkTest(student, test);
 		saveResultInDatabase(resultTest);
-		new RatingCalculator().updateRatingStudent(student, resultTest);
 		return resultTest;
 	}
 

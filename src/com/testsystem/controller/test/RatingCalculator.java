@@ -98,13 +98,13 @@ public class RatingCalculator {
 	 * @param student
 	 * @param resultTest
 	 */
-	public void updateRatingStudent(User student, ResultTest resultTest) {
+	public void updateRatingStudent(ResultTest resultTest) {
 		ServiceLocator.getDaoProvider().addRecord(resultTest);
 		boolean b = false;
-		if(student.getUserName() == "Anna") {
+		if(resultTest.getStudent().getUserName() == "Anna") {
 			b=true;
 		}
-		RatingStudent ratingStudent = this.getRatingStudent(student);
+		RatingStudent ratingStudent = this.getRatingStudent(resultTest.getStudent());
 		ServiceLocator.getDaoProvider().updateRatingStudent(ratingStudent);
 	}
 }

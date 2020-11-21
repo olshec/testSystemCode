@@ -74,13 +74,10 @@ public class LoaderDataToApplication {
 		testController.addStudent(student1);
 		testController.addStudent(student2);
 		testController.addStudent(student5);
+		
 		testController.saveResultInDatabase(new ResultTest(student1, test1, 4));
 		testController.saveResultInDatabase(new ResultTest(student2, test1, 5));
 		testController.saveResultInDatabase(new ResultTest(student5, test1, 3));
-
-		new RatingCalculator().updateRatingStudent(student1, new ResultTest(student1, test1, 4));
-		new RatingCalculator().updateRatingStudent(student2, new ResultTest(student2, test1, 5));
-		new RatingCalculator().updateRatingStudent(student3, new ResultTest(student3, test1, 3));
 		
 		//add test2 and result to students
 		testController.setTest(test2);
@@ -94,12 +91,6 @@ public class LoaderDataToApplication {
 		testController.saveResultInDatabase(new ResultTest(student3, test2, 4));
 		testController.saveResultInDatabase(new ResultTest(student4, test2, 5));
 		testController.saveResultInDatabase(new ResultTest(student5, test2, 3));
-
-		new RatingCalculator().updateRatingStudent(student1, new ResultTest(student1, test2, 3));
-		new RatingCalculator().updateRatingStudent(student2, new ResultTest(student2, test2, 4));
-		new RatingCalculator().updateRatingStudent(student3, new ResultTest(student3, test2, 4));
-		new RatingCalculator().updateRatingStudent(student4, new ResultTest(student4, test2, 5));
-		new RatingCalculator().updateRatingStudent(student5, new ResultTest(student5, test2, 3));
 		
 		//add test3 and result to students
 		testController.setTest(test3);
@@ -113,12 +104,6 @@ public class LoaderDataToApplication {
 		testController.saveResultInDatabase(new ResultTest(student3, test3, 5));
 		testController.saveResultInDatabase(new ResultTest(student4, test3, 5));
 		testController.saveResultInDatabase(new ResultTest(student5, test3, 2));
-		
-		new RatingCalculator().updateRatingStudent(student1, new ResultTest(student1, test3, 3));
-		new RatingCalculator().updateRatingStudent(student2, new ResultTest(student2, test3, 4));
-		new RatingCalculator().updateRatingStudent(student3, new ResultTest(student3, test3, 5));
-		new RatingCalculator().updateRatingStudent(student4, new ResultTest(student4, test3, 5));
-		new RatingCalculator().updateRatingStudent(student5, new ResultTest(student5, test3, 2));
 		
 		loadTestData(frontController);
 	}
