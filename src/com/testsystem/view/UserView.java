@@ -4,7 +4,7 @@ import com.testsystem.controller.FrontController;
 import com.testsystem.model.user.User;
 
 /**
- * Abstract class view.
+ * Represents an abstract class view for users.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com
@@ -23,21 +23,20 @@ public abstract class UserView {
 	/**
 	 * Creates a UserView.
 	 */
-	public UserView() {
-	}
+	public UserView() {}
 
 	/**
 	 * Creates a UserView.
 	 */
 	public UserView(User userModel, FrontController frontController) {
-		setUserModel(userModel);
+		setUser(userModel);
 		setFrontController(frontController);
 	}
 
 	/**
-	 * Gets user.
+	 * Returns user.
 	 * 
-	 * @return the user
+	 * @return User the user
 	 */
 	public User getUser() {
 		return user;
@@ -46,24 +45,25 @@ public abstract class UserView {
 	/**
 	 * Sets user.
 	 * 
-	 * @param user the user
+	 * @param User the user
 	 */
-	public void setUserModel(User user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 	
 	/**
 	 * Sets frontController.
 	 * 
-	 * @param frontController the FrontController
+	 * @param FrontController the FrontController
 	 */
 	public void setFrontController(FrontController frontController) {
 		this.frontController = frontController;
 	}
 	
 	/**
-	 * Gets FrontController.
+	 * Returns FrontController.
 	 * 
+	 * @return FrontController the FrontController
 	 */
 	public FrontController getFrontController() {
 		return frontController;

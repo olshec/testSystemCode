@@ -23,8 +23,8 @@ public final class StudentView extends UserView {
 	/**
 	 * Creates a view for student.
 	 * 
-	 * @param user            the student
-	 * @param frontController the FrontController
+	 * @param User            the student
+	 * @param FrontController the FrontController
 	 */
 	public StudentView(User user, FrontController frontController) {
 		super(user, frontController);
@@ -76,19 +76,19 @@ public final class StudentView extends UserView {
 	}
 
 	/**
-	 * Print a list of tests.
+	 * Printa a list of tests.
 	 * 
-	 * @param mas the list of student
+	 * @param List<Test> the list of students
 	 */
-	private void printTestsStudent(List<Test> mas) {
+	private void printTestsStudent(List<Test> listStudents) {
 		System.out.println("Cписок тестов: ");
-		for (int i = 0; i < mas.size(); i++) {
-			System.out.println(i + 1 + ") " + (mas.get(i)).getName());
+		for (int i = 0; i < listStudents.size(); i++) {
+			System.out.println(i + 1 + ") " + (listStudents.get(i)).getName());
 		}
 	}
 
 	/**
-	 * Print a list of student tests from the server and prints.
+	 * Prints a list of student tests from the server and prints.
 	 */
 	private void printTestsStudent() {
 		List<Test> mas = getFrontController().getTestsForStudent(this.getUser());
@@ -96,7 +96,7 @@ public final class StudentView extends UserView {
 	}
 
 	/**
-	 * Print the number of test questions from the server and prints.
+	 * Prints the number of test questions from the server and prints.
 	 */
 	private void printNumberQuestions() {
 
@@ -147,6 +147,8 @@ public final class StudentView extends UserView {
 
 	/**
 	 * Prints result of test.
+	 * 
+	 * @param ResultTest the result of test
 	 */
 	private void printTestResult(ResultTest resultTest) {
 		System.out.println();

@@ -7,7 +7,7 @@ import com.testsystem.model.user.User;
 import com.testsystem.util.ModScanner;
 
 /**
- * Represents an application for administrator.
+ * Represents a view for administrator.
  * 
  * @author Oleg Shestakov
  * @author olshec@gmail.com
@@ -16,9 +16,10 @@ import com.testsystem.util.ModScanner;
 public class AdminView extends UserView {
 
 	/**
-	 * Represents a view for administrator.
+	 * Creates an AdminView.
 	 * 
-	 * @param user The administrator's view
+	 * @param User the user
+	 * @param FrontController the front controller
 	 */
 	public AdminView(User user, FrontController frontController) {
 		super(user, frontController);
@@ -71,8 +72,8 @@ public class AdminView extends UserView {
 	/*
 	 * Print list users.
 	 * 
-	 * @param masUser The array of users.
-	 * @param title   String represents a title.
+	 * @param List<User> the list of users.
+	 * @param String   	 the title of message.
 	 */
 	private void printListUsers(List<User> masUser, String title) {
 		System.out.println(title + ": ");
@@ -85,7 +86,7 @@ public class AdminView extends UserView {
 	}
 	
 	/*
-	 * Print the list users from server.
+	 * Prints the list users from server.
 	 */
 	private void getUsers() {
 		List<User> masUser = getFrontController().getAllUsersForAdmin(this.getUser());
@@ -93,7 +94,7 @@ public class AdminView extends UserView {
 	}
 
 	/*
-	 * Print the list students from server.
+	 * Prints the list students from server.
 	 */
 	private void getStudents() {
 		List<User> masUser = getFrontController().getStudentsForAdmin(this.getUser());
@@ -101,7 +102,7 @@ public class AdminView extends UserView {
 	}
 
 	/*
-	 * Print the list teachers from server.
+	 * Prints the list teachers from server.
 	 */
 	private void getTeachers() {
 		List<User> masUser = getFrontController().getTeachersForAdmin(this.getUser());
@@ -109,7 +110,7 @@ public class AdminView extends UserView {
 	}
 
 	/*
-	 * Print the list administrators from server.
+	 * Prints the list administrators from server.
 	 */
 	private void getAdministrators() {
 		List<User> masUser = getFrontController().getAdminsForAdmin(this.getUser());

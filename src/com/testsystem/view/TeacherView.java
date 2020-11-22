@@ -22,7 +22,8 @@ public final class TeacherView extends UserView {
 	/**
 	 * Creates a teacher view.
 	 * 
-	 * @param user the teacher
+	 * @param User the teacher
+	 * @param FrontController the FrontController
 	 */
 	public TeacherView(User user, FrontController frontController) {
 		super(user, frontController);
@@ -71,7 +72,7 @@ public final class TeacherView extends UserView {
 	}
 
 	/**
-	 * Print a list of tests from the server and prints.
+	 * Prints a list of tests from the server and prints.
 	 */
 	private void getListTests() {
 		listTest = getFrontController().getTestsForTeacher(this.getUser());
@@ -82,7 +83,7 @@ public final class TeacherView extends UserView {
 	}
 
 	/**
-	 * Print a result of students test from the server and prints.
+	 * Prints a result of students test from the server and prints.
 	 */
 	private void getResultsTest() {
 		int numTest = enterNumberTest();
@@ -99,7 +100,7 @@ public final class TeacherView extends UserView {
 	}
 	
 	/**
-	 * Enter number test.
+	 * Method for enter number of test.
 	 */
 	private int enterNumberTest() {
 		System.out.print("Введите номер теста: ");
@@ -114,7 +115,7 @@ public final class TeacherView extends UserView {
 	}
 
 	/**
-	 * Print a result of students test.
+	 * Prints a result of students test.
 	 */
 	private void printTestResult(List<ResultTest> resultsTest) {
 		if (resultsTest != null) {

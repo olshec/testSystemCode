@@ -10,7 +10,7 @@ import com.testsystem.util.ModScanner;
 public class TestView {
 
 	/**
-	 * 
+	 * Creates a test view.
 	 */
 	public TestView() {
 		super();
@@ -18,6 +18,9 @@ public class TestView {
 
 	/**
 	 * Runs test.
+	 * 
+	 * @param User	the student
+	 * @param Test	the test
 	 */
 	public Test runTest(User student, Test test) {
 		greeting();
@@ -40,7 +43,7 @@ public class TestView {
 	}
 
 	/*
-	 * This method prints the greeting.
+	 * Prints the greeting.
 	 */
 	private void greeting() {
 		System.out.println();
@@ -51,6 +54,9 @@ public class TestView {
 
 	/*
 	 * Set answers for question.
+	 * 
+	 * @param String	the string of answer
+	 * @param Question 	the question
 	 */
 	private void setAnswers(String answerString, Question question) {
 		answerString = answerString.trim();

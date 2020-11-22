@@ -22,6 +22,8 @@ public class ClientView extends UserView {
 
 	/**
 	 * The main function. The entry point to the application.
+	 * 
+	 * @param String[] the array arguments for application
 	 */
 	public static void main(String[] args) {
 		new ClientView().openMenu();
@@ -49,7 +51,6 @@ public class ClientView extends UserView {
 		}
 
 		UserView userAplication = null;
-		//System.out.print(user.getClass().getSimpleName());
 
 		switch (user.getNameModel()) {
 		case Administrator.nameModel:
@@ -65,11 +66,6 @@ public class ClientView extends UserView {
 			break;
 		}
 
-		// Student_1 login: "REgor", password: "1111"
-		// Student_2 login: "ShAnton", password: "1111"
-
-		// Teacher_1 login: "KirovAnton", password: "12345678"
-		// SAdmin_1 login: "Admin1", password: "0000"
 		if (userAplication != null)
 			userAplication.openMenu();
 		else {
