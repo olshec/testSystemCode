@@ -14,18 +14,18 @@ public class Student extends User {
 	private Group group;
 
 	/**
-	 * Creates a StudentModel.
+	 * Creates a Student.
 	 */
 	public Student() {}
 	
 	/**
-	 * Creates a StudentModel.
+	 * Creates a Student.
 	 * 
-	 * @param lastName  the user’s last name
-	 * @param firstName the user’s first name
-	 * @param server    the user’s server
-	 * @param username  the user’s username
-	 * @param password  the user’s password
+	 * @param String  the user’s last name
+	 * @param String  the user’s first name
+	 * @param String  the user’s username
+	 * @param String  the user’s password
+	 * @param Group   the user’s group
 	 */
 	public Student(String lastName, String firstName,
 					String username, String password, Group group) {
@@ -34,18 +34,18 @@ public class Student extends User {
 	}
 
 	/**
-	 * Gets name of model.
+	 * Returns the name of model student.
 	 * 
-	 * @return String return name of model
+	 * @return String the name of model
 	 */
 	public String getNameModel() {
 		return nameModel;
 	}
 	
 	/**
-	 * Gets group.
+	 * Returns the group.
 	 * 
-	 * @return the group
+	 * @return Group the group
 	 */
 	public Group getGroup() {
 		return group;
@@ -54,7 +54,7 @@ public class Student extends User {
 	/**
 	 * Sets group.
 	 * 
-	 * @param group the group to set
+	 * @param Group the group
 	 */
 	public void setGroup(Group group) {
 		this.group = group;

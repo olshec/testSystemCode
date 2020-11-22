@@ -20,6 +20,9 @@ public abstract class User extends Model {
 	/** variable for increment id */
 	private static int idCount;
 
+	/**
+	 * Initialize static variables
+	 */
 	static {
 		idCount = 0;
 	}
@@ -32,11 +35,10 @@ public abstract class User extends Model {
 	/**
 	 * Creates an User.
 	 * 
-	 * @param lastName  the user’s last name
-	 * @param firstName the user’s first name
-	 * @param server    the user’s server
-	 * @param username  the user’s username
-	 * @param password  the user’s password
+	 * @param String  the user’s last name
+	 * @param String  the user’s first name
+	 * @param String  the user’s username
+	 * @param String  the user’s password
 	 */
 	public User(String lastName, String firstName, String username, String password) {
 		this.lastName = lastName;
@@ -57,36 +59,36 @@ public abstract class User extends Model {
 	}
 	
 	/**
-	 * Gets the user’s first name.
+	 * Returns the user’s first name.
 	 * 
-	 * @return String return first name
+	 * @return String the first name
 	 */
 	public String getFirstName() {
 		return this.firstName;
 	}
 
 	/**
-	 * Gets the user’s last name.
+	 * Returns the user’s last name.
 	 * 
-	 * @return String return last name
+	 * @return String the last name
 	 */
 	public String getLastName() {
 		return this.lastName;
 	}
 
 	/**
-	 * Gets the user’s username.
+	 * Returns the user’s username.
 	 * 
-	 * @return String return username
+	 * @return String the username
 	 */
 	public String getUserName() {
 		return this.username;
 	}
 
 	/**
-	 * Gets the user’s password.
+	 * Returns the user’s password.
 	 * 
-	 * @return String return password
+	 * @return String the password
 	 */
 	public String getPassword() {
 		return this.password;
@@ -95,7 +97,7 @@ public abstract class User extends Model {
 	/**
 	 * Gets the user’s id.
 	 * 
-	 * @return Integer return id
+	 * @return int the return id
 	 */
 	public int getId() {
 		return this.id;
@@ -103,6 +105,8 @@ public abstract class User extends Model {
 	
 	/**
 	 * Returns the hash code.
+	 * 
+	 * @return int the hash code of User
 	 */
 	@Override
 	public int hashCode() {
@@ -113,7 +117,10 @@ public abstract class User extends Model {
 	}
 
 	/**
-	 * Equals check.
+	 * Сhecks equality of objects.
+	 * 
+	 * @param Object the user
+	 * @return boolean the result of compare objects
 	 */
 	@Override
 	public boolean equals(Object obj) {

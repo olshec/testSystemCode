@@ -10,28 +10,28 @@ package com.testsystem.model.user;
 public class Administrator extends User {
 	
 	public static final String nameModel = "Administrator";
+	
 	/**
 	 * Creates an AdministratorModel.
 	 */
 	public Administrator() {	}
 	
 	/**
-	 * Creates an AdministratorModel.
+	 * Creates an Administrator.
 	 * 
-	 * @param lastName  the user’s last name
-	 * @param firstName the user’s first name
-	 * @param server    the user’s server
-	 * @param username  the user’s username
-	 * @param password  the user’s password
+	 * @param String  the user’s last name
+	 * @param String  the user’s first name
+	 * @param String  the user’s username
+	 * @param String  the user’s password
 	 */
 	public Administrator(String lastName, String firstName, String username, String password) {
 		super(lastName, firstName, username, password);
 	}
 	
 	/**
-	 * Gets name of model.
+	 * Returns the name of model administrator.
 	 * 
-	 * @return String return name of model
+	 * @return String the name of model
 	 */
 	public String getNameModel() {
 		return nameModel;

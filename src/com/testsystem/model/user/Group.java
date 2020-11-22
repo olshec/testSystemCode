@@ -21,34 +21,34 @@ public class Group extends Model{
 	/**
 	 * Creates a Group.
 	 * 
-	 * @param name  the name of group.
+	 * @param String the name of group.
 	 */
 	public Group(String name) {
 		this.name=name;
 	}
 	
 	/**
-	 * Gets name of group.
+	 * Returns the name of group.
 	 * 
-	 * @return the name
+	 * @return String the name of group
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * Sets name.
+	 * Sets the name of group.
 	 * 
-	 * @param name the name to set.
+	 * @param String the name.
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	/**
-	 * Gets name of model.
+	 * Gets name of model Group.
 	 * 
-	 * @return String return name of model
+	 * @return String return name of model group
 	 */
 	public String getNameModel() {
 		return "Group";
@@ -56,6 +56,8 @@ public class Group extends Model{
 	
 	/**
 	 * Returns the hash code.
+	 * 
+	 * @return int the hash code of group
 	 */
 	@Override
 	public int hashCode() {
@@ -66,7 +68,10 @@ public class Group extends Model{
 	}
 
 	/**
-	 * Equals check.
+	 * Сhecks equality of objects.
+	 * 
+	 * @param Object the group
+	 * @return boolean the result of compare objects
 	 */
 	@Override
 	public boolean equals(Object obj) {
