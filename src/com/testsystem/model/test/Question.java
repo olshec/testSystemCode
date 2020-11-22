@@ -30,9 +30,9 @@ public class Question extends Model {
 	}
 
 	/**
-	 * Gets text of question.
+	 * Returns text of question.
 	 * 
-	 * @return the text of question
+	 * @return String the text of question
 	 */
 	public String getText() {
 		return text;
@@ -41,16 +41,16 @@ public class Question extends Model {
 	/**
 	 * Sets text for question.
 	 * 
-	 * @param text the text to set
+	 * @param String the text to set
 	 */
 	public void setText(String text) {
 		this.text = text;
 	}
 
 	/**
-	 * Gets list of answers.
+	 * Returns list of answers.
 	 * 
-	 * @return the list of answers
+	 * @return List<Answer> the list of answers
 	 */
 	public List<Answer> getAnswers() {
 		return answers;
@@ -59,32 +59,34 @@ public class Question extends Model {
 	/**
 	 * Sets answers for question.
 	 * 
-	 * @param answers the answers to set
+	 * @param List<Answer> the answers to set
 	 */
 	public void setAnswers(List<Answer> answers) {
 		this.answers = answers;
 	}
 
 	/**
-	 * Gets ID of question.
+	 * Returns ID of question.
 	 * 
-	 * @return the ID
+	 * @return int the ID
 	 */
-	public Integer getID() {
+	public int getID() {
 		return id;
 	}
 
 	/**
-	 * Sets ID.
+	 * Sets id.
 	 * 
-	 * @param id the ID to set
+	 * @param int the id to set
 	 */
-	public void setID(Integer id) {
+	public void setID(int id) {
 		this.id = id;
 	}
 	
 	/**
 	 * Returns the hash code.
+	 * 
+	 * @return int the hash code of this object
 	 */
 	@Override
 	public int hashCode() {
@@ -96,6 +98,9 @@ public class Question extends Model {
 
 	/**
 	 * Equals check.
+	 * 
+	 * @param Object the question
+	 * @return boolean the result of compare
 	 */
 	@Override
 	public boolean equals(Object obj) {

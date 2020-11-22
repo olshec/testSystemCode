@@ -13,7 +13,7 @@ public class RatingStudent extends Model {
 	private Integer id;
 	
 	/**
-	 * Creates a RatingStudent
+	 * Creates a RatingStudent.
 	 */
 	public RatingStudent() {
 		super();
@@ -21,11 +21,10 @@ public class RatingStudent extends Model {
 	}
 
 	/**
-	 * Creates a RatingStudent
+	 * Creates a RatingStudent.
 	 * 
-	 * @param student
-	 * @param points
-	 * @param countTestDone
+	 * @param User 		the student
+	 * @param double 	the points
 	 */
 	public RatingStudent(User student, double points) {
 		super();
@@ -35,52 +34,64 @@ public class RatingStudent extends Model {
 	}
 
 	/**
-	 * @return the student
+	 * Returns the student.
+	 * 
+	 * @return User the student
 	 */
 	public User getStudent() {
 		return student;
 	}
 
 	/**
-	 * @param student the student to set
+	 * Sets the student.
+	 * 
+	 * @param User the student
 	 */
 	public void setStudent(User student) {
 		this.student = student;
 	}
 	
 	/**
-	 * @return the points
+	 * Returns the points.
+	 * 
+	 * @return double the points
 	 */
 	public double getPoints() {
 		return points;
 	}
 
 	/**
-	 * @param points the points to set
+	 * Sets the points.
+	 * 
+	 * @param double the points
 	 */
 	public void setPoints(double points) {
 		this.points = points;
 	}
 
 	/**
-	 * @return the id
+	 * Returns the id.
+	 * 
+	 * @return int the id
 	 */
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
 	/**
-	 * @param id the id to set
+	 * Sets the id.
+	 * 
+	 * @param int the id
 	 */
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	
 	/**
-	 * Gets rating for student
+	 * Returns rating for student.
 	 * 
-	 * @param student
-	 * @return RatingStudent
+	 * @param User the student
+	 * @return RatingStudent the rating of student
 	 */
 	public List<RatingStudent> getRatingTest(User student) {
 		List<RatingStudent> ratingStudent = null;
@@ -95,7 +106,7 @@ public class RatingStudent extends Model {
 	/**
 	 * Adds rating of test.
 	 * 
-	 * @param ratingTest the rating of student
+	 * @param RatingStudent the rating of student
 	 */
 	public void saveRating(RatingStudent ratingTest) {
 		ServiceLocator.getDaoProvider().addRecord(ratingTest);
@@ -103,6 +114,8 @@ public class RatingStudent extends Model {
 
 	/**
 	 * Returns the hash code.
+	 * 
+	 * @return int the hash code of student
 	 */
 	@Override
 	public int hashCode() {
@@ -114,6 +127,9 @@ public class RatingStudent extends Model {
 
 	/**
 	 * Equals check.
+	 * 
+	 * @param Object the student
+	 * @return boolean the result of compare
 	 */
 	@Override
 	public boolean equals(Object obj) {
