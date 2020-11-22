@@ -6,6 +6,13 @@ import com.testsystem.model.Model;
 import com.testsystem.model.user.User;
 import com.testsystem.util.ServiceLocator;
 
+/**
+ * Represents a rating of student.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
+ */
 public class RatingStudent extends Model {
 
 	private User student;
