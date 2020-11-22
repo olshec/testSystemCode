@@ -19,7 +19,9 @@ public class ModScanner {
 	private ModScanner() {}
 
 	/**
-	 * Gets scanner.
+	 * Returns the scanner.
+	 * 
+	 * @return Scanner
 	 */
 	public static Scanner getScanner() {
 		if (scanner == null) {

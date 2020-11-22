@@ -19,14 +19,18 @@ public class ServiceLocator {
 	private ServiceLocator() {}
 
 	/**
-	 * @return the daoProvider
+	 * Returns the DAOProvider
+	 * 
+	 * @return DAOProvider the DAOProvider
 	 */
 	public static DAOProvider getDaoProvider() {
 		return daoProvider;
 	}
 
 	/**
-	 * @param daoProvider the daoProvider to set
+	 * Sets the DAOProvider.
+	 * 
+	 * @param DAOProvider the DAOProvider
 	 */
 	public static void setDaoProvider(DAOProvider daoProvider) {
 		ServiceLocator.daoProvider = daoProvider;
