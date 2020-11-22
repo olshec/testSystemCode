@@ -144,10 +144,10 @@ public class Test extends Model {
 	}
 
 	/**
-	 * Equals objects of Test.
+	 * Сhecks equality of objects.
 	 * 
 	 * @param Object the student
-	 * @return boolean the result of compare
+	 * @return boolean the result of compare objects
 	 */
 	@Override
 	public boolean equals(Object obj) {

@@ -138,7 +138,7 @@ public class ResultQuestion extends Model {
 	/**
 	 * Prints result of question
 	 * 
-	 * @return String the result of question
+	 * @return String the string representation of ResultQuestion
 	 */
 	@Override
 	public String toString() {

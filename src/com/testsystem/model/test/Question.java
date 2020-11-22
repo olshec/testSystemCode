@@ -100,7 +100,7 @@ public class Question extends Model {
 	 * Equals check.
 	 * 
 	 * @param Object the question
-	 * @return boolean the result of compare
+	 * @return boolean the result of compare objects
 	 */
 	@Override
 	public boolean equals(Object obj) {

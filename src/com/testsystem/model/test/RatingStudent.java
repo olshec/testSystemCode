@@ -133,10 +133,10 @@ public class RatingStudent extends Model {
 	}
 
 	/**
-	 * Equals objects of RatingStudent.
+	 * Сhecks equality of objects.
 	 * 
 	 * @param Object the student
-	 * @return boolean the result of compare
+	 * @return boolean the result of compare objects
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -156,7 +156,7 @@ public class RatingStudent extends Model {
 	/**
 	 * Overrides toString() method.
 	 * 
-	 * @return String the name of model RatingStudent
+	 * @return String the string representation of RatingStudent
 	 */
 	@Override
 	public String getNameModel() {
