@@ -133,7 +133,7 @@ public class RatingStudent extends Model {
 	}
 
 	/**
-	 * Equals check.
+	 * Equals objects of RatingStudent.
 	 * 
 	 * @param Object the student
 	 * @return boolean the result of compare
@@ -153,11 +153,21 @@ public class RatingStudent extends Model {
 		return true;
 	}
 	
+	/**
+	 * Overrides toString() method.
+	 * 
+	 * @return String the name of model RatingStudent
+	 */
 	@Override
 	public String getNameModel() {
 		return "RatingStudent";
 	}
 
+	/**
+	 * Clones object of RatingStudent.
+	 * 
+	 * @param RatingStudent the rating of student
+	 */
 	public void clone(RatingStudent ratingStudent) {
 		setPoints(ratingStudent.getPoints());
 	}

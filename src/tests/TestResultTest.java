@@ -87,7 +87,7 @@ public class TestResultTest {
 		assertEquals(resultTest.getPercentCorrectQuestions(), 100);
 		assertEquals(resultTest.getNumberCorrectQuestions(), 12);
 		assertEquals(resultTest.getNumberNotCorrectQuestions(), 0);
-		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
+		assertEquals(resultTest.getNumberPartlyQuestions(), 0);
 	}
 	
 	//Question 4 is not correct
@@ -106,7 +106,7 @@ public class TestResultTest {
 		assertEquals(resultTest.getPercentCorrectQuestions(), 91);
 		assertEquals(resultTest.getNumberCorrectQuestions(), 11);
 		assertEquals(resultTest.getNumberNotCorrectQuestions(), 1);
-		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
+		assertEquals(resultTest.getNumberPartlyQuestions(), 0);
 	}
 	
 	//Question 4 is not correct. All answers in question 4 are checked.
@@ -128,7 +128,7 @@ public class TestResultTest {
 		assertEquals(resultTest.getPercentCorrectQuestions(), 91);
 		assertEquals(resultTest.getNumberCorrectQuestions(), 11);
 		assertEquals(resultTest.getNumberNotCorrectQuestions(), 1);
-		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
+		assertEquals(resultTest.getNumberPartlyQuestions(), 0);
 	}
 	
 	//Question 1 is partly
@@ -147,7 +147,7 @@ public class TestResultTest {
 		assertEquals(resultTest.getPercentCorrectQuestions(), 95);
 		assertEquals(resultTest.getNumberCorrectQuestions(), 11);
 		assertEquals(resultTest.getNumberNotCorrectQuestions(), 0);
-		assertEquals(resultTest.getNumberPartlyQuestion(), 1);
+		assertEquals(resultTest.getNumberPartlyQuestions(), 1);
 	}
 	
 	//Question 1 is partly correct and question 4 is not correct
@@ -171,7 +171,7 @@ public class TestResultTest {
 		assertEquals(resultTest.getPercentCorrectQuestions(), 87);
 		assertEquals(resultTest.getNumberCorrectQuestions(), 10);
 		assertEquals(resultTest.getNumberNotCorrectQuestions(), 1);
-		assertEquals(resultTest.getNumberPartlyQuestion(), 1);
+		assertEquals(resultTest.getNumberPartlyQuestions(), 1);
 	}
 	
 	//Question 5 is partly correct and question 4 is not correct. 
@@ -199,7 +199,7 @@ public class TestResultTest {
 		assertEquals(resultTest.getPercentCorrectQuestions(), 87);
 		assertEquals(resultTest.getNumberCorrectQuestions(), 10);
 		assertEquals(resultTest.getNumberNotCorrectQuestions(), 1);
-		assertEquals(resultTest.getNumberPartlyQuestion(), 1);
+		assertEquals(resultTest.getNumberPartlyQuestions(), 1);
 	}
 	
 	//Question 10 skipped.
@@ -217,8 +217,8 @@ public class TestResultTest {
 		assertEquals(resultTest.getPercentCorrectQuestions(), 91);
 		assertEquals(resultTest.getNumberCorrectQuestions(), 11);
 		assertEquals(resultTest.getNumberNotCorrectQuestions(), 0);
-		assertEquals(resultTest.getNumberSkippedQuestion(), 1);
-		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
+		assertEquals(resultTest.getNumberSkippedQuestions(), 1);
+		assertEquals(resultTest.getNumberPartlyQuestions(), 0);
 	}
 	
 	//Question 1 skipped and question 4 is not correct.
@@ -242,8 +242,8 @@ public class TestResultTest {
 		assertEquals(resultTest.getPercentCorrectQuestions(), 83);
 		assertEquals(resultTest.getNumberCorrectQuestions(), 10);
 		assertEquals(resultTest.getNumberNotCorrectQuestions(), 1);
-		assertEquals(resultTest.getNumberSkippedQuestion(), 1);
-		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
+		assertEquals(resultTest.getNumberSkippedQuestions(), 1);
+		assertEquals(resultTest.getNumberPartlyQuestions(), 0);
 	}
 	
 	//question 1 is parly, questions 2 and 4 are skipped.
@@ -271,8 +271,8 @@ public class TestResultTest {
 		assertEquals(resultTest.getPercentCorrectQuestions(), 79);
 		assertEquals(resultTest.getNumberCorrectQuestions(), 9);
 		assertEquals(resultTest.getNumberNotCorrectQuestions(), 0);
-		assertEquals(resultTest.getNumberSkippedQuestion(), 2);
-		assertEquals(resultTest.getNumberPartlyQuestion(), 1);
+		assertEquals(resultTest.getNumberSkippedQuestions(), 2);
+		assertEquals(resultTest.getNumberPartlyQuestions(), 1);
 	}
 	
 	//Question 1 skipped, question 4, 5, 6, 7 are not correct.
@@ -316,8 +316,8 @@ public class TestResultTest {
 		assertEquals(resultTest.getPercentCorrectQuestions(), 58);
 		assertEquals(resultTest.getNumberCorrectQuestions(), 7);
 		assertEquals(resultTest.getNumberNotCorrectQuestions(), 4);
-		assertEquals(resultTest.getNumberSkippedQuestion(), 1);
-		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
+		assertEquals(resultTest.getNumberSkippedQuestions(), 1);
+		assertEquals(resultTest.getNumberPartlyQuestions(), 0);
 	}
 	
 	//Question 1 skipped, question 4, 5, 6, 7 are not correct. Question 9 is partly.
@@ -368,8 +368,8 @@ public class TestResultTest {
 		assertEquals(resultTest.getPercentCorrectQuestions(), 54);
 		assertEquals(resultTest.getNumberCorrectQuestions(), 6);
 		assertEquals(resultTest.getNumberNotCorrectQuestions(), 4);
-		assertEquals(resultTest.getNumberSkippedQuestion(), 1);
-		assertEquals(resultTest.getNumberPartlyQuestion(), 1);
+		assertEquals(resultTest.getNumberSkippedQuestions(), 1);
+		assertEquals(resultTest.getNumberPartlyQuestions(), 1);
 	}
 	
 	//Question 1, 5 and 9 are partly.
@@ -399,8 +399,8 @@ public class TestResultTest {
 		assertEquals(resultTest.getPercentCorrectQuestions(), 87);
 		assertEquals(resultTest.getNumberCorrectQuestions(), 9);
 		assertEquals(resultTest.getNumberNotCorrectQuestions(), 0);
-		assertEquals(resultTest.getNumberSkippedQuestion(), 0);
-		assertEquals(resultTest.getNumberPartlyQuestion(), 3);
+		assertEquals(resultTest.getNumberSkippedQuestions(), 0);
+		assertEquals(resultTest.getNumberPartlyQuestions(), 3);
 	}
 	
 	//All Question are not correct.
@@ -485,8 +485,8 @@ public class TestResultTest {
 		assertEquals(resultTest.getPercentCorrectQuestions(), 0);
 		assertEquals(resultTest.getNumberCorrectQuestions(), 0);
 		assertEquals(resultTest.getNumberNotCorrectQuestions(), 12);
-		assertEquals(resultTest.getNumberSkippedQuestion(), 0);
-		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
+		assertEquals(resultTest.getNumberSkippedQuestions(), 0);
+		assertEquals(resultTest.getNumberPartlyQuestions(), 0);
 	}
 	
 	//All Answers are checked.
@@ -506,8 +506,8 @@ public class TestResultTest {
 		assertEquals(resultTest.getPercentCorrectQuestions(), 0);
 		assertEquals(resultTest.getNumberCorrectQuestions(), 0);
 		assertEquals(resultTest.getNumberNotCorrectQuestions(), 12);
-		assertEquals(resultTest.getNumberSkippedQuestion(), 0);
-		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
+		assertEquals(resultTest.getNumberSkippedQuestions(), 0);
+		assertEquals(resultTest.getNumberPartlyQuestions(), 0);
 	}
 	
 	//All Question are skipped.
@@ -520,8 +520,8 @@ public class TestResultTest {
 		assertEquals(resultTest.getPercentCorrectQuestions(), 0);
 		assertEquals(resultTest.getNumberCorrectQuestions(), 0);
 		assertEquals(resultTest.getNumberNotCorrectQuestions(), 0);
-		assertEquals(resultTest.getNumberSkippedQuestion(), 12);
-		assertEquals(resultTest.getNumberPartlyQuestion(), 0);
+		assertEquals(resultTest.getNumberSkippedQuestions(), 12);
+		assertEquals(resultTest.getNumberPartlyQuestions(), 0);
 	}
 	
 	//clear all  answers

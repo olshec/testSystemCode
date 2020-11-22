@@ -127,7 +127,9 @@ public class Answer extends Model {
 	}
 
 	/**
-	 * Overrides toString method.
+	 * Overrides toString() method.
+	 * 
+	 * @return String the string representation of answer
 	 */
 	@Override
 	public String toString() {

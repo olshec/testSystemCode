@@ -22,17 +22,17 @@ public class Test extends Model {
 	private Integer id;
 	
 	/**
-	 * Creates a TestModel.
+	 * Creates a Test.
 	 */
 	public Test() {
 		this.init();
 	}
 	
 	/**
-	 * Creates a test.
+	 * Creates a Test.
 	 * 
 	 * @param  name 	the name of test
-	 * @param teacher 	the teacher
+	 * @param  User 	the teacher
 	 */
 	public Test(String name, User teacher) {
 		this.init();
@@ -40,6 +40,9 @@ public class Test extends Model {
 		setTeacher(teacher);
 	}
 	
+	/*
+	 * initialisation method.
+	 */
 	private void init() {
 		this.id = this.getIdIncrement();
 		setQuestions(new ArrayList<Question>());
@@ -47,52 +50,54 @@ public class Test extends Model {
 	}
 	
 	/**
-	 * @return the id
+	 * Returns the id.
+	 * 
+	 * @return int the id
 	 */
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
 	/**
-	 * Gets name.
+	 * Returns the name.
 	 * 
-	 * @return the name
+	 * @return String the name
 	 */
 	public String getName() {
 		return name;
 	}
 	
 	/**
-	 * Sets name.
+	 * Sets the name.
 	 * 
-	 * @param name the name to set
+	 * @param String the name
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 	
 	/**
-	 * Gets teacher.
+	 * Returns the teacher.
 	 * 
-	 * @return the teacher
+	 * @return User the teacher
 	 */
 	public User getTeacher() {
 		return teacher;
 	}
 	
 	/**
-	 * Sets teacher.
+	 * Sets the teacher.
 	 * 
-	 * @param teacher the teacher
+	 * @param User the teacher
 	 */
 	public void setTeacher(User teacher) {
 		this.teacher = teacher;
 	}
 	
 	/**
-	 * Gets list of questions.
+	 * Returns the list of questions.
 	 * 
-	 * @return the questions
+	 * @return List<Question> the questions
 	 */
 	public List<Question> getQuestions() {
 		return questions;
@@ -101,48 +106,34 @@ public class Test extends Model {
 	/**
 	 * Sets questions.
 	 * 
-	 * @param questions the list of questions
+	 * @param List<Question> the list of questions
 	 */
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
 
-	
-	
-//	/**
-//	 * Gets students and their results.
-//	 * 
-//	 * @return the result of students
-//	 */
-//	public List<StudentTestResult> getStudentTestResult() {
-//		return studentsResult;
-//	}
-//
-//	/**
-//	 * Sets students and their results.
-//	 * 
-//	 * @param studentResult the result of students to set
-//	 */
-//	public void setStudentResult(List<StudentTestResult> studentResult) {
-//		this.studentsResult = studentResult;
-//	}
-
 	/**
-	 * @return the users
+	 * Returns the list of students.
+	 *  
+	 * @return List<User> the list of students
 	 */
 	public List<User> getStudents() {
 		return students;
 	}
 
 	/**
-	 * @param users the users to set
+	 * Sets list of students.
+	 * 
+	 * @param List<User> the students
 	 */
-	public void setStudents(List<User> users) {
-		this.students = users;
+	public void setStudents(List<User> students) {
+		this.students = students;
 	}
 	
 	/**
 	 * Returns the hash code.
+	 * 
+	 * @return int the hash code of test
 	 */
 	@Override
 	public int hashCode() {
@@ -153,7 +144,10 @@ public class Test extends Model {
 	}
 
 	/**
-	 * Equals check.
+	 * Equals objects of Test.
+	 * 
+	 * @param Object the student
+	 * @return boolean the result of compare
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -170,7 +164,7 @@ public class Test extends Model {
 	}
 
 	/**
-	 * Clears checked answers
+	 * Clears checked answers.
 	 */
 	public void clearChecked() {
 		for(Question q : questions) {
@@ -179,9 +173,9 @@ public class Test extends Model {
 	}
 	
 	/**
-	 * Gets name of model.
+	 * Returns the name of test.
 	 * 
-	 * @return String return name of model
+	 * @return String return the name of model Test
 	 */
 	@Override
 	public String getNameModel() {
