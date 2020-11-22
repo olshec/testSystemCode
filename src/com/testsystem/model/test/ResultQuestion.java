@@ -3,8 +3,11 @@ package com.testsystem.model.test;
 import com.testsystem.model.Model;
 
 /**
- * @author user1
- *
+ * Represents a result of question.
+ * 
+ * @author Oleg Shestakov
+ * @author olshec@gmail.com
+ * @version 1.0
  */
 public class ResultQuestion extends Model {
 	
@@ -12,113 +15,138 @@ public class ResultQuestion extends Model {
 	
 	private int percentCorrectAnswers;
 	private int numberCorrectAnswers;
-	private int numberNotCorrectAnswer;
+	private int numberNotCorrectAnswers;
 	private Question question;
-	private StateQuestion state;
+	private StateQuestion stateQuestion;
+	
 	/**
-	 * 
+	 * Creates a ResultQuestion.
 	 */
 	public ResultQuestion() {
 		super();
 	}
 
 	/**
-	 * @param percentCorrectAnswers
-	 * @param numberCorrectAnswers
-	 * @param numberNotCorrectAnswer
-	 * @param question
-	 * @param state
+	 * Creates a ResultQuestion.
+	 * 
+	 * @param int percent of correct answers
+	 * @param int number of correct answers
+	 * @param int number of not correct answer
+	 * @param Question the question
+	 * @param StateQuestion the state of question
 	 */
 	public ResultQuestion(int percentCorrectAnswers, int numberCorrectAnswers, int numberNotCorrectAnswer,
-			Question question, StateQuestion state) {
+			Question question, StateQuestion stateQuestion) {
 		super();
 		this.percentCorrectAnswers = percentCorrectAnswers;
 		this.numberCorrectAnswers = numberCorrectAnswers;
-		this.numberNotCorrectAnswer = numberNotCorrectAnswer;
+		this.numberNotCorrectAnswers = numberNotCorrectAnswer;
 		this.question = question;
-		this.state = state;
+		this.stateQuestion = stateQuestion;
 	}
 
 	/**
-	 * @return the question
+	 * Returns the question.
+	 * 
+	 * @return Question the question
 	 */
 	public Question getQuestion() {
 		return question;
 	}
 	
 	/**
-	 * @param question the question to set
+	 * Sets the question.
+	 * 
+	 * @param Question the question
 	 */
 	public void setQuestion(Question question) {
 		this.question = question;
 	}
 	
 	/**
-	 * @return the numberCorrectAnswers
+	 * Returns the number of correct answers.
+	 * 
+	 * @return int the number of correct answers
 	 */
 	public int getNumberCorrectAnswers() {
 		return numberCorrectAnswers;
 	}
 
 	/**
-	 * @param numberCorrectAnswers the numberCorrectAnswers to set
+	 * Sets the number of correct answers.
+	 * 
+	 * @param int the number of correct answers
 	 */
 	public void setNumberCorrectAnswers(int numberCorrectAnswers) {
 		this.numberCorrectAnswers = numberCorrectAnswers;
 	}
 
 	/**
-	 * @return the numberNotCorrectAnswer
+	 * Returns the number of not correct answers.
+	 * 
+	 * @return int the number of not correct answers
 	 */
 	public int getNumberNotCorrectAnswers() {
-		return numberNotCorrectAnswer;
+		return this.numberNotCorrectAnswers;
 	}
 
 	/**
-	 * @param numberNotCorrectAnswer the numberNotCorrectAnswer to set
+	 * Sets the number of not correct answers.
+	 * 
+	 * @param int the number of not correct answers
 	 */
-	public void setNumberNotCorrectAnswer(int numberNotCorrectAnswer) {
-		this.numberNotCorrectAnswer = numberNotCorrectAnswer;
+	public void setNumberNotCorrectAnswers(int numberNotCorrectAnswers) {
+		this.numberNotCorrectAnswers = numberNotCorrectAnswers;
 	}
 
 	/**
-	 * @return the percentCorrectAnswers
+	 * Returns the percent of correct answers.
+	 * 
+	 * @return int the percent of correct answers
 	 */
 	public int getPercentCorrectAnswers() {
 		return percentCorrectAnswers;
 	}
 
 	/**
-	 * @param percentCorrectAnswers the percentCorrectAnswers to set
+	 * Sets the percent of correct answers.
+	 * 
+	 * @param int the percent of correct answers
 	 */
 	public void setPercentCorrectAnswers(int percentCorrectAnswers) {
 		this.percentCorrectAnswers = percentCorrectAnswers;
 	}
 	
 	/**
-	 * @return the state
+	 * Returns the state of question.
+	 * 
+	 * @return StateQuestion the state of question
 	 */
 	public StateQuestion getState() {
-		return state;
+		return stateQuestion;
 	}
 
 	/**
-	 * @param state the state to set
+	 * Sets the state of question.
+	 * 
+	 * @param StateQuestion the state of question
 	 */
 	public void setState(StateQuestion state) {
-		this.state = state;
+		this.stateQuestion = state;
 	}
 
 	/**
 	 * Prints result of question
+	 * 
+	 * @return String the result of question
 	 */
 	@Override
 	public String toString() {
-		return state.toString();
+		return stateQuestion.toString();
 	}
 
 	/**
-	 * Gets name of model.
+	 * Returns the name of model.
 	 * 
 	 * @return String return name of model
 	 */
