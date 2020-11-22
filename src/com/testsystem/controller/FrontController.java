@@ -9,6 +9,7 @@ import com.testsystem.controller.user.GroupController;
 import com.testsystem.controller.user.StudentController;
 import com.testsystem.controller.user.TeacherController;
 import com.testsystem.controller.user.UserController;
+import com.testsystem.exception.FindTestException;
 import com.testsystem.model.test.RatingStudent;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
@@ -33,8 +34,9 @@ public class FrontController {
 
 	/**
 	 * Creates a ServerController.
+	 * @throws FindTestException 
 	 */
-	public FrontController() {
+	public FrontController() throws FindTestException {
 		daoProvider = new DAOProvider();
 		ServiceLocator.setDaoProvider(daoProvider);
 		

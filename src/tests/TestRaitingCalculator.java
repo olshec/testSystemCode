@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.testsystem.exception.FindTestException;
 import com.testsystem.model.test.RatingStudent;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.user.User;
@@ -15,11 +16,11 @@ public class TestRaitingCalculator {
 
 	TestFrontController frontController;
 	
-	public TestRaitingCalculator() {
+	public TestRaitingCalculator() throws FindTestException {
 		loadData();
 	}
 
-	public void loadData() {
+	public void loadData() throws FindTestException {
 		frontController = new TestFrontController();
 	}
 	

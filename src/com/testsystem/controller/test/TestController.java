@@ -3,6 +3,7 @@ package com.testsystem.controller.test;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.exception.FindTestException;
 import com.testsystem.model.Model;
 import com.testsystem.model.test.Question;
 import com.testsystem.model.test.RatingStudent;
@@ -76,13 +77,14 @@ public class TestController {
 	 * 
 	 * @param  the test id.
 	 * @return the Test.
+	 * @throws FindTestException 
 	 */
-	public Test getTest(int idTest) {
+	public Test getTest(int idTest) throws FindTestException {
 		List<Test> listTest = ServiceLocator.getDaoProvider().getTestsRecords(new Test().getNameModel());
 		if (idTest < listTest.size() && idTest >= 0) {
 			return listTest.get(idTest);
 		}
-		return null;
+		throw new FindTestException("Test is not found");
 	}
 
 	/**

@@ -4,6 +4,7 @@
 package com.testsystem.view;
 
 import com.testsystem.controller.FrontController;
+import com.testsystem.exception.FindTestException;
 import com.testsystem.model.user.Administrator;
 import com.testsystem.model.user.Student;
 import com.testsystem.model.user.Teacher;
@@ -41,7 +42,12 @@ public class ClientView extends UserView {
 		System.out.print("Введите пароль: ");
 		password = ModScanner.getScanner().nextLine();
 
-		FrontController frontController = new FrontController();
+		FrontController frontController = null;
+		try {
+			frontController = new FrontController();
+		} catch (FindTestException e) {
+			e.printStackTrace();
+		}
 		User user = frontController.login(login, password);
 
 		if (user == null) {
