@@ -3,6 +3,7 @@ package com.testsystem.controller.test;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.exception.FindTestException;
 import com.testsystem.model.test.Answer;
 import com.testsystem.model.test.Question;
 import com.testsystem.model.test.ResultQuestion;
@@ -24,8 +25,9 @@ public class ResultQuestionController {
 	 * 
 	 * @param test
 	 * @return List<ResultQuestion>
+	 * @throws FindTestException 
 	 */
-	public List<ResultQuestion> checkQuestions(Test test) {
+	public List<ResultQuestion> checkQuestions(Test test) throws FindTestException {
 		List<ResultQuestion> resultQuestions = new ArrayList<>();
 		List<Question> userQuestions = test.getQuestions();
 		Test sourceTest = ServiceLocator.getDaoProvider()

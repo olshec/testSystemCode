@@ -4,6 +4,7 @@ import java.text.NumberFormat;
 import java.util.List;
 
 import com.testsystem.controller.FrontController;
+import com.testsystem.exception.FindTestException;
 import com.testsystem.model.test.RatingStudent;
 import com.testsystem.model.test.ResultQuestion;
 import com.testsystem.model.test.ResultTest;
@@ -140,7 +141,12 @@ public final class StudentView extends UserView {
 		} else {
 			TestView testView = new TestView();
 			Test testSender = testView.runTest(this.getUser(), test);
-			ResultTest resultTest = getFrontController().checkTest(this.getUser(), testSender);
+			ResultTest resultTest = null;
+			try {
+				resultTest = getFrontController().checkTest(this.getUser(), testSender);
+			} catch (FindTestException e) {
+				System.out.println(e.getMessage());
+			}
 			printTestResult(resultTest);
 		}
 	}

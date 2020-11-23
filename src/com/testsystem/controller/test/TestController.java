@@ -224,8 +224,9 @@ public class TestController {
 	 *
 	 * @param User the student
 	 * @param Test the test
+	 * @throws FindTestException 
 	 */
-	public ResultTest checkTest(User student, Test test) {
+	public ResultTest checkTest(User student, Test test) throws FindTestException {
 		ResultTest resultTest = new ResultTestController().
 				checkTest(student, test);
 		saveResultInDatabase(resultTest);

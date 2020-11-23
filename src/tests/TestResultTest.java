@@ -83,7 +83,7 @@ public class TestResultTest {
 	
 	//All questions corrects.
 	@Test
-	public void testResultTest1() {
+	public void testResultTest1() throws FindTestException {
 		loadTestData();
 		ResultTest resultTest = new TestController().checkTest(student1, test);
 		assertEquals(resultTest.getPercentCorrectQuestions(), 100);
@@ -94,7 +94,7 @@ public class TestResultTest {
 	
 	//Question 4 is not correct
 	@Test
-	public void testResultTest2() {
+	public void testResultTest2() throws FindTestException {
 		loadTestData();
 		
 		List<Question> listQuestion = test.getQuestions();
@@ -113,7 +113,7 @@ public class TestResultTest {
 	
 	//Question 4 is not correct. All answers in question 4 are checked.
 	@Test
-	public void testResultTest3() {
+	public void testResultTest3() throws FindTestException {
 		loadTestData();
 
 		List<Question> listQuestion = test.getQuestions();
@@ -135,7 +135,7 @@ public class TestResultTest {
 	
 	//Question 1 is partly
 	@Test
-	public void testResultTest4() {
+	public void testResultTest4() throws FindTestException {
 		loadTestData();
 
 		List<Question> listQuestion = test.getQuestions();
@@ -154,7 +154,7 @@ public class TestResultTest {
 	
 	//Question 1 is partly correct and question 4 is not correct
 	@Test
-	public void testResultTest5() {
+	public void testResultTest5() throws FindTestException {
 		loadTestData();
 
 		List<Question> listQuestion = test.getQuestions();
@@ -179,7 +179,7 @@ public class TestResultTest {
 	//Question 5 is partly correct and question 4 is not correct. 
 	//All answers in question 4 are checked.
 	@Test
-	public void testResultTest6() {
+	public void testResultTest6() throws FindTestException {
 		loadTestData();
 
 		List<Question> listQuestion = test.getQuestions();
@@ -206,7 +206,7 @@ public class TestResultTest {
 	
 	//Question 10 skipped.
 	@Test
-	public void testResultTestSkipped1() {
+	public void testResultTestSkipped1() throws FindTestException {
 		loadTestData();
 
 		List<Question> listQuestion = test.getQuestions();
@@ -225,7 +225,7 @@ public class TestResultTest {
 	
 	//Question 1 skipped and question 4 is not correct.
 	@Test
-	public void testResultTestSkipped2() {
+	public void testResultTestSkipped2() throws FindTestException {
 		loadTestData();
 
 		List<Question> listQuestion = test.getQuestions();
@@ -250,7 +250,7 @@ public class TestResultTest {
 	
 	//question 1 is parly, questions 2 and 4 are skipped.
 	@Test
-	public void testResultTestSkipped3() {
+	public void testResultTestSkipped3() throws FindTestException {
 		loadTestData();
 
 		List<Question> listQuestion = test.getQuestions();
@@ -279,7 +279,7 @@ public class TestResultTest {
 	
 	//Question 1 skipped, question 4, 5, 6, 7 are not correct.
 	@Test
-	public void testResultTestSkipped4() {
+	public void testResultTestSkipped4() throws FindTestException {
 		loadTestData();
 
 		List<Question> listQuestion = test.getQuestions();
@@ -324,7 +324,7 @@ public class TestResultTest {
 	
 	//Question 1 skipped, question 4, 5, 6, 7 are not correct. Question 9 is partly.
 	@Test
-	public void testResultTestSkipped5() {
+	public void testResultTestSkipped5() throws FindTestException {
 		loadTestData();
 
 		//get question 1
@@ -376,7 +376,7 @@ public class TestResultTest {
 	
 	//Question 1, 5 and 9 are partly.
 	@Test
-	public void testResultTestPartly() {
+	public void testResultTestPartly() throws FindTestException {
 		loadTestData();
 
 		//get question 1
@@ -407,7 +407,7 @@ public class TestResultTest {
 	
 	//All Question are not correct.
 	@Test
-	public void testResultTestAllNotCorrect() {
+	public void testResultTestAllNotCorrect() throws FindTestException {
 		loadTestData();
 		clearAnswers(test);
 		
@@ -493,7 +493,7 @@ public class TestResultTest {
 	
 	//All Answers are checked.
 	@Test
-	public void testResultTestAllAnswerChecked() {
+	public void testResultTestAllAnswerChecked() throws FindTestException {
 		
 		//set all answers to checked
 		List<Question> listQuestion = test.getQuestions();
@@ -514,7 +514,7 @@ public class TestResultTest {
 	
 	//All Question are skipped.
 	@Test
-	public void testResultTestAllSkipped() {
+	public void testResultTestAllSkipped() throws FindTestException {
 		loadTestData();
 		clearAnswers(test);
 		

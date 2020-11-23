@@ -3,6 +3,7 @@ package com.testsystem.controller.test;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.exception.FindTestException;
 import com.testsystem.model.test.ResultQuestion;
 import com.testsystem.model.test.ResultQuestion.StateQuestion;
 import com.testsystem.model.test.ResultTest;
@@ -69,8 +70,9 @@ public class ResultTestController {
 	 * 
 	 * @param student
 	 * @param test
+	 * @throws FindTestException 
 	 */
-	public ResultTest checkTest(User student, Test test) {
+	public ResultTest checkTest(User student, Test test) throws FindTestException {
 		List<ResultQuestion> resultQuestion = new ResultQuestionController().checkQuestions(test);
 		final double maxPercentTrueQuestion = 100;
 		int countQuestion = resultQuestion.size();

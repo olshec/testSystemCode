@@ -3,6 +3,8 @@ package com.testsystem.DAO;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.testsystem.exception.FindTestException;
+import com.testsystem.exception.FindUserException;
 import com.testsystem.model.Model;
 import com.testsystem.model.test.RatingStudent;
 import com.testsystem.model.test.ResultTest;
@@ -179,8 +181,9 @@ public class DAOProvider {
 	 * 
 	 * @param Test the test.
 	 * @return Test the test
+	 * @throws FindTestException 
 	 */
-	public Test getTest(Test test) {
+	public Test getTest(Test test) throws FindTestException {
 		Test testReturns = null;
 		List<Model> models = database.getTable(new Test().getNameModel()).getRecords();
 		for(Model st : models) {
@@ -188,6 +191,9 @@ public class DAOProvider {
 			if(t.equals(test)) {
 				testReturns = t;
 			}
+		}
+		if(testReturns == null) {
+			throw new FindTestException("The test "+test.getName()+" not found");
 		}
 		return testReturns;
 	}

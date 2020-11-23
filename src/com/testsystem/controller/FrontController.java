@@ -120,8 +120,9 @@ public class FrontController {
 	 * This method checks student test.
 	 *
 	 *@param test the test
+	 * @throws FindTestException 
 	 */
-	public ResultTest checkTest(User student, Test test) {
+	public ResultTest checkTest(User student, Test test) throws FindTestException {
 		ResultTest result = new TestController().checkTest(student, test);
 		return result;
 	}
