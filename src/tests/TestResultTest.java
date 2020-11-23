@@ -8,6 +8,7 @@ import com.testsystem.controller.test.TestController;
 import com.testsystem.controller.user.GroupController;
 import com.testsystem.controller.user.StudentController;
 import com.testsystem.exception.FindTestException;
+import com.testsystem.exception.FindUserException;
 import com.testsystem.model.test.Answer;
 import com.testsystem.model.test.Question;
 import com.testsystem.model.test.ResultTest;
@@ -24,11 +25,11 @@ public class TestResultTest {
 	User student1;
 	com.testsystem.model.test.Test test;
 	
-	public TestResultTest() throws FindTestException {
+	public TestResultTest() throws FindTestException, FindUserException {
 		loadData();
 	}
 
-	public void loadData() throws FindTestException {
+	public void loadData() throws FindTestException, FindUserException {
 		frontController = new TestFrontController();
 		g1 = new GroupController().getNewGroup("Group 1");
 		student1 = new StudentController().getNewStudent("Шахматов", "Антон", "ShAnton", "1111", g1);

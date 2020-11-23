@@ -9,6 +9,7 @@ import com.testsystem.controller.test.TestController;
 import com.testsystem.controller.user.AdministratorController;
 import com.testsystem.controller.user.TeacherController;
 import com.testsystem.exception.FindTestException;
+import com.testsystem.exception.FindUserException;
 import com.testsystem.model.Model;
 import com.testsystem.model.user.Administrator;
 import com.testsystem.model.user.Group;
@@ -25,11 +26,11 @@ public class TestFrontController {
 	User teacher1;
 	User admin1;
 
-	public TestFrontController() throws FindTestException {
+	public TestFrontController() throws FindTestException, FindUserException {
 		loadData();
 	}
 
-	public void loadData() throws FindTestException {
+	public void loadData() throws FindTestException, FindUserException {
 		frontController = new FrontController();
 		student1 = frontController.login("ShAnton", "1111");
 		teacher1 = frontController.login("KirovAnton", "12345678");

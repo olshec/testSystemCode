@@ -6,6 +6,7 @@ import java.util.List;
 import org.junit.Test;
 
 import com.testsystem.exception.FindTestException;
+import com.testsystem.exception.FindUserException;
 import com.testsystem.model.test.RatingStudent;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.user.User;
@@ -16,16 +17,16 @@ public class TestRaitingCalculator {
 
 	TestFrontController frontController;
 	
-	public TestRaitingCalculator() throws FindTestException {
+	public TestRaitingCalculator() throws FindTestException, FindUserException {
 		loadData();
 	}
 
-	public void loadData() throws FindTestException {
+	public void loadData() throws FindTestException, FindUserException {
 		frontController = new TestFrontController();
 	}
 	
 	@Test
-	public void testGetRatingUser() {
+	public void testGetRatingUser() throws FindUserException {
 		User student1 = frontController.login("ShAnton", "1111");
 		RatingStudent ratingStudent = frontController.getRatingUser(student1);
 		double rating1 = ratingStudent.getPoints();

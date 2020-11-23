@@ -5,7 +5,7 @@ import java.util.List;
 import org.junit.Test;
 
 import com.testsystem.exception.FindTestException;
-import com.testsystem.model.test.ResultTest;
+import com.testsystem.exception.FindUserException;
 import com.testsystem.model.user.User;
 import tests.stubs.TestFrontController;
 
@@ -15,11 +15,11 @@ public class TestTeacherView {
 	private User teacher1;
 	private List<com.testsystem.model.test.Test> listTest;
 
-	public TestTeacherView() throws FindTestException {
+	public TestTeacherView() throws FindTestException, FindUserException {
 		loadData();
 	}
 
-	public void loadData() throws FindTestException {
+	public void loadData() throws FindTestException, FindUserException {
 		frontController = new TestFrontController();
 		this.teacher1 = frontController.login("KirovAnton", "12345678");
 		listTest = frontController.getTestsForTeacher(teacher1);

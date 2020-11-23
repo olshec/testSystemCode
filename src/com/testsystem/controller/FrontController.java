@@ -10,6 +10,7 @@ import com.testsystem.controller.user.StudentController;
 import com.testsystem.controller.user.TeacherController;
 import com.testsystem.controller.user.UserController;
 import com.testsystem.exception.FindTestException;
+import com.testsystem.exception.FindUserException;
 import com.testsystem.model.test.RatingStudent;
 import com.testsystem.model.test.ResultTest;
 import com.testsystem.model.test.Test;
@@ -35,8 +36,9 @@ public class FrontController {
 	/**
 	 * Creates a ServerController.
 	 * @throws FindTestException 
+	 * @throws FindUserException 
 	 */
-	public FrontController() throws FindTestException {
+	public FrontController() throws FindTestException, FindUserException {
 		daoProvider = new DAOProvider();
 		ServiceLocator.setDaoProvider(daoProvider);
 		
@@ -76,8 +78,9 @@ public class FrontController {
 	 * @param username 	the user's username
 	 * @param password 	the user's password
 	 * @return User 	the authenticated user
+	 * @throws FindUserException 
 	 */
-	public User login(String username, String password) {
+	public User login(String username, String password) throws FindUserException {
 		return new UserController().getUser(username, password);
 	}
 

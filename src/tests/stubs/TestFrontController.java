@@ -17,10 +17,11 @@ import com.testsystem.controller.FrontController;
 //import com.testsystem.model.Test;
 //import com.testsystem.model.User;
 import com.testsystem.exception.FindTestException;
+import com.testsystem.exception.FindUserException;
 
 public class TestFrontController extends FrontController {
 
-	public TestFrontController() throws FindTestException {
+	public TestFrontController() throws FindTestException, FindUserException {
 		super();
 		//getDaoProvider().clear();
 		//loadTest();

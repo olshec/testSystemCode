@@ -2,6 +2,7 @@ package com.testsystem.controller.user;
 
 import java.util.List;
 
+import com.testsystem.exception.FindUserException;
 import com.testsystem.model.user.Administrator;
 import com.testsystem.model.user.Student;
 import com.testsystem.model.user.Teacher;
@@ -53,8 +54,9 @@ public class UserController {
 	 * @param username 		the name of user
 	 * @param password 		the password of user
 	 * @return User 		the user
+	 * @throws FindUserException 
 	 */
-	public User getUser(String username, String password) {
+	public User getUser(String username, String password) throws FindUserException {
 		User u = getListUserByType(new Administrator().getNameModel(), username, password);
 		if(u != null) {
 			return u;
@@ -67,7 +69,7 @@ public class UserController {
 		if(u != null) {
 			return u;
 		} 
-		return null;
+		throw new FindUserException("Wrong login or password");
 	}
 	
 	/*

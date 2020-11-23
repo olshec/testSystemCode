@@ -5,6 +5,7 @@ package com.testsystem.view;
 
 import com.testsystem.controller.FrontController;
 import com.testsystem.exception.FindTestException;
+import com.testsystem.exception.FindUserException;
 import com.testsystem.model.user.Administrator;
 import com.testsystem.model.user.Student;
 import com.testsystem.model.user.Teacher;
@@ -45,14 +46,16 @@ public class ClientView extends UserView {
 		FrontController frontController = null;
 		try {
 			frontController = new FrontController();
-		} catch (FindTestException e) {
-			e.printStackTrace();
+		} catch (FindTestException | FindUserException e) {
+			System.out.print(e.getMessage());
+			return;
 		}
-		User user = frontController.login(login, password);
-
-		if (user == null) {
-			System.out.print("Неправильный логин или пароль.");
-			System.out.println("До свидания!");
+		
+		User user = null;
+		try {
+			user = frontController.login(login, password);
+		} catch (FindUserException e) {
+			System.out.print(e.getMessage());
 			return;
 		}
 

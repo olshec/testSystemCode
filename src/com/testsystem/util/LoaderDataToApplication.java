@@ -11,6 +11,7 @@ import com.testsystem.controller.user.StudentController;
 import com.testsystem.controller.user.TeacherController;
 import com.testsystem.controller.user.UserController;
 import com.testsystem.exception.FindTestException;
+import com.testsystem.exception.FindUserException;
 import com.testsystem.model.test.Answer;
 import com.testsystem.model.test.Question;
 import com.testsystem.model.test.ResultTest;
@@ -21,7 +22,7 @@ import com.testsystem.model.user.User;
 public class LoaderDataToApplication {
 	
 	//Loads data to FrontController
-	public void loadData(FrontController frontController) throws FindTestException {
+	public void loadData(FrontController frontController) throws FindTestException, FindUserException {
 		UserController userController = new UserController();
 		User admin1 = new AdministratorController().getNewAdministrator("Примарев", 
 				"Игорь", "Admin1", "0000");
@@ -109,7 +110,7 @@ public class LoaderDataToApplication {
 		loadTestData(frontController);
 	}
 	
-	private void loadTestData(FrontController frontController) throws FindTestException {
+	private void loadTestData(FrontController frontController) throws FindTestException, FindUserException {
 		Test test = new TestController().getTest(0);
 		List<Question> listQuestion = test.getQuestions();
 		//get question 1
